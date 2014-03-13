@@ -4,16 +4,19 @@
     i18n:domain="lx.LES" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
     <property name="title" i18n:translate="">Paciente</property>
     <property name="description" i18n:translate=""></property>
-    <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
+    <property name="icon_expr">string:${portal_url}/++resource++lx.LES.images/paciente.png</property>
     <property name="content_meta_type">Paciente</property>
     <property name="product">lx.LES</property>
     <property name="factory">addPaciente</property>
     <property name="add_view_expr"></property>
     <property name="link_target"></property>
     <property name="immediate_view">base_view</property>
-    <property name="global_allow">False</property>
+    <property name="global_allow">True</property>
     <property name="filter_content_types">True</property>
-    <property name="allowed_content_types"/>
+    <property name="allowed_content_types">
+        <element value="ExameSangue"/>
+        <element value="ExameUrina"/>
+    </property>
     <property name="allow_discussion">False</property>
     <property name="default_view">folder_listing</property>
     <property name="view_methods">

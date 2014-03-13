@@ -8,7 +8,9 @@
      successfully saved.
   -->
 <object name="portal_factory" meta_type="Plone Factory Tool">
-  <factorytypes>
-    <type portal_type="Paciente"/>
-  </factorytypes>
+    <factorytypes>
+        <type portal_type="Paciente"/>
+        <type portal_type="ExameSangue"/>
+        <type portal_type="ExameUrina"/>
+    </factorytypes>
 </object>
