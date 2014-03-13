@@ -19,6 +19,15 @@ from lx.LES import config
 # Schema definition
 schema = ATFolder.schema.copy() + atapi.Schema((
     atapi.StringField(
+        name="identificador_paciente",
+        required=True,
+        searchable=True,
+        widget=atapi.StringWidget(
+            label="Identificador:",
+            label_msgid=_(u"label_identificador"),
+        ),
+    ),    
+    atapi.StringField(
         name="nome_paciente",
         required=True,
         searchable=True,

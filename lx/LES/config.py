@@ -4,5 +4,5 @@
 PROJECTNAME = 'lx.LES'
 
 ADD_PERMISSIONS = {
-    # -*- extra stuff goes here -*-
+    'Paciente': 'lx.LES: Add Paciente',
 }
