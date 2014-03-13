@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+<!--    <index name="breadcrumb" meta_type="FieldIndex">
+        <indexed_attr value="breadcrumb"/>
+    </index>
+    <index name="getRawLink_interno" meta_type="KeywordIndex">
+        <indexed_attr value="getRawLink_interno"/>
+    </index>
+    <index name="getRawBanner_link_interno" meta_type="KeywordIndex">
+        <indexed_attr value="getRawLink_interno"/>
+    </index>
+    <index name="getLink_target" meta_type="FieldIndex">
+        <indexed_attr value="getLink_target"/>
+    </index>
+    <index name="getExcludeFromNav" meta_type="FieldIndex">
+        <indexed_attr value="getExcludeFromNav"/>
+    </index>
+    <column value="getExcludeFromNav"/>
+    <column value="getLink_target" />
+    <column value="getRawLink_interno" />
+    <column value="getRawBanner_link_interno"/>
+    <column value="breadcrumb"/>
+    <column value="get_img_referencia"/>
+    <column value="get_alt_img_referencia"/>
+    <column value="get_path_referencia"/>-->
+</object>
