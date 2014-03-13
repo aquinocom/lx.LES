@@ -23,7 +23,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Identificador,
+            label="Identificador",
             label_msgid=_(u"label_nome"),
         ),
     ),
@@ -32,7 +32,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Nome,
+            label="Nome",
             label_msgid=_(u"label_nome"),
         ),
     ),
@@ -41,7 +41,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.CalendarWidget(
-            label="Data nascimento,
+            label="Data nascimento",
             label_msgid=_(u"label_nascimento"),
             show_hm=False,
         ),
@@ -51,7 +51,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Idade,
+            label="Idade",
             label_msgid=_(u"label_idade"),
         ),
     ),
@@ -60,7 +60,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.SelectionWidget(
-            label="UF nasc,
+            label="UF nasc",
             label_msgid=_(u"label_uf_nasc"),
         ),
         vocabulary=['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO',
@@ -82,7 +82,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Ocupação,
+            label="Ocupação",
             label_msgid=_(u"label_ocupacao"),
         ),
     ),
@@ -91,7 +91,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Nível de formação,
+            label="Nível de formação",
             label_msgid=_(u"label_formação"),
         ),
     ),
@@ -100,7 +100,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Raça,
+            label="Raça",
             label_msgid=_(u"label_raca"),
         ),
     ),
@@ -109,7 +109,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Endereço,
+            label="Endereço",
             label_msgid=_(u"label_end"),
         ),
     ),
@@ -118,7 +118,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Bairro ou Satélite:,
+            label="Bairro ou Satélite:",
             label_msgid=_(u"label_bairro"),
         ),
     ),
@@ -127,7 +127,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Cidade,
+            label="Cidade",
             label_msgid=_(u"label_cidade"),
         ),
     ),
@@ -136,7 +136,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.SelectionWidget(
-            label="UF,
+            label="UF",
             label_msgid=_(u"label_uf"),
         ),
         vocabulary=['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO',
@@ -148,7 +148,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="CEP,
+            label="CEP",
             label_msgid=_(u"label_cep"),
         ),
     ),
@@ -156,7 +156,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         name="fone_paciente",
         searchable=True,
         widget=atapi.StringWidget(
-            label="Fone residencial,
+            label="Fone residencial",
             label_msgid=_(u"label_fone"),
         ),
     ),
@@ -165,7 +165,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Celular,
+            label="Celular",
             label_msgid=_(u"label_cel"),
         ),
     ),
@@ -174,7 +174,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Nome parente ou amigo,
+            label="Nome parente ou amigo",
             label_msgid=_(u"label_nome_parente"),
         ),
     ),
@@ -183,7 +183,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
-            label="Fone parente ou amigo,
+            label="Fone parente ou amigo",
             label_msgid=_(u"label_fone_parente"),
         ),
     ),
