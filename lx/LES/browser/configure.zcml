@@ -17,4 +17,18 @@
         permission="zope.Public"
     />
 
+    <browser:resourceDirectory
+        name="lx.LES.js"
+        directory="js"
+        permission="zope.Public"
+    />
+    
+    <browser:resource
+        name="sangue.js"
+        file="js/sangue.js" />
+
+    <browser:resource
+        name="jquery.maskedinput.js"
+        file="js/jquery.maskedinput.js" />
+    
 </configure>
