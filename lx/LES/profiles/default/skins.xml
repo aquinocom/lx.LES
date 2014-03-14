@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object name="portal_skins" allow_any="False" cookie_persistence="False"
+   default_skin="Sunburst Theme">
+    <object name="lx_LES_templates"
+        meta_type="Filesystem Directory View"
+        directory="lx.LES:skins/templates" />
+    <skin-path
+        name="Sunburst Theme"
+        based-on="Sunburst Theme">
+        <layer
+            name="lx_LES_templates"
+            insert-after="custom"/>
+    </skin-path>
+</object>
