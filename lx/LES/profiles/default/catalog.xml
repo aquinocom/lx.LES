@@ -23,4 +23,8 @@
     <column value="get_img_referencia"/>
     <column value="get_alt_img_referencia"/>
     <column value="get_path_referencia"/>-->
+    <index name="getPacienteExame" meta_type="FieldIndex">
+        <indexed_attr value="getPacienteExame"/>
+    </index>
+    <column value="getPacienteExame"/>
 </object>
