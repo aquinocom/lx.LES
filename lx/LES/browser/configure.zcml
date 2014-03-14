@@ -40,6 +40,12 @@
     <browser:resource
         name="style.css"
         file="css/style.css" />
-   
-    
+
+    <!--Page Exames Sangue-->
+    <browser:page
+        name="examesanguepaciente"
+        for="*"
+        class=".examesanguepaciente.ExameSanguePacienteView"
+        permission="zope2.View"
+    />
 </configure>

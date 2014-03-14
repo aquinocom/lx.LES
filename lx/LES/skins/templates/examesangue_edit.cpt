@@ -102,7 +102,6 @@
                                                 tal:attributes="id string:fieldsetlegend-${fieldsetid}"
                                                 i18n:translate=""
                                                 tal:condition="not:sole_fieldset" />
-                                            <!-- exibe local item referenciado -->
                                             <tal:fields repeat="field python:schematas[fieldset].editableFields(here, visible_only=True)" 
                                                 condition="python:fieldsetid != 'default'">
                                                 <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
@@ -148,15 +147,7 @@
                                                         </tal:fields>
                                                     </ul>
                                                 </div>
-                                                <!--<tal:fields repeat="padrao python:campos[:13]"
-                                                    condition="python: fieldsetid == 'default'">
-                                                    <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />
-                                                </tal:fields>-->
                                             </tal:block>
-                                            <!--<tal:fields repeat="padrao python:schematas[fieldset].editableFields(here, visible_only=True)"
-                                                condition="python: fieldsetid == 'default'">
-                                                <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />
-                                            </tal:fields>-->
                                         </fieldset>
                                     </tal:fieldsets>
                                 </tal:tabbed>
@@ -166,6 +157,28 @@
                                     </tal:fields>
                                 </tal:nottabbed>
                             </metal:block>
+                            <tal:block tal:define="exames context/@@examesanguepaciente/getExames"
+                                tal:condition="exames">
+                                <h4>Exames anteriores:</h4>
+                                <div id="listaExamesPaciente">
+                                    <table class="listing"
+                                           summary="Content listing"
+                                           i18n:attributes="summary summary_content_listing;">
+                                        <tbody>
+                                            <tal:block tal:repeat="exame exames">
+                                                <tr tal:define="oddrow repeat/exame/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <td tal:define="url string: ${exame/getURL}/examesanguepaciente;
+                                                                    click string: window.open('${url}',  'Exame de Sangue', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                                        <a tal:attributes="onclick click" tal:content="exame/Title"></a>
+
+                                                    </td>
+                                                </tr>
+                                            </tal:block>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </tal:block>
                             <div tal:replace="structure provider:archetypes.edit.afterfieldsets" />
                             <metal:block define-slot="extra_bottom" />
                             <div class="formControls">
