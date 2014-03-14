@@ -21,7 +21,7 @@
     </property>
     <property name="default_view_fallback">False</property>
     <alias from="(Default)" to="(dynamic view)"/>
-    <alias from="edit" to="atct_edit"/>
+    <alias from="edit" to="examesangue_edit"/>
     <alias from="sharing" to="@@sharing"/>
     <alias from="view" to="(selected layout)"/>
     <action title="View" action_id="view" category="object" condition_expr=""
