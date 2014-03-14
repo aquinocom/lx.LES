@@ -1,0 +1,16 @@
+#coluna01_sangue,
+#coluna02_sangue,
+#coluna03_sangue,
+#coluna04_sangue {
+    width: 20%;
+    float: left;
+    padding-right: 10px;
+}
+
+#coluna01_sangue ul,
+#coluna02_sangue ul,
+#coluna03_sangue ul,
+#coluna04_sangue ul{
+    margin-left: 10px;
+    list-style-type: none;
+}
