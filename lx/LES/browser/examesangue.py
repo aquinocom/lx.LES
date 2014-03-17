@@ -16,18 +16,9 @@ from plone.memoize.instance import memoize
 from lx.LES.interfaces.contents import IExameSangue
 
 
-class ExameSanguePacienteView(BrowserView):
-    """ view do exames de sangue
-    """
-
-    __call__ = ViewPageTemplateFile('templates/examesangue.pt')
-
-
-class ExameSanguePacienteView(BrowserView):
+class ExameSangueView(BrowserView):
     """ view do exames de sangue do paciente
     """
-
-    #__call__ = ViewPageTemplateFile('templates/examesanguepaciente.pt')
 
     @memoize
     def getNomePaciente(self):

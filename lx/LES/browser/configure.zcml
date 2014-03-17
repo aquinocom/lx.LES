@@ -45,7 +45,7 @@
     <browser:page
         name="examesangue"
         for="*"
-        class=".examesanguepaciente.ExameSanguePacienteView"
+        class=".examesangue.ExameSangueView"
         template="templates/examesangue.pt"
         permission="zope2.View"
     />
@@ -53,7 +53,7 @@
     <browser:page
         name="examesanguepaciente"
         for="*"
-        class=".examesanguepaciente.ExameSanguePacienteView"
+        class=".examesangue.ExameSangueView"
         template="templates/examesanguepaciente.pt"
         permission="zope2.View"
     />

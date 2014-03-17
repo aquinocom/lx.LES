@@ -157,7 +157,7 @@
                                     </tal:fields>
                                 </tal:nottabbed>
                             </metal:block>
-                            <tal:block tal:define="exames context/@@examesanguepaciente/getExames"
+                            <tal:block tal:define="exames context/@@examesangue/getExames"
                                 tal:condition="exames">
                                 <h4>Exames anteriores:</h4>
                                 <div id="listaExamesPaciente">
