@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="here/main_template_limpo/macros/master"
+    i18n:domain="je.portal.tema">
+    <head>
+        <metal:block fill-slot="top_slot"
+            tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                        disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+    </head>
+    <body>
+        <tal:block metal:fill-slot="main" >
+            <span tal:content="view/getExames"></span>
+            <tal:block
+                tal:define="exame view/getExames;
+                            exames  python: exame['Exame'][:-1];
+                            legenda python: exame['legenda'];
+                            hemacias python: exame['hemacias'][:-1];
+                            hb python: exame['hb'][:-1];
+                            hto python: exame['hto'][:-1];
+                            vcm python: exame['vcm'][:-1];
+                            hcm python: exame['hcm'][:-1];
+                            leuco python: exame['leuco'][:-1];
+                            segm python: exame['segm'][:-1];
+                            linfo python: exame['linfo'][:-1];
+                            mono python: exame['mono'][:-1];
+                            eos python: exame['eos'][:-1];
+                            baso python: exame['baso'][:-1];
+                            plaq python: exame['plaq'][:-1];">
+                <span tal:content="legenda"></span>
+                <img tal:attributes="src string:http://chart.apis.google.com/chart?cht=bvg&chxt=x,y&chd=t:${hemacias}|${hb}|${hto}|${vcm}|${hcm}|${leuco}|${segm}|${linfo}|${mono}|${eos}|${baso}|${plaq}&chco=A3129B,BF0FF5,05EA20,93A595,ECF453,1A868E,7F3398,FD1093,D1DFB2,6215DD,ADB164,50A3B4&chs=1000x300&chxl=0:|${exames}&chxr=1,0,50&chds=0,50&chg=25,25&chdl=${legenda}&chbh=350,1,1000" /><br />
+                <img tal:attributes="src string:http://chart.apis.google.com/chart?cht=lc&chxt=x,y&chd=t:${hemacias}|${hb}|${hto}|${vcm}|${hcm}|${leuco}|${segm}|${linfo}|${mono}|${eos}|${baso}|${plaq}&chco=A3129B,BF0FF5,05EA20,93A595,ECF453,1A868E,7F3398,FD1093,D1DFB2,6215DD,ADB164,50A3B4&chs=1000x300&chxl=0:|${exames}&chxr=1,0,50&chds=0,50&chg=25,25&chdl=${legenda}&chbh=350,1,1000" /><br />
+
+                <img src="http://chart.apis.google.com/chart?cht=bvg&;chxt=x,y&chd=t:12,22,26,35,41|20,40,60,80,30&chco=fa432a,76A4FB&chs=320x150& chxl=0:|Jan|Fev|Mar|Abr|Mai" /><br>
+            </tal:block>
+            <!--<img src="http://chart.apis.google.com/chart?cht=bvg&chxt=x,y&chd=t:15,22,26,35|15,26,33,34|25,40,34,12&chco=fa432a,76A4FB,faae2a&chs=600x300&chxl=0:|Jan|Fev|Mar|Abr&chxr=1,0,50&chds=0,50&chg=25,25&chdl=China|EUA|Alemanha&chbh=35,1,10" /><br />-->
+        </tal:block>
+    </body>
+</html>

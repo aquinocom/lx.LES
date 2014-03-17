@@ -388,7 +388,6 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             size=5,
         ),
     ),
-#/*------------------------*/
     atapi.StringField(
         name='ferritina_sangue',
         required=True,
@@ -489,7 +488,6 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             size=5,
         ),
     ),
-#/*------------------------*/
 ),)
 
 schema['title'].widget.visible['edit'] = 'invisible'

@@ -43,9 +43,26 @@
 
     <!--Page Exames Sangue-->
     <browser:page
+        name="examesangue"
+        for="*"
+        class=".examesanguepaciente.ExameSanguePacienteView"
+        template="templates/examesangue.pt"
+        permission="zope2.View"
+    />
+    
+    <browser:page
         name="examesanguepaciente"
         for="*"
         class=".examesanguepaciente.ExameSanguePacienteView"
+        template="templates/examesanguepaciente.pt"
+        permission="zope2.View"
+    />
+
+    <!--Page Gráfico Exames Sangue-->
+    <browser:page
+        name="graficoexamesanguepaciente"
+        for="*"
+        class=".examesanguepaciente.GraficoExameSanguePacienteView"
         permission="zope2.View"
     />
 </configure>
