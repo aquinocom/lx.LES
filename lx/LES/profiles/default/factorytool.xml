@@ -9,8 +9,9 @@
   -->
 <object name="portal_factory" meta_type="Plone Factory Tool">
     <factorytypes>
-        <type portal_type="Paciente"/>
-        <type portal_type="ExameSangue"/>
+        <type portal_type="Atendimento"/>
         <type portal_type="ExameUrina"/>
+        <type portal_type="ExameSangue"/>
+        <type portal_type="Paciente"/>
     </factorytypes>
 </object>

@@ -5,7 +5,8 @@
 PROJECTNAME = 'lx.LES'
 
 ADD_PERMISSIONS = {
-    'Paciente': 'lx.LES: Add Paciente',
-    'ExameSangue': 'lx.LES: Add ExameSangue',
+    'Atendimento': 'lx.LES: Add Atendimento',
     'ExameUrina': 'lx.LES: Add ExameUrina',
+    'ExameSangue': 'lx.LES: Add ExameSangue',
+    'Paciente': 'lx.LES: Add Paciente',
 }

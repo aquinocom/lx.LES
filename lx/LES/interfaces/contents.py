@@ -3,7 +3,12 @@
 from zope.interface import Interface
 
 
-class IPaciente(Interface):
+class IAtendimento(Interface):
+    """Marker interface
+    """
+
+
+class IExameUrina(Interface):
     """Marker interface
     """
 
@@ -13,6 +18,6 @@ class IExameSangue(Interface):
     """
 
 
-class IExameUrina(Interface):
+class IPaciente(Interface):
     """Marker interface
     """
