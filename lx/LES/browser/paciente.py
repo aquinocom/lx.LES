@@ -25,7 +25,7 @@ class PacienteView(BrowserView):
         """Retorna todos os exames de sangue do paciente
         """
         catalog = getToolByName(self, 'portal_catalog')
-        path_exames = '/'.join(self.context.aq_parent.getPhysicalPath())
+        path_exames = '/'.join(self.context.getPhysicalPath())
         exames = catalog(object_provides=IExameSangue.__identifier__,
                            path=path_exames,
                            sort_on='Date',
@@ -37,7 +37,7 @@ class PacienteView(BrowserView):
         """Retorna todos os exames de urina do paciente
         """
         catalog = getToolByName(self, 'portal_catalog')
-        path_exames = '/'.join(self.context.aq_parent.getPhysicalPath())
+        path_exames = '/'.join(self.context.getPhysicalPath())
         exames = catalog(object_provides=IExameUrina.__identifier__,
                            path=path_exames,
                            sort_on='Date',
