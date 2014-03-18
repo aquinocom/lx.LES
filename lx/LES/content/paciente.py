@@ -25,6 +25,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         widget=atapi.StringWidget(
             label="Identificador",
             label_msgid=_(u"label_nome"),
+            helper_js=('++resource++paciente.js', '++resource++jquery.maskedinput.js'),
         ),
     ),
     atapi.StringField(

@@ -32,6 +32,10 @@
         file="js/urina.js" />
 
     <browser:resource
+        name="paciente.js"
+        file="js/paciente.js" />
+
+    <browser:resource
         name="jquery.maskedinput.js"
         file="js/jquery.maskedinput.js" />
 
