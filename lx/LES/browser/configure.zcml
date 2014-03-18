@@ -98,7 +98,7 @@
     <browser:page
         name="graficoexamesanguepaciente"
         for="*"
-        class=".examesanguepaciente.GraficoExameSanguePacienteView"
+        class=".examesangue.GraficoExameSanguePacienteView"
         permission="zope2.View"
     />
 </configure>
