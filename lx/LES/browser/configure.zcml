@@ -45,6 +45,17 @@
         name="style.css"
         file="css/style.css" />
 
+    <!--Page Paciente-->
+    <browser:page
+        name="paciente"
+        title="Paciente"
+        menu="plone_displayviews"
+        for="*"
+        class=".paciente.PacienteView"
+        template="templates/paciente.pt"
+        permission="zope2.View"
+    />
+
     <!--Pages Exames Sangue-->
     <browser:page
         name="examesangue"

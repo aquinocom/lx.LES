@@ -1,0 +1,136 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="lx.LES">
+    <head>
+    </head>
+    <body>
+        <tal:block metal:fill-slot="main" >
+            <h1 tal:content="context/Title"></h1>
+            <br/>
+            <div id="coluna01_paciente">
+                <div class="box">
+                    <h5>Identificação do paciente:</h5>
+                    <ul>
+                        <li tal:condition="context/identificador_paciente">
+                            <b>Identificador: </b><span tal:replace="context/identificador_paciente"/>
+                        </li>
+                        <li tal:condition="context/nascimento_paciente">
+                            <b>Data nascimento: </b><span tal:replace="python:here.toLocalizedTime(context.nascimento_paciente)"/>
+                        </li>
+                        <li tal:condition="context/idade_paciente">
+                            <b>Idade: </b><span tal:replace="context/idade_paciente"/>
+                        </li>
+                        <li tal:condition="context/uf_nasc_paciente">
+                            <b>UF nasc: </b><span tal:replace="context/uf_nasc_paciente"/>
+                        </li>
+                        <li tal:condition="context/sexo_paciente">
+                            <b>Sexo: </b><span tal:replace="context/sexo_paciente"/>
+                        </li>
+                        <li tal:condition="context/ocupacao_paciente">
+                            <b>Ocupação: </b><span tal:replace="context/ocupacao_paciente"/>
+                        </li>
+                        <li tal:condition="context/formacao_paciente">
+                            <b>Nível de formação: </b><span tal:replace="context/formacao_paciente"/>
+                        </li>
+                        <li tal:condition="context/raca_paciente">
+                            <b>Raça: </b><span tal:replace="context/raca_paciente"/>
+                        </li>
+                        <li tal:condition="context/fone_paciente">
+                            <b>Fone residencial: </b><span tal:replace="context/fone_paciente"/>
+                        </li>
+                        <li tal:condition="context/cel_paciente">
+                            <b>Celular: </b><span tal:replace="context/cel_paciente"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="coluna02_paciente">
+                <div class="box">
+                    <h5>Endereço do Paciente:</h5>
+                    <ul>
+                        <li tal:condition="context/end_paciente">
+                            <b>Endereço: </b><span tal:replace="context/end_paciente"/>
+                        </li>
+                        <li tal:condition="context/bairro_paciente">
+                            <b>Bairro: </b><span tal:replace="context/bairro_paciente"/>
+                        </li>
+                        <li tal:condition="context/cidade_paciente">
+                            <b>Cidade: </b><span tal:replace="context/cidade_paciente"/>
+                        </li>
+                        <li tal:condition="context/uf_paciente">
+                            <b>UF: </b><span tal:replace="context/uf_paciente"/>
+                        </li>
+                        <li tal:condition="context/cep_paciente">
+                            <b>CEP: </b><span tal:replace="context/cep_paciente"/>
+                        </li>
+                    </ul>
+                </div>
+                <br/>
+                <div class="box">
+                    <h5>Dados de parente/amigo:</h5>
+                    <ul>
+                        <li tal:condition="context/nome_parente_paciente">
+                            <b>Nome: </b><span tal:replace="context/nome_parente_paciente"/>
+                        </li>
+                        <li tal:condition="context/fone_parente_paciente">
+                            <b>Fone: </b><span tal:replace="context/fone_parente_paciente"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div id="coluna03_paciente">
+                <div class="box">
+                    <h5>Atendimentos realizados:</h5>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div id="coluna01_paciente">
+                <div class="box">
+                    <h5>Exames de sangue:</h5>
+                    <div id="listaExamesPaciente" tal:define="exames view/getExamesSangue"
+                        tal:condition="exames">
+                        <table class="listing">
+                            <tbody>
+                                <tal:block tal:repeat="exame exames">
+                                    <tr tal:define="oddrow repeat/exame/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <td tal:define="url string: ${exame/getURL}/examesanguepaciente;
+                                                        click string: window.open('${url}',  'Exame de Sangue', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                            <a tal:attributes="onclick click" tal:content="exame/Title" class="link_exames"></a>
+                                        </td>
+                                    </tr>
+                                </tal:block>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="coluna02_paciente">
+                <div class="box">
+                    <h5>Exames de urina:</h5>
+                    <div id="listaExamesPaciente" tal:define="exames view/getExamesUrina"
+                        tal:condition="exames">
+                        <table class="listing">
+                            <tbody>
+                                <tal:block tal:repeat="exame exames">
+                                    <tr tal:define="oddrow repeat/exame/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <td tal:define="url string: ${exame/getURL}/exameurinapaciente;
+                                                        click string: window.open('${url}',  'Exame de Sangue', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                            <a tal:attributes="onclick click" tal:content="exame/Title" class="link_exames"></a>
+                                        </td>
+                                    </tr>
+                                </tal:block>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </tal:block>
+    </body>
+</html>
