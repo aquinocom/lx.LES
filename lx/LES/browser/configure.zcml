@@ -28,6 +28,10 @@
         file="js/sangue.js" />
 
     <browser:resource
+        name="urina.js"
+        file="js/urina.js" />
+
+    <browser:resource
         name="jquery.maskedinput.js"
         file="js/jquery.maskedinput.js" />
 
@@ -41,7 +45,7 @@
         name="style.css"
         file="css/style.css" />
 
-    <!--Page Exames Sangue-->
+    <!--Pages Exames Sangue-->
     <browser:page
         name="examesangue"
         for="*"
@@ -55,6 +59,23 @@
         for="*"
         class=".examesangue.ExameSangueView"
         template="templates/examesanguepaciente.pt"
+        permission="zope2.View"
+    />
+
+    <!--Pages Exames Urina-->
+    <browser:page
+        name="exameurina"
+        for="*"
+        class=".exameurina.ExameUrinaView"
+        template="templates/exameurina.pt"
+        permission="zope2.View"
+    />
+    
+    <browser:page
+        name="exameurinapaciente"
+        for="*"
+        class=".exameurina.ExameUrinaView"
+        template="templates/exameurinapaciente.pt"
         permission="zope2.View"
     />
 

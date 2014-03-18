@@ -26,3 +26,27 @@
 #coluna04_sangue li.zebrar{
     background: #EEEEEE;
 }
+.link_exames{
+    cursor: pointer;
+}
+.clear{
+    clear: both;
+}
+#coluna01_urina ul,
+#coluna02_urina ul,
+#coluna03_urina ul,
+#coluna04_urina ul{
+    margin-left: 10px;
+    list-style-type: none;
+}
+#coluna01_urina,
+#coluna02_urina {
+    width: 20%;
+    float: left;
+    padding-right: 10px;
+}
+#coluna03_urina{
+    width: 45%;
+    float: left;
+    padding-right: 10px;
+}

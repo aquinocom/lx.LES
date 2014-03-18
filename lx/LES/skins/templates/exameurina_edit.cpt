@@ -90,7 +90,7 @@
                                             id string:${portal_type}-base-edit;
                                             class python:test(path('allow_tabbing|nothing'), 'enableUnloadProtection enableAutoFocus enableFormTabbing enableUnlockProtection', 'enableUnloadProtection enableAutoFocus enableUnlockProtection');">
                             <metal:block define-slot="extra_top" />
-                            <h1>Mapa de acompanhamento laboratorial - Sangue</h1>
+                            <h1>Mapa de acompanhamento laboratorial - Urina</h1>
                             <metal:block define-slot="widgets">
                                 <tal:tabbed tal:condition="allow_tabbing | nothing">
                                     <tal:fieldsets define="sole_fieldset python:len(fieldsets)==1"
@@ -108,9 +108,9 @@
                                                 <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
                                             </tal:fields>
                                             <tal:block tal:define="campos python:schematas[fieldset].editableFields(here, visible_only=True)">
-                                                <div id="coluna01_sangue">
+                                                <div id="coluna01_urina">
                                                     <ul>
-                                                        <tal:fields repeat="padrao python:campos[1:13]"
+                                                        <tal:fields repeat="padrao python:campos[1:5]"
                                                             condition="python: fieldsetid == 'default'">
                                                             <li>
                                                                 <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />
@@ -118,9 +118,9 @@
                                                         </tal:fields>
                                                     </ul>
                                                 </div>
-                                                <div id="coluna02_sangue">
+                                                <div id="coluna02_urina">
                                                     <ul>
-                                                        <tal:fields repeat="padrao python:campos[13:25]"
+                                                        <tal:fields repeat="padrao python:campos[5:9]"
                                                             condition="python: fieldsetid == 'default'">
                                                             <li>
                                                                 <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />
@@ -128,9 +128,9 @@
                                                         </tal:fields>
                                                     </ul>
                                                 </div>
-                                                <div id="coluna03_sangue">
+                                                <div id="coluna03_urina">
                                                     <ul>
-                                                        <tal:fields repeat="padrao python:campos[25:37]"
+                                                        <tal:fields repeat="padrao python:campos[9:10]"
                                                             condition="python: fieldsetid == 'default'">
                                                             <li>
                                                                 <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />
@@ -138,16 +138,10 @@
                                                         </tal:fields>
                                                     </ul>
                                                 </div>
-                                                <div id="coluna04_sangue">
-                                                    <ul>
-                                                        <tal:fields repeat="padrao python:campos[37:]"
-                                                            condition="python: fieldsetid == 'default'">
-                                                            <li>
-                                                                <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />
-                                                            </li>
-                                                        </tal:fields>
-                                                    </ul>
-                                                </div>
+                                                <tal:fields repeat="padrao python:campos[10:]"
+                                                    condition="python: fieldsetid == 'default'">
+                                                        <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />
+                                                </tal:fields>
                                             </tal:block>
                                         </fieldset>
                                     </tal:fieldsets>
@@ -158,7 +152,7 @@
                                     </tal:fields>
                                 </tal:nottabbed>
                             </metal:block>
-                            <tal:block tal:define="exames context/@@examesangue/getExames"
+                            <tal:block tal:define="exames context/@@exameurina/getExames"
                                 tal:condition="exames">
                                 <h4>Exames anteriores:</h4>
                                 <div id="listaExamesPaciente">
@@ -169,8 +163,8 @@
                                             <tal:block tal:repeat="exame exames">
                                                 <tr tal:define="oddrow repeat/exame/odd;"
                                                     tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                                    <td tal:define="url string: ${exame/getURL}/examesanguepaciente;
-                                                                    click string: window.open('${url}',  'Exame de Sangue', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                                    <td tal:define="url string: ${exame/getURL}/exameurinapaciente;
+                                                                    click string: window.open('${url}',  'Exame de Sangue', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=500');;">
                                                         <a tal:attributes="onclick click" tal:content="exame/Title" class="link_exames"></a>
 
                                                     </td>

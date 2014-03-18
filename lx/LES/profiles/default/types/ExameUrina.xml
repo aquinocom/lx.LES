@@ -15,13 +15,13 @@
     <property name="filter_content_types">True</property>
     <property name="allowed_content_types"/>
     <property name="allow_discussion">False</property>
-    <property name="default_view">base_view</property>
+    <property name="default_view">exameurina</property>
     <property name="view_methods">
-        <element value="base_view"/>
+        <element value="exameurina"/>
     </property>
     <property name="default_view_fallback">False</property>
     <alias from="(Default)" to="(dynamic view)"/>
-    <alias from="edit" to="atct_edit"/>
+    <alias from="edit" to="exameurina_edit"/>
     <alias from="sharing" to="@@sharing"/>
     <alias from="view" to="(selected layout)"/>
     <action title="View" action_id="view" category="object" condition_expr=""

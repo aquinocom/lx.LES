@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="lx.LES">
+    <head>
+    </head>
+    <body>
+        <tal:block metal:fill-slot="main" >
+            <h1 tal:content="context/Title"></h1>
+            <p>
+                <b>Nome do paciente:</b> <span tal:content="view/getNomePaciente"></span>
+            </p>
+            <div id="coluna01_urina">
+                <ul>
+                    <li tal:condition="context/ph_urina" class="zebrar">
+                        <b>pH: </b><span tal:replace="context/ph_urina"/>
+                    </li>
+                    <li tal:condition="context/dens_urina">
+                        <b>Dens: </b><span tal:replace="context/dens_urina"/>
+                    </li>
+                    <li tal:condition="context/ced_urina" class="zebrar">
+                        <b>CED: </b><span tal:replace="context/ced_urina"/>
+                    </li>
+                    <li tal:condition="context/leuco_urina">
+                        <b>Leuco: </b><span tal:replace="context/leuco_urina"/>
+                    </li>
+                </ul>
+            </div>
+            <div id="coluna02_urina">
+                <ul>
+                    <li tal:condition="context/hem_urina" class="zebrar">
+                        <b>Hem: </b><span tal:replace="context/hem_urina"/>
+                    </li>
+                    <li tal:condition="context/hb_urina">
+                        <b>Hb: </b><span tal:replace="context/hb_urina"/>
+                    </li>
+                    <li tal:condition="context/ptns_urina" class="zebrar">
+                        <b>Ptns: </b><span tal:replace="context/ptns_urina"/>
+                    </li>
+                    <li tal:condition="context/cilindros_urina">
+                        <b>Cilindros: </b><span tal:replace="context/cilindros_urina"/>
+                    </li>
+                </ul>
+            </div>
+            <div id="coluna03_urina" tal:condition="context/outros_urina">
+                <b>Outros:</b>
+                <p tal:content="context/outros_urina"></p>
+            </div>
+            <div class="clear"></div>
+            <tal:block tal:condition="context/exames_imagem_urina">
+                <b>Exames de imagem:</b>
+                <p tal:content="context/exames_imagem_urina"></p>
+            </tal:block>
+            <tal:block tal:condition="context/outros_exames_urina">
+                <b>Outros exames:</b>
+                <p tal:content="context/outros_exames_urina"></p>
+            </tal:block>
+        </tal:block>
+    </body>
+</html>
