@@ -22,6 +22,8 @@ setup(name='lx.LES',
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
         'Framework :: Plone',
+        'Programming Language :: Python',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         ],
       keywords='',
