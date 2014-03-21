@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layers>
+    <layer 
+        name="lx.LES"
+        interface="lx.LES.browser.layers.ILXDefaultLayer" />
+</layers>
