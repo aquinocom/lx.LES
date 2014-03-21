@@ -38,6 +38,12 @@
     <browser:resource
         name="jquery.maskedinput.js"
         file="js/jquery.maskedinput.js" />
+        
+    <browser:resource
+        name="custom-search.js"
+        file="js/search.js"
+        layer="lx.LES.browser.layers.ILXDefaultLayer"
+        />
 
     <browser:resourceDirectory
         name="lx.LES.css"
@@ -101,4 +107,33 @@
         class=".examesangue.GraficoExameSanguePacienteView"
         permission="zope2.View"
     />
+    
+    <!-- Busca paciente -->
+    <browser:page
+        name="custom-search"
+        class="plone.app.search.browser.Search"
+        permission="zope2.View"
+        for="*"
+        template="templates/search.pt"
+        layer="lx.LES.browser.layers.ILXDefaultLayer"
+        />
+        
+    <browser:page
+        name="custom-updated_search"
+        class="plone.app.search.browser.Search"
+        permission="zope2.View"
+        for="Products.CMFCore.interfaces.IFolderish"
+        template="templates/updated_search.pt"
+        layer="lx.LES.browser.layers.ILXDefaultLayer"
+        />
+        
+    <!-- The search box -->
+    <browser:viewlet
+        name="custom-searchbox"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.SearchBoxViewlet"
+        permission="zope2.View"
+        layer="lx.LES.browser.layers.ILXDefaultLayer"
+        />
+
 </configure>
