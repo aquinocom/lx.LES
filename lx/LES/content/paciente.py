@@ -2,6 +2,8 @@
 
 # Zope3 imports
 from zope.interface import implements
+from zope.component import getUtility
+import transaction
 
 # Security
 from AccessControl import ClassSecurityInfo
@@ -10,6 +12,10 @@ from AccessControl import ClassSecurityInfo
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import schemata
 from Products.ATContentTypes.content.folder import ATFolder
+from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
+
+#plone
+from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 # Product imports
 from lx.LES.interfaces.contents import IPaciente
@@ -28,15 +34,15 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             helper_js=('++resource++paciente.js', '++resource++jquery.maskedinput.js'),
         ),
     ),
-    atapi.StringField(
-        name="nome_paciente",
-        required=True,
-        searchable=True,
-        widget=atapi.StringWidget(
-            label="Nome",
-            label_msgid=_(u"label_nome"),
-        ),
-    ),
+#    atapi.StringField(
+#        name="nome_paciente",
+#        required=True,
+#        searchable=True,
+#        widget=atapi.StringWidget(
+#            label="Nome",
+#            label_msgid=_(u"label_nome"),
+#        ),
+#    ),
     atapi.DateTimeField(
         name="nascimento_paciente",
         required=True,
@@ -190,10 +196,12 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
 ),)
 
+schema['title'].widget.label = _(u"Nome")
+schema['description'].widget.visible['edit'] = 'invisible'
 schemata.finalizeATCTSchema(schema)
 
 
-class Paciente(ATFolder):
+class Paciente(ATFolder, HistoryAwareMixin):
     """
     """
     security = ClassSecurityInfo()
@@ -203,6 +211,16 @@ class Paciente(ATFolder):
     portal_type = 'Paciente'
 
     _at_rename_after_creation = True
+
+    def _renameAfterCreation(self, check_auto_id=False):
+        """
+        """
+        transaction.commit()
+        normalizer = getUtility(IIDNormalizer)
+        titulo = self.identificador_paciente + '-' + self.title
+        new_id = normalizer.normalize(titulo)
+        self.setTitle(titulo)
+        self.setId(new_id)
 
     schema = schema
 

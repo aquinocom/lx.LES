@@ -2,15 +2,23 @@
 
 # Zope3 imports
 from zope.interface import implements
+from zope.component import getUtility
+import transaction
 
 # Security
 from AccessControl import ClassSecurityInfo
 
+#plone
+from plone.i18n.normalizer.interfaces import IIDNormalizer
+
+#Libs
+from datetime import datetime
+
 # Archetypes & ATCT imports
 from Products.Archetypes import atapi
-from Products.Archetypes.utils import DisplayList
 from Products.ATContentTypes.content import schemata
 from Products.ATContentTypes.content.base import ATCTContent
+from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
 from Products.MasterSelectWidget.MasterSelectWidget import MasterSelectWidget
 
 # Product imports
@@ -22,7 +30,6 @@ from lx.LES import config
 schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.DateTimeField(
         name="inicio_sintomas",
-        
         searchable=True,
         widget=atapi.CalendarWidget(
             label=_(u"Início sintomas"),
@@ -31,7 +38,6 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="retardo_diagnostico",
-        
         searchable=True,
         widget=atapi.StringWidget(
             label=_(u"Retardo Diagnóstico"),
@@ -39,13 +45,12 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="manifestacao_inicial",
-        
         searchable=True,
         widget=atapi.StringWidget(
             label=_(u"Manisfestação Inicial"),
         ),
     ),
-    
+
 #criterios classificatorios de LES
 #criterios clinicos
     atapi.StringField(
@@ -88,7 +93,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='cutaneo_subagudo',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -123,7 +128,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='cutaneo_cronico',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -160,7 +165,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='ulceras_orais',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -195,7 +200,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='ulceras_nasais',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -230,7 +235,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='alopecia_nao_cicatricial',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -266,7 +271,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='articular',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -304,7 +309,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='serosite',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -342,7 +347,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='renal',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -378,7 +383,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='neurologico',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -418,7 +423,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='anemia_hemolitica',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -453,7 +458,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='leucopenia',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -489,7 +494,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='linfopenia',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -525,7 +530,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='trombocitopenia',
         searchable=True,
-        schemata='Critérios Clínicos',        
+        schemata='Critérios Clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -598,7 +603,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='anti_dna_dupla_helice',
         searchable=True,
-        schemata='Critérios Imunológicos',        
+        schemata='Critérios Imunológicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -635,7 +640,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='anti_sm',
         searchable=True,
-        schemata='Critérios Imunológicos',        
+        schemata='Critérios Imunológicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -671,7 +676,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='antifosfolipidios',
         searchable=True,
-        schemata='Critérios Imunológicos',        
+        schemata='Critérios Imunológicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -709,7 +714,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='complemento_baixo',
         searchable=True,
-        schemata='Critérios Imunológicos',        
+        schemata='Critérios Imunológicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -745,7 +750,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='coombs_direto',
         searchable=True,
-        schemata='Critérios Imunológicos',        
+        schemata='Critérios Imunológicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -777,7 +782,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=atapi.TextAreaWidget(
             label=_(u"Informações complementares")
         ),
-    ),    
+    ),
 #antecedentes clinicos
     atapi.StringField(
         name='miopatia',
@@ -817,7 +822,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='raynaud',
         searchable=True,
-        schemata='Antecedentes clínicos',        
+        schemata='Antecedentes clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -852,7 +857,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='dano_hemorragia_alveolar',
         searchable=True,
-        schemata='Antecedentes clínicos',        
+        schemata='Antecedentes clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -887,7 +892,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='pnm_intersticial',
         searchable=True,
-        schemata='Antecedentes clínicos',        
+        schemata='Antecedentes clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -922,7 +927,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='vasculite_pele_sistemica',
         searchable=True,
-        schemata='Antecedentes clínicos',        
+        schemata='Antecedentes clínicos',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -969,13 +974,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='tabaco_data_fim',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='tabaco_especificacao',
                                action='show',
                                hide_values=('sim',)),
                           dict(name='tabaco_unidade_dia',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -995,7 +1000,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"Término"),
             show_hm=False,
         ),
-    ),    
+    ),
     atapi.TextField(
         name="tabaco_especificacao",
         searchable=True,
@@ -1006,7 +1011,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name="tabaco_unidade_dia",       
+        name="tabaco_unidade_dia",
         searchable=True,
         schemata='Comobidades',
         widget=atapi.StringWidget(
@@ -1016,7 +1021,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='alcool',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1027,13 +1032,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='alcool_data_fim',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='alcool_especificacao',
                                action='show',
                                hide_values=('sim',)),
                           dict(name='alcool_unidade_dia',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -1051,9 +1056,9 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         schemata='Comobidades',
         widget=atapi.CalendarWidget(
             label=_(u"Término"),
-            show_hm=False,  
+            show_hm=False,
         ),
-    ),    
+    ),
     atapi.TextField(
         name="alcool_especificacao",
         searchable=True,
@@ -1075,7 +1080,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='has',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1086,7 +1091,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='has_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1110,7 +1115,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='diabete',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1121,7 +1126,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='diabete_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1145,7 +1150,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='dislipidemia',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1156,7 +1161,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='dislipidemia_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1180,7 +1185,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='hipotireoidismo',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1191,7 +1196,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='hipotireoidismo_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1215,7 +1220,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='dac',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1226,7 +1231,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='dac_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1250,7 +1255,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='ivp_varizes',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1261,7 +1266,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='ivp_varizes_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1285,7 +1290,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='asma',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1296,7 +1301,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='asma_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1320,7 +1325,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='dpoc',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1331,7 +1336,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='dpoc_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1355,7 +1360,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='insuficiencia_cardiaca',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1366,7 +1371,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='insuficiencia_cardiaca_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1390,7 +1395,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='hipertensao_pulmonar',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1401,7 +1406,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='hipertensao_pulmonar_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1425,7 +1430,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='op_baixa_dmo',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1436,7 +1441,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='op_baixa_dmo_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1460,7 +1465,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='fm',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1471,7 +1476,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='fm_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1495,7 +1500,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='depressao',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1506,7 +1511,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='depressao_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1530,7 +1535,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='sogren',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1541,7 +1546,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='sogren_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1565,7 +1570,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='saf',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1576,7 +1581,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='saf_detalhes',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -1600,7 +1605,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='trombose',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1611,10 +1616,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='trombose_detalhes',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='trombose_gestacional',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -1638,7 +1643,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='trombose_gestacional',
         searchable=True,
-        schemata='Comobidades',        
+        schemata='Comobidades',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1662,7 +1667,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='influenza',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1673,10 +1678,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='influenza_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='influenza_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -1709,7 +1714,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='meningo',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1720,10 +1725,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='meningo_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='meningo_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -1756,7 +1761,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='fa',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1767,10 +1772,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='fa_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='fa_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -1803,7 +1808,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='pneumo',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1814,10 +1819,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='pneumo_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='pneumo_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -1850,7 +1855,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='dtpa_dt',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1861,10 +1866,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='dtpa_dt_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='dtpa_dt_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -1897,7 +1902,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='hbv',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1908,10 +1913,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='hbv_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='hbv_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -1944,7 +1949,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='hav',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -1955,10 +1960,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='hav_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='hav_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -1991,7 +1996,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='hpv',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2002,10 +2007,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='hpv_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='hpv_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -2038,7 +2043,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='hib',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2055,7 +2060,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='hib_anti_hbs',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -2097,7 +2102,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='scr',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2108,10 +2113,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='scr_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='scr_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -2144,7 +2149,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='polio_vip',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2155,10 +2160,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='polio_vip_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='polio_vip_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -2191,7 +2196,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='varicela',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2202,10 +2207,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='varicela_obs',
                                action='show',
-                               hide_values=('sim',)),                          
+                               hide_values=('sim',)),
                           dict(name='varicela_dose',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
     ),
     atapi.DateTimeField(
@@ -2238,7 +2243,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='efeitos_adversos_medicamentosos',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2246,9 +2251,9 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"Efeitos adversos medicamentosos"),
             slave_fields=(dict(name='efeitos_adversos_medicamentosos_obs',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
-    ),    
+    ),
     atapi.TextField(
         name="efeitos_adversos_medicamentosos_obs",
         searchable=True,
@@ -2261,7 +2266,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='uso_ciclofosfamida',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2269,9 +2274,9 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"Uso de ciclofosfamidas"),
             slave_fields=(dict(name='uso_ciclofosfamida_obs',
                                action='show',
-                               hide_values=('sim',)),)           
+                               hide_values=('sim',)),)
         ),
-    ),    
+    ),
     atapi.TextField(
         name="uso_ciclofosfamida_obs",
         searchable=True,
@@ -2285,7 +2290,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='corticosteroides',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2303,7 +2308,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='corticosteroides_efeitos',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2340,14 +2345,14 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
 
-###FALTA RESTANTES DOS CAMPOS DO DOCUMENTO ANEXO
+###FALTA RESTANTE DOS CAMPOS DO DOCUMENTO ANEXO
 
 
 
     atapi.StringField(
         name='outros_medicamentos_atuais',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2358,7 +2363,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='outros_medicamentos_atuais_obs',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2382,7 +2387,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='anticoncepcional',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2393,7 +2398,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='anticoncepcional_obs',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2417,7 +2422,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='ligadura',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2428,7 +2433,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='ligadura_obs',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2452,7 +2457,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='histerectomia',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2463,7 +2468,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='histerectomia_obs',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2487,7 +2492,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='menopausa',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2498,7 +2503,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='menopausa_obs',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2519,7 +2524,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"Queixas/ problemas atuais")
         ),
     ),
-#escalas analógicas    
+#escalas analógicas
     atapi.IntegerField(
         name="fadiga",
         searchable=True,
@@ -2549,7 +2554,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_catarata',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -2560,13 +2565,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            documentada por oftalmoscopia."),
             slave_fields=(dict(name='catarata_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="catarata_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2575,7 +2580,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_alteracao_retinal',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -2584,13 +2589,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Alteração retinal documentada por oftalmoscopia"),
             slave_fields=(dict(name='alteracao_retinal_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="alteracao_retinal_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2599,7 +2604,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_atrofia_optica',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -2609,13 +2614,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            por exame oftalmoscópico"),
             slave_fields=(dict(name='atrofia_optica_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="atrofia_optica_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2625,7 +2630,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_disfuncao_cognitiva',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -2638,13 +2643,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            por exame clínico ou teste neurocognitivo"),
             slave_fields=(dict(name='disfuncao_cognitiva_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="disfuncao_cognitiva_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2653,7 +2658,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_psicose',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -2668,13 +2673,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            desorganizado ou catatônico."),
             slave_fields=(dict(name='psicose_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="psicose_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2683,7 +2688,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_convulsoes',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -2694,13 +2699,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            anticonvulsivante por mais de seis meses"),
             slave_fields=(dict(name='convulsoes_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="convulsoes_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2709,7 +2714,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_avc',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -2723,7 +2728,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('1',)),
                           dict(name='slicc_acr_avc_mult_ocorrencia',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.StringField(
@@ -2736,11 +2741,11 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             format="select"
         ),
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
-    ),  
+    ),
     atapi.TextField(
         name="avc_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2749,7 +2754,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_neuropatia_craniana',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2760,13 +2765,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            distúrbio motor ou sensitive"),
             slave_fields=(dict(name='neuropatia_craniana_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="neuropatia_craniana_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2775,7 +2780,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_mielite_transversa',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2786,13 +2791,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            e esfincteriano retal e urinário)"),
             slave_fields=(dict(name='mielite_transversa_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="mielite_transversa_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2802,7 +2807,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_tx_filtr_glomerular',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2810,13 +2815,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"10. Tx de filtr. Glomerular<50%"),
             slave_fields=(dict(name='tx_filtr_glomerular_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="tx_filtr_glomerular_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2825,7 +2830,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_proteinuria',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2833,13 +2838,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"11. Proteinúria ≥ 3,5 g/24 h"),
             slave_fields=(dict(name='proteinuria_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="proteinuria_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2848,7 +2853,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_insuficiencia_renal_terminal',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2857,13 +2862,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Insuficiência renal terminal"),
             slave_fields=(dict(name='insuficiencia_renal_terminal_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="insuficiencia_renal_terminal_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2873,7 +2878,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_hipertensao_pulmonar',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2882,13 +2887,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Hipertensão pulmonar (proeminência de ventrículo direito ou ausculta em foco pulmonar)."),
             slave_fields=(dict(name='hipertensao_pulmonar_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="hipertensao_pulmonar_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2897,7 +2902,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_fibrose_pulmonar',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2906,13 +2911,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Fibrose pulmonar (exame físico e radiografia)."),
             slave_fields=(dict(name='fibrose_pulmonar_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="fibrose_pulmonar_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2921,7 +2926,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         atapi.StringField(
         name='slicc_acr_shrinking_lung_syndrome',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2930,13 +2935,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Shrinking lung syndrome (radiografia)."),
             slave_fields=(dict(name='shrinking_lung_syndrome_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="shrinking_lung_syndrome_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2945,7 +2950,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_fibrose_pleural',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2954,13 +2959,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Fibrose pleural (radiografia)."),
             slave_fields=(dict(name='fibrose_pleural_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="fibrose_pleural_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2969,7 +2974,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_infarto_pulmonar',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2979,13 +2984,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           ressecção por outra causa que não malignidade."),
             slave_fields=(dict(name='infarto_pulmonar_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="infarto_pulmonar_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -2995,7 +3000,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_angina_pectoris_angioplastia',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3003,13 +3008,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"18. Angina pectoris/angioplastia"),
             slave_fields=(dict(name='angina_pectoris_angioplastia_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="angina_pectoris_angioplastia_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3018,7 +3023,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_infarto_agudo_miocardio',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -3031,7 +3036,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('1',)),
                           dict(name='slicc_acr_infarto_agudo_miocardio_mult_ocorrencia',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.StringField(
@@ -3044,11 +3049,11 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             format="select"
         ),
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
-    ),  
+    ),
     atapi.TextField(
         name="infarto_agudo_miocardio_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3057,23 +3062,23 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_miocardiopatia',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"20. Miocardiopatia"),
             description=_(u"Mioocardiopatia\
-                          (disfunção ventricular documentada clinicamente)."),            
+                          (disfunção ventricular documentada clinicamente)."),
             slave_fields=(dict(name='miocardiopatia_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="miocardiopatia_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3082,23 +3087,23 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_doenca_valvular',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"21. Doença valvular"),
             description=_("Doença valvular (murmúrio diastólico\
-                          ou sistólico > 3/6)."),            
+                          ou sistólico > 3/6)."),
             slave_fields=(dict(name='doenca_valvular_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="doenca_valvular_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3107,7 +3112,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_doenca_valvular',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3116,23 +3121,23 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_("Pericardite por seis meses ou pericardiectomia."),
             slave_fields=(dict(name='doenca_valvular_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="doenca_valvular_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
         ),
     ),
-#vascular periferica    
+#vascular periferica
     atapi.StringField(
         name='slicc_acr_claudicacao_persistente',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3141,13 +3146,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Perda tecidual menor (perda de polpa tecidual)."),
             slave_fields=(dict(name='claudicacao_persistente_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
-    ),   
+    ),
     atapi.TextField(
         name="claudicacao_persistente_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3156,7 +3161,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_claudicacao_persistente',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3165,13 +3170,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Perda tecidual menor (perda de polpa tecidual)."),
             slave_fields=(dict(name='claudicacao_persistente_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="claudicacao_persistente_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3180,7 +3185,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_perda_tecidual_menor',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3189,13 +3194,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Perda tecidual menor (perda de polpa tecidual)."),
             slave_fields=(dict(name='perda_tecidual_menor_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="perda_tecidual_menor_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3204,7 +3209,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_perda_tecidual_significante',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -3216,7 +3221,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('1',)),
                           dict(name='slicc_acr_perda_tecidual_significante_mult_ocorrencia',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.StringField(
@@ -3229,11 +3234,11 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             format="select"
         ),
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
-    ),  
+    ),
     atapi.TextField(
         name="perda_tecidual_significante_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3242,7 +3247,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_trombose_venosa_edema',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3252,13 +3257,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           ou evidencia clínica de estase venosa."),
             slave_fields=(dict(name='trombose_venosa_edema_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="trombose_venosa_edema_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3267,7 +3272,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_infarto_resseccao_intest',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -3280,10 +3285,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('1',)),
                           dict(name='slicc_acr_infarto_resseccao_intest_mult_ocorrencia',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
-#gastrointestinal    
+#gastrointestinal
     atapi.StringField(
         name="slicc_acr_infarto_resseccao_intest_mult_ocorrencia",
         searchable=True,
@@ -3294,11 +3299,11 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             format="select"
         ),
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
-    ),  
+    ),
     atapi.TextField(
         name="infarto_resseccao_intest_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3307,7 +3312,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_insuficiencia_mesenterica',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3316,13 +3321,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Insuficiência mesentérica com dor abdominal difusa ao exame clínico."),
             slave_fields=(dict(name='insuficiencia_mesenterica_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="insuficiencia_mesenterica_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3331,7 +3336,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_peritonite_cronica_dor',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3341,13 +3346,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           persistente e irritação peritoneal."),
             slave_fields=(dict(name='peritonite_cronica_dor_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="peritonite_cronica_dor_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3356,7 +3361,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_constricao_esofagica_observ',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3370,13 +3375,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           reposição enzimática ou por pseudocisto."),
             slave_fields=(dict(name='constricao_esofagica_observ_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="constricao_esofagica_observ_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3386,7 +3391,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_atrofia_musc_fraqueza',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3396,13 +3401,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           demonstradas pelo exame físico."),
             slave_fields=(dict(name='atrofia_musc_fraqueza_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="atrofia_musc_fraqueza_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3411,7 +3416,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_artrite_deformante',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3422,13 +3427,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           excluindo-se osteonecrose) no exame fisico."),
             slave_fields=(dict(name='artrite_deformante_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="artrite_deformante_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3437,7 +3442,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_osteoporose_fratura',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3448,13 +3453,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           demonstrada radiograficamente."),
             slave_fields=(dict(name='osteoporose_fratura_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="osteoporose_fratura_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3463,7 +3468,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_osteonecrose_demonstrada',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -3476,7 +3481,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('1',)),
                           dict(name='slicc_acr_osteonecrose_demonstrada_mult_ocorrencia',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.StringField(
@@ -3489,11 +3494,11 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             format="select"
         ),
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
-    ),  
+    ),
     atapi.TextField(
         name="osteonecrose_demonstrada_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3502,7 +3507,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_osteomielite_documentada',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3512,13 +3517,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           e confirmada por cultura ou ruptura tendiníea."),
             slave_fields=(dict(name='osteomielite_documentada_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="osteomielite_documentada_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3528,7 +3533,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_alopecia_cicatricial_cronica',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3537,13 +3542,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Alopécia cicatricial crônica documentada clinicamente."),
             slave_fields=(dict(name='alopecia_cicatricial_cronica_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="alopecia_cicatricial_cronica_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3552,7 +3557,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_cicatriz_extensa_paniculite',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3563,13 +3568,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           documentada clinicamente."),
             slave_fields=(dict(name='cicatriz_extensa_paniculite_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="cicatriz_extensa_paniculite_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3578,7 +3583,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_ulceracao_cutanea',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3587,13 +3592,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Ulceração cutanea (excluindo-se trombose) por mais de seis meses."),
             slave_fields=(dict(name='ulceracao_cutanea_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="ulceracao_cutanea_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3603,7 +3608,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_amnorreia',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3612,13 +3617,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Amenorreia secundária antes dos 40 anos de idade."),
             slave_fields=(dict(name='amnorreia_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="amnorreia_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3628,7 +3633,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_diabetes_requerendo_tratam',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -3637,13 +3642,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Requerendo tratamento e independente deste."),
             slave_fields=(dict(name='diabetes_requerendo_tratam_obs',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
         name="diabetes_requerendo_tratam_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3653,7 +3658,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='slicc_acr_malignidade_documentada',
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
         default='0',
         widget=MasterSelectWidget(
@@ -3665,7 +3670,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('1',)),
                           dict(name='slicc_acr_malignidade_documentada_mult_ocorrencia',
                                action='show',
-                               hide_values=('1',)),)                      
+                               hide_values=('1',)),)
         ),
     ),
     atapi.StringField(
@@ -3678,11 +3683,11 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             format="select"
         ),
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
-    ),  
+    ),
     atapi.TextField(
         name="malignidade_documentada_obs",
         searchable=True,
-        schemata='Avaliação de índices',        
+        schemata='Avaliação de índices',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
@@ -3695,7 +3700,7 @@ schema['description'].widget.visible['edit'] = 'invisible'
 schemata.finalizeATCTSchema(schema)
 
 
-class Atendimento(ATCTContent):
+class Atendimento(ATCTContent, HistoryAwareMixin):
     """
     """
     security = ClassSecurityInfo()
@@ -3716,12 +3721,6 @@ class Atendimento(ATCTContent):
         new_id = normalizer.normalize(titulo)
         self.setTitle(titulo)
         self.setId(new_id)
-
-    def getPacienteExame(self):
-        """Retorna qual o paciente está vinculado ao exame
-        """
-        paciente = self.aq_parent
-        return paciente.UID()
 
     schema = schema
 
