@@ -10,3 +10,8 @@ ADD_PERMISSIONS = {
     'ExameSangue': 'lx.LES: Add ExameSangue',
     'Paciente': 'lx.LES: Add Paciente',
 }
+
+PRODUCTS = [
+            ('Products.MasterSelectWidget', 0, 0, 1, 'Products.MasterSelectWidget:default', 1),
+            ('aoki.kwidgets', 0, 0, 1, 'aoki.kwidgets:default', 1),
+         ]

@@ -36,6 +36,8 @@ setup(name='lx.LES',
       include_package_data=True,
       zip_safe=False,
       install_requires=['setuptools',
+						'Products.MasterSelectWidget',
+						'aoki.kwidgets',
                         # -*- Extra requirements: -*-
                         ],
       tests_require=tests_require,
