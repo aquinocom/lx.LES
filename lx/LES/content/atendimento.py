@@ -2290,7 +2290,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='corticosteroides',
         searchable=True,
-        schemata='Vacinações',
+        schemata='Vacinações',        
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2308,7 +2308,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='corticosteroides_efeitos',
                                action='show',
-                               hide_values=('sim',)))
+                               hide_values=('sim',)))           
         ),
     ),
     atapi.DateTimeField(
@@ -2345,9 +2345,463 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
 
-###FALTA RESTANTE DOS CAMPOS DO DOCUMENTO ANEXO
-
-
+    atapi.StringField(
+        name='pulsoterapia_ciclofosfamida',
+        searchable=True,
+        schemata='Vacinações',        
+        vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"Pulsoterapia com cilofosfamida"),
+            description=_(u""),
+            slave_fields=(dict(name='pulsoterapia_ciclofosfamida_num_pulsos_inducao',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='pulsoterapia_ciclofosfamida_num_pulsos_manutencao',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='pulsoterapia_ciclofosfamida_dose_atual',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='pulsoterapia_ciclofosfamida_dose_total',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='pulsoterapia_ciclofosfamida_tempo',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='pulsoterapia_ciclofosfamida_indicacao',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='pulsoterapia_ciclofosfamida_efeitos',
+                               action='show',
+                               hide_values=('sim',)))           
+        ),
+    ),
+    atapi.DateTimeField(
+        name="pulsoterapia_ciclofosfamida_num_pulsos_inducao",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"nº pulsos"),
+            description=_(u"dose/indução"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="pulsoterapia_ciclofosfamida_num_pulsos_manutencao",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"nº pulsos"),
+            description=_(u"dose/manutenção"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="pulsoterapia_ciclofosfamida_dose_atual",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose atual"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="pulsoterapia_ciclofosfamida_dose_total",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose total"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="pulsoterapia_ciclofosfamida_tempo",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Tempo de uso"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="pulsoterapia_ciclofosfamida_indicacao",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Indicação"),
+        ),
+    ),
+    atapi.TextField(
+        name="pulsoterapia_ciclofosfamida_efeitos",
+        searchable=True,
+        schemata='Vacinações',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Efeitos colaterais")
+        ),
+    ),
+    atapi.StringField(
+        name='metotretaxe',
+        searchable=True,
+        schemata='Vacinações',        
+        vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"Metotretaxe"),
+            description=_(u""),
+            slave_fields=(dict(name='metotretaxe_dose_atual',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='metotretaxe_dose_semanal',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='metotretaxe_dose_total',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='metotretaxe_via',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='metotretaxe_tempo',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='metotretaxe_efeitos',
+                               action='show',
+                               hide_values=('sim',)))           
+        ),
+    ),
+    atapi.DateTimeField(
+        name="metotretaxe_dose_atual",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose atual"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="metotretaxe_dose_semanal",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose semanal"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="metotretaxe_dose_total",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose total"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="metotretaxe_via",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Via de administração"),
+            description=_(u"(VO, IM, SC)"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="metotretaxe_tempo",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Tempo de uso"),
+        ),
+    ),
+    atapi.TextField(
+        name="metotretaxe_efeitos",
+        searchable=True,
+        schemata='Vacinações',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Efeitos colaterais")
+        ),
+    ),
+    atapi.StringField(
+        name='azatioprina',
+        searchable=True,
+        schemata='Vacinações',        
+        vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"Azatioprina"),
+            description=_(u""),
+            slave_fields=(dict(name='azatioprina_dose_atual',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='azatioprina_dose_total',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='azatioprina_tempo',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='azatioprina_efeitos',
+                               action='show',
+                               hide_values=('sim',)))           
+        ),
+    ),
+    atapi.DateTimeField(
+        name="azatioprina_dose_atual",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose atual"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="azatioprina_dose_total",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose total"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="azatioprina_tempo",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Tempo de uso"),
+        ),
+    ),
+    atapi.TextField(
+        name="azatioprina_efeitos",
+        searchable=True,
+        schemata='Vacinações',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Efeitos colaterais")
+        ),
+    ),
+    atapi.StringField(
+        name='ciclosporina',
+        searchable=True,
+        schemata='Vacinações',        
+        vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"Ciclosporina"),
+            description=_(u""),
+            slave_fields=(dict(name='ciclosporina_dose_atual',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='ciclosporina_dose_total',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='ciclosporina_tempo',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='ciclosporina_efeitos',
+                               action='show',
+                               hide_values=('sim',)))           
+        ),
+    ),
+    atapi.DateTimeField(
+        name="ciclosporina_dose_atual",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose atual"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="ciclosporina_dose_total",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose total"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="ciclosporina_tempo",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Tempo de uso"),
+        ),
+    ),
+    atapi.TextField(
+        name="ciclosporina_efeitos",
+        searchable=True,
+        schemata='Vacinações',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Efeitos colaterais")
+        ),
+    ),
+    atapi.StringField(
+        name='micofenolato_mofetil',
+        searchable=True,
+        schemata='Vacinações',        
+        vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"Micofenolato mofetil"),
+            description=_(u""),
+            slave_fields=(dict(name='micofenolato_mofetil_dose_atual',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='micofenolato_mofetil_dose_total',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='micofenolato_mofetil_tempo',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='micofenolato_mofetil_efeitos',
+                               action='show',
+                               hide_values=('sim',)))           
+        ),
+    ),
+    atapi.DateTimeField(
+        name="micofenolato_mofetil_dose_atual",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose atual"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="micofenolato_mofetil_dose_total",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose total"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="micofenolato_mofetil_tempo",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Tempo de uso"),
+        ),
+    ),
+    atapi.TextField(
+        name="micofenolato_mofetil_efeitos",
+        searchable=True,
+        schemata='Vacinações',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Efeitos colaterais")
+        ),
+    ),
+    atapi.StringField(
+        name='cloroquina_hidroxicloroquina',
+        searchable=True,
+        schemata='Vacinações',        
+        vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"Cloroquina/hidroxicloroquina"),
+            description=_(u""),
+            slave_fields=(dict(name='cloroquina_hidroxicloroquina_dose_atual',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='cloroquina_hidroxicloroquina_dose_total',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='cloroquina_hidroxicloroquina_tempo',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='cloroquina_hidroxicloroquina_efeitos',
+                               action='show',
+                               hide_values=('sim',)))           
+        ),
+    ),
+    atapi.DateTimeField(
+        name="cloroquina_hidroxicloroquina_dose_atual",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose atual"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="cloroquina_hidroxicloroquina_dose_total",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose total"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="cloroquina_hidroxicloroquina_tempo",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Tempo de uso"),
+        ),
+    ),
+    atapi.TextField(
+        name="cloroquina_hidroxicloroquina_efeitos",
+        searchable=True,
+        schemata='Vacinações',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Efeitos colaterais")
+        ),
+    ),
+    atapi.StringField(
+        name='outras_drogas',
+        searchable=True,
+        schemata='Vacinações',        
+        vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"Outras drogas"),
+            description=_(u""),
+            slave_fields=(dict(name='outras_drogas_dose_atual',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='outras_drogas_dose_total',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='outras_drogas_tempo',
+                               action='show',
+                               hide_values=('sim',)),
+                          dict(name='outras_drogas_efeitos',
+                               action='show',
+                               hide_values=('sim',)))           
+        ),
+    ),
+    atapi.DateTimeField(
+        name="outras_drogas_dose_atual",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose atual"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="outras_drogas_dose_total",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Dose total"),
+        ),
+    ),
+    atapi.DateTimeField(
+        name="outras_drogas_tempo",
+        searchable=True,
+        schemata='Vacinações',
+        widget=atapi.StringWidget(
+            label=_(u"Tempo de uso"),
+        ),
+    ),
+    atapi.TextField(
+        name="outras_drogas_efeitos",
+        searchable=True,
+        schemata='Vacinações',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Efeitos colaterais")
+        ),
+    ),
 
     atapi.StringField(
         name='outros_medicamentos_atuais',
@@ -2550,6 +3004,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         )
     ),
 #Avaliação de índices compostos
+#SLICC / ACR, 2010
 #dominio ocular
     atapi.StringField(
         name='slicc_acr_catarata',
@@ -3693,6 +4148,615 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"Observações")
         ),
     ),
+#SLEDAI - 2K
+    atapi.StringField(
+        name='sledai_convulsao',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('8', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"1. Convulsão"),
+            description=_(u"Início recente, excluídas causas metabólicas \
+                          infecciosas e secundárias ao uso de drogas"),
+            slave_fields=(dict(name='convulsao_obs',
+                               action='show',
+                               hide_values=('8',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="convulsao_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_psicose',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('8', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"2. Psicose"),
+            description=_(u"Distúrbio severo da percepcção da realidade, \
+                          excluídas causas metabólicas e drogas. lnclui \
+                          alucinações, incoerência, perda marcada das \
+                          associações de ideias, pensamento pobre, ilógico; \
+                          comportamento bizarro, desorganizado ou catatônico."),
+            slave_fields=(dict(name='psicose_obs',
+                               action='show',
+                               hide_values=('8',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="psicose_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_delirium',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('8', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"3. Delírium"),
+            description=_(u"Alteração abrupta e flutuante das funções mentais,\
+                          atingindo a orientação, a atenção, a memória e\
+                          outras funções intelectuais. lnclui a redução da\
+                          vigília, com diminuição da atenção, acompanhada de\
+                          pelo menos dois sintomas descritos a seguir:\
+                          perturbação da percepção, discurso incoerente, \
+                          insônia ou hipersonia diurna, aumento ou redução \
+                          da atividade psicomotora. Exclui causas metabólicas,\
+                          infecciosas ou secundárias ao uso de drogas."),
+            slave_fields=(dict(name='delirium_obs',
+                               action='show',
+                               hide_values=('8',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="delirium_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_disturbios_visuais',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('8', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"4. Distúrbios visuais"),
+            description=_(u"Alteração da retina caracterizada por corpos\
+                          cistoides, hemorragias retinianas, exsudatos \
+                          serosos ou hemorragias do plexo coroide ou\
+                          neurite séptica. Excluir HTA, infecções e drogas."),
+            slave_fields=(dict(name='disturbios_visuais_obs',
+                               action='show',
+                               hide_values=('8',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="disturbios_visuais_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_comp_pares',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('8', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"5. Comp. dos pares"),
+            description=_(u"Neuropatia sensorial ou motora, \
+                          de inicio ou reinício recente."),
+            slave_fields=(dict(name='comp_pares_obs',
+                               action='show',
+                               hide_values=('8',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="comp_pares_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_cefaleia_lupica',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('8', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"6. Cefaleia lúpica"),
+            description=_(u"Severa e persistente, do tipo enxaqueca que\
+                          não responde a analgésicos convencionais."),
+            slave_fields=(dict(name='cefaleia_lupica_obs',
+                               action='show',
+                               hide_values=('8',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="cefaleia_lupica_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_acidente_vasc',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('8', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"7. Acidente vasc. Enc"),
+            description=_(u"NPresença de AVE. Excluir causa aterosclerótica"),
+            slave_fields=(dict(name='acidente_vasc_obs',
+                               action='show',
+                               hide_values=('8',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="acidente_vasc_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_vasculite',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('8', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"8. Vasculite"),
+            description=_(u"Ulcerações, gangrenas, infartos periungueais,\
+                          nódulos digitais dolorosos, áreas hemorrágicas\
+                          subungueais, biópsia ou angiografia de qualquer\
+                          área do corpo apresentando vasculite"),
+            slave_fields=(dict(name='vasculite_obs',
+                               action='show',
+                               hide_values=('8',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="vasculite_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+        atapi.StringField(
+        name='sledai_artrites',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('4', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"9. Artrites"),
+            description=_(u"Ulcerações, gangrenas, infartos periungueais,\
+                          nódulos digitais dolorosos, áreas hemorrágicas\
+                          subungueais, biópsia ou angiografia de qualquer\
+                          área do corpo apresentando artrites"),
+            slave_fields=(dict(name='artrites_obs',
+                               action='show',
+                               hide_values=('4',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="artrites_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_miosites',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('4', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"10. Miosites"),
+            description=_(u"Dor ou fraqueza muscular proximal \
+                          acompanhada de aumento de CPK / aldolase, \
+                          eletromiografia alterada, biópsia\
+                          compatível com miosite."),
+            slave_fields=(dict(name='miosites_obs',
+                               action='show',
+                               hide_values=('4',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="miosites_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+        atapi.StringField(
+        name='sledai_cilindros_urinar',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('4', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"11. Cilindros urinár"),
+            description=_(u"Hematicos, granuloses ou eritrocitarios"),
+            slave_fields=(dict(name='cilindros_urinar_obs',
+                               action='show',
+                               hide_values=('4',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="cilindros_urinar_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+        atapi.StringField(
+        name='sledai_hematuria',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('4', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"12. Hematúria"),
+            description=_(u"Mais de 5 eritrócitos/campo. Excluir outras \
+                          causas tais como llitíase renal, infecções."),
+            slave_fields=(dict(name='hematuria_obs',
+                               action='show',
+                               hide_values=('4',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="hematuria_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+        atapi.StringField(
+        name='sledai_proteinuria',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('4', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"13. Proteinúria"),
+            description=_(u"Concentracção > a 0,5 g/24 horas"),
+            slave_fields=(dict(name='proteinuria_obs',
+                               action='show',
+                               hide_values=('4',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="proteinuria_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_piuria',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('4', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"14. Piúria"),
+            description=_(u"Mais de 5 leucócitos/campo na \
+                          ausência de infeccção"),
+            slave_fields=(dict(name='piuria_obs',
+                               action='show',
+                               hide_values=('4',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="piuria_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_rash_cutaneo',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('2', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"15. Rash cutâneo"),
+            description=_(u"Mais de 5 leucócitos/campo na ausência de infeccção"),
+            slave_fields=(dict(name='rash_cutaneo_obs',
+                               action='show',
+                               hide_values=('2',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="rash_cutaneo_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+        atapi.StringField(
+        name='sledai_alopecia',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('2', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"16. Alopécia"),
+            description=_(u"início recente ou recorrente, excessiva, \
+                          difusa ou localizada"),
+            slave_fields=(dict(name='alopecia_obs',
+                               action='show',
+                               hide_values=('2',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="alopecia_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_ulcera_mucosa',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('2', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"17. Úlcera de mucosa"),
+            description=_(u"lnicio recente ou recorrente, nasais ou orais"),
+            slave_fields=(dict(name='ulcera_mucosa_obs',
+                               action='show',
+                               hide_values=('2',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="ulcera_mucosa_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_pleurisia',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('2', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"18. Pleurisia"),
+            description=_(u"Dor pleurítica com atrito, derrame ou espessamento pleural"),
+            slave_fields=(dict(name='pleurisia_obs',
+                               action='show',
+                               hide_values=('2',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="pleurisia_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_pericardite',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('2', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"19. Pericardite"),
+            description=_(u"Dor no peito, com atrito ou derrame pericardico,\
+                          confirmado por EGG ou Ecocardiograma"),
+            slave_fields=(dict(name='pericardite_obs',
+                               action='show',
+                               hide_values=('2',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="pericardite_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_complemento_bai',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('2', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"20. Complemento bai"),
+            description=_(u"CH50; C3 ou C4 abaixo dos valores de referência"),
+            slave_fields=(dict(name='complemento_bai_obs',
+                               action='show',
+                               hide_values=('2',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="complemento_bai_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_anti_dnads',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('2', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"21. Anti-DNAds"),
+            description=_(u"Acima dos valores de referência do laboratório"),
+            slave_fields=(dict(name='anti_dnads_obs',
+                               action='show',
+                               hide_values=('2',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="anti_dnads_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_febre',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('1', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"22. Febre"),
+            description=_(u"Temperatura axilar >38°, na ausência de processo infeccioso"),
+            slave_fields=(dict(name='febre_obs',
+                               action='show',
+                               hide_values=('1',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="febre_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_trombocitopenia',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('1', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"23. Trombocitopenia"),
+            description=_(u"Concentração de plaquetas inferior a 100 000/mm3\
+                          (excluídas causas farmacológicas)"),
+            slave_fields=(dict(name='trombocitopenia_obs',
+                               action='show',
+                               hide_values=('1',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="trombocitopenia_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),
+    atapi.StringField(
+        name='sledai_leucopenia',
+        searchable=True,
+        schemata='Avaliação de índices',
+        vocabulary=[('0', 'Não'), ('1', 'Sim')],
+        default='nao',
+        widget=MasterSelectWidget(
+            #format='radio',
+            label=_(u"24. Leucopenia"),
+            description=_(u"Concentração de leucócitos inferior a 3 00/mm3, excluiías causas farmacológicas"),
+            slave_fields=(dict(name='leucopenia_obs',
+                               action='show',
+                               hide_values=('1',)),)
+        ),
+    ),
+    atapi.TextField(
+        name="leucopenia_obs",
+        searchable=True,
+        schemata='Avaliação de índices',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Observações")
+        ),
+    ),    
 ),)
 
 schema['title'].widget.visible['edit'] = 'invisible'
