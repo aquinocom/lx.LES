@@ -95,3 +95,19 @@
 .column .odd{
     background: #EEEEEE;
 }
+
+.template-atendimento #abas{
+    float: left;
+    width: 100%;
+}
+.template-atendimento #content .ui-state-default a{
+    color: #55555E !important;
+    font-size: 12px;
+}
+.template-atendimento .ui-tabs-nav{
+    margin-left: 0 !important;
+}
+
+.template-atendimento .column{
+    font-size: 11px;
+}

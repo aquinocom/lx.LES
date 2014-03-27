@@ -74,6 +74,16 @@
 
     <!--Pages Exames Sangue-->
     <browser:page
+        name="atendimento"
+        for="*"
+        class=".atendimento.AtendimentoView"
+        template="templates/atendimento.pt"
+        permission="zope2.View"
+    />
+    
+    
+    <!--Pages Exames Sangue-->
+    <browser:page
         name="examesangue"
         for="*"
         class=".examesangue.ExameSangueView"

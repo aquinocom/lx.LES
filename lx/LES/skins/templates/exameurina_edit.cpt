@@ -167,7 +167,7 @@
                                                 <tr tal:define="oddrow repeat/exame/odd;"
                                                     tal:attributes="class python: oddrow and 'even' or 'odd'">
                                                     <td tal:define="url string: ${exame/getURL}/exameurinapaciente;
-                                                                    click string: window.open('${url}',  'Exame de Sangue', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=500');;">
+                                                                    click string: window.open('${url}',  '${exame/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=500');;">
                                                         <a tal:attributes="onclick click" tal:content="exame/Title" class="link_exames"></a>
 
                                                     </td>
