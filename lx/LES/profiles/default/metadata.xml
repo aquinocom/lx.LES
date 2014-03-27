@@ -4,5 +4,6 @@
   <dependencies>
     <dependency>profile-Products.MasterSelectWidget:default</dependency>
     <dependency>profile-aoki.kwidgets:default</dependency>
+    <dependency>profile-collective.js.jqueryui:default</dependency>
   </dependencies>
 </metadata>

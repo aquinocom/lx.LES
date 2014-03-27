@@ -219,7 +219,6 @@ class Paciente(ATFolder, HistoryAwareMixin):
         normalizer = getUtility(IIDNormalizer)
         titulo = self.identificador_paciente + '-' + self.title
         new_id = normalizer.normalize(titulo)
-        self.setTitle(titulo)
         self.setId(new_id)
 
     schema = schema
