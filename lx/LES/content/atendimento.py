@@ -22,6 +22,7 @@ from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
 from Products.MasterSelectWidget.MasterSelectWidget import MasterSelectWidget
 
 # Product imports
+from aoki.kwidgets.widgets import SliderWidget
 from lx.LES.interfaces.contents import IAtendimento
 from lx.LES import LESMessageFactory as _
 from lx.LES import config
@@ -2290,7 +2291,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='corticosteroides',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2308,7 +2309,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='corticosteroides_efeitos',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2348,7 +2349,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='pulsoterapia_ciclofosfamida',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2375,7 +2376,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='pulsoterapia_ciclofosfamida_efeitos',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2440,7 +2441,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='metotretaxe',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2464,7 +2465,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='metotretaxe_efeitos',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2520,7 +2521,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='azatioprina',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2538,7 +2539,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='azatioprina_efeitos',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2577,7 +2578,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='ciclosporina',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2595,7 +2596,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='ciclosporina_efeitos',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2634,7 +2635,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='micofenolato_mofetil',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2652,7 +2653,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='micofenolato_mofetil_efeitos',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2691,7 +2692,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='cloroquina_hidroxicloroquina',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2709,7 +2710,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='cloroquina_hidroxicloroquina_efeitos',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2748,7 +2749,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='outras_drogas',
         searchable=True,
-        schemata='Vacinações',        
+        schemata='Vacinações',
         vocabulary=[('nao', 'Não'), ('sim', 'Sim')],
         default='nao',
         widget=MasterSelectWidget(
@@ -2766,7 +2767,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                                hide_values=('sim',)),
                           dict(name='outras_drogas_efeitos',
                                action='show',
-                               hide_values=('sim',)))           
+                               hide_values=('sim',)))
         ),
     ),
     atapi.DateTimeField(
@@ -2980,28 +2981,43 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #escalas analógicas
     atapi.IntegerField(
-        name="fadiga",
+        name='fadiga',
         searchable=True,
         schemata='Vacinações',
-        widget=atapi.IntegerWidget(
-            label=_(u"Fadiga")
-        )
+        default=0,
+        widget=SliderWidget(
+            label=_(u"Fadiga"),
+            minimo=0,
+            step=0.1,
+            maximo=10,
+            marcadores=("nada", "pouco", "médio", "muito"),
+        ),
     ),
     atapi.IntegerField(
-        name="qualidade_vida",
+        name='qualidade_vida',
         searchable=True,
         schemata='Vacinações',
-        widget=atapi.IntegerWidget(
-            label=_(u"Qualidade de vida")
-        )
+        default=0,
+        widget=SliderWidget(
+            label=_(u"Qualidade de vida"),
+            minimo=0,
+            step=0.1,
+            maximo=10,
+            marcadores=("nada", "pouco", "médio", "muito"),
+        ),
     ),
     atapi.IntegerField(
         name="saude_global",
         searchable=True,
         schemata='Vacinações',
-        widget=atapi.IntegerWidget(
-            label=_(u"Saúde global")
-        )
+        default=0,
+        widget=SliderWidget(
+            label=_(u"Saúde global"),
+            minimo=0,
+            step=0.1,
+            maximo=10,
+            marcadores=("nada", "pouco", "médio", "muito"),
+        ),
     ),
 #Avaliação de índices compostos
 #SLICC / ACR, 2010
@@ -4756,11 +4772,23 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=atapi.TextAreaWidget(
             label=_(u"Observações")
         ),
-    ),    
+    ),
 ),)
 
 schema['title'].widget.visible['edit'] = 'invisible'
 schema['description'].widget.visible['edit'] = 'invisible'
+schema['allowDiscussion'].widget.visible['edit'] = 'invisible'
+schema['excludeFromNav'].widget.visible['edit'] = 'invisible'
+schema['creators'].widget.visible['edit'] = 'invisible'
+schema['contributors'].widget.visible['edit'] = 'invisible'
+schema['rights'].widget.visible['edit'] = 'invisible'
+schema['effectiveDate'].widget.visible['edit'] = 'invisible'
+schema['expirationDate'].widget.visible['edit'] = 'invisible'
+schema['subject'].widget.visible['edit'] = 'invisible'
+schema['relatedItems'].widget.visible['edit'] = 'invisible'
+schema['location'].widget.visible['edit'] = 'invisible'
+schema['language'].widget.visible['edit'] = 'invisible'
+
 schemata.finalizeATCTSchema(schema)
 
 
