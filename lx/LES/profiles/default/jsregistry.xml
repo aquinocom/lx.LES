@@ -1,6 +1,16 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts" meta_type="JavaScripts Registry">
- <javascript id="++resource++custom-search.js" insert-after="livesearch.js" />
- 
- <javascript authenticated="False" bundle="default" cacheable="True" compression="safe" conditionalcomment="" cookable="True" enabled="False" expression="" id="++resource++search.js" inline="False"/>
+     <javascript id="++resource++custom-search.js" insert-after="search.js" />
+     
+     <javascript authenticated="False" bundle="default" cacheable="True" 
+                 compression="safe" conditionalcomment="" cookable="True" 
+                 enabled="False" expression="" id="++resource++search.js" 
+                 inline="False"/>
+     
+      <javascript id="++resource++custom-livesearch.js" insert-after="livesearch.js" />
+      
+     <javascript authenticated="False" bundle="default" cacheable="True"
+        compression="full" conditionalcomment="" cookable="True" enabled="False"
+        expression="" id="livesearch.js" inline="False"/>
+    
 </object>

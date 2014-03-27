@@ -45,6 +45,12 @@
         layer="lx.LES.browser.layers.ILXDefaultLayer"
         />
 
+    <browser:resource
+        name="custom-livesearch.js"
+        file="js/livesearch.js"
+        layer="lx.LES.browser.layers.ILXDefaultLayer"
+        />
+        
     <browser:resourceDirectory
         name="lx.LES.css"
         directory="css"
