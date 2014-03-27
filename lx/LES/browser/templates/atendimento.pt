@@ -1,0 +1,157 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="lx.LES">
+    <head>
+        <metal:headslot metal:fill-slot="head_slot">
+            <link rel="stylesheet" tal:attributes="href string:${context/portal_url}/++resource++lx.LES.css/tabs_css/jquery.ui.all.css">
+            <script tal:attributes="src string:${context/portal_url}/++resource++lx.LES.js/tabs_js/jquery-ui-1.8.16.custom.min.js"></script>
+            <script type="text/javascript">
+                $(function() {
+                    $( "#abas" ).tabs();
+                });	
+            </script>
+        </metal:headslot>
+    </head>
+    <body>
+        <tal:block metal:fill-slot="main">
+            <h1 tal:content="context/Title"></h1>
+            <p>
+                <b>Nome do paciente:</b> <span tal:content="view/getNomePaciente"></span>
+            </p>
+            <div id="abas">
+                <ul>
+                    <li><a href="#informacoes-1">Padrão</a></li>
+                    <li><a href="#informacoes-2">Critérios clínicos</a></li>
+                    <li><a href="#informacoes-3">Critérios imunológicos</a></li>
+                    <li><a href="#informacoes-4">Antecedentes clínicos</a></li>
+                    <li><a href="#informacoes-5">Comobidades</a></li>
+                    <li><a href="#informacoes-6">Vacinações</a></li>
+                    <li><a href="#informacoes-7">Avaliação de índices</a></li>
+                </ul>
+                <div id="informacoes-1">
+                    <tal:block tal:define="fields python:view.getFields('default');">
+                        <div class="column"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:repeat="sublist fieldsLists">
+                            <ul>
+                                <tal:fields repeat="default sublist">
+                                    <li tal:define="oddrow repeat/default/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:default.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                    </li>
+                                </tal:fields>
+                            </ul>
+                        </div>
+                    </tal:block>
+                </div>
+                <div id="informacoes-2">
+                    <tal:block tal:define="fields python:view.getFields('Critérios Clínicos');">
+                        <div class="column"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:repeat="sublist fieldsLists">
+                            <ul>
+                                <tal:fields repeat="default sublist">
+                                    <li tal:define="oddrow repeat/default/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:default.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                    </li>
+                                </tal:fields>
+                            </ul>
+                        </div>
+                    </tal:block>
+                </div>
+                <div id="informacoes-3">
+                    <tal:block tal:define="fields python:view.getFields('Critérios Imunológicos');">
+                        <div class="column"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:repeat="sublist fieldsLists">
+                            <ul>
+                                <tal:fields repeat="default sublist">
+                                    <li tal:define="oddrow repeat/default/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:default.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                    </li>
+                                </tal:fields>
+                            </ul>
+                        </div>
+                    </tal:block>
+                </div>
+                <div id="informacoes-4">
+                    <tal:block tal:define="fields python:view.getFields('Antecedentes clínicos');">
+                        <div class="column"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:repeat="sublist fieldsLists">
+                            <ul>
+                                <tal:fields repeat="default sublist">
+                                    <li tal:define="oddrow repeat/default/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:default.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                    </li>
+                                </tal:fields>
+                            </ul>
+                        </div>
+                    </tal:block>
+                </div>
+                <div id="informacoes-5">
+                    <tal:block tal:define="fields python:view.getFields('Comobidades');">
+                        <div class="column"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:repeat="sublist fieldsLists">
+                            <ul>
+                                <tal:fields repeat="default sublist">
+                                    <li tal:define="oddrow repeat/default/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:default.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                    </li>
+                                </tal:fields>
+                            </ul>
+                        </div>
+                    </tal:block>
+                </div>
+                <div id="informacoes-6">
+                    <tal:block tal:define="fields python:view.getFields('Vacinações');">
+                        <div class="column"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:repeat="sublist fieldsLists">
+                            <ul>
+                                <tal:fields repeat="default sublist">
+                                    <li tal:define="oddrow repeat/default/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:default.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                    </li>
+                                </tal:fields>
+                            </ul>
+                        </div>
+                    </tal:block>
+                </div>
+                <div id="informacoes-7">
+                    <tal:block tal:define="fields python:view.getFields('Avaliação de índices');">
+                        <div class="column"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:repeat="sublist fieldsLists">
+                            <ul>
+                                <tal:fields repeat="default sublist">
+                                    <li tal:define="oddrow repeat/default/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:default.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                    </li>
+                                </tal:fields>
+                            </ul>
+                        </div>
+                    </tal:block>
+                </div>
+            </div>
+        </tal:block>
+    </body>
+</html>
