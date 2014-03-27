@@ -42,7 +42,7 @@ class ExameSangueView(BrowserView):
 
     @memoize
     def getFields(self, schemata):
-        """Retorna todos os campos do schemata 'default'
+        """Retorna todos os campos do schemata
         """
         return getFields(self, schemata)
 
