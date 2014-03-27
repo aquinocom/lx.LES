@@ -2980,7 +2980,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
 #escalas analógicas
-    atapi.IntegerField(
+    atapi.StringField(
         name='fadiga',
         searchable=True,
         schemata='Vacinações',
@@ -2993,7 +2993,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             marcadores=("nada", "pouco", "médio", "muito"),
         ),
     ),
-    atapi.IntegerField(
+    atapi.StringField(
         name='qualidade_vida',
         searchable=True,
         schemata='Vacinações',
@@ -3006,7 +3006,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             marcadores=("nada", "pouco", "médio", "muito"),
         ),
     ),
-    atapi.IntegerField(
+    atapi.StringField(
         name="saude_global",
         searchable=True,
         schemata='Vacinações',
