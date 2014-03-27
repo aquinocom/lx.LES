@@ -72,7 +72,7 @@
         permission="zope2.View"
     />
 
-    <!--Pages Exames Sangue-->
+    <!--Pages Atendimento-->
     <browser:page
         name="atendimento"
         for="*"
@@ -80,7 +80,14 @@
         template="templates/atendimento.pt"
         permission="zope2.View"
     />
-    
+
+    <browser:page
+        name="atendimentopaciente"
+        for="*"
+        class=".atendimento.AtendimentoView"
+        template="templates/atendimentopaciente.pt"
+        permission="zope2.View"
+    />    
     
     <!--Pages Exames Sangue-->
     <browser:page

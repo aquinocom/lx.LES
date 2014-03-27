@@ -93,8 +93,8 @@
                                 <tal:block tal:repeat="atendimento atendimentos">
                                     <tr tal:define="oddrow repeat/atendimento/odd;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <td tal:define="url string: ${atendimento/getURL};
-                                                        click string: window.open('${url}',  '${atendimento/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                        <td tal:define="url string: ${atendimento/getURL}/atendimentopaciente;
+                                                        click string: window.open('${url}',  '${atendimento/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=900, HEIGHT=400');;">
                                             <a tal:attributes="onclick click" tal:content="atendimento/Title" class="link_exames"></a>
                                         </td>
                                     </tr>

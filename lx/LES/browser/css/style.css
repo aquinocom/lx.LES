@@ -96,18 +96,22 @@
     background: #EEEEEE;
 }
 
+.template-atendimentopaciente #abas,
 .template-atendimento #abas{
     float: left;
     width: 100%;
 }
+.template-atendimentopaciente #content .ui-state-default a,
 .template-atendimento #content .ui-state-default a{
     color: #55555E !important;
     font-size: 12px;
 }
+.template-atendimentopaciente .ui-tabs-nav,
 .template-atendimento .ui-tabs-nav{
     margin-left: 0 !important;
 }
 
+.template-atendimentopaciente .column,
 .template-atendimento .column{
     font-size: 11px;
 }
