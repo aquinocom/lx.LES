@@ -26,6 +26,7 @@
     height: 100px;
     overflow-y: auto;
 }
+.template-paciente #listaAtendimentos,
 .template-paciente #listaExamesPaciente{
     margin-top: 0px;
     height: 100px;
@@ -78,4 +79,19 @@
     margin-top: -20px;
     padding: 10px;
     width: 160px;
+}
+.template-paciente table.listing td {
+    border-top: 1px solid #DDDDDD;
+}
+.column{
+    width: 15%;
+    float: left;
+}
+.column ul{
+    margin-left: 10px !important;
+    list-style-type: none !important;
+}
+
+.column .odd{
+    background: #EEEEEE;
 }

@@ -8,165 +8,26 @@
     <head>
     </head>
     <body>
-        <tal:block metal:fill-slot="main" >
+        <tal:block metal:fill-slot="main">
             <h1 tal:content="context/Title"></h1>
             <p>
                 <b>Nome do paciente:</b> <span tal:content="view/getNomePaciente"></span>
             </p>
-            <div id="coluna01_sangue">
-                <ul>
-                    <li tal:condition="context/hemacias_sangue" class="zebrar">
-                        <b>Hemácias: </b><span tal:replace="context/hemacias_sangue"/>
-                    </li>
-                    <li tal:condition="context/hb_sangue">
-                        <b>Hb: </b><span tal:replace="context/hb_sangue"/>
-                    </li>
-                    <li tal:condition="context/hto_sangue" class="zebrar">
-                        <b>Hto: </b><span tal:replace="context/hto_sangue"/>
-                    </li>
-                    <li tal:condition="context/vcm_sangue">
-                        <b>VCM: </b><span tal:replace="context/vcm_sangue"/>
-                    </li>
-                    <li tal:condition="context/hcm_sangue" class="zebrar">
-                        <b>HCM: </b><span tal:replace="context/hcm_sangue"/>
-                    </li>
-                    <li tal:condition="context/leuco_sangue">
-                        <b>Leuco: </b><span tal:replace="context/leuco_sangue"/>
-                    </li>
-                    <li tal:condition="context/segm_sangue" class="zebrar">
-                        <b>Segm: </b><span tal:replace="context/segm_sangue"/>
-                    </li>
-                    <li tal:condition="context/linfo_sangue">
-                        <b>Linfo: </b><span tal:replace="context/linfo_sangue"/>
-                    </li>
-                    <li tal:condition="context/mono_sangue" class="zebrar">
-                        <b>Mono: </b><span tal:replace="context/mono_sangue"/>
-                    </li>
-                    <li tal:condition="context/eos_sangue">
-                        <b>Eos: </b><span tal:replace="context/eos_sangue"/>
-                    </li>
-                    <li tal:condition="context/baso_sangue" class="zebrar">
-                        <b>Baso: </b><span tal:replace="context/baso_sangue"/>
-                    </li>
-                    <li tal:condition="context/plaq_sangue">
-                        <b>Plaq: </b><span tal:replace="context/plaq_sangue"/>
-                    </li>
-                </ul>
-            </div>
-            <div id="coluna02_sangue">
-                <ul>
-                    <li tal:condition="context/vhs_sangue" class="zebrar">
-                        <b>VHS: </b><span tal:replace="context/vhs_sangue"/>
-                    </li>
-                    <li tal:condition="context/pcr_sangue">
-                        <b>PCR: </b><span tal:replace="context/pcr_sangue"/>
-                    </li>
-                    <li tal:condition="context/alfa_1gpa_sangue" class="zebrar">
-                        <b>Alfa 1 GPA: </b><span tal:replace="context/alfa_1gpa_sangue"/>
-                    </li>
-                    <li tal:condition="context/c3_sangue">
-                        <b>C3: </b><span tal:replace="context/c3_sangue"/>
-                    </li>
-                    <li tal:condition="context/c4_sangue" class="zebrar">
-                        <b>C4: </b><span tal:replace="context/c4_sangue"/>
-                    </li>
-                    <li tal:condition="context/anti_dna_sangue">
-                        <b>Anti-DNA: </b><span tal:replace="context/anti_dna_sangue"/>
-                    </li>
-                    <li tal:condition="context/alb_sangue" class="zebrar">
-                        <b>Alb: </b><span tal:replace="context/alb_sangue"/>
-                    </li>
-                    <li tal:condition="context/glob_sangue">
-                        <b>Glob: </b><span tal:replace="context/glob_sangue"/>
-                    </li>
-                    <li tal:condition="context/cpk_sangue" class="zebrar">
-                        <b>CPK: </b><span tal:replace="context/cpk_sangue"/>
-                    </li>
-                    <li tal:condition="context/ast_sangue">
-                        <b>AST: </b><span tal:replace="context/ast_sangue"/>
-                    </li>
-                    <li tal:condition="context/alt_sangue" class="zebrar">
-                        <b>ALT: </b><span tal:replace="context/alt_sangue"/>
-                    </li>
-                    <li tal:condition="context/fal_sangue">
-                        <b>FAL: </b><span tal:replace="context/fal_sangue"/>
-                    </li>
-                </ul>
-            </div>
-            <div id="coluna03_sangue">
-                <ul>
-                    <li tal:condition="context/ggt_sangue" class="zebrar">
-                        <b>GGT: </b><span tal:replace="context/ggt_sangue"/>
-                    </li>
-                    <li tal:condition="context/bb_total_sangue">
-                        <b>Bb Total: </b><span tal:replace="context/bb_total_sangue"/>
-                    </li>
-                    <li tal:condition="context/bb_indir_sangue" class="zebrar">
-                        <b>Bb indir.: </b><span tal:replace="context/bb_indir_sangue"/>
-                    </li>
-                    <li tal:condition="context/dhl_sangue">
-                        <b>DHL: </b><span tal:replace="context/dhl_sangue"/>
-                    </li>
-                    <li tal:condition="context/creatin_sangue" class="zebrar">
-                        <b>Creatin: </b><span tal:replace="context/creatin_sangue"/>
-                    </li>
-                    <li tal:condition="context/proteinur_sangue">
-                        <b>Proteinúr: </b><span tal:replace="context/proteinur_sangue"/>
-                    </li>
-                    <li tal:condition="context/dce_sangue" class="zebrar">
-                        <b>DCE: </b><span tal:replace="context/dce_sangue"/>
-                    </li>
-                    <li tal:condition="context/ldl_sangue">
-                        <b>LDL: </b><span tal:replace="context/ldl_sangue"/>
-                    </li>
-                    <li tal:condition="context/hdl_sangue" class="zebrar">
-                        <b>HDL: </b><span tal:replace="context/hdl_sangue"/>
-                    </li>
-                    <li tal:condition="context/triglic_sangue">
-                        <b>Triglic: </b><span tal:replace="context/triglic_sangue"/>
-                    </li>
-                    <li tal:condition="context/glicose_sangue" class="zebrar">
-                        <b>Glicose: </b><span tal:replace="context/glicose_sangue"/>
-                    </li>
-                    <li tal:condition="context/acido_urico_sangue">
-                        <b>Ácido Úrico: </b><span tal:replace="context/acido_urico_sangue"/>
-                    </li>
-                </ul>
-            </div>
-            <div id="coluna04_sangue">
-                <ul>
-                    <li tal:condition="context/ferritina_sangue" class="zebrar">
-                        <b>Ferritina: </b><span tal:replace="context/ferritina_sangue"/>
-                    </li>
-                    <li tal:condition="context/ist_sangue">
-                        <b>I.S.T.: </b><span tal:replace="context/ist_sangue"/>
-                    </li>
-                    <li tal:condition="context/ctif_sangue" class="zebrar">
-                        <b>C.T.I.F.: </b><span tal:replace="context/ctif_sangue"/>
-                    </li>
-                    <li tal:condition="context/tsh_sangue">
-                        <b>TSH: </b><span tal:replace="context/tsh_sangue"/>
-                    </li>
-                    <li tal:condition="context/na_sangue" class="zebrar">
-                        <b>Na: </b><span tal:replace="context/na_sangue"/>
-                    </li>
-                    <li tal:condition="context/k_sangue">
-                        <b>K: </b><span tal:replace="context/k_sangue"/>
-                    </li>
-                    <li tal:condition="context/calcio_sangue" class="zebrar">
-                        <b>Cálcio: </b><span tal:replace="context/calcio_sangue"/>
-                    </li>
-                    <li tal:condition="context/fosforo_sangue">
-                        <b>Fósforo: </b><span tal:replace="context/fosforo_sangue"/>
-                    </li>
-                    <li tal:condition="context/25_vit_d_sangue" class="zebrar">
-                        <b>25 Vit. D': </b><span tal:replace="context/25_vit_d_sangue"/>
-                    </li>
-                    <li tal:condition="context/calcio_24_sangue">
-                        <b>Cálcio 24: </b><span tal:replace="context/calcio_24_sangue"/>
-                    </li>
-                </ul>
-            </div>
+            <tal:block tal:define="fields python:view.getFields('default');">
+                <div class="column"
+                    tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                    tal:repeat="sublist fieldsLists">
+                    <ul>
+                        <tal:fields repeat="default sublist">
+                            <li tal:define="oddrow repeat/default/odd;"
+                                tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                <label tal:content="python:default.widget.label"></label>:
+                                <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                            </li>
+                        </tal:fields>
+                    </ul>
+                </div>
+            </tal:block>
         </tal:block>
     </body>
 </html>

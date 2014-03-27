@@ -14,6 +14,7 @@ from plone.memoize.instance import memoize
 
 # lx.LES imports
 from lx.LES.interfaces.contents import IExameSangue
+from lx.LES.browser.utils import getFields
 
 
 class ExameSangueView(BrowserView):
@@ -38,6 +39,12 @@ class ExameSangueView(BrowserView):
                            sort_on='Date',
                            sort_order='reverse',)
         return exames
+
+    @memoize
+    def getFields(self, schemata):
+        """Retorna todos os campos do schemata 'default'
+        """
+        return getFields(self, schemata)
 
 
 class GraficoExameSanguePacienteView(BrowserView):

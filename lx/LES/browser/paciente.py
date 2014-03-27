@@ -13,12 +13,24 @@ from plone.memoize.instance import memoize
 
 
 # lx.LES imports
-from lx.LES.interfaces.contents import IExameSangue, IExameUrina
+from lx.LES.interfaces.contents import IExameSangue, IExameUrina, IAtendimento
 
 
 class PacienteView(BrowserView):
     """ view do paciente
     """
+
+    @memoize
+    def getAtendimentos(self):
+        """Retorna todos os atendimentos do paciente
+        """
+        catalog = getToolByName(self, 'portal_catalog')
+        path_atendimentos = '/'.join(self.context.getPhysicalPath())
+        atendimentos = catalog(object_provides=IAtendimento.__identifier__,
+                           path=path_atendimentos,
+                           sort_on='Date',
+                           sort_order='reverse',)
+        return atendimentos
 
     @memoize
     def getExamesSangue(self):

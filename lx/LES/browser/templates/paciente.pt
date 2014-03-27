@@ -86,6 +86,22 @@
             <div id="coluna03_paciente">
                 <div class="box">
                     <h5>Atendimentos realizados:</h5>
+                    <div id="listaAtendimentos" tal:define="atendimentos view/getAtendimentos"
+                        tal:condition="atendimentos">
+                        <table class="listing">
+                            <tbody>
+                                <tal:block tal:repeat="atendimento atendimentos">
+                                    <tr tal:define="oddrow repeat/atendimento/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <td tal:define="url string: ${atendimento/getURL};
+                                                        click string: window.open('${url}',  '${atendimento/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                            <a tal:attributes="onclick click" tal:content="atendimento/Title" class="link_exames"></a>
+                                        </td>
+                                    </tr>
+                                </tal:block>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="clear"></div>
@@ -100,7 +116,7 @@
                                     <tr tal:define="oddrow repeat/exame/odd;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
                                         <td tal:define="url string: ${exame/getURL}/examesanguepaciente;
-                                                        click string: window.open('${url}',  'Exame de Sangue', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                                        click string: window.open('${url}',  '${exame/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
                                             <a tal:attributes="onclick click" tal:content="exame/Title" class="link_exames"></a>
                                         </td>
                                     </tr>
@@ -121,7 +137,7 @@
                                     <tr tal:define="oddrow repeat/exame/odd;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
                                         <td tal:define="url string: ${exame/getURL}/exameurinapaciente;
-                                                        click string: window.open('${url}',  'Exame de Sangue', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                                        click string: window.open('${url}',  '${exame/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
                                             <a tal:attributes="onclick click" tal:content="exame/Title" class="link_exames"></a>
                                         </td>
                                     </tr>
