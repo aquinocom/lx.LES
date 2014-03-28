@@ -15,4 +15,22 @@ msgstr ""
 "Domain: plone\n"
 
 msgid "label_schema_criterios_clinicos"
-msgstr "Critérios Clínicos"
+msgstr "Critérios ilínicos"
+
+msgid "label_schema_criterios_imunologicos"
+msgstr "Critérios imunológicos"
+
+msgid "label_schema_antecedentes_clinicos"
+msgstr "Antecedentes clínicos"
+
+msgid "label_schema_comobidades"
+msgstr "Comobidades"
+
+msgid "label_schema_vacinacoes"
+msgstr "Vacinações"
+
+msgid "label_schema_slicc_acr_2010"
+msgstr "SLICC/ACR, 2010"
+
+msgid "label_schema_sledai_2k"
+msgstr "SLEDAI-2K"
