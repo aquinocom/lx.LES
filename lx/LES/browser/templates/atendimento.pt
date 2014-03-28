@@ -32,6 +32,7 @@
                     <li><a href="#informacoes-5">Comobidades</a></li>
                     <li><a href="#informacoes-6">Vacinações</a></li>
                     <li><a href="#informacoes-7">Avaliação de índices</a></li>
+                    <li><a href="#informacoes-8">Escores finais</a></li>
                     <!--<li><a href="#informacoes-7">SLICC/ACR, 2010</a></li>-->
                     <!--<li><a href="#informacoes-8">SLEDAI-2K</a></li>-->
                 </ul>
@@ -179,6 +180,23 @@
                         </div>
                     </div>
                 </div>
+                <div id="informacoes-8">
+                    <tal:block tal:define="fields python:view.getFields('escores');">
+                        <div class="column"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:repeat="sublist fieldsLists">
+                            <ul>
+                                <tal:fields repeat="default sublist">
+                                    <li tal:define="oddrow repeat/default/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:default.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                    </li>
+                                </tal:fields>
+                            </ul>
+                        </div>
+                    </tal:block>
+                </div>                
 <!--                <div id="informacoes-7">
                     <tal:block tal:define="fields python:view.getFields('slicc_acr_2010');">
                         <div class="column"

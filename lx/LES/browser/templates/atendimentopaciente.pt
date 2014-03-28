@@ -6,15 +6,13 @@
     metal:use-macro="context/main_template_limpo/macros/master"
     i18n:domain="lx.LES">
     <head>
-        <metal:block fill-slot="top_slot"
-            tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
-                        disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
         <metal:headslot metal:fill-slot="head_slot">
             <link rel="stylesheet" tal:attributes="href string:${context/portal_url}/++resource++lx.LES.css/tabs_css/jquery.ui.all.css">
             <script tal:attributes="src string:${context/portal_url}/++resource++lx.LES.js/tabs_js/jquery-ui-1.8.16.custom.min.js"></script>
             <script type="text/javascript">
                 $(function() {
                     $( "#abas" ).tabs();
+                    $( "#subabas" ).tabs();
                 });	
             </script>
         </metal:headslot>
@@ -33,8 +31,10 @@
                     <li><a href="#informacoes-4">Antecedentes clínicos</a></li>
                     <li><a href="#informacoes-5">Comobidades</a></li>
                     <li><a href="#informacoes-6">Vacinações</a></li>
-                    <li><a href="#informacoes-7">SLICC/ACR, 2010</a></li>
-                    <li><a href="#informacoes-8">SLEDAI-2K</a></li>
+                    <li><a href="#informacoes-7">Avaliação de índices</a></li>
+                    <li><a href="#informacoes-8">Escores finais</a></li>
+                    <!--<li><a href="#informacoes-7">SLICC/ACR, 2010</a></li>-->
+                    <!--<li><a href="#informacoes-8">SLEDAI-2K</a></li>-->
                 </ul>
                 <div id="informacoes-1">
                     <tal:block tal:define="fields python:view.getFields('default');">
@@ -139,6 +139,65 @@
                     </tal:block>
                 </div>
                 <div id="informacoes-7">
+                    <div id="subabas">
+                        <ul>
+                            <li><a href="#subinformacoes-1">SLICC/ACR, 2010</a></li>
+                            <li><a href="#subinformacoes-2">SLEDAI-2K</a></li>
+                        </ul>
+                        <div id="subinformacoes-1">
+                            <tal:block tal:define="fields python:view.getFields('slicc_acr_2010');">
+                                <div class="column"
+                                    tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                                    tal:repeat="sublist fieldsLists">
+                                    <ul>
+                                        <tal:fields repeat="default sublist">
+                                            <li tal:define="oddrow repeat/default/odd;"
+                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                <label tal:content="python:default.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                            </li>
+                                        </tal:fields>
+                                    </ul>
+                                </div>
+                            </tal:block>
+                        </div>
+                        <div id="subinformacoes-2">
+                            <tal:block tal:define="fields python:view.getFields('sledai_2k');">
+                                <div class="column"
+                                    tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                                    tal:repeat="sublist fieldsLists">
+                                    <ul>
+                                        <tal:fields repeat="default sublist">
+                                            <li tal:define="oddrow repeat/default/odd;"
+                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                <label tal:content="python:default.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                            </li>
+                                        </tal:fields>
+                                    </ul>
+                                </div>
+                            </tal:block>
+                        </div>
+                    </div>
+                </div>
+                <div id="informacoes-8">
+                    <tal:block tal:define="fields python:view.getFields('escores');">
+                        <div class="column"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:repeat="sublist fieldsLists">
+                            <ul>
+                                <tal:fields repeat="default sublist">
+                                    <li tal:define="oddrow repeat/default/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:default.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                    </li>
+                                </tal:fields>
+                            </ul>
+                        </div>
+                    </tal:block>
+                </div>                
+<!--                <div id="informacoes-7">
                     <tal:block tal:define="fields python:view.getFields('slicc_acr_2010');">
                         <div class="column"
                             tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
@@ -171,7 +230,7 @@
                             </ul>
                         </div>
                     </tal:block>
-                </div>
+                </div>-->
             </div>
         </tal:block>
     </body>
