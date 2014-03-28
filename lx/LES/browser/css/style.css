@@ -97,7 +97,9 @@
 }
 
 .template-atendimentopaciente #abas,
-.template-atendimento #abas{
+.template-atendimento #abas,
+.template-atendimentopaciente #subabas,
+.template-atendimento #subabas{
     float: left;
     width: 100%;
 }
