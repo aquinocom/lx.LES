@@ -46,7 +46,6 @@
         </metal:head>
         <metal:javascript_head fill-slot="javascript_head_slot">
             <link rel="stylesheet" tal:attributes="href string:${context/portal_url}/++resource++lx.LES.css/tabs_css/jquery.ui.all.css">
-                <link rel="stylesheet" tal:attributes="href string:${context/portal_url}/++resource++lx.LES.css/style.css">
             <script tal:attributes="src string:${context/portal_url}/++resource++lx.LES.js/tabs_js/jquery-ui-1.8.16.custom.min.js"></script>
             <script type="text/javascript">
                 $(function() {
@@ -114,7 +113,10 @@
                                     <li><a href="#informacoes-7">Avaliação de índices</a></li>
                                 </ul>
                                 <div id="informacoes-1">
-                
+                                    <!--schemata padrao-->
+                                    <tal:fields repeat="field python:schematas['default'].editableFields(here, visible_only=True)">
+                                        <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
+                                    </tal:fields>                
                                 </div>
                                 <div id="informacoes-2">
                                     
@@ -141,7 +143,29 @@
                                             
                                         </div>
                                         <div id="subinformacoes-2">
-                                            
+                                            <!--schemata criterios clinicos-->
+                                            <tal:all tal:define="fields python:schematas['sledai_2k'].editableFields(here, visible_only=True);">
+                                                <fieldset>
+                                                    <div style="float:left; margin: 1em; width: 30%"
+                                                        tal:define="lista python: fields[:17];">
+                                                        <tal:items repeat="item lista">
+                                                            <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
+                                                        </tal:items>
+                                                    </div>
+                                                    <div style="float:left; margin: 1em; width: 30%"
+                                                        tal:define="lista python: fields[17:32];">
+                                                        <tal:items repeat="item lista">
+                                                            <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
+                                                        </tal:items>
+                                                    </div>
+                                                    <div style="float:left; margin: 1em; width: 30%"
+                                                        tal:define="lista python: fields[32:];">
+                                                        <tal:items repeat="item lista">
+                                                            <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
+                                                        </tal:items>
+                                                    </div>                                                         
+                                               </fieldset>
+                                            </tal:all>
                                         </div>
                                     </div>
                                 </div>

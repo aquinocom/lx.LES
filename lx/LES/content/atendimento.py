@@ -39,6 +39,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="retardo_diagnostico",
+        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label=_(u"Retardo Diagnóstico"),
@@ -4729,6 +4730,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.TextField(
         name="leucopenia_obs",
         searchable=True,
+        required=True,
         schemata='sledai_2k',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
