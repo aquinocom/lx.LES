@@ -3142,13 +3142,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            empobrecimento de ideias, \
                            pensamento ilógico, comportamento bizarro,\
                            desorganizado ou catatônico."),
-            slave_fields=(dict(name='psicose_obs',
+            slave_fields=(dict(name='slicc_psicose_obs',
                                action='show',
                                hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
-        name="psicose_obs",
+        name="slicc_psicose_obs",
         searchable=True,
         schemata='slicc_acr_2010',
         allowable_content_types=('text/plain',),
@@ -4166,13 +4166,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           alucinações, incoerência, perda marcada das \
                           associações de ideias, pensamento pobre, ilógico; \
                           comportamento bizarro, desorganizado ou catatônico."),
-            slave_fields=(dict(name='psicose_obs',
+            slave_fields=(dict(name='sledai_psicose_obs',
                                action='show',
                                hide_values=('8',)),)
         ),
     ),
     atapi.TextField(
-        name="psicose_obs",
+        name="sledai_psicose_obs",
         searchable=True,
         schemata='sledai_2k',
         allowable_content_types=('text/plain',),

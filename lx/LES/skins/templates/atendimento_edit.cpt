@@ -45,6 +45,15 @@
             </tal:block>
         </metal:head>
         <metal:javascript_head fill-slot="javascript_head_slot">
+            <link rel="stylesheet" tal:attributes="href string:${context/portal_url}/++resource++lx.LES.css/tabs_css/jquery.ui.all.css">
+                <link rel="stylesheet" tal:attributes="href string:${context/portal_url}/++resource++lx.LES.css/style.css">
+            <script tal:attributes="src string:${context/portal_url}/++resource++lx.LES.js/tabs_js/jquery-ui-1.8.16.custom.min.js"></script>
+            <script type="text/javascript">
+                $(function() {
+                    $( "#abas" ).tabs();
+                    $( "#subabas" ).tabs();
+                });	
+            </script>            
             <tal:block define="macro context/archetypes_custom_js/macros/javascript_head | nothing"
                 condition="macro">
                 <metal:block use-macro="macro" />
@@ -94,393 +103,49 @@
                                             class python:test(path('allow_tabbing|nothing'), 'enableUnloadProtection enableAutoFocus enableFormTabbing enableUnlockProtection', 'enableUnloadProtection enableAutoFocus enableUnlockProtection');">
                             <metal:block define-slot="extra_top" />
                             <metal:block define-slot="widgets">
-                                <tal:tabbed tal:condition="allow_tabbing | nothing">
-                                    <tal:fieldsets define="sole_fieldset python:len(fieldsets)==1"
-                                        repeat="fieldset fieldsets">
-                                        <fieldset tal:define="fieldsetid python:putils.normalizeString(fieldset)"
-                                            tal:attributes="id string:fieldset-${fieldsetid}"
-                                            tal:omit-tag="sole_fieldset">
-                                            <legend id=""
-                                                tal:content="python: view.getTranslatedSchemaLabel(fieldset)"
-                                                tal:attributes="id string:fieldsetlegend-${fieldsetid}"
-                                                i18n:translate=""
-                                                tal:condition="not:sole_fieldset" />
-                                            <!--schemata padrao-->
-                                            <tal:fields repeat="field python:schematas[fieldset].editableFields(here, visible_only=True)" 
-                                                condition="python:fieldsetid == 'default'">
-                                                <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
-                                            </tal:fields>
-                                            <!--schemata criterios clinicos-->
-                                            <tal:clinicos condition="python:fieldsetid == 'criterios_clinicos'">
-                                                <fieldset>
-                                                    <legend>Critérios classificatórios de LES (SLICC/ACR):</legend>
-                                                    <div class="formHelp">
-                                                    Os critérios são cumulativos. Requer-se 4 dos 17 critérios, sendo obrigatóriamente 1 clínico e 1 imunológico OU nefrite por biópsia, compatível com LES, na presença de ANA ou anti-DNA. Anotar data da primeira ocorrência.
-                                                    </div>
-                                                    <tal:all tal:define="fields python:schematas[fieldset].editableFields(here, visible_only=True);">
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[:15];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[15:30];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[30:];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="clear: both"></div>
-                                                    </tal:all>
-                                                </fieldset>
-                                            </tal:clinicos>
-                                            <!--schemata criterios imunologicos-->
-                                            <tal:imunologicos condition="python:fieldsetid == 'criterios_imunologicos'">
-                                                <fieldset>
-                                                    <legend>Critérios classificatórios de LES (SLICC/ACR):</legend>
-                                                    <div class="formHelp">
-                                                    Os critérios são cumulativos. Requer-se 4 dos 17 critérios, sendo obrigatóriamente 1 clínico e 1 imunológico OU nefrite por biópsia, compatível com LES, na presença de ANA ou anti-DNA. Anotar data da primeira ocorrência.
-                                                    </div>
-                                                    <div style="float:left; margin: 1em; width: 30%"
-                                                        tal:define="fields python:schematas[fieldset].editableFields(here, visible_only=True);
-                                                                    fieldsLists python:context.createMultiColumnList(fields, numCols=3);"
-                                                        tal:repeat="sublist fieldsLists">
-                                                        <tal:items repeat="item sublist">
-                                                            <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                        </tal:items>
-                                                    </div>
-                                                </fieldset>
-                                            </tal:imunologicos>
-                                            <!--schemata Antecedentes clínicos-->
-                                            <tal:antecedentes condition="python:fieldsetid == 'antecedentes_clinicos'">
-                                                <fieldset>
-                                                    <legend>Outros antecedentes clínicos de LES:</legend>
-                                                    <tal:all tal:define="fields python:schematas[fieldset].editableFields(here, visible_only=True);">
-                                                           <div style="float:left; margin: 1em; width: 30%"
-                                                               tal:define="lista python: fields[:6];">
-                                                               <tal:items repeat="item lista">
-                                                                   <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                               </tal:items>
-                                                           </div>
-                                                           <div style="float:left; margin: 1em; width: 30%"
-                                                               tal:define="lista python: fields[6:12];">
-                                                               <tal:items repeat="item lista">
-                                                                   <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                               </tal:items>
-                                                           </div>
-                                                           <div style="float:left; margin: 1em; width: 30%"
-                                                               tal:define="lista python: fields[12:];">
-                                                               <tal:items repeat="item lista">
-                                                                   <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                               </tal:items>
-                                                           </div>                                                           
-                                                    </tal:all>
-                                                </fieldset>                                                
-                                            </tal:antecedentes>
-                                            <!--schemata comobidades-->
-                                            <tal:comobidades condition="python:fieldsetid == 'comobidades'">
-                                                <fieldset>
-                                                    <legend>Comorbidades:</legend>
-                                                    <tal:all tal:define="fields python:schematas[fieldset].editableFields(here, visible_only=True);">
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[:22];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[22:40];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[40:];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="clear: both"></div>
-                                                    </tal:all>
-                                                </fieldset>                                                
-                                            </tal:comobidades>
-                                            <!--schemata vacinações-->
-                                            <tal:vacinacoes condition="python:fieldsetid == 'vacinacoes'">
-                                                <tal:all tal:define="fields python:schematas[fieldset].editableFields(here, visible_only=True);">
-                                                    <fieldset>
-                                                        <legend>Vacinações:</legend>
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[:28];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[28:58];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[58:-23];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="clear: both"></div>
-                                                    </fieldset>
-                                                    <fieldset>
-                                                        <tal:sublista tal:define="sublista python: fields[-23:len(fields)-3];">
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: sublista[:8];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: sublista[8:14];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: sublista[14:];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>                                                                                         
-                                                        </tal:sublista>
-                                                    </fieldset>
-                                                    <div style="clear: both"></div>
-                                                    <fieldset>
-                                                        <legend>Escalas analógicas do paciente:</legend>
-                                                        <div class="formHelp">
-                                                            Solicitar ao paciente apontar na tela
-                                                        </div>
-                                                        <tal:outros repeat="item python:fields[len(fields)-3:]">
-                                                            <div style="width: 10cm">
-                                                            <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" /><br />
-                                                            </div>
-                                                        </tal:outros>
-                                                    </fieldset>
-                                                </tal:all>
-                                            </tal:vacinacoes>
-                                            <!--schemata criterios avaliacao de indices-->
-                                            <tal:slicc condition="python:fieldsetid == 'slicc_acr_2010'">
-                                                <fieldset>
-                                                    <legend>Avaliação de índices compostos:</legend>                                                
-                                                    <tal:all tal:define="fields python:schematas[fieldset].editableFields(here, visible_only=True);">
-                                                        <fieldset>
-                                                            <legend>Domínio ocular</legend>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="type1 python: fields[:6] ;
-                                                                            fieldsLists python:context.createMultiColumnList(type1, numCols=3);"
-                                                                tal:repeat="sublist fieldsLists">
-                                                                <tal:items repeat="item sublist">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="clear: both"></div>
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio neuropisiquiátrico</legend>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[6:10];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[10:15];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[15:19];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>                                                                                                
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio renal</legend>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="type1 python: fields[19:25] ;
-                                                                            fieldsLists python:context.createMultiColumnList(type1, numCols=3);"
-                                                                tal:repeat="sublist fieldsLists">
-                                                                <tal:items repeat="item sublist">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>                                                            
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio pulmonar</legend>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="type1 python: fields[25:35] ;
-                                                                            fieldsLists python:context.createMultiColumnList(type1, numCols=3);"
-                                                                tal:repeat="sublist fieldsLists">
-                                                                <tal:items repeat="item sublist">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>                                                            
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio cardiovascular</legend>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[35:40];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[40:44];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[44:46];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>                                                                                                                           
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio vascular periférica</legend>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="type1 python: fields[46:55] ;
-                                                                            fieldsLists python:context.createMultiColumnList(type1, numCols=3);"
-                                                                tal:repeat="sublist fieldsLists">
-                                                                <tal:items repeat="item sublist">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>                                                            
-                                                        </fieldset>                                                           
-                                                        <fieldset>
-                                                            <legend>Domínio gastrointestinal</legend>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[55:58];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[58:62];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[62:64];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>                                                                                                                                                                        
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio musculoessquelética</legend>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[64:68];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[68:71];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="lista python: fields[71:73];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>                                                                
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio dermacológico</legend>
-                                                            <div style="float:left; margin: 1em; width: 30%"
-                                                                tal:define="type1 python: fields[73:79];
-                                                                            fieldsLists python:context.createMultiColumnList(type1, numCols=3);"
-                                                                tal:repeat="sublist fieldsLists">
-                                                                <tal:items repeat="item sublist">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div>                                                            
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio falência gono</legend>
-                                                            <div tal:define="lista python: fields[79:81];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div> 
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio diabetes</legend>
-                                                            <div tal:define="lista python: fields[81:83];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div> 
-                                                        </fieldset>
-                                                        <fieldset>
-                                                            <legend>Domínio malignidade</legend>
-                                                            <div tal:define="lista python: fields[83:];">
-                                                                <tal:items repeat="item lista">
-                                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                                </tal:items>
-                                                            </div> 
-                                                        </fieldset>                                                        
-                                                    </tal:all>
-                                                </fieldset>
-                                            </tal:slicc>
-                                            <!--schemata criterios clinicos-->
-                                            <tal:sledai condition="python:fieldsetid == 'sledai_2k'">
-                                                <fieldset>
-                                                    <legend>Critérios classificatórios de LES (SLICC/ACR):</legend>
-                                                    <div class="formHelp">
-                                                    Os critérios são cumulativos. Requer-se 4 dos 17 critérios, sendo obrigatóriamente 1 clínico e 1 imunológico OU nefrite por biópsia, compatível com LES, na presença de ANA ou anti-DNA. Anotar data da primeira ocorrência.
-                                                    </div>
-                                                    <tal:all tal:define="fields python:schematas[fieldset].editableFields(here, visible_only=True);">
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[:15];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[15:30];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="float:left; margin: 1em; width: 30%"
-                                                            tal:define="lista python: fields[30:];">
-                                                            <tal:items repeat="item lista">
-                                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
-                                                            </tal:items>
-                                                        </div>
-                                                        <div style="clear: both"></div>
-                                                    </tal:all>
-                                                </fieldset>
-                                            </tal:sledai>                                            
-                                        </fieldset>
-                                    </tal:fieldsets>
-                                </tal:tabbed>
-                                <tal:nottabbed tal:condition="not: allow_tabbing | nothing">
-                                    <tal:fields repeat="field python:schematas[fieldset].editableFields(here, visible_only=True)">
-                                        <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
-                                    </tal:fields>
-                                </tal:nottabbed>
+                            <div id="abas">
+                                <ul>
+                                    <li><a href="#informacoes-1">Padrão</a></li>
+                                    <li><a href="#informacoes-2">Critérios clínicos</a></li>
+                                    <li><a href="#informacoes-3">Critérios imunológicos</a></li>
+                                    <li><a href="#informacoes-4">Antecedentes clínicos</a></li>
+                                    <li><a href="#informacoes-5">Comobidades</a></li>
+                                    <li><a href="#informacoes-6">Vacinações</a></li>
+                                    <li><a href="#informacoes-7">Avaliação de índices</a></li>
+                                </ul>
+                                <div id="informacoes-1">
+                
+                                </div>
+                                <div id="informacoes-2">
+                                    
+                                </div>
+                                <div id="informacoes-3">
+                                    
+                                </div>
+                                <div id="informacoes-4">
+                                    
+                                </div>
+                                <div id="informacoes-5">
+                                    
+                                </div>
+                                <div id="informacoes-6">
+                                    
+                                </div>
+                                <div id="informacoes-7">
+                                    <div id="subabas">
+                                        <ul>
+                                            <li><a href="#subinformacoes-1">SLICC/ACR, 2010</a></li>
+                                            <li><a href="#subinformacoes-2">SLEDAI-2K</a></li>
+                                        </ul>
+                                        <div id="subinformacoes-1">
+                                            
+                                        </div>
+                                        <div id="subinformacoes-2">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             </metal:block>
 <!--                            <tal:block tal:define="exames context/@@examesangue/getExames"
                                 tal:condition="exames">
