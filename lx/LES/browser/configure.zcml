@@ -22,7 +22,14 @@
         directory="js"
         permission="zope.Public"
     />
-
+    <browser:resource
+        name="slicc.js"
+        file="js/slicc.js" />
+    
+    <browser:resource
+        name="sledai.js"
+        file="js/sledai.js" />
+    
     <browser:resource
         name="sangue.js"
         file="js/sangue.js" />

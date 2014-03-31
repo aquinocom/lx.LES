@@ -4194,6 +4194,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.TextField(
         name="convulsao_obs",
         searchable=True,
+        required=True,
         schemata='sledai_2k',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
