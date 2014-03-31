@@ -132,8 +132,8 @@
                                     </li>
                                     <li>
                                         <a href="#informacoes-5"
-                                        tal:attributes="class python:test('comobidades' in abas, 'abaRequired')">
-                                            Comobidades
+                                        tal:attributes="class python:test('comorbidades' in abas, 'abaRequired')">
+                                            Comorbidades
                                         </a>
                                     </li>
                                     <li>
@@ -537,8 +537,8 @@
                                                 <tr tal:define="oddrow repeat/atendimento/odd;"
                                                     tal:attributes="class python: oddrow and 'even' or 'odd'">
                                                     <td tal:define="url string: ${atendimento/getURL}/atendimento;
-                                                                    click string: window.open('${url}',  'Atendiemento', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
-                                                        <a tal:attributes="onclick click" tal:content="exame/Title" class="link_exames"></a>
+                                                                    click string: window.open('${url}',  'Atendimento', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                                        <a tal:attributes="onclick click" tal:content="atendimento/Title" class="link_atendimentos"></a>
 
                                                     </td>
                                                 </tr>
