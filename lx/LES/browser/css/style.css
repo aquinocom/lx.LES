@@ -96,12 +96,12 @@
 }
 
 .template-paciente #abas,
-.template-atendimento_edit #abas,
-.template-atendimento_edit #subabas,
-.template-atendimentopaciente #abas,
-.template-atendimentopaciente #subabas,
-.template-atendimento #abas,
-.template-atendimento #subabas{
+.template-atendimentomedicina_edit #abas,
+.template-atendimentomedicina_edit #subabas,
+.template-atendimentomedicinapaciente #abas,
+.template-atendimentomedicinapaciente #subabas,
+.template-atendimentomedicina #abas,
+.template-atendimentomedicina #subabas{
     float: left;
     width: 100%;
     margin-bottom: 10px;
@@ -124,26 +124,26 @@
     width: 95%;
 }
 .template-paciente #content .ui-state-default a,
-.template-atendimento_edit #content .ui-state-default a,
-.template-atendimentopaciente #content .ui-state-default a,
-.template-atendimento #content .ui-state-default a{
+.template-atendimentomedicina_edit #content .ui-state-default a,
+.template-atendimentomedicinapaciente #content .ui-state-default a,
+.template-atendimentomedicina #content .ui-state-default a{
     color: #55555E !important;
     font-size: 12px;
 }
 .template-paciente .ui-tabs-nav,
-.template-atendimento_edit .ui-tabs-nav,
-.template-atendimentopaciente .ui-tabs-nav,
-.template-atendimento .ui-tabs-nav{
+.template-atendimentomedicina_edit .ui-tabs-nav,
+.template-atendimentomedicinapaciente .ui-tabs-nav,
+.template-atendimentomedicina .ui-tabs-nav{
     margin-left: 0 !important;
 }
 
-.template-atendimento_edit .column,
-.template-atendimentopaciente .column,
-.template-atendimento .column{
+.template-atendimentomedicina_edit .column,
+.template-atendimentomedicinapaciente .column,
+.template-atendimentomedicina .column{
     font-size: 11px;
 }
 
-.template-atendimento_edit #content .ui-state-default a.abaRequired{
+.template-atendimentomedicina_edit #content .ui-state-default a.abaRequired{
     background-color: #DD0000;
     color: #FFFFFF !important;
     font-weight: bold;

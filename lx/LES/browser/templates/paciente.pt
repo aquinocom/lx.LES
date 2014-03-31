@@ -108,18 +108,18 @@
                             <li><a href="#nutricao">Nutrição</a></li>
                         </ul>
                         <div id="medicina">
-                            <div id="listaAtendimentos" tal:define="atendimentos view/getAtendimentos"
+                            <div id="listaAtendimentos" tal:define="atendimentos view/getAtendimentosMedicina"
                                 tal:condition="atendimentos">
                                 <table class="listing">
                                     <tbody>
                                         <tal:block tal:repeat="atendimento atendimentos">
                                             <tr tal:define="oddrow repeat/atendimento/odd;"
                                                 tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                                <td tal:define="url string: ${atendimento/getURL}/atendimentopaciente;
+                                                <td tal:define="url string: ${atendimento/getURL}/atendimentomedicinapaciente;
                                                                 click string: window.open('${url}',  '${atendimento/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=900, HEIGHT=400');;">
                                                     <span tal:replace="atendimento/Title"/>
                                                     &nbsp;
-                                                    <a tal:attributes="onclick click" class="link_exames" alt="visualizar" title="visualizar">
+                                                    <a tal:attributes="onclick click" class="link_atendimentos" alt="visualizar" title="visualizar">
                                                         <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/visualizar.png" width="16px"/>
                                                     </a>
                                                     &nbsp;

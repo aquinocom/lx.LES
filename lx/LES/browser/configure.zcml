@@ -81,18 +81,18 @@
 
     <!--Pages Atendimento-->
     <browser:page
-        name="atendimento"
+        name="atendimentomedicina"
         for="*"
-        class=".atendimento.AtendimentoView"
-        template="templates/atendimento.pt"
+        class=".atendimentomedicina.AtendimentoMedicinaView"
+        template="templates/atendimentomedicina.pt"
         permission="zope2.View"
     />
 
     <browser:page
-        name="atendimentopaciente"
+        name="atendimentomedicinapaciente"
         for="*"
-        class=".atendimento.AtendimentoView"
-        template="templates/atendimentopaciente.pt"
+        class=".atendimentomedicina.AtendimentoMedicinaView"
+        template="templates/atendimentomedicinapaciente.pt"
         permission="zope2.View"
     />    
     

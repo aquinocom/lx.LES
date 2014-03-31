@@ -16,7 +16,7 @@
     <property name="allowed_content_types">
         <element value="ExameSangue"/>
         <element value="ExameUrina"/>
-        <element value="Atendimento"/>
+        <element value="AtendimentoMedicina"/>
     </property>
     <property name="allow_discussion">False</property>
     <property name="default_view">paciente</property>

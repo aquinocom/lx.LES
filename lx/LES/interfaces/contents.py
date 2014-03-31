@@ -3,7 +3,7 @@
 from zope.interface import Interface
 
 
-class IAtendimento(Interface):
+class IAtendimentoMedicina(Interface):
     """Marker interface
     """
 
