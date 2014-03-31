@@ -26,7 +26,6 @@
     height: 100px;
     overflow-y: auto;
 }
-.template-paciente #listaAtendimentos,
 .template-paciente #listaExamesPaciente{
     margin-top: 0px;
     height: 100px;
@@ -59,12 +58,12 @@
 }
 #coluna01_paciente,
 #coluna02_paciente{
-    width: 40%;
+    width: 49%;
     float: left;
     padding-right: 10px;
 }
 #coluna03_paciente{
-    width: 81%;
+    width: 99%;
     float: left;
     padding-right: 10px;
     margin-top: 20px;
@@ -96,6 +95,7 @@
     background: #EEEEEE;
 }
 
+.template-paciente #abas,
 .template-atendimento_edit #abas,
 .template-atendimento_edit #subabas,
 .template-atendimentopaciente #abas,
@@ -106,12 +106,31 @@
     width: 100%;
     margin-bottom: 10px;
 }
+.template-paciente #abas{
+    width: 96%;
+    margin-left: 20px;
+}
+.template-paciente .ui-widget{
+    font-size: inherit;
+}
+.template-paciente #coluna03_paciente .box{
+    float: left;
+    width: 99.5%;
+}
+.template-paciente #listaAtendimentos{
+    margin-top: 0px;
+    height: 100px;
+    margin-bottom:5px;
+    width: 95%;
+}
+.template-paciente #content .ui-state-default a,
 .template-atendimento_edit #content .ui-state-default a,
 .template-atendimentopaciente #content .ui-state-default a,
 .template-atendimento #content .ui-state-default a{
     color: #55555E !important;
     font-size: 12px;
 }
+.template-paciente .ui-tabs-nav,
 .template-atendimento_edit .ui-tabs-nav,
 .template-atendimentopaciente .ui-tabs-nav,
 .template-atendimento .ui-tabs-nav{
