@@ -104,16 +104,56 @@
                                             class python:test(path('allow_tabbing|nothing'), 'enableUnloadProtection enableAutoFocus enableFormTabbing enableUnlockProtection', 'enableUnloadProtection enableAutoFocus enableUnlockProtection');">
                             <metal:block define-slot="extra_top" />
                             <metal:block define-slot="widgets">
-                            <div id="abas">
+                            <div id="abas" tal:define="abas python: context.getAbaErro(errors);">
                                 <ul>
-                                    <li><a href="#informacoes-1">Padrão</a></li>
-                                    <li><a href="#informacoes-2">Critérios clínicos</a></li>
-                                    <li><a href="#informacoes-3">Critérios imunológicos</a></li>
-                                    <li><a href="#informacoes-4">Antecedentes clínicos</a></li>
-                                    <li><a href="#informacoes-5">Comobidades</a></li>
-                                    <li><a href="#informacoes-6">Vacinações</a></li>
-                                    <li><a href="#informacoes-7">Avaliação de índices compostos</a></li>
-                                    <li><a href="#informacoes-8">Escores finais</a></li>
+                                    <li>
+                                        <a href="#informacoes-1"
+                                        tal:attributes="class python:test('default' in abas, 'abaRequired')">
+                                            Padrão
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#informacoes-2"
+                                        tal:attributes="class python:test('criterios_clinicos' in abas, 'abaRequired')">
+                                            Critérios clínicos
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#informacoes-3"
+                                        tal:attributes="class python:test('criterios_imunologicos' in abas, 'abaRequired')">
+                                            Critérios imunológicos
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#informacoes-4"
+                                        tal:attributes="class python:test('antecedentes_clinicos' in abas, 'abaRequired')">
+                                            Antecedentes clínicos
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#informacoes-5"
+                                        tal:attributes="class python:test('comobidades' in abas, 'abaRequired')">
+                                            Comobidades
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#informacoes-6"
+                                        tal:attributes="class python:test('vacinacoes' in abas, 'abaRequired')">
+                                            Vacinações
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#informacoes-7"
+                                        tal:attributes="class python:test('slicc_acr_2010' in abas or 'sledai_2k' in abas, 'abaRequired')">
+                                            Avaliação de índices compostos
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#informacoes-8"
+                                        tal:attributes="class python:test('escores' in abas, 'abaRequired')">
+                                            Escores finais
+                                        </a>
+                                    </li>
                                 </ul>
                                 <div id="informacoes-1">
                                     <!--schemata padrao-->
@@ -271,8 +311,18 @@
                                 <div id="informacoes-7">
                                     <div id="subabas">
                                         <ul>
-                                            <li><a href="#subinformacoes-1">SLICC/ACR, 2010</a></li>
-                                            <li><a href="#subinformacoes-2">SLEDAI-2K</a></li>
+                                            <li>
+                                                <a href="#subinformacoes-1"
+                                                tal:attributes="class python:test('slicc_acr_2010' in abas, 'abaRequired')">
+                                                    SLICC/ACR, 2010
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#subinformacoes-2"
+                                                tal:attributes="class python:test('sledai_2k' in abas, 'abaRequired')">
+                                                    SLEDAI-2K
+                                                </a>
+                                            </li>
                                         </ul>
                                         <div id="subinformacoes-1">
                                             <tal:all tal:define="fields python:schematas['slicc_acr_2010'].editableFields(here, visible_only=True);">
