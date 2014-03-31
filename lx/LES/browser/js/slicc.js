@@ -1,3 +1,5 @@
-$(this).change(function(){
-    alert('teste');
-}
+//$(document).ready(function(){
+//    $( "input[name*='slicc_acr']" ).on('change', function() {
+//      alert( this ); // or $(this).val()
+//    });
+//});

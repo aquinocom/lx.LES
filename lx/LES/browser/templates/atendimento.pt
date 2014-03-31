@@ -6,7 +6,9 @@
     metal:use-macro="context/main_template/macros/master"
     i18n:domain="lx.LES">
     <head>
-        <metal:headslot metal:fill-slot="head_slot">
+        <metal:headslot metal:fill-slot="head_slot"
+                        tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                        disable_column_two python:request.set('disable_plone.rightcolumn',1);">
             <link rel="stylesheet" tal:attributes="href string:${context/portal_url}/++resource++lx.LES.css/tabs_css/jquery.ui.all.css">
             <script tal:attributes="src string:${context/portal_url}/++resource++lx.LES.js/tabs_js/jquery-ui-1.8.16.custom.min.js"></script>
             <script type="text/javascript">
