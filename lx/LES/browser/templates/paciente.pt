@@ -16,12 +16,21 @@
             </script>
         </metal:headslot>
         <metal:head fill-slot="top_slot"
-            tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+            tal:define="dummy python:request.set('disable_border',1);
+                disable_column_one python:request.set('disable_plone.leftcolumn',1);
                 disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
     </head>
     <body>
         <tal:block metal:fill-slot="main" >
-            <h1 tal:content="context/Title"></h1>
+            <h1>
+                <span tal:replace="context/Title"/>
+                &nbsp;
+                <tal:block tal:condition="python: view.isAlterContent(context)">
+                    <a tal:attributes="href string:${context/absolute_url}/edit" alt="Editar Paciente" title="Editar Paciente" class="offBorder">
+                        <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/editar.png" width="24px"/>
+                    </a>
+                </tal:block>
+            </h1>
             <br/>
             <div id="coluna01_paciente">
                 <div class="box">
@@ -203,9 +212,9 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div id="listaExamesPaciente">
-                            <p tal:condition="not:exames">Nenhum exame de sangue realizado.</p>
-                        </div>
+                        <p tal:condition="not:exames" class="adicionar">
+                            Nenhum exame de sangue realizado.
+                        </p>
                     </tal:block>
                 </div>
             </div>
@@ -247,9 +256,9 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div id="listaExamesPaciente">
-                            <p tal:condition="not:exames">Nenhum exame de urina realizado.</p>
-                        </div>
+                        <p tal:condition="not:exames" class="adicionar">
+                            Nenhum exame de urina realizado.
+                        </p>
                     </tal:block>
                 </div>
             </div>
