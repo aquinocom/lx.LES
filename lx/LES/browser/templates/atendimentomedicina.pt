@@ -41,7 +41,7 @@
                 <div id="informacoes-1">
                     <tal:block tal:define="fields python:view.getFields('default');">
                         <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6);"
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">
@@ -58,16 +58,39 @@
                 <div id="informacoes-2">
                     <tal:block tal:define="fields python:view.getFields('criterios_clinicos');">
                         <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
-                            tal:repeat="sublist fieldsLists">
+                            tal:define="lista python: fields[:15];">
                             <ul>
-                                <tal:fields repeat="default sublist">
-                                    <li tal:define="oddrow repeat/default/odd;"
+                                <tal:items repeat="item lista">
+                                    <li tal:define="oddrow repeat/item/odd;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <label tal:content="python:default.widget.label"></label>:
-                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                        <label tal:content="python:item.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
                                     </li>
-                                </tal:fields>
+                                </tal:items>
+                            </ul>
+                        </div>
+                        <div class="column"
+                            tal:define="lista python: fields[15:30];">
+                            <ul>
+                                <tal:items repeat="item lista">
+                                    <li tal:define="oddrow repeat/item/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:item.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                    </li>
+                                </tal:items>
+                            </ul>
+                        </div>
+                        <div class="column"
+                            tal:define="lista python: fields[30:];">
+                            <ul>
+                                <tal:items repeat="item lista">
+                                    <li tal:define="oddrow repeat/item/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:item.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                    </li>
+                                </tal:items>
                             </ul>
                         </div>
                     </tal:block>
@@ -75,7 +98,7 @@
                 <div id="informacoes-3">
                     <tal:block tal:define="fields python:view.getFields('criterios_imunologicos');">
                         <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=3);"
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">
@@ -92,16 +115,39 @@
                 <div id="informacoes-4">
                     <tal:block tal:define="fields python:view.getFields('antecedentes_clinicos');">
                         <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
-                            tal:repeat="sublist fieldsLists">
+                            tal:define="lista python: fields[:6];">
                             <ul>
-                                <tal:fields repeat="default sublist">
-                                    <li tal:define="oddrow repeat/default/odd;"
+                                <tal:items repeat="item lista">
+                                    <li tal:define="oddrow repeat/item/odd;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <label tal:content="python:default.widget.label"></label>:
-                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                        <label tal:content="python:item.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
                                     </li>
-                                </tal:fields>
+                                </tal:items>
+                            </ul>
+                        </div>
+                        <div class="column"
+                            tal:define="lista python: fields[6:12];">
+                            <ul>
+                                <tal:items repeat="item lista">
+                                    <li tal:define="oddrow repeat/item/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:item.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                    </li>
+                                </tal:items>
+                            </ul>
+                        </div>
+                        <div class="column"
+                            tal:define="lista python: fields[12:];">
+                            <ul>
+                                <tal:items repeat="item lista">
+                                    <li tal:define="oddrow repeat/item/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:item.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                    </li>
+                                </tal:items>
                             </ul>
                         </div>
                     </tal:block>
@@ -109,35 +155,140 @@
                 <div id="informacoes-5">
                     <tal:block tal:define="fields python:view.getFields('comorbidades');">
                         <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
-                            tal:repeat="sublist fieldsLists">
+                            tal:define="lista python: fields[:22];">
                             <ul>
-                                <tal:fields repeat="default sublist">
-                                    <li tal:define="oddrow repeat/default/odd;"
+                                <tal:items repeat="item lista">
+                                    <li tal:define="oddrow repeat/item/odd;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <label tal:content="python:default.widget.label"></label>:
-                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                        <label tal:content="python:item.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
                                     </li>
-                                </tal:fields>
+                                </tal:items>
+                            </ul>
+                        </div>
+                        <div class="column"
+                            tal:define="lista python: fields[22:40];">
+                            <ul>
+                                <tal:items repeat="item lista">
+                                    <li tal:define="oddrow repeat/item/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:item.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                    </li>
+                                </tal:items>
+                            </ul>
+                        </div>
+                        <div class="column"
+                            tal:define="lista python: fields[40:];">
+                            <ul>
+                                <tal:items repeat="item lista">
+                                    <li tal:define="oddrow repeat/item/odd;"
+                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                        <label tal:content="python:item.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                    </li>
+                                </tal:items>
                             </ul>
                         </div>
                     </tal:block>
                 </div>
                 <div id="informacoes-6">
                     <tal:block tal:define="fields python:view.getFields('vacinacoes');">
-                        <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
-                            tal:repeat="sublist fieldsLists">
-                            <ul>
-                                <tal:fields repeat="default sublist">
-                                    <li tal:define="oddrow repeat/default/odd;"
-                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <label tal:content="python:default.widget.label"></label>:
-                                        <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
-                                    </li>
-                                </tal:fields>
-                            </ul>
-                        </div>
+                        <fieldset>
+                            <legend>Critérios classificatórios de LES (SLICC/ACR):</legend>
+                            <div class="column"
+                                tal:define="lista python: fields[:37];">
+                                <ul>
+                                    <tal:items repeat="item lista">
+                                        <li tal:define="oddrow repeat/item/odd;"
+                                            tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                            <label tal:content="python:item.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                        </li>
+                                    </tal:items>
+                                </ul>
+                            </div>
+                            <div class="column"
+                                tal:define="lista python: fields[37:66];">
+                                <ul>
+                                    <tal:items repeat="item lista">
+                                        <li tal:define="oddrow repeat/item/odd;"
+                                            tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                            <label tal:content="python:item.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                        </li>
+                                    </tal:items>
+                                </ul>
+                            </div>
+                            <div class="column"
+                                tal:define="lista python: fields[66:-23];">
+                                <ul>
+                                    <tal:items repeat="item lista">
+                                        <li tal:define="oddrow repeat/item/odd;"
+                                            tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                            <label tal:content="python:item.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                        </li>
+                                    </tal:items>
+                                </ul>
+                            </div>
+                            <div style="clear: both"></div>
+                        </fieldset>
+                        <fieldset>
+                            <tal:sublista tal:define="sublista python: fields[-23:len(fields)-3];">
+                                <div class="column"
+                                    tal:define="lista python: sublista[:8];">
+                                    <ul>
+                                        <tal:items repeat="item lista">
+                                            <li tal:define="oddrow repeat/item/odd;"
+                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                <label tal:content="python:item.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                            </li>
+                                        </tal:items>
+                                    </ul>
+                                </div>
+                                <div class="column"
+                                    tal:define="lista python: sublista[8:14];">
+                                    <ul>
+                                        <tal:items repeat="item lista">
+                                            <li tal:define="oddrow repeat/item/odd;"
+                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                <label tal:content="python:item.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                            </li>
+                                        </tal:items>
+                                    </ul>
+                                </div>
+                                <div class="column"
+                                    tal:define="lista python: sublista[14:];">
+                                    <ul>
+                                        <tal:items repeat="item lista">
+                                            <li tal:define="oddrow repeat/item/odd;"
+                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                <label tal:content="python:item.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                            </li>
+                                        </tal:items>
+                                    </ul>
+                                </div>
+                            </tal:sublista>
+                            <div style="clear: both"></div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Escalas analógicas do paciente:</legend>
+                                <div class="column">
+                                    <ul>
+                                        <tal:outros repeat="item python:fields[len(fields)-3:]">
+                                            <li tal:define="oddrow repeat/item/odd;"
+                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                <label tal:content="python:item.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                            </li>
+                                        </tal:outros>
+                                    </ul>
+                                </div>
+                            </fieldset>
                     </tal:block>
                 </div>
                 <div id="informacoes-7">
@@ -147,37 +298,376 @@
                             <li><a href="#subinformacoes-2">SLEDAI-2K</a></li>
                         </ul>
                         <div id="subinformacoes-1">
+                            <label>Escore final	- SLICC/ ACR: </label><span tal:content="here/getEscoreSliic" /><br /><br />
                             <tal:block tal:define="fields python:view.getFields('slicc_acr_2010');">
-                                <div class="column"
-                                    tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
-                                    tal:repeat="sublist fieldsLists">
-                                    <ul>
-                                        <tal:fields repeat="default sublist">
-                                            <li tal:define="oddrow repeat/default/odd;"
-                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                                <label tal:content="python:default.widget.label"></label>:
-                                                <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
-                                            </li>
-                                        </tal:fields>
-                                    </ul>
-                                </div>
+                                <fieldset>
+                                    <legend>Domínio ocular</legend>
+                                    <div class="column"
+                                        tal:define="type1 python: fields[:6];
+                                                    sublista python:context.createMultiColumnList(type1, numCols=3);"
+                                        tal:repeat="lista sublista">
+                                        <tal:items repeat="item lista">
+                                            <ul>
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </ul>
+                                        </tal:items>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Domínio neuropisiquiátrico</legend>
+                                    <div class="column"
+                                        tal:define="lista python: fields[6:10];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[10:15];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[15:19];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div style="clear: both"></div>                                    
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Domínio renal</legend>
+                                    <div class="column"
+                                        tal:define="type1 python: fields[19:25];
+                                                    sublista python:context.createMultiColumnList(type1, numCols=3);"
+                                        tal:repeat="lista sublista">
+                                        <tal:items repeat="item lista">
+                                            <ul>
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </ul>
+                                        </tal:items>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Domínio pulmonar</legend>
+                                    <div class="column"
+                                        tal:define="type1 python: fields[25:35];
+                                                    sublista python:context.createMultiColumnList(type1, numCols=3);"
+                                        tal:repeat="lista sublista">
+                                        <tal:items repeat="item lista">
+                                            <ul>
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </ul>
+                                        </tal:items>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </fieldset>                                                                  
+                                <fieldset>
+                                    <legend>Domínio cardiovascular</legend>
+                                    <div class="column"
+                                        tal:define="lista python: fields[35:40];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[40:44];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[44:46];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div style="clear: both"></div>                                    
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Domínio vascular periférica</legend>
+                                    <div class="column"
+                                        tal:define="lista python: fields[46:50];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[50:53];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[53:55];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div style="clear: both"></div>                                    
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Domínio gastrointestinal</legend>
+                                    <div class="column"
+                                        tal:define="lista python: fields[55:58];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[58:62];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[62:64];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div style="clear: both"></div>                                    
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Domínio muscoessquelética</legend>
+                                    <div class="column"
+                                        tal:define="lista python: fields[64:68];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[68:73];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div class="column"
+                                        tal:define="lista python: fields[73:75];">
+                                        <ul>
+                                            <tal:items repeat="item lista">
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </tal:items>
+                                        </ul>
+                                    </div>
+                                    <div style="clear: both"></div>                                    
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Domínio dermacológico</legend>
+                                    <div class="column"
+                                        tal:define="type1 python: fields[75:81];
+                                                    sublista python:context.createMultiColumnList(type1, numCols=3);"
+                                        tal:repeat="lista sublista">
+                                        <tal:items repeat="item lista">
+                                            <ul>
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </ul>
+                                        </tal:items>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Domínio falência gono</legend>
+                                    <div class="column"
+                                        tal:define="type1 python: fields[81:83];
+                                                    sublista python:context.createMultiColumnList(type1, numCols=3);"
+                                        tal:repeat="lista sublista">
+                                        <tal:items repeat="item lista">
+                                            <ul>
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </ul>
+                                        </tal:items>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Domínio diabetes</legend>
+                                    <div class="column"
+                                        tal:define="type1 python: fields[83:85];
+                                                    sublista python:context.createMultiColumnList(type1, numCols=3);"
+                                        tal:repeat="lista sublista">
+                                        <tal:items repeat="item lista">
+                                            <ul>
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </ul>
+                                        </tal:items>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </fieldset>                                
+                                <fieldset>
+                                    <legend>Domínio malignidade</legend>
+                                    <div class="column"
+                                        tal:define="type1 python: fields[85:];
+                                                    sublista python:context.createMultiColumnList(type1, numCols=3);"
+                                        tal:repeat="lista sublista">
+                                        <tal:items repeat="item lista">
+                                            <ul>
+                                                <li tal:define="oddrow repeat/item/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <label tal:content="python:item.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                                </li>
+                                            </ul>
+                                        </tal:items>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </fieldset>                                                      
                             </tal:block>
                         </div>
                         <div id="subinformacoes-2">
+                            <label>Escore final	- SLEDAI - 2K: </label><span tal:content="here/getEscoreSledai" /><br /><br />
                             <tal:block tal:define="fields python:view.getFields('sledai_2k');">
                                 <div class="column"
-                                    tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
-                                    tal:repeat="sublist fieldsLists">
+                                    tal:define="lista python: fields[:17];">
                                     <ul>
-                                        <tal:fields repeat="default sublist">
-                                            <li tal:define="oddrow repeat/default/odd;"
+                                        <tal:items repeat="item lista">
+                                            <li tal:define="oddrow repeat/item/odd;"
                                                 tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                                <label tal:content="python:default.widget.label"></label>:
-                                                <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+                                                <label tal:content="python:item.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
                                             </li>
-                                        </tal:fields>
+                                        </tal:items>
                                     </ul>
                                 </div>
+                                <div class="column"
+                                    tal:define="lista python: fields[17:32];">
+                                    <ul>
+                                        <tal:items repeat="item lista">
+                                            <li tal:define="oddrow repeat/item/odd;"
+                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                <label tal:content="python:item.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                            </li>
+                                        </tal:items>
+                                    </ul>
+                                </div>
+                                <div class="column"
+                                    tal:define="lista python: fields[32:];">
+                                    <ul>
+                                        <tal:items repeat="item lista">
+                                            <li tal:define="oddrow repeat/item/odd;"
+                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                <label tal:content="python:item.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='view')" />
+                                            </li>
+                                        </tal:items>
+                                    </ul>
+                                </div>
+                                <div style="clear: both"></div>
                             </tal:block>
                         </div>
                     </div>
@@ -185,7 +675,7 @@
                 <div id="informacoes-8">
                     <tal:block tal:define="fields python:view.getFields('escores');">
                         <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=3);"
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">
@@ -202,7 +692,7 @@
 <!--                <div id="informacoes-7">
                     <tal:block tal:define="fields python:view.getFields('slicc_acr_2010');">
                         <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6);"
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">
@@ -219,7 +709,7 @@
                 <div id="informacoes-8">
                     <tal:block tal:define="fields python:view.getFields('sledai_2k');">
                         <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6);"
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">

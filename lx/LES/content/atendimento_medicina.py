@@ -3024,7 +3024,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
 #SLICC / ACR, 2010
 #dominio ocular
     atapi.StringField(
-        name='slicc_acr_catarata',
+        name='slicc_acr_2010_catarata',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3052,7 +3052,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_alteracao_retinal',
+        name='slicc_acr_2010_alteracao_retinal',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3077,7 +3077,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_atrofia_optica',
+        name='slicc_acr_2010_atrofia_optica',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3104,7 +3104,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #dominio neuropisiquiátrico
     atapi.StringField(
-        name='slicc_acr_disfuncao_cognitiva',
+        name='slicc_acr_2010_disfuncao_cognitiva',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3133,7 +3133,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_psicose',
+        name='slicc_acr_2010_psicose',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3164,7 +3164,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_convulsoes',
+        name='slicc_acr_2010_convulsoes',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3191,7 +3191,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_avc',
+        name='slicc_acr_2010_avc',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3206,13 +3206,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             slave_fields=(dict(name='avc_obs',
                                action='show',
                                hide_values=('1',)),
-                          dict(name='slicc_acr_avc_mult_ocorrencia',
+                          dict(name='slicc_acr_2010_avc_mult_ocorrencia',
                                action='show',
                                hide_values=('1',)),)
         ),
     ),
     atapi.StringField(
-        name="slicc_acr_avc_mult_ocorrencia",
+        name="slicc_acr_2010_avc_mult_ocorrencia",
         searchable=True,
         schemata='slicc_acr_2010',
         default='0',
@@ -3233,7 +3233,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_neuropatia_craniana',
+        name='slicc_acr_2010_neuropatia_craniana',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3260,7 +3260,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_mielite_transversa',
+        name='slicc_acr_2010_mielite_transversa',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3288,7 +3288,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #renal
     atapi.StringField(
-        name='slicc_acr_tx_filtr_glomerular',
+        name='slicc_acr_2010_tx_filtr_glomerular',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3312,7 +3312,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_proteinuria',
+        name='slicc_acr_2010_proteinuria',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3321,13 +3321,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             #format='radio',
             label=_(u"11. Proteinúria ≥ 3,5 g/24 h"),
             #helper_js=('++resource++slicc.js',),
-            slave_fields=(dict(name='proteinuria_obs',
+            slave_fields=(dict(name='acr_proteinuria_obs',
                                action='show',
                                hide_values=('1',)),)
         ),
     ),
     atapi.TextField(
-        name="proteinuria_obs",
+        name="acr_proteinuria_obs",
         searchable=True,
         schemata='slicc_acr_2010',
         allowable_content_types=('text/plain',),
@@ -3336,7 +3336,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_insuficiencia_renal_terminal',
+        name='slicc_acr_2010_insuficiencia_renal_terminal',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3362,7 +3362,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #pulmonar
     atapi.StringField(
-        name='slicc_acr_hipertensao_pulmonar',
+        name='slicc_acr_2010_hipertensao_pulmonar',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3387,7 +3387,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_fibrose_pulmonar',
+        name='slicc_acr_2010_fibrose_pulmonar',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3412,7 +3412,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_shrinking_lung_syndrome',
+        name='slicc_acr_2010_shrinking_lung_syndrome',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3437,7 +3437,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_fibrose_pleural',
+        name='slicc_acr_2010_fibrose_pleural',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3462,7 +3462,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_infarto_pulmonar',
+        name='slicc_acr_2010_infarto_pulmonar',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3489,7 +3489,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #cardiovascular
     atapi.StringField(
-        name='slicc_acr_angina_pectoris_angioplastia',
+        name='slicc_acr_2010_angina_pectoris_angioplastia',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3513,7 +3513,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_infarto_agudo_miocardio',
+        name='slicc_acr_2010_infarto_agudo_miocardio',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3527,13 +3527,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             slave_fields=(dict(name='infarto_agudo_miocardio_obs',
                                action='show',
                                hide_values=('1',)),
-                          dict(name='slicc_acr_infarto_agudo_miocardio_mult_ocorrencia',
+                          dict(name='slicc_acr_2010_infarto_agudo_miocardio_mult_ocorrencia',
                                action='show',
                                hide_values=('1',)),)
         ),
     ),
     atapi.StringField(
-        name="slicc_acr_infarto_agudo_miocardio_mult_ocorrencia",
+        name="slicc_acr_2010_infarto_agudo_miocardio_mult_ocorrencia",
         searchable=True,
         schemata='slicc_acr_2010',
         default='0',
@@ -3554,7 +3554,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_miocardiopatia',
+        name='slicc_acr_2010_miocardiopatia',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3580,7 +3580,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_doenca_valvular',
+        name='slicc_acr_2010_doenca_valvular',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3606,7 +3606,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_pericardite',
+        name='slicc_acr_2010_pericardite',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3632,7 +3632,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #vascular periferica
     atapi.StringField(
-        name='slicc_acr_claudicacao_persistente',
+        name='slicc_acr_2010_claudicacao_persistente',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3657,7 +3657,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_perda_tecidual_menor',
+        name='slicc_acr_2010_perda_tecidual_menor',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3682,7 +3682,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_perda_tecidual_significante',
+        name='slicc_acr_2010_perda_tecidual_significante',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3695,13 +3695,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             slave_fields=(dict(name='perda_tecidual_significante_obs',
                                action='show',
                                hide_values=('1',)),
-                          dict(name='slicc_acr_perda_tecidual_significante_mult_ocorrencia',
+                          dict(name='slicc_acr_2010_perda_tecidual_significante_mult_ocorrencia',
                                action='show',
                                hide_values=('1',)),)
         ),
     ),
     atapi.StringField(
-        name="slicc_acr_perda_tecidual_significante_mult_ocorrencia",
+        name="slicc_acr_2010_perda_tecidual_significante_mult_ocorrencia",
         searchable=True,
         schemata='slicc_acr_2010',
         default='0',
@@ -3722,7 +3722,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_trombose_venosa_edema',
+        name='slicc_acr_2010_trombose_venosa_edema',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3748,7 +3748,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_infarto_resseccao_intest',
+        name='slicc_acr_2010_infarto_resseccao_intest',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3762,14 +3762,14 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             slave_fields=(dict(name='infarto_resseccao_intest_obs',
                                action='show',
                                hide_values=('1',)),
-                          dict(name='slicc_acr_infarto_resseccao_intest_mult_ocorrencia',
+                          dict(name='slicc_acr_2010_infarto_resseccao_intest_mult_ocorrencia',
                                action='show',
                                hide_values=('1',)),)
         ),
     ),
 #gastrointestinal
     atapi.StringField(
-        name="slicc_acr_infarto_resseccao_intest_mult_ocorrencia",
+        name="slicc_acr_2010_infarto_resseccao_intest_mult_ocorrencia",
         searchable=True,
         schemata='slicc_acr_2010',
         default='0',
@@ -3790,7 +3790,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_insuficiencia_mesenterica',
+        name='slicc_acr_2010_insuficiencia_mesenterica',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3815,7 +3815,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_peritonite_cronica_dor',
+        name='slicc_acr_2010_peritonite_cronica_dor',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3841,7 +3841,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_constricao_esofagica_observ',
+        name='slicc_acr_2010_constricao_esofagica_observ',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3872,7 +3872,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #musculoessqueletica
     atapi.StringField(
-        name='slicc_acr_atrofia_musc_fraqueza',
+        name='slicc_acr_2010_atrofia_musc_fraqueza',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3898,7 +3898,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_artrite_deformante',
+        name='slicc_acr_2010_artrite_deformante',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3925,7 +3925,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_osteoporose_fratura',
+        name='slicc_acr_2010_osteoporose_fratura',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3952,7 +3952,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_osteonecrose_demonstrada',
+        name='slicc_acr_2010_osteonecrose_demonstrada',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -3966,13 +3966,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             slave_fields=(dict(name='osteonecrose_demonstrada_obs',
                                action='show',
                                hide_values=('1',)),
-                          dict(name='slicc_acr_osteonecrose_demonstrada_mult_ocorrencia',
+                          dict(name='slicc_acr_2010_osteonecrose_demonstrada_mult_ocorrencia',
                                action='show',
                                hide_values=('1',)),)
         ),
     ),
     atapi.StringField(
-        name="slicc_acr_osteonecrose_demonstrada_mult_ocorrencia",
+        name="slicc_acr_2010_osteonecrose_demonstrada_mult_ocorrencia",
         searchable=True,
         schemata='slicc_acr_2010',
         default='0',
@@ -3993,7 +3993,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_osteomielite_documentada',
+        name='slicc_acr_2010_osteomielite_documentada',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4020,7 +4020,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #dermatologico
     atapi.StringField(
-        name='slicc_acr_alopecia_cicatricial_cronica',
+        name='slicc_acr_2010_alopecia_cicatricial_cronica',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4045,7 +4045,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_cicatriz_extensa_paniculite',
+        name='slicc_acr_2010_cicatriz_extensa_paniculite',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4072,7 +4072,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='slicc_acr_ulceracao_cutanea',
+        name='slicc_acr_2010_ulceracao_cutanea',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4098,7 +4098,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #falencia gono
     atapi.StringField(
-        name='slicc_acr_amnorreia',
+        name='slicc_acr_2010_amnorreia',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4124,7 +4124,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #diabetes
     atapi.StringField(
-        name='slicc_acr_diabetes_requerendo_tratam',
+        name='slicc_acr_2010_diabetes_requerendo_tratam',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4150,7 +4150,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #malignidade
     atapi.StringField(
-        name='slicc_acr_malignidade_documentada',
+        name='slicc_acr_2010_malignidade_documentada',
         searchable=True,
         schemata='slicc_acr_2010',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4176,7 +4176,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 #SLEDAI - 2K
     atapi.StringField(
-        name='sledai_convulsao',
+        name='sledai_2k_convulsao',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('8', 'Sim')],
@@ -4203,7 +4203,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_psicose',
+        name='sledai_2k_psicose',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('8', 'Sim')],
@@ -4232,7 +4232,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_delirium',
+        name='sledai_2k_delirium',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('8', 'Sim')],
@@ -4265,7 +4265,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_disturbios_visuais',
+        name='sledai_2k_disturbios_visuais',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('8', 'Sim')],
@@ -4293,7 +4293,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_comp_pares',
+        name='sledai_2k_comp_pares',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('8', 'Sim')],
@@ -4319,7 +4319,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_cefaleia_lupica',
+        name='sledai_2k_cefaleia_lupica',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('8', 'Sim')],
@@ -4345,7 +4345,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_acidente_vasc',
+        name='sledai_2k_acidente_vasc',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('8', 'Sim')],
@@ -4370,7 +4370,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_vasculite',
+        name='sledai_2k_vasculite',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('8', 'Sim')],
@@ -4398,7 +4398,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_artrites',
+        name='sledai_2k_artrites',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('4', 'Sim')],
@@ -4426,7 +4426,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_miosites',
+        name='sledai_2k_miosites',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('4', 'Sim')],
@@ -4454,7 +4454,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_cilindros_urinar',
+        name='sledai_2k_cilindros_urinar',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('4', 'Sim')],
@@ -4479,7 +4479,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_hematuria',
+        name='sledai_2k_hematuria',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('4', 'Sim')],
@@ -4505,7 +4505,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_proteinuria',
+        name='sledai_2k_proteinuria',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('4', 'Sim')],
@@ -4515,13 +4515,13 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"13. Proteinúria"),
             description=_(u"Concentracção > a 0,5 g/24 horas"),
             #helper_js=('++resource++sledai.js',),
-            slave_fields=(dict(name='proteinuria_obs',
+            slave_fields=(dict(name='2k_proteinuria_obs',
                                action='show',
                                hide_values=('4',)),)
         ),
     ),
     atapi.TextField(
-        name="proteinuria_obs",
+        name="2k_proteinuria_obs",
         searchable=True,
         schemata='sledai_2k',
         allowable_content_types=('text/plain',),
@@ -4530,7 +4530,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_piuria',
+        name='sledai_2k_piuria',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('4', 'Sim')],
@@ -4556,7 +4556,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_rash_cutaneo',
+        name='sledai_2k_rash_cutaneo',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('2', 'Sim')],
@@ -4581,7 +4581,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_alopecia',
+        name='sledai_2k_alopecia',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('2', 'Sim')],
@@ -4607,7 +4607,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_ulcera_mucosa',
+        name='sledai_2k_ulcera_mucosa',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('2', 'Sim')],
@@ -4632,7 +4632,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_pleurisia',
+        name='sledai_2k_pleurisia',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('2', 'Sim')],
@@ -4657,7 +4657,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_pericardite',
+        name='sledai_2k_pericardite',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('2', 'Sim')],
@@ -4683,7 +4683,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_complemento_bai',
+        name='sledai_2k_complemento_bai',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('2', 'Sim')],
@@ -4708,7 +4708,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_anti_dnads',
+        name='sledai_2k_anti_dnads',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('2', 'Sim')],
@@ -4733,7 +4733,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_febre',
+        name='sledai_2k_febre',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4758,7 +4758,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_trombocitopenia',
+        name='sledai_2k_trombocitopenia',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4784,7 +4784,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name='sledai_leucopenia',
+        name='sledai_2k_leucopenia',
         searchable=True,
         schemata='sledai_2k',
         vocabulary=[('0', 'Não'), ('1', 'Sim')],
@@ -4899,14 +4899,29 @@ class AtendimentoMedicina(ATCTContent, HistoryAwareMixin):
         self.setTitle(titulo)
         self.setId(new_id)
 
+    def getCamposPontuacao(self, schemata):
+        fields = []
+        for field in self.Schemata()[schemata].keys():
+            if field.find(schemata) != -1:
+                fields.append(field)
+        return fields
+
     def getEscoreSliic(self):
         """Obter pontuações do sliic"""
-        import pdb; pdb.set_trace()
-        pass
+        campos = self.getCamposPontuacao('slicc_acr_2010')
+        escore = 0
+        for campo in campos:
+            escore = escore + int(getattr(self, campo))
+        return escore
 
     def getEscoreSledai(self):
         """Obter pontuações do sledai"""
-        pass
+        campos = self.getCamposPontuacao('sledai_2k')
+        escore = 0
+        for campo in campos:
+            escore = escore + int(getattr(self, campo))
+        return escore
+
 
     schema = schema
 

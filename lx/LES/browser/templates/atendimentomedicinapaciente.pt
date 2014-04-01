@@ -146,6 +146,7 @@
                             <li><a href="#subinformacoes-2">SLEDAI-2K</a></li>
                         </ul>
                         <div id="subinformacoes-1">
+                            <label>Escore final	- SLICC/ ACR: </label><span tal:content="here/getEscoreSliic" /><br /><br />
                             <tal:block tal:define="fields python:view.getFields('slicc_acr_2010');">
                                 <div class="column"
                                     tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
@@ -163,11 +164,12 @@
                             </tal:block>
                         </div>
                         <div id="subinformacoes-2">
+                            <label>Escore final	- SLEDAI - 2K </label><span tal:content="here/getEscoreSledai" /><br /><br />
                             <tal:block tal:define="fields python:view.getFields('sledai_2k');">
                                 <div class="column"
                                     tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
                                     tal:repeat="sublist fieldsLists">
-                                    <ul>
+                                    <ul>                        
                                         <tal:fields repeat="default sublist">
                                             <li tal:define="oddrow repeat/default/odd;"
                                                 tal:attributes="class python: oddrow and 'even' or 'odd'">
@@ -186,7 +188,7 @@
                         <div class="column"
                             tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
                             tal:repeat="sublist fieldsLists">
-                            <ul>
+                            <ul>   
                                 <tal:fields repeat="default sublist">
                                     <li tal:define="oddrow repeat/default/odd;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">

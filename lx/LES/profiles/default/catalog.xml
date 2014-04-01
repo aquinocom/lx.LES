@@ -1,30 +1,1595 @@
 <?xml version="1.0"?>
 <object name="portal_catalog" meta_type="Plone Catalog Tool">
-<!--    <index name="breadcrumb" meta_type="FieldIndex">
-        <indexed_attr value="breadcrumb"/>
+    <index name="inicio_sintomas" meta_type="FieldIndex">
+        <indexed_attr value="inicio_sintomas"/>
     </index>
-    <index name="getRawLink_interno" meta_type="KeywordIndex">
-        <indexed_attr value="getRawLink_interno"/>
+    <index name="retardo_diagnostico" meta_type="FieldIndex">
+        <indexed_attr value="retardo_diagnostico"/>
     </index>
-    <index name="getRawBanner_link_interno" meta_type="KeywordIndex">
-        <indexed_attr value="getRawLink_interno"/>
+    <index name="manifestacao_inicial" meta_type="FieldIndex">
+        <indexed_attr value="manifestacao_inicial"/>
     </index>
-    <index name="getLink_target" meta_type="FieldIndex">
-        <indexed_attr value="getLink_target"/>
+    <index name="cutaneo_agudo" meta_type="FieldIndex">
+        <indexed_attr value="cutaneo_agudo"/>
     </index>
-    <index name="getExcludeFromNav" meta_type="FieldIndex">
-        <indexed_attr value="getExcludeFromNav"/>
+    <index name="cutaneo_agudo_data" meta_type="DateIndex">
+        <indexed_attr value="cutaneo_agudo_data"/>
     </index>
-    <column value="getExcludeFromNav"/>
-    <column value="getLink_target" />
-    <column value="getRawLink_interno" />
-    <column value="getRawBanner_link_interno"/>
-    <column value="breadcrumb"/>
-    <column value="get_img_referencia"/>
-    <column value="get_alt_img_referencia"/>
-    <column value="get_path_referencia"/>-->
+    <index name="cutaneo_agudo_inf" meta_type="FieldIndex">
+        <indexed_attr value="cutaneo_agudo_inf"/>
+    </index>
+    <index name="cutaneo_subagudo" meta_type="FieldIndex">
+        <indexed_attr value="cutaneo_subagudo"/>
+    </index>
+    <index name="cutaneo_subagudo_data" meta_type="DateIndex">
+        <indexed_attr value="cutaneo_subagudo_data"/>
+    </index>
+    <index name="cutaneo_subagudo_inf" meta_type="FieldIndex">
+        <indexed_attr value="cutaneo_subagudo_inf"/>
+    </index>
+    <index name="cutaneo_cronico" meta_type="FieldIndex">
+        <indexed_attr value="cutaneo_cronico"/>
+    </index>
+    <index name="cutaneo_cronico_data" meta_type="DateIndex">
+        <indexed_attr value="cutaneo_cronico_data"/>
+    </index>
+    <index name="cutaneo_cronico_inf" meta_type="FieldIndex">
+        <indexed_attr value="cutaneo_cronico_inf"/>
+    </index>
+    <index name="ulceras_orais" meta_type="FieldIndex">
+        <indexed_attr value="ulceras_orais"/>
+    </index>
+    <index name="ulceras_orais_data" meta_type="DateIndex">
+        <indexed_attr value="ulceras_orais_data"/>
+    </index>
+    <index name="ulceras_orais_inf" meta_type="FieldIndex">
+        <indexed_attr value="ulceras_orais_inf"/>
+    </index>
+    <index name="ulceras_nasais" meta_type="FieldIndex">
+        <indexed_attr value="ulceras_nasais"/>
+    </index>
+    <index name="ulceras_nasais_data" meta_type="DateIndex">
+        <indexed_attr value="ulceras_nasais_data"/>
+    </index>
+    <index name="ulceras_nasais_inf" meta_type="FieldIndex">
+        <indexed_attr value="ulceras_nasais_inf"/>
+    </index>
+    <index name="alopecia_nao_cicatricial" meta_type="FieldIndex">
+        <indexed_attr value="alopecia_nao_cicatricial"/>
+    </index>
+    <index name="alopecia_nao_cicatricial_data" meta_type="DateIndex">
+        <indexed_attr value="alopecia_nao_cicatricial_data"/>
+    </index>
+    <index name="alopecia_nao_cicatricial_inf" meta_type="FieldIndex">
+        <indexed_attr value="alopecia_nao_cicatricial_inf"/>
+    </index>
+    <index name="articular" meta_type="FieldIndex">
+        <indexed_attr value="articular"/>
+    </index>
+    <index name="articular_data" meta_type="DateIndex">
+        <indexed_attr value="articular_data"/>
+    </index>
+    <index name="articular_inf" meta_type="FieldIndex">
+        <indexed_attr value="articular_inf"/>
+    </index>
+    <index name="serosite" meta_type="FieldIndex">
+        <indexed_attr value="serosite"/>
+    </index>
+    <index name="serosite_data" meta_type="DateIndex">
+        <indexed_attr value="serosite_data"/>
+    </index>
+    <index name="serosite_inf" meta_type="FieldIndex">
+        <indexed_attr value="serosite_inf"/>
+    </index>
+    <index name="renal" meta_type="FieldIndex">
+        <indexed_attr value="renal"/>
+    </index>
+    <index name="renal_data" meta_type="DateIndex">
+        <indexed_attr value="renal_data"/>
+    </index>
+    <index name="renal_inf" meta_type="FieldIndex">
+        <indexed_attr value="renal_inf"/>
+    </index>
+    <index name="neurologico" meta_type="FieldIndex">
+        <indexed_attr value="neurologico"/>
+    </index>
+    <index name="neurologico_data" meta_type="DateIndex">
+        <indexed_attr value="neurologico_data"/>
+    </index>
+    <index name="neurologico_inf" meta_type="FieldIndex">
+        <indexed_attr value="neurologico_inf"/>
+    </index>
+    <index name="anemia_hemolitica" meta_type="FieldIndex">
+        <indexed_attr value="anemia_hemolitica"/>
+    </index>
+    <index name="anemia_hemolitica_data" meta_type="DateIndex">
+        <indexed_attr value="anemia_hemolitica_data"/>
+    </index>
+    <index name="anemia_hemolitica_inf" meta_type="FieldIndex">
+        <indexed_attr value="anemia_hemolitica_inf"/>
+    </index>
+    <index name="leucopenia" meta_type="FieldIndex">
+        <indexed_attr value="leucopenia"/>
+    </index>
+    <index name="leucopenia_data" meta_type="DateIndex">
+        <indexed_attr value="leucopenia_data"/>
+    </index>
+    <index name="leucopenia_inf" meta_type="FieldIndex">
+        <indexed_attr value="leucopenia_inf"/>
+    </index>
+    <index name="linfopenia" meta_type="FieldIndex">
+        <indexed_attr value="linfopenia"/>
+    </index>
+    <index name="linfopenia_data" meta_type="DateIndex">
+        <indexed_attr value="linfopenia_data"/>
+    </index>
+    <index name="linfopenia_inf" meta_type="FieldIndex">
+        <indexed_attr value="linfopenia_inf"/>
+    </index>
+    <index name="trombocitopenia" meta_type="FieldIndex">
+        <indexed_attr value="trombocitopenia"/>
+    </index>
+    <index name="trombocitopenia_data" meta_type="DateIndex">
+        <indexed_attr value="trombocitopenia_data"/>
+    </index>
+    <index name="trombocitopenia_inf" meta_type="FieldIndex">
+        <indexed_attr value="trombocitopenia_inf"/>
+    </index>
+    <index name="fan" meta_type="FieldIndex">
+        <indexed_attr value="fan"/>
+    </index>
+    <index name="fan_data" meta_type="DateIndex">
+        <indexed_attr value="fan_data"/>
+    </index>
+    <index name="fan_inf" meta_type="FieldIndex">
+        <indexed_attr value="fan_inf"/>
+    </index>
+    <index name="anti_dna_dupla_helice" meta_type="FieldIndex">
+        <indexed_attr value="anti_dna_dupla_helice"/>
+    </index>
+    <index name="anti_dna_dupla_helice_data" meta_type="DateIndex">
+        <indexed_attr value="anti_dna_dupla_helice_data"/>
+    </index>
+    <index name="anti_dna_dupla_helice_inf" meta_type="FieldIndex">
+        <indexed_attr value="anti_dna_dupla_helice_inf"/>
+    </index>
+    <index name="anti_sm" meta_type="FieldIndex">
+        <indexed_attr value="anti_sm"/>
+    </index>
+    <index name="anti_sm_data" meta_type="DateIndex">
+        <indexed_attr value="anti_sm_data"/>
+    </index>
+    <index name="anti_sm_inf" meta_type="FieldIndex">
+        <indexed_attr value="anti_sm_inf"/>
+    </index>
+    <index name="antifosfolipidios" meta_type="FieldIndex">
+        <indexed_attr value="antifosfolipidios"/>
+    </index>
+    <index name="antifosfolipidios_data" meta_type="DateIndex">
+        <indexed_attr value="antifosfolipidios_data"/>
+    </index>
+    <index name="antifosfolipidios_inf" meta_type="FieldIndex">
+        <indexed_attr value="antifosfolipidios_inf"/>
+    </index>
+    <index name="complemento_baixo" meta_type="FieldIndex">
+        <indexed_attr value="complemento_baixo"/>
+    </index>
+    <index name="complemento_baixo_data" meta_type="DateIndex">
+        <indexed_attr value="complemento_baixo_data"/>
+    </index>
+    <index name="complemento_baixo_inf" meta_type="FieldIndex">
+        <indexed_attr value="complemento_baixo_inf"/>
+    </index>
+    <index name="coombs_direto" meta_type="FieldIndex">
+        <indexed_attr value="coombs_direto"/>
+    </index>
+    <index name="coombs_direto_data" meta_type="DateIndex">
+        <indexed_attr value="coombs_direto_data"/>
+    </index>
+    <index name="coombs_direto_inf" meta_type="FieldIndex">
+        <indexed_attr value="coombs_direto_inf"/>
+    </index>
+    <index name="miopatia" meta_type="FieldIndex">
+        <indexed_attr value="miopatia"/>
+    </index>
+    <index name="miopatia_data" meta_type="DateIndex">
+        <indexed_attr value="miopatia_data"/>
+    </index>
+    <index name="miopatia_inf" meta_type="FieldIndex">
+        <indexed_attr value="miopatia_inf"/>
+    </index>
+    <index name="raynaud" meta_type="FieldIndex">
+        <indexed_attr value="raynaud"/>
+    </index>
+    <index name="raynaud_data" meta_type="DateIndex">
+        <indexed_attr value="raynaud_data"/>
+    </index>
+    <index name="raynaud_inf" meta_type="FieldIndex">
+        <indexed_attr value="raynaud_inf"/>
+    </index>
+    <index name="dano_hemorragia_alveolar" meta_type="FieldIndex">
+        <indexed_attr value="dano_hemorragia_alveolar"/>
+    </index>
+    <index name="dano_hemorragia_alveolar_data" meta_type="DateIndex">
+        <indexed_attr value="dano_hemorragia_alveolar_data"/>
+    </index>
+    <index name="dano_hemorragia_alveolar_inf" meta_type="FieldIndex">
+        <indexed_attr value="dano_hemorragia_alveolar_inf"/>
+    </index>
+    <index name="pnm_intersticial" meta_type="FieldIndex">
+        <indexed_attr value="pnm_intersticial"/>
+    </index>
+    <index name="pnm_intersticial_data" meta_type="DateIndex">
+        <indexed_attr value="pnm_intersticial_data"/>
+    </index>
+    <index name="pnm_intersticial_inf" meta_type="FieldIndex">
+        <indexed_attr value="pnm_intersticial_inf"/>
+    </index>
+    <index name="vasculite_pele_sistemica" meta_type="FieldIndex">
+        <indexed_attr value="vasculite_pele_sistemica"/>
+    </index>
+    <index name="vasculite_pele_sistemica_data" meta_type="DateIndex">
+        <indexed_attr value="vasculite_pele_sistemica_data"/>
+    </index>
+    <index name="vasculite_pele_sistemica_inf" meta_type="FieldIndex">
+        <indexed_attr value="vasculite_pele_sistemica_inf"/>
+    </index>
+    <index name="tabaco" meta_type="FieldIndex">
+        <indexed_attr value="tabaco"/>
+    </index>
+    <index name="tabaco_data_inicio" meta_type="FieldIndex">
+        <indexed_attr value="tabaco_data_inicio"/>
+    </index>
+    <index name="tabaco_data_fim" meta_type="FieldIndex">
+        <indexed_attr value="tabaco_data_fim"/>
+    </index>
+    <index name="tabaco_especificacao" meta_type="FieldIndex">
+        <indexed_attr value="tabaco_especificacao"/>
+    </index>
+    <index name="tabaco_unidade_dia" meta_type="FieldIndex">
+        <indexed_attr value="tabaco_unidade_dia"/>
+    </index>
+    <index name="alcool" meta_type="FieldIndex">
+        <indexed_attr value="alcool"/>
+    </index>
+    <index name="alcool_data_inicio" meta_type="FieldIndex">
+        <indexed_attr value="alcool_data_inicio"/>
+    </index>
+    <index name="alcool_data_fim" meta_type="FieldIndex">
+        <indexed_attr value="alcool_data_fim"/>
+    </index>
+    <index name="alcool_especificacao" meta_type="FieldIndex">
+        <indexed_attr value="alcool_especificacao"/>
+    </index>
+    <index name="alcool_unidade_dia" meta_type="FieldIndex">
+        <indexed_attr value="alcool_unidade_dia"/>
+    </index>
+    <index name="has" meta_type="FieldIndex">
+        <indexed_attr value="has"/>
+    </index>
+    <index name="has_data" meta_type="DateIndex">
+        <indexed_attr value="has_data"/>
+    </index>
+    <index name="has_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="has_detalhes"/>
+    </index>
+    <index name="diabete" meta_type="FieldIndex">
+        <indexed_attr value="diabete"/>
+    </index>
+    <index name="diabete_data" meta_type="DateIndex">
+        <indexed_attr value="diabete_data"/>
+    </index>
+    <index name="diabete_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="diabete_detalhes"/>
+    </index>
+    <index name="dislipidemia" meta_type="FieldIndex">
+        <indexed_attr value="dislipidemia"/>
+    </index>
+    <index name="dislipidemia_data" meta_type="DateIndex">
+        <indexed_attr value="dislipidemia_data"/>
+    </index>
+    <index name="dislipidemia_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="dislipidemia_detalhes"/>
+    </index>
+    <index name="hipotireoidismo" meta_type="FieldIndex">
+        <indexed_attr value="hipotireoidismo"/>
+    </index>
+    <index name="hipotireoidismo_data" meta_type="DateIndex">
+        <indexed_attr value="hipotireoidismo_data"/>
+    </index>
+    <index name="hipotireoidismo_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="hipotireoidismo_detalhes"/>
+    </index>
+    <index name="dac" meta_type="FieldIndex">
+        <indexed_attr value="dac"/>
+    </index>
+    <index name="dac_data" meta_type="DateIndex">
+        <indexed_attr value="dac_data"/>
+    </index>
+    <index name="dac_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="dac_detalhes"/>
+    </index>
+    <index name="ivp_varizes" meta_type="FieldIndex">
+        <indexed_attr value="ivp_varizes"/>
+    </index>
+    <index name="ivp_varizes_data" meta_type="DateIndex">
+        <indexed_attr value="ivp_varizes_data"/>
+    </index>
+    <index name="ivp_varizes_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="ivp_varizes_detalhes"/>
+    </index>
+    <index name="asma" meta_type="FieldIndex">
+        <indexed_attr value="asma"/>
+    </index>
+    <index name="asma_data" meta_type="DateIndex">
+        <indexed_attr value="asma_data"/>
+    </index>
+    <index name="asma_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="asma_detalhes"/>
+    </index>
+    <index name="dpoc" meta_type="FieldIndex">
+        <indexed_attr value="dpoc"/>
+    </index>
+    <index name="dpoc_data" meta_type="DateIndex">
+        <indexed_attr value="dpoc_data"/>
+    </index>
+    <index name="dpoc_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="dpoc_detalhes"/>
+    </index>
+    <index name="insuficiencia_cardiaca" meta_type="FieldIndex">
+        <indexed_attr value="insuficiencia_cardiaca"/>
+    </index>
+    <index name="insuficiencia_cardiaca_data" meta_type="DateIndex">
+        <indexed_attr value="insuficiencia_cardiaca_data"/>
+    </index>
+    <index name="insuficiencia_cardiaca_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="insuficiencia_cardiaca_detalhes"/>
+    </index>
+    <index name="hipertensao_pulmonar" meta_type="FieldIndex">
+        <indexed_attr value="hipertensao_pulmonar"/>
+    </index>
+    <index name="hipertensao_pulmonar_data" meta_type="DateIndex">
+        <indexed_attr value="hipertensao_pulmonar_data"/>
+    </index>
+    <index name="hipertensao_pulmonar_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="hipertensao_pulmonar_detalhes"/>
+    </index>
+    <index name="op_baixa_dmo" meta_type="FieldIndex">
+        <indexed_attr value="op_baixa_dmo"/>
+    </index>
+    <index name="op_baixa_dmo_data" meta_type="DateIndex">
+        <indexed_attr value="op_baixa_dmo_data"/>
+    </index>
+    <index name="op_baixa_dmo_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="op_baixa_dmo_detalhes"/>
+    </index>
+    <index name="fm" meta_type="FieldIndex">
+        <indexed_attr value="fm"/>
+    </index>
+    <index name="fm_data" meta_type="DateIndex">
+        <indexed_attr value="fm_data"/>
+    </index>
+    <index name="fm_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="fm_detalhes"/>
+    </index>
+    <index name="depressao" meta_type="FieldIndex">
+        <indexed_attr value="depressao"/>
+    </index>
+    <index name="depressao_data" meta_type="DateIndex">
+        <indexed_attr value="depressao_data"/>
+    </index>
+    <index name="depressao_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="depressao_detalhes"/>
+    </index>
+    <index name="sogren" meta_type="FieldIndex">
+        <indexed_attr value="sogren"/>
+    </index>
+    <index name="sogren_data" meta_type="DateIndex">
+        <indexed_attr value="sogren_data"/>
+    </index>
+    <index name="sogren_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="sogren_detalhes"/>
+    </index>
+    <index name="saf" meta_type="FieldIndex">
+        <indexed_attr value="saf"/>
+    </index>
+    <index name="saf_data" meta_type="DateIndex">
+        <indexed_attr value="saf_data"/>
+    </index>
+    <index name="saf_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="saf_detalhes"/>
+    </index>
+    <index name="trombose" meta_type="FieldIndex">
+        <indexed_attr value="trombose"/>
+    </index>
+    <index name="trombose_data" meta_type="DateIndex">
+        <indexed_attr value="trombose_data"/>
+    </index>
+    <index name="trombose_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="trombose_detalhes"/>
+    </index>
+    <index name="trombose_gestacional" meta_type="FieldIndex">
+        <indexed_attr value="trombose_gestacional"/>
+    </index>
+    <index name="trombose_gestacional_detalhes" meta_type="FieldIndex">
+        <indexed_attr value="trombose_gestacional_detalhes"/>
+    </index>
+    <index name="influenza" meta_type="FieldIndex">
+        <indexed_attr value="influenza"/>
+    </index>
+    <index name="influenza_data" meta_type="DateIndex">
+        <indexed_attr value="influenza_data"/>
+    </index>
+    <index name="influenza_obs" meta_type="FieldIndex">
+        <indexed_attr value="influenza_obs"/>
+    </index>
+    <index name="influenza_dose" meta_type="FieldIndex">
+        <indexed_attr value="influenza_dose"/>
+    </index>
+    <index name="meningo" meta_type="FieldIndex">
+        <indexed_attr value="meningo"/>
+    </index>
+    <index name="meningo_data" meta_type="DateIndex">
+        <indexed_attr value="meningo_data"/>
+    </index>
+    <index name="meningo_obs" meta_type="FieldIndex">
+        <indexed_attr value="meningo_obs"/>
+    </index>
+    <index name="meningo_dose" meta_type="FieldIndex">
+        <indexed_attr value="meningo_dose"/>
+    </index>
+    <index name="fa" meta_type="FieldIndex">
+        <indexed_attr value="fa"/>
+    </index>
+    <index name="fa_data" meta_type="DateIndex">
+        <indexed_attr value="fa_data"/>
+    </index>
+    <index name="fa_obs" meta_type="FieldIndex">
+        <indexed_attr value="fa_obs"/>
+    </index>
+    <index name="fa_dose" meta_type="FieldIndex">
+        <indexed_attr value="fa_dose"/>
+    </index>
+    <index name="pneumo" meta_type="FieldIndex">
+        <indexed_attr value="pneumo"/>
+    </index>
+    <index name="pneumo_data" meta_type="DateIndex">
+        <indexed_attr value="pneumo_data"/>
+    </index>
+    <index name="pneumo_obs" meta_type="FieldIndex">
+        <indexed_attr value="pneumo_obs"/>
+    </index>
+    <index name="pneumo_dose" meta_type="FieldIndex">
+        <indexed_attr value="pneumo_dose"/>
+    </index>
+    <index name="dtpa_dt" meta_type="FieldIndex">
+        <indexed_attr value="dtpa_dt"/>
+    </index>
+    <index name="dtpa_dt_data" meta_type="DateIndex">
+        <indexed_attr value="dtpa_dt_data"/>
+    </index>
+    <index name="dtpa_dt_obs" meta_type="FieldIndex">
+        <indexed_attr value="dtpa_dt_obs"/>
+    </index>
+    <index name="dtpa_dt_dose" meta_type="FieldIndex">
+        <indexed_attr value="dtpa_dt_dose"/>
+    </index>
+    <index name="hbv" meta_type="FieldIndex">
+        <indexed_attr value="hbv"/>
+    </index>
+    <index name="hbv_data" meta_type="DateIndex">
+        <indexed_attr value="hbv_data"/>
+    </index>
+    <index name="hbv_obs" meta_type="FieldIndex">
+        <indexed_attr value="hbv_obs"/>
+    </index>
+    <index name="hbv_dose" meta_type="FieldIndex">
+        <indexed_attr value="hbv_dose"/>
+    </index>
+    <index name="hav" meta_type="FieldIndex">
+        <indexed_attr value="hav"/>
+    </index>
+    <index name="hav_data" meta_type="DateIndex">
+        <indexed_attr value="hav_data"/>
+    </index>
+    <index name="hav_obs" meta_type="FieldIndex">
+        <indexed_attr value="hav_obs"/>
+    </index>
+    <index name="hav_dose" meta_type="FieldIndex">
+        <indexed_attr value="hav_dose"/>
+    </index>
+    <index name="hpv" meta_type="FieldIndex">
+        <indexed_attr value="hpv"/>
+    </index>
+    <index name="hpv_data" meta_type="DateIndex">
+        <indexed_attr value="hpv_data"/>
+    </index>
+    <index name="hpv_obs" meta_type="FieldIndex">
+        <indexed_attr value="hpv_obs"/>
+    </index>
+    <index name="hpv_dose" meta_type="FieldIndex">
+        <indexed_attr value="hpv_dose"/>
+    </index>
+    <index name="hib" meta_type="FieldIndex">
+        <indexed_attr value="hib"/>
+    </index>
+    <index name="hib_data" meta_type="DateIndex">
+        <indexed_attr value="hib_data"/>
+    </index>
+    <index name="hib_obs" meta_type="FieldIndex">
+        <indexed_attr value="hib_obs"/>
+    </index>
+    <index name="hib_dose" meta_type="FieldIndex">
+        <indexed_attr value="hib_dose"/>
+    </index>
+    <index name="hib_anti_hbs" meta_type="FieldIndex">
+        <indexed_attr value="hib_anti_hbs"/>
+    </index>
+    <index name="scr" meta_type="FieldIndex">
+        <indexed_attr value="scr"/>
+    </index>
+    <index name="scr_data" meta_type="DateIndex">
+        <indexed_attr value="scr_data"/>
+    </index>
+    <index name="scr_obs" meta_type="FieldIndex">
+        <indexed_attr value="scr_obs"/>
+    </index>
+    <index name="scr_dose" meta_type="FieldIndex">
+        <indexed_attr value="scr_dose"/>
+    </index>
+    <index name="polio_vip" meta_type="FieldIndex">
+        <indexed_attr value="polio_vip"/>
+    </index>
+    <index name="polio_vip_data" meta_type="DateIndex">
+        <indexed_attr value="polio_vip_data"/>
+    </index>
+    <index name="polio_vip_obs" meta_type="FieldIndex">
+        <indexed_attr value="polio_vip_obs"/>
+    </index>
+    <index name="polio_vip_dose" meta_type="FieldIndex">
+        <indexed_attr value="polio_vip_dose"/>
+    </index>
+    <index name="varicela" meta_type="FieldIndex">
+        <indexed_attr value="varicela"/>
+    </index>
+    <index name="varicela_data" meta_type="DateIndex">
+        <indexed_attr value="varicela_data"/>
+    </index>
+    <index name="varicela_obs" meta_type="FieldIndex">
+        <indexed_attr value="varicela_obs"/>
+    </index>
+    <index name="varicela_dose" meta_type="FieldIndex">
+        <indexed_attr value="varicela_dose"/>
+    </index>
+    <index name="efeitos_adversos_medicamentosos" meta_type="FieldIndex">
+        <indexed_attr value="efeitos_adversos_medicamentosos"/>
+    </index>
+    <index name="efeitos_adversos_medicamentosos_obs" meta_type="FieldIndex">
+        <indexed_attr value="efeitos_adversos_medicamentosos_obs"/>
+    </index>
+    <index name="uso_ciclofosfamida" meta_type="FieldIndex">
+        <indexed_attr value="uso_ciclofosfamida"/>
+    </index>
+    <index name="uso_ciclofosfamida_obs" meta_type="FieldIndex">
+        <indexed_attr value="uso_ciclofosfamida_obs"/>
+    </index>
+    <index name="corticosteroides" meta_type="FieldIndex">
+        <indexed_attr value="corticosteroides"/>
+    </index>
+    <index name="corticosteroides_dose_atual" meta_type="FieldIndex">
+        <indexed_attr value="corticosteroides_dose_atual"/>
+    </index>
+    <index name="corticosteroides_dose_total" meta_type="FieldIndex">
+        <indexed_attr value="corticosteroides_dose_total"/>
+    </index>
+    <index name="corticosteroides_tempo" meta_type="FieldIndex">
+        <indexed_attr value="corticosteroides_tempo"/>
+    </index>
+    <index name="corticosteroides_efeitos" meta_type="FieldIndex">
+        <indexed_attr value="corticosteroides_efeitos"/>
+    </index>
+    <index name="pulsoterapia_ciclofosfamida" meta_type="FieldIndex">
+        <indexed_attr value="pulsoterapia_ciclofosfamida"/>
+    </index>
+    <index name="pulsoterapia_ciclofosfamida_num_pulsos_inducao" meta_type="FieldIndex">
+        <indexed_attr value="pulsoterapia_ciclofosfamida_num_pulsos_inducao"/>
+    </index>
+    <index name="pulsoterapia_ciclofosfamida_num_pulsos_manutencao" meta_type="FieldIndex">
+        <indexed_attr value="pulsoterapia_ciclofosfamida_num_pulsos_manutencao"/>
+    </index>
+    <index name="pulsoterapia_ciclofosfamida_dose_atual" meta_type="FieldIndex">
+        <indexed_attr value="pulsoterapia_ciclofosfamida_dose_atual"/>
+    </index>
+    <index name="pulsoterapia_ciclofosfamida_dose_total" meta_type="FieldIndex">
+        <indexed_attr value="pulsoterapia_ciclofosfamida_dose_total"/>
+    </index>
+    <index name="pulsoterapia_ciclofosfamida_tempo" meta_type="FieldIndex">
+        <indexed_attr value="pulsoterapia_ciclofosfamida_tempo"/>
+    </index>
+    <index name="pulsoterapia_ciclofosfamida_indicacao" meta_type="FieldIndex">
+        <indexed_attr value="pulsoterapia_ciclofosfamida_indicacao"/>
+    </index>
+    <index name="pulsoterapia_ciclofosfamida_efeitos" meta_type="FieldIndex">
+        <indexed_attr value="pulsoterapia_ciclofosfamida_efeitos"/>
+    </index>
+    <index name="metotretaxe" meta_type="FieldIndex">
+        <indexed_attr value="metotretaxe"/>
+    </index>
+    <index name="metotretaxe_dose_atual" meta_type="FieldIndex">
+        <indexed_attr value="metotretaxe_dose_atual"/>
+    </index>
+    <index name="metotretaxe_dose_semanal" meta_type="FieldIndex">
+        <indexed_attr value="metotretaxe_dose_semanal"/>
+    </index>
+    <index name="metotretaxe_dose_total" meta_type="FieldIndex">
+        <indexed_attr value="metotretaxe_dose_total"/>
+    </index>
+    <index name="metotretaxe_via" meta_type="FieldIndex">
+        <indexed_attr value="metotretaxe_via"/>
+    </index>
+    <index name="metotretaxe_tempo" meta_type="FieldIndex">
+        <indexed_attr value="metotretaxe_tempo"/>
+    </index>
+    <index name="metotretaxe_efeitos" meta_type="FieldIndex">
+        <indexed_attr value="metotretaxe_efeitos"/>
+    </index>
+    <index name="azatioprina" meta_type="FieldIndex">
+        <indexed_attr value="azatioprina"/>
+    </index>
+    <index name="azatioprina_dose_atual" meta_type="FieldIndex">
+        <indexed_attr value="azatioprina_dose_atual"/>
+    </index>
+    <index name="azatioprina_dose_total" meta_type="FieldIndex">
+        <indexed_attr value="azatioprina_dose_total"/>
+    </index>
+    <index name="azatioprina_tempo" meta_type="FieldIndex">
+        <indexed_attr value="azatioprina_tempo"/>
+    </index>
+    <index name="azatioprina_efeitos" meta_type="FieldIndex">
+        <indexed_attr value="azatioprina_efeitos"/>
+    </index>
+    <index name="ciclosporina" meta_type="FieldIndex">
+        <indexed_attr value="ciclosporina"/>
+    </index>
+    <index name="ciclosporina_dose_atual" meta_type="FieldIndex">
+        <indexed_attr value="ciclosporina_dose_atual"/>
+    </index>
+    <index name="ciclosporina_dose_total" meta_type="FieldIndex">
+        <indexed_attr value="ciclosporina_dose_total"/>
+    </index>
+    <index name="ciclosporina_tempo" meta_type="FieldIndex">
+        <indexed_attr value="ciclosporina_tempo"/>
+    </index>
+    <index name="ciclosporina_efeitos" meta_type="FieldIndex">
+        <indexed_attr value="ciclosporina_efeitos"/>
+    </index>
+    <index name="micofenolato_mofetil" meta_type="FieldIndex">
+        <indexed_attr value="micofenolato_mofetil"/>
+    </index>
+    <index name="micofenolato_mofetil_dose_atual" meta_type="FieldIndex">
+        <indexed_attr value="micofenolato_mofetil_dose_atual"/>
+    </index>
+    <index name="micofenolato_mofetil_dose_total" meta_type="FieldIndex">
+        <indexed_attr value="micofenolato_mofetil_dose_total"/>
+    </index>
+    <index name="micofenolato_mofetil_tempo" meta_type="FieldIndex">
+        <indexed_attr value="micofenolato_mofetil_tempo"/>
+    </index>
+    <index name="micofenolato_mofetil_efeitos" meta_type="FieldIndex">
+        <indexed_attr value="micofenolato_mofetil_efeitos"/>
+    </index>
+    <index name="cloroquina_hidroxicloroquina" meta_type="FieldIndex">
+        <indexed_attr value="cloroquina_hidroxicloroquina"/>
+    </index>
+    <index name="cloroquina_hidroxicloroquina_dose_atual" meta_type="FieldIndex">
+        <indexed_attr value="cloroquina_hidroxicloroquina_dose_atual"/>
+    </index>
+    <index name="cloroquina_hidroxicloroquina_dose_total" meta_type="FieldIndex">
+        <indexed_attr value="cloroquina_hidroxicloroquina_dose_total"/>
+    </index>
+    <index name="cloroquina_hidroxicloroquina_tempo" meta_type="FieldIndex">
+        <indexed_attr value="cloroquina_hidroxicloroquina_tempo"/>
+    </index>
+    <index name="cloroquina_hidroxicloroquina_efeitos" meta_type="FieldIndex">
+        <indexed_attr value="cloroquina_hidroxicloroquina_efeitos"/>
+    </index>
+    <index name="outras_drogas" meta_type="FieldIndex">
+        <indexed_attr value="outras_drogas"/>
+    </index>
+    <index name="outras_drogas_dose_atual" meta_type="FieldIndex">
+        <indexed_attr value="outras_drogas_dose_atual"/>
+    </index>
+    <index name="outras_drogas_dose_total" meta_type="FieldIndex">
+        <indexed_attr value="outras_drogas_dose_total"/>
+    </index>
+    <index name="outras_drogas_tempo" meta_type="FieldIndex">
+        <indexed_attr value="outras_drogas_tempo"/>
+    </index>
+    <index name="outras_drogas_efeitos" meta_type="FieldIndex">
+        <indexed_attr value="outras_drogas_efeitos"/>
+    </index>
+    <index name="outros_medicamentos_atuais" meta_type="FieldIndex">
+        <indexed_attr value="outros_medicamentos_atuais"/>
+    </index>
+    <index name="outros_medicamentos_atuais_data" meta_type="DateIndex">
+        <indexed_attr value="outros_medicamentos_atuais_data"/>
+    </index>
+    <index name="outros_medicamentos_atuais_obs" meta_type="FieldIndex">
+        <indexed_attr value="outros_medicamentos_atuais_obs"/>
+    </index>
+    <index name="anticoncepcional" meta_type="FieldIndex">
+        <indexed_attr value="anticoncepcional"/>
+    </index>
+    <index name="anticoncepcional_data" meta_type="DateIndex">
+        <indexed_attr value="anticoncepcional_data"/>
+    </index>
+    <index name="anticoncepcional_obs" meta_type="FieldIndex">
+        <indexed_attr value="anticoncepcional_obs"/>
+    </index>
+    <index name="ligadura" meta_type="FieldIndex">
+        <indexed_attr value="ligadura"/>
+    </index>
+    <index name="ligadura_data" meta_type="DateIndex">
+        <indexed_attr value="ligadura_data"/>
+    </index>
+    <index name="ligadura_obs" meta_type="FieldIndex">
+        <indexed_attr value="ligadura_obs"/>
+    </index>
+    <index name="histerectomia" meta_type="FieldIndex">
+        <indexed_attr value="histerectomia"/>
+    </index>
+    <index name="histerectomia_data" meta_type="DateIndex">
+        <indexed_attr value="histerectomia_data"/>
+    </index>
+    <index name="histerectomia_obs" meta_type="FieldIndex">
+        <indexed_attr value="histerectomia_obs"/>
+    </index>
+    <index name="menopausa" meta_type="FieldIndex">
+        <indexed_attr value="menopausa"/>
+    </index>
+    <index name="menopausa_data" meta_type="DateIndex">
+        <indexed_attr value="menopausa_data"/>
+    </index>
+    <index name="menopausa_obs" meta_type="FieldIndex">
+        <indexed_attr value="menopausa_obs"/>
+    </index>
+    <index name="fadiga" meta_type="FieldIndex">
+        <indexed_attr value="fadiga"/>
+    </index>
+    <index name="qualidade_vida" meta_type="FieldIndex">
+        <indexed_attr value="qualidade_vida"/>
+    </index>
+    <index name="saude_global" meta_type="FieldIndex">
+        <indexed_attr value="saude_global"/>
+    </index>
+    <index name="slicc_acr_2010_catarata" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_catarata"/>
+    </index>
+    <index name="catarata_obs" meta_type="FieldIndex">
+        <indexed_attr value="catarata_obs"/>
+    </index>
+    <index name="slicc_acr_2010_alteracao_retinal" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_alteracao_retinal"/>
+    </index>
+    <index name="alteracao_retinal_obs" meta_type="FieldIndex">
+        <indexed_attr value="alteracao_retinal_obs"/>
+    </index>
+    <index name="slicc_acr_2010_atrofia_optica" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_atrofia_optica"/>
+    </index>
+    <index name="atrofia_optica_obs" meta_type="FieldIndex">
+        <indexed_attr value="atrofia_optica_obs"/>
+    </index>
+    <index name="slicc_acr_2010_disfuncao_cognitiva" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_disfuncao_cognitiva"/>
+    </index>
+    <index name="disfuncao_cognitiva_obs" meta_type="FieldIndex">
+        <indexed_attr value="disfuncao_cognitiva_obs"/>
+    </index>
+    <index name="slicc_acr_2010_psicose" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_psicose"/>
+    </index>
+    <index name="acr_psicose_obs" meta_type="FieldIndex">
+        <indexed_attr value="acr_psicose_obs"/>
+    </index>
+    <index name="slicc_acr_2010_convulsoes" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_convulsoes"/>
+    </index>
+    <index name="convulsoes_obs" meta_type="FieldIndex">
+        <indexed_attr value="convulsoes_obs"/>
+    </index>
+    <index name="slicc_acr_2010_avc" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_avc"/>
+    </index>
+    <index name="slicc_acr_2010_avc_mult_ocorrencia" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_avc_mult_ocorrencia"/>
+    </index>
+    <index name="avc_obs" meta_type="FieldIndex">
+        <indexed_attr value="avc_obs"/>
+    </index>
+    <index name="slicc_acr_2010_neuropatia_craniana" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_neuropatia_craniana"/>
+    </index>
+    <index name="neuropatia_craniana_obs" meta_type="FieldIndex">
+        <indexed_attr value="neuropatia_craniana_obs"/>
+    </index>
+    <index name="slicc_acr_2010_mielite_transversa" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_mielite_transversa"/>
+    </index>
+    <index name="mielite_transversa_obs" meta_type="FieldIndex">
+        <indexed_attr value="mielite_transversa_obs"/>
+    </index>
+    <index name="slicc_acr_2010_tx_filtr_glomerular" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_tx_filtr_glomerular"/>
+    </index>
+    <index name="tx_filtr_glomerular_obs" meta_type="FieldIndex">
+        <indexed_attr value="tx_filtr_glomerular_obs"/>
+    </index>
+    <index name="slicc_acr_2010_proteinuria" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_proteinuria"/>
+    </index>
+    <index name="acr_proteinuria_obs" meta_type="FieldIndex">
+        <indexed_attr value="acr_proteinuria_obs"/>
+    </index>
+    <index name="slicc_acr_2010_insuficiencia_renal_terminal" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_insuficiencia_renal_terminal"/>
+    </index>
+    <index name="insuficiencia_renal_terminal_obs" meta_type="FieldIndex">
+        <indexed_attr value="insuficiencia_renal_terminal_obs"/>
+    </index>
+    <index name="slicc_acr_2010_hipertensao_pulmonar" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_hipertensao_pulmonar"/>
+    </index>
+    <index name="hipertensao_pulmonar_obs" meta_type="FieldIndex">
+        <indexed_attr value="hipertensao_pulmonar_obs"/>
+    </index>
+    <index name="slicc_acr_2010_fibrose_pulmonar" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_fibrose_pulmonar"/>
+    </index>
+    <index name="fibrose_pulmonar_obs" meta_type="FieldIndex">
+        <indexed_attr value="fibrose_pulmonar_obs"/>
+    </index>
+    <index name="slicc_acr_2010_shrinking_lung_syndrome" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_shrinking_lung_syndrome"/>
+    </index>
+    <index name="shrinking_lung_syndrome_obs" meta_type="FieldIndex">
+        <indexed_attr value="shrinking_lung_syndrome_obs"/>
+    </index>
+    <index name="slicc_acr_2010_fibrose_pleural" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_fibrose_pleural"/>
+    </index>
+    <index name="fibrose_pleural_obs" meta_type="FieldIndex">
+        <indexed_attr value="fibrose_pleural_obs"/>
+    </index>
+    <index name="slicc_acr_2010_infarto_pulmonar" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_infarto_pulmonar"/>
+    </index>
+    <index name="infarto_pulmonar_obs" meta_type="FieldIndex">
+        <indexed_attr value="infarto_pulmonar_obs"/>
+    </index>
+    <index name="slicc_acr_2010_angina_pectoris_angioplastia" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_angina_pectoris_angioplastia"/>
+    </index>
+    <index name="angina_pectoris_angioplastia_obs" meta_type="FieldIndex">
+        <indexed_attr value="angina_pectoris_angioplastia_obs"/>
+    </index>
+    <index name="slicc_acr_2010_infarto_agudo_miocardio" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_infarto_agudo_miocardio"/>
+    </index>
+    <index name="slicc_acr_2010_infarto_agudo_miocardio_mult_ocorrencia" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_infarto_agudo_miocardio_mult_ocorrencia"/>
+    </index>
+    <index name="infarto_agudo_miocardio_obs" meta_type="FieldIndex">
+        <indexed_attr value="infarto_agudo_miocardio_obs"/>
+    </index>
+    <index name="slicc_acr_2010_miocardiopatia" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_miocardiopatia"/>
+    </index>
+    <index name="miocardiopatia_obs" meta_type="FieldIndex">
+        <indexed_attr value="miocardiopatia_obs"/>
+    </index>
+    <index name="slicc_acr_2010_doenca_valvular" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_doenca_valvular"/>
+    </index>
+    <index name="doenca_valvular_obs" meta_type="FieldIndex">
+        <indexed_attr value="doenca_valvular_obs"/>
+    </index>
+    <index name="slicc_acr_2010_pericardite" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_pericardite"/>
+    </index>
+    <index name="pericardite_obs" meta_type="FieldIndex">
+        <indexed_attr value="pericardite_obs"/>
+    </index>
+    <index name="slicc_acr_2010_claudicacao_persistente" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_claudicacao_persistente"/>
+    </index>
+    <index name="claudicacao_persistente_obs" meta_type="FieldIndex">
+        <indexed_attr value="claudicacao_persistente_obs"/>
+    </index>
+    <index name="slicc_acr_2010_perda_tecidual_menor" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_perda_tecidual_menor"/>
+    </index>
+    <index name="perda_tecidual_menor_obs" meta_type="FieldIndex">
+        <indexed_attr value="perda_tecidual_menor_obs"/>
+    </index>
+    <index name="slicc_acr_2010_perda_tecidual_significante" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_perda_tecidual_significante"/>
+    </index>
+    <index name="slicc_acr_2010_perda_tecidual_significante_mult_ocorrencia" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_perda_tecidual_significante_mult_ocorrencia"/>
+    </index>
+    <index name="perda_tecidual_significante_obs" meta_type="FieldIndex">
+        <indexed_attr value="perda_tecidual_significante_obs"/>
+    </index>
+    <index name="slicc_acr_2010_trombose_venosa_edema" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_trombose_venosa_edema"/>
+    </index>
+    <index name="trombose_venosa_edema_obs" meta_type="FieldIndex">
+        <indexed_attr value="trombose_venosa_edema_obs"/>
+    </index>
+    <index name="slicc_acr_2010_infarto_resseccao_intest" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_infarto_resseccao_intest"/>
+    </index>
+    <index name="slicc_acr_2010_infarto_resseccao_intest_mult_ocorrencia" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_infarto_resseccao_intest_mult_ocorrencia"/>
+    </index>
+    <index name="infarto_resseccao_intest_obs" meta_type="FieldIndex">
+        <indexed_attr value="infarto_resseccao_intest_obs"/>
+    </index>
+    <index name="slicc_acr_2010_insuficiencia_mesenterica" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_insuficiencia_mesenterica"/>
+    </index>
+    <index name="insuficiencia_mesenterica_obs" meta_type="FieldIndex">
+        <indexed_attr value="insuficiencia_mesenterica_obs"/>
+    </index>
+    <index name="slicc_acr_2010_peritonite_cronica_dor" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_peritonite_cronica_dor"/>
+    </index>
+    <index name="peritonite_cronica_dor_obs" meta_type="FieldIndex">
+        <indexed_attr value="peritonite_cronica_dor_obs"/>
+    </index>
+    <index name="slicc_acr_2010_constricao_esofagica_observ" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_constricao_esofagica_observ"/>
+    </index>
+    <index name="constricao_esofagica_observ_obs" meta_type="FieldIndex">
+        <indexed_attr value="constricao_esofagica_observ_obs"/>
+    </index>
+    <index name="slicc_acr_2010_atrofia_musc_fraqueza" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_atrofia_musc_fraqueza"/>
+    </index>
+    <index name="atrofia_musc_fraqueza_obs" meta_type="FieldIndex">
+        <indexed_attr value="atrofia_musc_fraqueza_obs"/>
+    </index>
+    <index name="slicc_acr_2010_artrite_deformante" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_artrite_deformante"/>
+    </index>
+    <index name="artrite_deformante_obs" meta_type="FieldIndex">
+        <indexed_attr value="artrite_deformante_obs"/>
+    </index>
+    <index name="slicc_acr_2010_osteoporose_fratura" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_osteoporose_fratura"/>
+    </index>
+    <index name="osteoporose_fratura_obs" meta_type="FieldIndex">
+        <indexed_attr value="osteoporose_fratura_obs"/>
+    </index>
+    <index name="slicc_acr_2010_osteonecrose_demonstrada" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_osteonecrose_demonstrada"/>
+    </index>
+    <index name="slicc_acr_2010_osteonecrose_demonstrada_mult_ocorrencia" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_osteonecrose_demonstrada_mult_ocorrencia"/>
+    </index>
+    <index name="osteonecrose_demonstrada_obs" meta_type="FieldIndex">
+        <indexed_attr value="osteonecrose_demonstrada_obs"/>
+    </index>
+    <index name="slicc_acr_2010_osteomielite_documentada" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_osteomielite_documentada"/>
+    </index>
+    <index name="osteomielite_documentada_obs" meta_type="FieldIndex">
+        <indexed_attr value="osteomielite_documentada_obs"/>
+    </index>
+    <index name="slicc_acr_2010_alopecia_cicatricial_cronica" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_alopecia_cicatricial_cronica"/>
+    </index>
+    <index name="alopecia_cicatricial_cronica_obs" meta_type="FieldIndex">
+        <indexed_attr value="alopecia_cicatricial_cronica_obs"/>
+    </index>
+    <index name="slicc_acr_2010_cicatriz_extensa_paniculite" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_cicatriz_extensa_paniculite"/>
+    </index>
+    <index name="cicatriz_extensa_paniculite_obs" meta_type="FieldIndex">
+        <indexed_attr value="cicatriz_extensa_paniculite_obs"/>
+    </index>
+    <index name="slicc_acr_2010_ulceracao_cutanea" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_ulceracao_cutanea"/>
+    </index>
+    <index name="ulceracao_cutanea_obs" meta_type="FieldIndex">
+        <indexed_attr value="ulceracao_cutanea_obs"/>
+    </index>
+    <index name="slicc_acr_2010_amnorreia" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_amnorreia"/>
+    </index>
+    <index name="amnorreia_obs" meta_type="FieldIndex">
+        <indexed_attr value="amnorreia_obs"/>
+    </index>
+    <index name="slicc_acr_2010_diabetes_requerendo_tratam" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_diabetes_requerendo_tratam"/>
+    </index>
+    <index name="diabetes_requerendo_tratam_obs" meta_type="FieldIndex">
+        <indexed_attr value="diabetes_requerendo_tratam_obs"/>
+    </index>
+    <index name="slicc_acr_2010_malignidade_documentada" meta_type="FieldIndex">
+        <indexed_attr value="slicc_acr_malignidade_documentada"/>
+    </index>
+    <index name="malignidade_documentada_obs" meta_type="FieldIndex">
+        <indexed_attr value="malignidade_documentada_obs"/>
+    </index>
+    <index name="sledai_2k_convulsao" meta_type="FieldIndex">
+        <indexed_attr value="sledai_convulsao"/>
+    </index>
+    <index name="convulsao_obs" meta_type="FieldIndex">
+        <indexed_attr value="convulsao_obs"/>
+    </index>
+    <index name="sledai_2k_psicose" meta_type="FieldIndex">
+        <indexed_attr value="sledai_psicose"/>
+    </index>
+    <index name="2k_psicose_obs" meta_type="FieldIndex">
+        <indexed_attr value="2k_psicose_obs"/>
+    </index>
+    <index name="sledai_2k_delirium" meta_type="FieldIndex">
+        <indexed_attr value="sledai_delirium"/>
+    </index>
+    <index name="delirium_obs" meta_type="FieldIndex">
+        <indexed_attr value="delirium_obs"/>
+    </index>
+    <index name="sledai_2k_disturbios_visuais" meta_type="FieldIndex">
+        <indexed_attr value="sledai_disturbios_visuais"/>
+    </index>
+    <index name="disturbios_visuais_obs" meta_type="FieldIndex">
+        <indexed_attr value="disturbios_visuais_obs"/>
+    </index>
+    <index name="sledai_2k_comp_pares" meta_type="FieldIndex">
+        <indexed_attr value="sledai_comp_pares"/>
+    </index>
+    <index name="comp_pares_obs" meta_type="FieldIndex">
+        <indexed_attr value="comp_pares_obs"/>
+    </index>
+    <index name="sledai_2k_cefaleia_lupica" meta_type="FieldIndex">
+        <indexed_attr value="sledai_cefaleia_lupica"/>
+    </index>
+    <index name="cefaleia_lupica_obs" meta_type="FieldIndex">
+        <indexed_attr value="cefaleia_lupica_obs"/>
+    </index>
+    <index name="sledai_2k_acidente_vasc" meta_type="FieldIndex">
+        <indexed_attr value="sledai_acidente_vasc"/>
+    </index>
+    <index name="acidente_vasc_obs" meta_type="FieldIndex">
+        <indexed_attr value="acidente_vasc_obs"/>
+    </index>
+    <index name="sledai_2k_vasculite" meta_type="FieldIndex">
+        <indexed_attr value="sledai_vasculite"/>
+    </index>
+    <index name="vasculite_obs" meta_type="FieldIndex">
+        <indexed_attr value="vasculite_obs"/>
+    </index>
+    <index name="sledai_2k_artrites" meta_type="FieldIndex">
+        <indexed_attr value="sledai_artrites"/>
+    </index>
+    <index name="artrites_obs" meta_type="FieldIndex">
+        <indexed_attr value="artrites_obs"/>
+    </index>
+    <index name="sledai_2k_miosites" meta_type="FieldIndex">
+        <indexed_attr value="sledai_miosites"/>
+    </index>
+    <index name="miosites_obs" meta_type="FieldIndex">
+        <indexed_attr value="miosites_obs"/>
+    </index>
+    <index name="sledai_2k_cilindros_urinar" meta_type="FieldIndex">
+        <indexed_attr value="sledai_cilindros_urinar"/>
+    </index>
+    <index name="cilindros_urinar_obs" meta_type="FieldIndex">
+        <indexed_attr value="cilindros_urinar_obs"/>
+    </index>
+    <index name="sledai_2k_hematuria" meta_type="FieldIndex">
+        <indexed_attr value="sledai_hematuria"/>
+    </index>
+    <index name="hematuria_obs" meta_type="FieldIndex">
+        <indexed_attr value="hematuria_obs"/>
+    </index>
+    <index name="sledai_2k_proteinuria" meta_type="FieldIndex">
+        <indexed_attr value="sledai_proteinuria"/>
+    </index>
+    <index name="proteinuria_obs" meta_type="FieldIndex">
+        <indexed_attr value="2k_proteinuria_obs"/>
+    </index>
+    <index name="sledai_2k_piuria" meta_type="FieldIndex">
+        <indexed_attr value="sledai_piuria"/>
+    </index>
+    <index name="piuria_obs" meta_type="FieldIndex">
+        <indexed_attr value="piuria_obs"/>
+    </index>
+    <index name="sledai_2k_rash_cutaneo" meta_type="FieldIndex">
+        <indexed_attr value="sledai_rash_cutaneo"/>
+    </index>
+    <index name="rash_cutaneo_obs" meta_type="FieldIndex">
+        <indexed_attr value="rash_cutaneo_obs"/>
+    </index>
+    <index name="sledai_2k_alopecia" meta_type="FieldIndex">
+        <indexed_attr value="sledai_alopecia"/>
+    </index>
+    <index name="alopecia_obs" meta_type="FieldIndex">
+        <indexed_attr value="alopecia_obs"/>
+    </index>
+    <index name="sledai_2k_ulcera_mucosa" meta_type="FieldIndex">
+        <indexed_attr value="sledai_ulcera_mucosa"/>
+    </index>
+    <index name="ulcera_mucosa_obs" meta_type="FieldIndex">
+        <indexed_attr value="ulcera_mucosa_obs"/>
+    </index>
+    <index name="sledai_2k_pleurisia" meta_type="FieldIndex">
+        <indexed_attr value="sledai_pleurisia"/>
+    </index>
+    <index name="pleurisia_obs" meta_type="FieldIndex">
+        <indexed_attr value="pleurisia_obs"/>
+    </index>
+    <index name="sledai_2k_pericardite" meta_type="FieldIndex">
+        <indexed_attr value="sledai_pericardite"/>
+    </index>
+    <index name="2k_pericardite_obs" meta_type="FieldIndex">
+        <indexed_attr value="2k_pericardite_obs"/>
+    </index>
+    <index name="sledai_2k_complemento_bai" meta_type="FieldIndex">
+        <indexed_attr value="sledai_complemento_bai"/>
+    </index>
+    <index name="complemento_bai_obs" meta_type="FieldIndex">
+        <indexed_attr value="complemento_bai_obs"/>
+    </index>
+    <index name="sledai_2k_anti_dnads" meta_type="FieldIndex">
+        <indexed_attr value="sledai_anti_dnads"/>
+    </index>
+    <index name="anti_dnads_obs" meta_type="FieldIndex">
+        <indexed_attr value="anti_dnads_obs"/>
+    </index>
+    <index name="sledai_2k_febre" meta_type="FieldIndex">
+        <indexed_attr value="sledai_febre"/>
+    </index>
+    <index name="febre_obs" meta_type="FieldIndex">
+        <indexed_attr value="febre_obs"/>
+    </index>
+    <index name="sledai_2k_trombocitopenia" meta_type="FieldIndex">
+        <indexed_attr value="sledai_trombocitopenia"/>
+    </index>
+    <index name="trombocitopenia_obs" meta_type="FieldIndex">
+        <indexed_attr value="trombocitopenia_obs"/>
+    </index>
+    <index name="sledai_2k_leucopenia" meta_type="FieldIndex">
+        <indexed_attr value="sledai_leucopenia"/>
+    </index>
+    <index name="leucopenia_obs" meta_type="FieldIndex">
+        <indexed_attr value="leucopenia_obs"/>
+    </index>
+    <index name="peso" meta_type="FieldIndex">
+        <indexed_attr value="peso"/>
+    </index>
+    <index name="altura" meta_type="FieldIndex">
+        <indexed_attr value="altura"/>
+    </index>
+    <index name="cir_abdomin" meta_type="FieldIndex">
+        <indexed_attr value="cir_abdomin"/>
+    </index>
+    <index name="pa_mmhg" meta_type="FieldIndex">
+        <indexed_attr value="pa_mmhg"/>
+    </index>
+    <index name="impressoes_clinicas" meta_type="FieldIndex">
+        <indexed_attr value="impressoes_clinicas"/>
+    </index>
+    <index name="conduta" meta_type="FieldIndex">
+        <indexed_attr value="conduta"/>
+    </index>
     <index name="getPacienteExame" meta_type="FieldIndex">
         <indexed_attr value="getPacienteExame"/>
     </index>
-    <column value="getPacienteExame"/>
+    <index name="getEscoreSliic" meta_type="FieldIndex">
+        <indexed_attr value="getPacienteExame"/>
+    </index>
+    <index name="getEscoreSledai" meta_type="FieldIndex">
+        <indexed_attr value="getPacienteExame"/>
+    </index>
+    <column value="inicio_sintomas"/>
+    <column value="retardo_diagnostico"/>
+    <column value="manifestacao_inicial"/>
+    <column value="cutaneo_agudo"/>
+    <column value="cutaneo_agudo_data"/>
+    <column value="cutaneo_agudo_inf"/>
+    <column value="cutaneo_subagudo"/>
+    <column value="cutaneo_subagudo_data"/>
+    <column value="cutaneo_subagudo_inf"/>
+    <column value="cutaneo_cronico"/>
+    <column value="cutaneo_cronico_data"/>
+    <column value="cutaneo_cronico_inf"/>
+    <column value="ulceras_orais"/>
+    <column value="ulceras_orais_data"/>
+    <column value="ulceras_orais_inf"/>
+    <column value="ulceras_nasais"/>
+    <column value="ulceras_nasais_data"/>
+    <column value="ulceras_nasais_inf"/>
+    <column value="alopecia_nao_cicatricial"/>
+    <column value="alopecia_nao_cicatricial_data"/>
+    <column value="alopecia_nao_cicatricial_inf"/>
+    <column value="articular"/>
+    <column value="articular_data"/>
+    <column value="articular_inf"/>
+    <column value="serosite"/>
+    <column value="serosite_data"/>
+    <column value="serosite_inf"/>
+    <column value="renal"/>
+    <column value="renal_data"/>
+    <column value="renal_inf"/>
+    <column value="neurologico"/>
+    <column value="neurologico_data"/>
+    <column value="neurologico_inf"/>
+    <column value="anemia_hemolitica"/>
+    <column value="anemia_hemolitica_data"/>
+    <column value="anemia_hemolitica_inf"/>
+    <column value="leucopenia"/>
+    <column value="leucopenia_data"/>
+    <column value="leucopenia_inf"/>
+    <column value="linfopenia"/>
+    <column value="linfopenia_data"/>
+    <column value="linfopenia_inf"/>
+    <column value="trombocitopenia"/>
+    <column value="trombocitopenia_data"/>
+    <column value="trombocitopenia_inf"/>
+    <column value="fan"/>
+    <column value="fan_data"/>
+    <column value="fan_inf"/>
+    <column value="anti_dna_dupla_helice"/>
+    <column value="anti_dna_dupla_helice_data"/>
+    <column value="anti_dna_dupla_helice_inf"/>
+    <column value="anti_sm"/>
+    <column value="anti_sm_data"/>
+    <column value="anti_sm_inf"/>
+    <column value="antifosfolipidios"/>
+    <column value="antifosfolipidios_data"/>
+    <column value="antifosfolipidios_inf"/>
+    <column value="complemento_baixo"/>
+    <column value="complemento_baixo_data"/>
+    <column value="complemento_baixo_inf"/>
+    <column value="coombs_direto"/>
+    <column value="coombs_direto_data"/>
+    <column value="coombs_direto_inf"/>
+    <column value="miopatia"/>
+    <column value="miopatia_data"/>
+    <column value="miopatia_inf"/>
+    <column value="raynaud"/>
+    <column value="raynaud_data"/>
+    <column value="raynaud_inf"/>
+    <column value="dano_hemorragia_alveolar"/>
+    <column value="dano_hemorragia_alveolar_data"/>
+    <column value="dano_hemorragia_alveolar_inf"/>
+    <column value="pnm_intersticial"/>
+    <column value="pnm_intersticial_data"/>
+    <column value="pnm_intersticial_inf"/>
+    <column value="vasculite_pele_sistemica"/>
+    <column value="vasculite_pele_sistemica_data"/>
+    <column value="vasculite_pele_sistemica_inf"/>
+    <column value="tabaco"/>
+    <column value="tabaco_data_inicio"/>
+    <column value="tabaco_data_fim"/>
+    <column value="tabaco_especificacao"/>
+    <column value="tabaco_unidade_dia"/>
+    <column value="alcool"/>
+    <column value="alcool_data_inicio"/>
+    <column value="alcool_data_fim"/>
+    <column value="alcool_especificacao"/>
+    <column value="alcool_unidade_dia"/>
+    <column value="has"/>
+    <column value="has_data"/>
+    <column value="has_detalhes"/>
+    <column value="diabete"/>
+    <column value="diabete_data"/>
+    <column value="diabete_detalhes"/>
+    <column value="dislipidemia"/>
+    <column value="dislipidemia_data"/>
+    <column value="dislipidemia_detalhes"/>
+    <column value="hipotireoidismo"/>
+    <column value="hipotireoidismo_data"/>
+    <column value="hipotireoidismo_detalhes"/>
+    <column value="dac"/>
+    <column value="dac_data"/>
+    <column value="dac_detalhes"/>
+    <column value="ivp_varizes"/>
+    <column value="ivp_varizes_data"/>
+    <column value="ivp_varizes_detalhes"/>
+    <column value="asma"/>
+    <column value="asma_data"/>
+    <column value="asma_detalhes"/>
+    <column value="dpoc"/>
+    <column value="dpoc_data"/>
+    <column value="dpoc_detalhes"/>
+    <column value="insuficiencia_cardiaca"/>
+    <column value="insuficiencia_cardiaca_data"/>
+    <column value="insuficiencia_cardiaca_detalhes"/>
+    <column value="hipertensao_pulmonar"/>
+    <column value="hipertensao_pulmonar_data"/>
+    <column value="hipertensao_pulmonar_detalhes"/>
+    <column value="op_baixa_dmo"/>
+    <column value="op_baixa_dmo_data"/>
+    <column value="op_baixa_dmo_detalhes"/>
+    <column value="fm"/>
+    <column value="fm_data"/>
+    <column value="fm_detalhes"/>
+    <column value="depressao"/>
+    <column value="depressao_data"/>
+    <column value="depressao_detalhes"/>
+    <column value="sogren"/>
+    <column value="sogren_data"/>
+    <column value="sogren_detalhes"/>
+    <column value="saf"/>
+    <column value="saf_data"/>
+    <column value="saf_detalhes"/>
+    <column value="trombose"/>
+    <column value="trombose_data"/>
+    <column value="trombose_detalhes"/>
+    <column value="trombose_gestacional"/>
+    <column value="trombose_gestacional_detalhes"/>
+    <column value="influenza"/>
+    <column value="influenza_data"/>
+    <column value="influenza_obs"/>
+    <column value="influenza_dose"/>
+    <column value="meningo"/>
+    <column value="meningo_data"/>
+    <column value="meningo_obs"/>
+    <column value="meningo_dose"/>
+    <column value="fa"/>
+    <column value="fa_data"/>
+    <column value="fa_obs"/>
+    <column value="fa_dose"/>
+    <column value="pneumo"/>
+    <column value="pneumo_data"/>
+    <column value="pneumo_obs"/>
+    <column value="pneumo_dose"/>
+    <column value="dtpa_dt"/>
+    <column value="dtpa_dt_data"/>
+    <column value="dtpa_dt_obs"/>
+    <column value="dtpa_dt_dose"/>
+    <column value="hbv"/>
+    <column value="hbv_data"/>
+    <column value="hbv_obs"/>
+    <column value="hbv_dose"/>
+    <column value="hav"/>
+    <column value="hav_data"/>
+    <column value="hav_obs"/>
+    <column value="hav_dose"/>
+    <column value="hpv"/>
+    <column value="hpv_data"/>
+    <column value="hpv_obs"/>
+    <column value="hpv_dose"/>
+    <column value="hib"/>
+    <column value="hib_data"/>
+    <column value="hib_obs"/>
+    <column value="hib_dose"/>
+    <column value="hib_anti_hbs"/>
+    <column value="scr"/>
+    <column value="scr_data"/>
+    <column value="scr_obs"/>
+    <column value="scr_dose"/>
+    <column value="polio_vip"/>
+    <column value="polio_vip_data"/>
+    <column value="polio_vip_obs"/>
+    <column value="polio_vip_dose"/>
+    <column value="varicela"/>
+    <column value="varicela_data"/>
+    <column value="varicela_obs"/>
+    <column value="varicela_dose"/>
+    <column value="efeitos_adversos_medicamentosos"/>
+    <column value="efeitos_adversos_medicamentosos_obs"/>
+    <column value="uso_ciclofosfamida"/>
+    <column value="uso_ciclofosfamida_obs"/>
+    <column value="corticosteroides"/>
+    <column value="corticosteroides_dose_atual"/>
+    <column value="corticosteroides_dose_total"/>
+    <column value="corticosteroides_tempo"/>
+    <column value="corticosteroides_efeitos"/>
+    <column value="pulsoterapia_ciclofosfamida"/>
+    <column value="pulsoterapia_ciclofosfamida_num_pulsos_inducao"/>
+    <column value="pulsoterapia_ciclofosfamida_num_pulsos_manutencao"/>
+    <column value="pulsoterapia_ciclofosfamida_dose_atual"/>
+    <column value="pulsoterapia_ciclofosfamida_dose_total"/>
+    <column value="pulsoterapia_ciclofosfamida_tempo"/>
+    <column value="pulsoterapia_ciclofosfamida_indicacao"/>
+    <column value="pulsoterapia_ciclofosfamida_efeitos"/>
+    <column value="metotretaxe"/>
+    <column value="metotretaxe_dose_atual"/>
+    <column value="metotretaxe_dose_semanal"/>
+    <column value="metotretaxe_dose_total"/>
+    <column value="metotretaxe_via"/>
+    <column value="metotretaxe_tempo"/>
+    <column value="metotretaxe_efeitos"/>
+    <column value="azatioprina"/>
+    <column value="azatioprina_dose_atual"/>
+    <column value="azatioprina_dose_total"/>
+    <column value="azatioprina_tempo"/>
+    <column value="azatioprina_efeitos"/>
+    <column value="ciclosporina"/>
+    <column value="ciclosporina_dose_atual"/>
+    <column value="ciclosporina_dose_total"/>
+    <column value="ciclosporina_tempo"/>
+    <column value="ciclosporina_efeitos"/>
+    <column value="micofenolato_mofetil"/>
+    <column value="micofenolato_mofetil_dose_atual"/>
+    <column value="micofenolato_mofetil_dose_total"/>
+    <column value="micofenolato_mofetil_tempo"/>
+    <column value="micofenolato_mofetil_efeitos"/>
+    <column value="cloroquina_hidroxicloroquina"/>
+    <column value="cloroquina_hidroxicloroquina_dose_atual"/>
+    <column value="cloroquina_hidroxicloroquina_dose_total"/>
+    <column value="cloroquina_hidroxicloroquina_tempo"/>
+    <column value="cloroquina_hidroxicloroquina_efeitos"/>
+    <column value="outras_drogas"/>
+    <column value="outras_drogas_dose_atual"/>
+    <column value="outras_drogas_dose_total"/>
+    <column value="outras_drogas_tempo"/>
+    <column value="outras_drogas_efeitos"/>
+    <column value="outros_medicamentos_atuais"/>
+    <column value="outros_medicamentos_atuais_data"/>
+    <column value="outros_medicamentos_atuais_obs"/>
+    <column value="anticoncepcional"/>
+    <column value="anticoncepcional_data"/>
+    <column value="anticoncepcional_obs"/>
+    <column value="ligadura"/>
+    <column value="ligadura_data"/>
+    <column value="ligadura_obs"/>
+    <column value="histerectomia"/>
+    <column value="histerectomia_data"/>
+    <column value="histerectomia_obs"/>
+    <column value="menopausa"/>
+    <column value="menopausa_data"/>
+    <column value="menopausa_obs"/>
+    <column value="fadiga"/>
+    <column value="qualidade_vida"/>
+    <column value="saude_global"/>
+    <column value="slicc_acr_2010_catarata"/>
+    <column value="catarata_obs"/>
+    <column value="slicc_acr_2010_alteracao_retinal"/>
+    <column value="alteracao_retinal_obs"/>
+    <column value="slicc_acr_2010_atrofia_optica"/>
+    <column value="atrofia_optica_obs"/>
+    <column value="slicc_acr_2010_disfuncao_cognitiva"/>
+    <column value="disfuncao_cognitiva_obs"/>
+    <column value="slicc_acr_2010_psicose"/>
+    <column value="acr_psicose_obs"/>
+    <column value="slicc_acr_2010_convulsoes"/>
+    <column value="convulsoes_obs"/>
+    <column value="slicc_acr_2010_avc"/>
+    <column value="slicc_acr_2010_avc_mult_ocorrencia"/>
+    <column value="avc_obs"/>
+    <column value="slicc_acr_2010_neuropatia_craniana"/>
+    <column value="neuropatia_craniana_obs"/>
+    <column value="slicc_acr_2010_mielite_transversa"/>
+    <column value="mielite_transversa_obs"/>
+    <column value="slicc_acr_2010_tx_filtr_glomerular"/>
+    <column value="tx_filtr_glomerular_obs"/>
+    <column value="slicc_acr_2010_proteinuria"/>
+    <column value="acr_proteinuria_obs"/>
+    <column value="slicc_acr_2010_insuficiencia_renal_terminal"/>
+    <column value="insuficiencia_renal_terminal_obs"/>
+    <column value="slicc_acr_2010_hipertensao_pulmonar"/>
+    <column value="hipertensao_pulmonar_obs"/>
+    <column value="slicc_acr_2010_fibrose_pulmonar"/>
+    <column value="fibrose_pulmonar_obs"/>
+    <column value="slicc_acr_2010_shrinking_lung_syndrome"/>
+    <column value="shrinking_lung_syndrome_obs"/>
+    <column value="slicc_acr_2010_fibrose_pleural"/>
+    <column value="fibrose_pleural_obs"/>
+    <column value="slicc_acr_2010_infarto_pulmonar"/>
+    <column value="infarto_pulmonar_obs"/>
+    <column value="slicc_acr_2010_angina_pectoris_angioplastia"/>
+    <column value="angina_pectoris_angioplastia_obs"/>
+    <column value="slicc_acr_2010_infarto_agudo_miocardio"/>
+    <column value="slicc_acr_2010_infarto_agudo_miocardio_mult_ocorrencia"/>
+    <column value="infarto_agudo_miocardio_obs"/>
+    <column value="slicc_acr_2010_miocardiopatia"/>
+    <column value="miocardiopatia_obs"/>
+    <column value="slicc_acr_2010_doenca_valvular"/>
+    <column value="doenca_valvular_obs"/>
+    <column value="slicc_acr_2010_pericardite"/>
+    <column value="pericardite_obs"/>
+    <column value="slicc_acr_2010_claudicacao_persistente"/>
+    <column value="claudicacao_persistente_obs"/>
+    <column value="slicc_acr_2010_perda_tecidual_menor"/>
+    <column value="perda_tecidual_menor_obs"/>
+    <column value="slicc_acr_2010_perda_tecidual_significante"/>
+    <column value="slicc_acr_2010_perda_tecidual_significante_mult_ocorrencia"/>
+    <column value="perda_tecidual_significante_obs"/>
+    <column value="slicc_acr_2010_trombose_venosa_edema"/>
+    <column value="trombose_venosa_edema_obs"/>
+    <column value="slicc_acr_2010_infarto_resseccao_intest"/>
+    <column value="slicc_acr_2010_infarto_resseccao_intest_mult_ocorrencia"/>
+    <column value="infarto_resseccao_intest_obs"/>
+    <column value="slicc_acr_2010_insuficiencia_mesenterica"/>
+    <column value="insuficiencia_mesenterica_obs"/>
+    <column value="slicc_acr_2010_peritonite_cronica_dor"/>
+    <column value="peritonite_cronica_dor_obs"/>
+    <column value="slicc_acr_2010_constricao_esofagica_observ"/>
+    <column value="constricao_esofagica_observ_obs"/>
+    <column value="slicc_acr_2010_atrofia_musc_fraqueza"/>
+    <column value="atrofia_musc_fraqueza_obs"/>
+    <column value="slicc_acr_2010_artrite_deformante"/>
+    <column value="artrite_deformante_obs"/>
+    <column value="slicc_acr_2010_osteoporose_fratura"/>
+    <column value="osteoporose_fratura_obs"/>
+    <column value="slicc_acr_2010_osteonecrose_demonstrada"/>
+    <column value="slicc_acr_2010_osteonecrose_demonstrada_mult_ocorrencia"/>
+    <column value="osteonecrose_demonstrada_obs"/>
+    <column value="slicc_acr_2010_osteomielite_documentada"/>
+    <column value="osteomielite_documentada_obs"/>
+    <column value="slicc_acr_2010_alopecia_cicatricial_cronica"/>
+    <column value="alopecia_cicatricial_cronica_obs"/>
+    <column value="slicc_acr_2010_cicatriz_extensa_paniculite"/>
+    <column value="cicatriz_extensa_paniculite_obs"/>
+    <column value="slicc_acr_2010_ulceracao_cutanea"/>
+    <column value="ulceracao_cutanea_obs"/>
+    <column value="slicc_acr_2010_amnorreia"/>
+    <column value="amnorreia_obs"/>
+    <column value="slicc_acr_2010_diabetes_requerendo_tratam"/>
+    <column value="diabetes_requerendo_tratam_obs"/>
+    <column value="slicc_acr_2010_malignidade_documentada"/>
+    <column value="malignidade_documentada_obs"/>
+    <column value="sledai_2k__convulsao"/>
+    <column value="convulsao_obs"/>
+    <column value="sledai_2k__psicose"/>
+    <column value="2k_psicose_obs"/>
+    <column value="sledai_2k__delirium"/>
+    <column value="delirium_obs"/>
+    <column value="sledai_2k__disturbios_visuais"/>
+    <column value="disturbios_visuais_obs"/>
+    <column value="sledai_2k__comp_pares"/>
+    <column value="comp_pares_obs"/>
+    <column value="sledai_2k__cefaleia_lupica"/>
+    <column value="cefaleia_lupica_obs"/>
+    <column value="sledai_2k__acidente_vasc"/>
+    <column value="acidente_vasc_obs"/>
+    <column value="sledai_2k__vasculite"/>
+    <column value="vasculite_obs"/>
+    <column value="sledai_2k__artrites"/>
+    <column value="artrites_obs"/>
+    <column value="sledai_2k__miosites"/>
+    <column value="miosites_obs"/>
+    <column value="sledai_2k__cilindros_urinar"/>
+    <column value="cilindros_urinar_obs"/>
+    <column value="sledai_2k__hematuria"/>
+    <column value="hematuria_obs"/>
+    <column value="sledai_2k__proteinuria"/>
+    <column value="2k_proteinuria_obs"/>
+    <column value="sledai_2k__piuria"/>
+    <column value="piuria_obs"/>
+    <column value="sledai_2k__rash_cutaneo"/>
+    <column value="rash_cutaneo_obs"/>
+    <column value="sledai_2k__alopecia"/>
+    <column value="alopecia_obs"/>
+    <column value="sledai_2k__ulcera_mucosa"/>
+    <column value="ulcera_mucosa_obs"/>
+    <column value="sledai_2k__pleurisia"/>
+    <column value="pleurisia_obs"/>
+    <column value="sledai_2k__pericardite"/>
+    <column value="2k_pericardite_obs"/>
+    <column value="sledai_2k__complemento_bai"/>
+    <column value="complemento_bai_obs"/>
+    <column value="sledai_2k__anti_dnads"/>
+    <column value="anti_dnads_obs"/>
+    <column value="sledai_2k__febre"/>
+    <column value="febre_obs"/>
+    <column value="sledai_2k__trombocitopenia"/>
+    <column value="trombocitopenia_obs"/>
+    <column value="sledai_2k__leucopenia"/>
+    <column value="leucopenia_obs"/>
+    <column value="peso"/>
+    <column value="altura"/>
+    <column value="cir_abdomin"/>
+    <column value="pa_mmhg"/>
+    <column value="impressoes_clinicas"/>
+    <column value="conduta"/>
+    <column value="getPacienteExame"/>    
+    <column value="getEscoreSliic"/>    
+    <column value="getEscoreSledai"/>    
 </object>
