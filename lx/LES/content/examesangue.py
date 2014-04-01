@@ -29,7 +29,7 @@ from lx.LES import config
 schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='hemacias_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Hemácias',
@@ -40,7 +40,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='hb_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Hb',
@@ -50,7 +50,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='hto_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Hto',
@@ -60,7 +60,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='vcm_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='VCM',
@@ -70,7 +70,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='hcm_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='HCM',
@@ -80,7 +80,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='leuco_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Leuco',
@@ -90,7 +90,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='segm_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Segm',
@@ -100,7 +100,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='linfo_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Linfo',
@@ -110,7 +110,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='mono_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Mono',
@@ -120,7 +120,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='eos_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Eos',
@@ -130,7 +130,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='baso_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Baso',
@@ -140,7 +140,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='plaq_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Plaq',
@@ -150,7 +150,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='vhs_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='VHS',
@@ -160,7 +160,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='pcr_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='PCR',
@@ -170,7 +170,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='alfa_1gpa_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Alfa 1 GPA',
@@ -180,7 +180,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='c3_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='C3',
@@ -190,7 +190,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='c4_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='C4',
@@ -200,7 +200,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='anti_dna_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Anti-DNA',
@@ -210,7 +210,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='alb_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Alb',
@@ -220,7 +220,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='glob_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Glob',
@@ -230,7 +230,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='cpk_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='CPK',
@@ -240,7 +240,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='ast_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='AST',
@@ -250,7 +250,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='alt_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='ALT',
@@ -260,7 +260,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='fal_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='FAL',
@@ -270,7 +270,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='ggt_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='GGT',
@@ -280,7 +280,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='bb_total_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Bb Total',
@@ -290,7 +290,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='bb_indir_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Bb indir.',
@@ -300,7 +300,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='dhl_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='DHL',
@@ -310,7 +310,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='creatin_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Creatin',
@@ -320,7 +320,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='proteinur_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Proteinúr',
@@ -330,7 +330,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='dce_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='DCE',
@@ -340,7 +340,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='ldl_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='LDL',
@@ -350,7 +350,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='hdl_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='HDL',
@@ -360,7 +360,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='triglic_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Triglic',
@@ -370,7 +370,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='glicose_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Glicose',
@@ -380,7 +380,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='acido_urico_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Ácido Úrico',
@@ -390,7 +390,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='ferritina_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Ferritina',
@@ -400,7 +400,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='ist_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='I.S.T.',
@@ -410,7 +410,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='ctif_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='C.T.I.F.',
@@ -420,7 +420,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='tsh_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='TSH',
@@ -430,7 +430,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='na_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Na',
@@ -440,7 +440,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='k_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='K',
@@ -450,7 +450,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='calcio_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Cálcio',
@@ -460,7 +460,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='fosforo_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Fósforo',
@@ -470,7 +470,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='25_vit_d_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='25 Vit. D',
@@ -480,7 +480,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='calcio_24_sangue',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Cálcio 24',
@@ -492,6 +492,18 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
 
 schema['title'].widget.visible['edit'] = 'invisible'
 schema['description'].widget.visible['edit'] = 'invisible'
+schema['allowDiscussion'].widget.visible['edit'] = 'invisible'
+schema['excludeFromNav'].widget.visible['edit'] = 'invisible'
+schema['creators'].widget.visible['edit'] = 'invisible'
+schema['contributors'].widget.visible['edit'] = 'invisible'
+schema['rights'].widget.visible['edit'] = 'invisible'
+schema['effectiveDate'].widget.visible['edit'] = 'invisible'
+schema['expirationDate'].widget.visible['edit'] = 'invisible'
+schema['subject'].widget.visible['edit'] = 'invisible'
+schema['relatedItems'].widget.visible['edit'] = 'invisible'
+schema['location'].widget.visible['edit'] = 'invisible'
+schema['language'].widget.visible['edit'] = 'invisible'
+
 
 schemata.finalizeATCTSchema(schema)
 

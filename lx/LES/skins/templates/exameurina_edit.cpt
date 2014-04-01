@@ -155,6 +155,7 @@
                                     </tal:fields>
                                 </tal:nottabbed>
                             </metal:block>
+                            <div class="clear"></div>
                             <tal:block tal:define="exames context/@@exameurina/getExames"
                                 tal:condition="exames">
                                 <h4>Exames anteriores:</h4>
@@ -168,8 +169,13 @@
                                                     tal:attributes="class python: oddrow and 'even' or 'odd'">
                                                     <td tal:define="url string: ${exame/getURL}/exameurinapaciente;
                                                                     click string: window.open('${url}',  '${exame/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=500');;">
-                                                        <a tal:attributes="onclick click" tal:content="exame/Title" class="link_exames"></a>
-
+                                                        <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/exameurina.png"/>
+                                                        &nbsp;
+                                                        <span tal:replace="exame/Title"/>
+                                                        &nbsp;
+                                                        <a tal:attributes="onclick click" class="link_exames" alt="visualizar" title="visualizar">
+                                                            <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/visualizar.png" width="16px"/>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             </tal:block>

@@ -28,7 +28,7 @@ from lx.LES import config
 schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.StringField(
         name='ph_urina',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='pH',
@@ -39,7 +39,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='dens_urina',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Dens',
@@ -49,7 +49,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='ced_urina',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='CED',
@@ -59,7 +59,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='leuco_urina',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Leuco',
@@ -69,7 +69,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='hem_urina',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Hem',
@@ -79,7 +79,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='hb_urina',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Hb',
@@ -89,7 +89,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='ptns_urina',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='ptns',
@@ -99,7 +99,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name='cilindros_urina',
-        required=True,
+        #required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label='Cilindros',
@@ -109,7 +109,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.TextField(
         name='outros_urina',
-        required=False,
+        ##required=True,
         searchable=True,
         default_content_type='text/plain',
         allowable_content_types=('text/plain',),
@@ -122,7 +122,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.TextField(
         name='exames_imagem_urina',
-        required=False,
+        ##required=True,
         searchable=True,
         default_content_type='text/plain',
         allowable_content_types=('text/plain',),
@@ -135,7 +135,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
     atapi.TextField(
         name='outros_exames_urina',
-        required=False,
+        ##required=True,
         searchable=True,
         default_content_type='text/plain',
         allowable_content_types=('text/plain',),
@@ -150,6 +150,18 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
 
 schema['title'].widget.visible['edit'] = 'invisible'
 schema['description'].widget.visible['edit'] = 'invisible'
+schema['allowDiscussion'].widget.visible['edit'] = 'invisible'
+schema['excludeFromNav'].widget.visible['edit'] = 'invisible'
+schema['creators'].widget.visible['edit'] = 'invisible'
+schema['contributors'].widget.visible['edit'] = 'invisible'
+schema['rights'].widget.visible['edit'] = 'invisible'
+schema['effectiveDate'].widget.visible['edit'] = 'invisible'
+schema['expirationDate'].widget.visible['edit'] = 'invisible'
+schema['subject'].widget.visible['edit'] = 'invisible'
+schema['relatedItems'].widget.visible['edit'] = 'invisible'
+schema['location'].widget.visible['edit'] = 'invisible'
+schema['language'].widget.visible['edit'] = 'invisible'
+
 
 schemata.finalizeATCTSchema(schema)
 
