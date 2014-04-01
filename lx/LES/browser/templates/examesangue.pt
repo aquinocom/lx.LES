@@ -13,6 +13,9 @@
             <p>
                 <b>Nome do paciente:</b> <span tal:content="view/getNomePaciente"></span>
             </p>
+            <p>
+                <b>Profissional:</b> <span tal:content="here/Creator"></span>
+            </p>              
             <tal:block tal:define="fields python:view.getFields('default');">
                 <div class="column"
                     tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"

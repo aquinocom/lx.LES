@@ -25,6 +25,9 @@
             <p>
                 <b>Nome do paciente:</b> <span tal:content="view/getNomePaciente"></span>
             </p>
+            <p>
+                <b>Profissional:</b> <span tal:content="here/Creator"></span>
+            </p>              
             <div id="abas">
                 <ul>
                     <li><a href="#informacoes-1">Padrão</a></li>
