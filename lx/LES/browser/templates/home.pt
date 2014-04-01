@@ -40,6 +40,9 @@
                         <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/search.png" width="16px"/>
                         Localizar paciente
                     </h5>
+                    <div id="searchHome">
+                        <span tal:replace="structure provider:lx.LES.searchHome"/>
+                    </div>
                 </div>
                 <div class="box">
                     <h5>

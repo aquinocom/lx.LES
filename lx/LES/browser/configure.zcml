@@ -8,6 +8,16 @@
     i18n_domain="lx.LES">
     
     <include package="plone.app.contentmenu" />
+
+    <!-- Viewlets Manager -->
+    <browser:viewletManager
+        name="lx.LES.searchHome"
+        provides="lx.LES.browser.layers.ISearchHomeViewletManager"
+        class="plone.app.viewletmanager.manager.OrderedViewletManager"
+        layer="lx.LES.browser.layers.ILXDefaultLayer"
+        permission="zope2.View"
+    />
+
     
     <!-- -*- extra stuff goes here -*- -->
     <!--Directory-->
@@ -169,7 +179,7 @@
     <!-- The search box -->
     <browser:viewlet
         name="custom-searchbox"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        manager="lx.LES.browser.layers.ISearchHomeViewletManager"
         class=".viewlets.SearchBoxViewlet"
         permission="zope2.View"
         layer="lx.LES.browser.layers.ILXDefaultLayer"

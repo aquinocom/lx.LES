@@ -158,7 +158,9 @@
 }
 .template-home .box{
     padding: 0 20px 10px 20px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
+    float: left;
+    width: 96%;
 }
 .template-home .box .adicionar{
     font-size: 20px;
@@ -174,4 +176,18 @@
 
 .template-home a{
     border: none !important;
+}
+#searchHome{
+    float: left;
+}
+#searchHome #LSResult {
+    left: 0;
+    margin-left: 2px;
+    position: inherit;
+}
+#searchHome .searchSection{
+    display: none;
+}
+#searchHome #searchGadget{
+    width: 40em;
 }
