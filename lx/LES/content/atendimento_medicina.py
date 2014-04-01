@@ -13,6 +13,7 @@ from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 #Libs
 from datetime import datetime
+import logging
 
 # Archetypes & ATCT imports
 from Products.Archetypes import atapi
@@ -4908,18 +4909,28 @@ class AtendimentoMedicina(ATCTContent, HistoryAwareMixin):
 
     def getEscoreSliic(self):
         """Obter pontuações do sliic"""
+        log = logging.getLogger("lx.LES:")
         campos = self.getCamposPontuacao('slicc_acr_2010')
         escore = 0
         for campo in campos:
-            escore = escore + int(getattr(self, campo))
+            try:
+                escore = escore + int(getattr(self, campo))
+            except:
+                log.info('Erro escore sliic:' + campo)
+                return 'erro escore'
         return escore
 
     def getEscoreSledai(self):
         """Obter pontuações do sledai"""
+        log = logging.getLogger("lx.LES:")
         campos = self.getCamposPontuacao('sledai_2k')
         escore = 0
         for campo in campos:
-            escore = escore + int(getattr(self, campo))
+            try:
+                escore = escore + int(getattr(self, campo))
+            except:
+                log.info('Erro escore sliic:' + campo)
+                return 'erro escore'
         return escore
 
 
