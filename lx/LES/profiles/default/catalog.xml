@@ -763,406 +763,406 @@
         <indexed_attr value="saude_global"/>
     </index>
     <index name="slicc_acr_2010_catarata" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_catarata"/>
+        <indexed_attr value="slicc_acr_2010_catarata"/>
     </index>
     <index name="catarata_obs" meta_type="FieldIndex">
         <indexed_attr value="catarata_obs"/>
     </index>
     <index name="slicc_acr_2010_alteracao_retinal" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_alteracao_retinal"/>
+        <indexed_attr value="slicc_acr_2010_alteracao_retinal"/>
     </index>
     <index name="alteracao_retinal_obs" meta_type="FieldIndex">
         <indexed_attr value="alteracao_retinal_obs"/>
     </index>
     <index name="slicc_acr_2010_atrofia_optica" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_atrofia_optica"/>
+        <indexed_attr value="slicc_acr_2010_atrofia_optica"/>
     </index>
     <index name="atrofia_optica_obs" meta_type="FieldIndex">
         <indexed_attr value="atrofia_optica_obs"/>
     </index>
     <index name="slicc_acr_2010_disfuncao_cognitiva" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_disfuncao_cognitiva"/>
+        <indexed_attr value="slicc_acr_2010_disfuncao_cognitiva"/>
     </index>
     <index name="disfuncao_cognitiva_obs" meta_type="FieldIndex">
         <indexed_attr value="disfuncao_cognitiva_obs"/>
     </index>
     <index name="slicc_acr_2010_psicose" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_psicose"/>
+        <indexed_attr value="slicc_acr_2010_psicose"/>
     </index>
     <index name="acr_psicose_obs" meta_type="FieldIndex">
         <indexed_attr value="acr_psicose_obs"/>
     </index>
     <index name="slicc_acr_2010_convulsoes" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_convulsoes"/>
+        <indexed_attr value="slicc_acr_2010_convulsoes"/>
     </index>
     <index name="convulsoes_obs" meta_type="FieldIndex">
         <indexed_attr value="convulsoes_obs"/>
     </index>
     <index name="slicc_acr_2010_avc" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_avc"/>
+        <indexed_attr value="slicc_acr_2010_avc"/>
     </index>
     <index name="slicc_acr_2010_avc_mult_ocorrencia" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_avc_mult_ocorrencia"/>
+        <indexed_attr value="slicc_acr_2010_avc_mult_ocorrencia"/>
     </index>
     <index name="avc_obs" meta_type="FieldIndex">
         <indexed_attr value="avc_obs"/>
     </index>
     <index name="slicc_acr_2010_neuropatia_craniana" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_neuropatia_craniana"/>
+        <indexed_attr value="slicc_acr_2010_neuropatia_craniana"/>
     </index>
     <index name="neuropatia_craniana_obs" meta_type="FieldIndex">
         <indexed_attr value="neuropatia_craniana_obs"/>
     </index>
     <index name="slicc_acr_2010_mielite_transversa" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_mielite_transversa"/>
+        <indexed_attr value="slicc_acr_2010_mielite_transversa"/>
     </index>
     <index name="mielite_transversa_obs" meta_type="FieldIndex">
         <indexed_attr value="mielite_transversa_obs"/>
     </index>
     <index name="slicc_acr_2010_tx_filtr_glomerular" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_tx_filtr_glomerular"/>
+        <indexed_attr value="slicc_acr_2010_tx_filtr_glomerular"/>
     </index>
     <index name="tx_filtr_glomerular_obs" meta_type="FieldIndex">
         <indexed_attr value="tx_filtr_glomerular_obs"/>
     </index>
     <index name="slicc_acr_2010_proteinuria" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_proteinuria"/>
+        <indexed_attr value="slicc_acr_2010_proteinuria"/>
     </index>
     <index name="acr_proteinuria_obs" meta_type="FieldIndex">
         <indexed_attr value="acr_proteinuria_obs"/>
     </index>
     <index name="slicc_acr_2010_insuficiencia_renal_terminal" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_insuficiencia_renal_terminal"/>
+        <indexed_attr value="slicc_acr_2010_insuficiencia_renal_terminal"/>
     </index>
     <index name="insuficiencia_renal_terminal_obs" meta_type="FieldIndex">
         <indexed_attr value="insuficiencia_renal_terminal_obs"/>
     </index>
     <index name="slicc_acr_2010_hipertensao_pulmonar" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_hipertensao_pulmonar"/>
+        <indexed_attr value="slicc_acr_2010_hipertensao_pulmonar"/>
     </index>
     <index name="hipertensao_pulmonar_obs" meta_type="FieldIndex">
         <indexed_attr value="hipertensao_pulmonar_obs"/>
     </index>
     <index name="slicc_acr_2010_fibrose_pulmonar" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_fibrose_pulmonar"/>
+        <indexed_attr value="slicc_acr_2010_fibrose_pulmonar"/>
     </index>
     <index name="fibrose_pulmonar_obs" meta_type="FieldIndex">
         <indexed_attr value="fibrose_pulmonar_obs"/>
     </index>
     <index name="slicc_acr_2010_shrinking_lung_syndrome" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_shrinking_lung_syndrome"/>
+        <indexed_attr value="slicc_acr_2010_shrinking_lung_syndrome"/>
     </index>
     <index name="shrinking_lung_syndrome_obs" meta_type="FieldIndex">
         <indexed_attr value="shrinking_lung_syndrome_obs"/>
     </index>
     <index name="slicc_acr_2010_fibrose_pleural" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_fibrose_pleural"/>
+        <indexed_attr value="slicc_acr_2010_fibrose_pleural"/>
     </index>
     <index name="fibrose_pleural_obs" meta_type="FieldIndex">
         <indexed_attr value="fibrose_pleural_obs"/>
     </index>
     <index name="slicc_acr_2010_infarto_pulmonar" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_infarto_pulmonar"/>
+        <indexed_attr value="slicc_acr_2010_infarto_pulmonar"/>
     </index>
     <index name="infarto_pulmonar_obs" meta_type="FieldIndex">
         <indexed_attr value="infarto_pulmonar_obs"/>
     </index>
     <index name="slicc_acr_2010_angina_pectoris_angioplastia" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_angina_pectoris_angioplastia"/>
+        <indexed_attr value="slicc_acr_2010_angina_pectoris_angioplastia"/>
     </index>
     <index name="angina_pectoris_angioplastia_obs" meta_type="FieldIndex">
         <indexed_attr value="angina_pectoris_angioplastia_obs"/>
     </index>
     <index name="slicc_acr_2010_infarto_agudo_miocardio" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_infarto_agudo_miocardio"/>
+        <indexed_attr value="slicc_acr_2010_infarto_agudo_miocardio"/>
     </index>
     <index name="slicc_acr_2010_infarto_agudo_miocardio_mult_ocorrencia" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_infarto_agudo_miocardio_mult_ocorrencia"/>
+        <indexed_attr value="slicc_acr_2010_infarto_agudo_miocardio_mult_ocorrencia"/>
     </index>
     <index name="infarto_agudo_miocardio_obs" meta_type="FieldIndex">
         <indexed_attr value="infarto_agudo_miocardio_obs"/>
     </index>
     <index name="slicc_acr_2010_miocardiopatia" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_miocardiopatia"/>
+        <indexed_attr value="slicc_acr_2010_miocardiopatia"/>
     </index>
     <index name="miocardiopatia_obs" meta_type="FieldIndex">
         <indexed_attr value="miocardiopatia_obs"/>
     </index>
     <index name="slicc_acr_2010_doenca_valvular" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_doenca_valvular"/>
+        <indexed_attr value="slicc_acr_2010_doenca_valvular"/>
     </index>
     <index name="doenca_valvular_obs" meta_type="FieldIndex">
         <indexed_attr value="doenca_valvular_obs"/>
     </index>
     <index name="slicc_acr_2010_pericardite" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_pericardite"/>
+        <indexed_attr value="slicc_acr_2010_pericardite"/>
     </index>
     <index name="pericardite_obs" meta_type="FieldIndex">
         <indexed_attr value="pericardite_obs"/>
     </index>
     <index name="slicc_acr_2010_claudicacao_persistente" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_claudicacao_persistente"/>
+        <indexed_attr value="slicc_acr_2010_claudicacao_persistente"/>
     </index>
     <index name="claudicacao_persistente_obs" meta_type="FieldIndex">
         <indexed_attr value="claudicacao_persistente_obs"/>
     </index>
     <index name="slicc_acr_2010_perda_tecidual_menor" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_perda_tecidual_menor"/>
+        <indexed_attr value="slicc_acr_2010_perda_tecidual_menor"/>
     </index>
     <index name="perda_tecidual_menor_obs" meta_type="FieldIndex">
         <indexed_attr value="perda_tecidual_menor_obs"/>
     </index>
     <index name="slicc_acr_2010_perda_tecidual_significante" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_perda_tecidual_significante"/>
+        <indexed_attr value="slicc_acr_2010_perda_tecidual_significante"/>
     </index>
     <index name="slicc_acr_2010_perda_tecidual_significante_mult_ocorrencia" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_perda_tecidual_significante_mult_ocorrencia"/>
+        <indexed_attr value="slicc_acr_2010_perda_tecidual_significante_mult_ocorrencia"/>
     </index>
     <index name="perda_tecidual_significante_obs" meta_type="FieldIndex">
         <indexed_attr value="perda_tecidual_significante_obs"/>
     </index>
     <index name="slicc_acr_2010_trombose_venosa_edema" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_trombose_venosa_edema"/>
+        <indexed_attr value="slicc_acr_2010_trombose_venosa_edema"/>
     </index>
     <index name="trombose_venosa_edema_obs" meta_type="FieldIndex">
         <indexed_attr value="trombose_venosa_edema_obs"/>
     </index>
     <index name="slicc_acr_2010_infarto_resseccao_intest" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_infarto_resseccao_intest"/>
+        <indexed_attr value="slicc_acr_2010_infarto_resseccao_intest"/>
     </index>
     <index name="slicc_acr_2010_infarto_resseccao_intest_mult_ocorrencia" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_infarto_resseccao_intest_mult_ocorrencia"/>
+        <indexed_attr value="slicc_acr_2010_infarto_resseccao_intest_mult_ocorrencia"/>
     </index>
     <index name="infarto_resseccao_intest_obs" meta_type="FieldIndex">
         <indexed_attr value="infarto_resseccao_intest_obs"/>
     </index>
     <index name="slicc_acr_2010_insuficiencia_mesenterica" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_insuficiencia_mesenterica"/>
+        <indexed_attr value="slicc_acr_2010_insuficiencia_mesenterica"/>
     </index>
     <index name="insuficiencia_mesenterica_obs" meta_type="FieldIndex">
         <indexed_attr value="insuficiencia_mesenterica_obs"/>
     </index>
     <index name="slicc_acr_2010_peritonite_cronica_dor" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_peritonite_cronica_dor"/>
+        <indexed_attr value="slicc_acr_2010_peritonite_cronica_dor"/>
     </index>
     <index name="peritonite_cronica_dor_obs" meta_type="FieldIndex">
         <indexed_attr value="peritonite_cronica_dor_obs"/>
     </index>
     <index name="slicc_acr_2010_constricao_esofagica_observ" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_constricao_esofagica_observ"/>
+        <indexed_attr value="slicc_acr_2010_constricao_esofagica_observ"/>
     </index>
     <index name="constricao_esofagica_observ_obs" meta_type="FieldIndex">
         <indexed_attr value="constricao_esofagica_observ_obs"/>
     </index>
     <index name="slicc_acr_2010_atrofia_musc_fraqueza" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_atrofia_musc_fraqueza"/>
+        <indexed_attr value="slicc_acr_2010_atrofia_musc_fraqueza"/>
     </index>
     <index name="atrofia_musc_fraqueza_obs" meta_type="FieldIndex">
         <indexed_attr value="atrofia_musc_fraqueza_obs"/>
     </index>
     <index name="slicc_acr_2010_artrite_deformante" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_artrite_deformante"/>
+        <indexed_attr value="slicc_acr_2010_artrite_deformante"/>
     </index>
     <index name="artrite_deformante_obs" meta_type="FieldIndex">
         <indexed_attr value="artrite_deformante_obs"/>
     </index>
     <index name="slicc_acr_2010_osteoporose_fratura" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_osteoporose_fratura"/>
+        <indexed_attr value="slicc_acr_2010_osteoporose_fratura"/>
     </index>
     <index name="osteoporose_fratura_obs" meta_type="FieldIndex">
         <indexed_attr value="osteoporose_fratura_obs"/>
     </index>
     <index name="slicc_acr_2010_osteonecrose_demonstrada" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_osteonecrose_demonstrada"/>
+        <indexed_attr value="slicc_acr_2010_osteonecrose_demonstrada"/>
     </index>
     <index name="slicc_acr_2010_osteonecrose_demonstrada_mult_ocorrencia" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_osteonecrose_demonstrada_mult_ocorrencia"/>
+        <indexed_attr value="slicc_acr_2010_osteonecrose_demonstrada_mult_ocorrencia"/>
     </index>
     <index name="osteonecrose_demonstrada_obs" meta_type="FieldIndex">
         <indexed_attr value="osteonecrose_demonstrada_obs"/>
     </index>
     <index name="slicc_acr_2010_osteomielite_documentada" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_osteomielite_documentada"/>
+        <indexed_attr value="slicc_acr_2010_osteomielite_documentada"/>
     </index>
     <index name="osteomielite_documentada_obs" meta_type="FieldIndex">
         <indexed_attr value="osteomielite_documentada_obs"/>
     </index>
     <index name="slicc_acr_2010_alopecia_cicatricial_cronica" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_alopecia_cicatricial_cronica"/>
+        <indexed_attr value="slicc_acr_2010_alopecia_cicatricial_cronica"/>
     </index>
     <index name="alopecia_cicatricial_cronica_obs" meta_type="FieldIndex">
         <indexed_attr value="alopecia_cicatricial_cronica_obs"/>
     </index>
     <index name="slicc_acr_2010_cicatriz_extensa_paniculite" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_cicatriz_extensa_paniculite"/>
+        <indexed_attr value="slicc_acr_2010_cicatriz_extensa_paniculite"/>
     </index>
     <index name="cicatriz_extensa_paniculite_obs" meta_type="FieldIndex">
         <indexed_attr value="cicatriz_extensa_paniculite_obs"/>
     </index>
     <index name="slicc_acr_2010_ulceracao_cutanea" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_ulceracao_cutanea"/>
+        <indexed_attr value="slicc_acr_2010_ulceracao_cutanea"/>
     </index>
     <index name="ulceracao_cutanea_obs" meta_type="FieldIndex">
         <indexed_attr value="ulceracao_cutanea_obs"/>
     </index>
     <index name="slicc_acr_2010_amnorreia" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_amnorreia"/>
+        <indexed_attr value="slicc_acr_2010_amnorreia"/>
     </index>
     <index name="amnorreia_obs" meta_type="FieldIndex">
         <indexed_attr value="amnorreia_obs"/>
     </index>
     <index name="slicc_acr_2010_diabetes_requerendo_tratam" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_diabetes_requerendo_tratam"/>
+        <indexed_attr value="slicc_acr_2010_diabetes_requerendo_tratam"/>
     </index>
     <index name="diabetes_requerendo_tratam_obs" meta_type="FieldIndex">
         <indexed_attr value="diabetes_requerendo_tratam_obs"/>
     </index>
     <index name="slicc_acr_2010_malignidade_documentada" meta_type="FieldIndex">
-        <indexed_attr value="slicc_acr_malignidade_documentada"/>
+        <indexed_attr value="slicc_acr_2010_malignidade_documentada"/>
     </index>
     <index name="malignidade_documentada_obs" meta_type="FieldIndex">
         <indexed_attr value="malignidade_documentada_obs"/>
     </index>
     <index name="sledai_2k_convulsao" meta_type="FieldIndex">
-        <indexed_attr value="sledai_convulsao"/>
+        <indexed_attr value="sledai_2k_convulsao"/>
     </index>
     <index name="convulsao_obs" meta_type="FieldIndex">
         <indexed_attr value="convulsao_obs"/>
     </index>
     <index name="sledai_2k_psicose" meta_type="FieldIndex">
-        <indexed_attr value="sledai_psicose"/>
+        <indexed_attr value="sledai_2k_psicose"/>
     </index>
     <index name="2k_psicose_obs" meta_type="FieldIndex">
         <indexed_attr value="2k_psicose_obs"/>
     </index>
     <index name="sledai_2k_delirium" meta_type="FieldIndex">
-        <indexed_attr value="sledai_delirium"/>
+        <indexed_attr value="sledai_2k_delirium"/>
     </index>
     <index name="delirium_obs" meta_type="FieldIndex">
         <indexed_attr value="delirium_obs"/>
     </index>
     <index name="sledai_2k_disturbios_visuais" meta_type="FieldIndex">
-        <indexed_attr value="sledai_disturbios_visuais"/>
+        <indexed_attr value="sledai_2k_disturbios_visuais"/>
     </index>
     <index name="disturbios_visuais_obs" meta_type="FieldIndex">
         <indexed_attr value="disturbios_visuais_obs"/>
     </index>
     <index name="sledai_2k_comp_pares" meta_type="FieldIndex">
-        <indexed_attr value="sledai_comp_pares"/>
+        <indexed_attr value="sledai_2k_comp_pares"/>
     </index>
     <index name="comp_pares_obs" meta_type="FieldIndex">
         <indexed_attr value="comp_pares_obs"/>
     </index>
     <index name="sledai_2k_cefaleia_lupica" meta_type="FieldIndex">
-        <indexed_attr value="sledai_cefaleia_lupica"/>
+        <indexed_attr value="sledai_2k_cefaleia_lupica"/>
     </index>
     <index name="cefaleia_lupica_obs" meta_type="FieldIndex">
         <indexed_attr value="cefaleia_lupica_obs"/>
     </index>
     <index name="sledai_2k_acidente_vasc" meta_type="FieldIndex">
-        <indexed_attr value="sledai_acidente_vasc"/>
+        <indexed_attr value="sledai_2k_acidente_vasc"/>
     </index>
     <index name="acidente_vasc_obs" meta_type="FieldIndex">
         <indexed_attr value="acidente_vasc_obs"/>
     </index>
     <index name="sledai_2k_vasculite" meta_type="FieldIndex">
-        <indexed_attr value="sledai_vasculite"/>
+        <indexed_attr value="sledai_2k_vasculite"/>
     </index>
     <index name="vasculite_obs" meta_type="FieldIndex">
         <indexed_attr value="vasculite_obs"/>
     </index>
     <index name="sledai_2k_artrites" meta_type="FieldIndex">
-        <indexed_attr value="sledai_artrites"/>
+        <indexed_attr value="sledai_2k_artrites"/>
     </index>
     <index name="artrites_obs" meta_type="FieldIndex">
         <indexed_attr value="artrites_obs"/>
     </index>
     <index name="sledai_2k_miosites" meta_type="FieldIndex">
-        <indexed_attr value="sledai_miosites"/>
+        <indexed_attr value="sledai_2k_miosites"/>
     </index>
     <index name="miosites_obs" meta_type="FieldIndex">
         <indexed_attr value="miosites_obs"/>
     </index>
     <index name="sledai_2k_cilindros_urinar" meta_type="FieldIndex">
-        <indexed_attr value="sledai_cilindros_urinar"/>
+        <indexed_attr value="sledai_2k_cilindros_urinar"/>
     </index>
     <index name="cilindros_urinar_obs" meta_type="FieldIndex">
         <indexed_attr value="cilindros_urinar_obs"/>
     </index>
     <index name="sledai_2k_hematuria" meta_type="FieldIndex">
-        <indexed_attr value="sledai_hematuria"/>
+        <indexed_attr value="sledai_2k_hematuria"/>
     </index>
     <index name="hematuria_obs" meta_type="FieldIndex">
         <indexed_attr value="hematuria_obs"/>
     </index>
     <index name="sledai_2k_proteinuria" meta_type="FieldIndex">
-        <indexed_attr value="sledai_proteinuria"/>
+        <indexed_attr value="sledai_2k_proteinuria"/>
     </index>
-    <index name="proteinuria_obs" meta_type="FieldIndex">
+    <index name="2k_proteinuria_obs" meta_type="FieldIndex">
         <indexed_attr value="2k_proteinuria_obs"/>
     </index>
     <index name="sledai_2k_piuria" meta_type="FieldIndex">
-        <indexed_attr value="sledai_piuria"/>
+        <indexed_attr value="sledai_2k_piuria"/>
     </index>
     <index name="piuria_obs" meta_type="FieldIndex">
         <indexed_attr value="piuria_obs"/>
     </index>
     <index name="sledai_2k_rash_cutaneo" meta_type="FieldIndex">
-        <indexed_attr value="sledai_rash_cutaneo"/>
+        <indexed_attr value="sledai_2k_rash_cutaneo"/>
     </index>
     <index name="rash_cutaneo_obs" meta_type="FieldIndex">
         <indexed_attr value="rash_cutaneo_obs"/>
     </index>
     <index name="sledai_2k_alopecia" meta_type="FieldIndex">
-        <indexed_attr value="sledai_alopecia"/>
+        <indexed_attr value="sledai_2k_alopecia"/>
     </index>
     <index name="alopecia_obs" meta_type="FieldIndex">
         <indexed_attr value="alopecia_obs"/>
     </index>
     <index name="sledai_2k_ulcera_mucosa" meta_type="FieldIndex">
-        <indexed_attr value="sledai_ulcera_mucosa"/>
+        <indexed_attr value="sledai_2k_ulcera_mucosa"/>
     </index>
     <index name="ulcera_mucosa_obs" meta_type="FieldIndex">
         <indexed_attr value="ulcera_mucosa_obs"/>
     </index>
     <index name="sledai_2k_pleurisia" meta_type="FieldIndex">
-        <indexed_attr value="sledai_pleurisia"/>
+        <indexed_attr value="sledai_2k_pleurisia"/>
     </index>
     <index name="pleurisia_obs" meta_type="FieldIndex">
         <indexed_attr value="pleurisia_obs"/>
     </index>
     <index name="sledai_2k_pericardite" meta_type="FieldIndex">
-        <indexed_attr value="sledai_pericardite"/>
+        <indexed_attr value="sledai_2k_pericardite"/>
     </index>
     <index name="2k_pericardite_obs" meta_type="FieldIndex">
         <indexed_attr value="2k_pericardite_obs"/>
     </index>
     <index name="sledai_2k_complemento_bai" meta_type="FieldIndex">
-        <indexed_attr value="sledai_complemento_bai"/>
+        <indexed_attr value="sledai_2k_complemento_bai"/>
     </index>
     <index name="complemento_bai_obs" meta_type="FieldIndex">
         <indexed_attr value="complemento_bai_obs"/>
     </index>
     <index name="sledai_2k_anti_dnads" meta_type="FieldIndex">
-        <indexed_attr value="sledai_anti_dnads"/>
+        <indexed_attr value="sledai_2k_anti_dnads"/>
     </index>
     <index name="anti_dnads_obs" meta_type="FieldIndex">
         <indexed_attr value="anti_dnads_obs"/>
     </index>
     <index name="sledai_2k_febre" meta_type="FieldIndex">
-        <indexed_attr value="sledai_febre"/>
+        <indexed_attr value="sledai_2k_febre"/>
     </index>
     <index name="febre_obs" meta_type="FieldIndex">
         <indexed_attr value="febre_obs"/>
     </index>
     <index name="sledai_2k_trombocitopenia" meta_type="FieldIndex">
-        <indexed_attr value="sledai_trombocitopenia"/>
+        <indexed_attr value="sledai_2k_trombocitopenia"/>
     </index>
     <index name="trombocitopenia_obs" meta_type="FieldIndex">
         <indexed_attr value="trombocitopenia_obs"/>
     </index>
     <index name="sledai_2k_leucopenia" meta_type="FieldIndex">
-        <indexed_attr value="sledai_leucopenia"/>
+        <indexed_attr value="sledai_2k_leucopenia"/>
     </index>
     <index name="leucopenia_obs" meta_type="FieldIndex">
         <indexed_attr value="leucopenia_obs"/>
@@ -1189,10 +1189,10 @@
         <indexed_attr value="getPacienteExame"/>
     </index>
     <index name="getEscoreSliic" meta_type="FieldIndex">
-        <indexed_attr value="getPacienteExame"/>
+        <indexed_attr value="getEscoreSliic"/>
     </index>
     <index name="getEscoreSledai" meta_type="FieldIndex">
-        <indexed_attr value="getPacienteExame"/>
+        <indexed_attr value="getEscoreSledai"/>
     </index>
     <column value="inicio_sintomas"/>
     <column value="retardo_diagnostico"/>
@@ -1535,53 +1535,53 @@
     <column value="diabetes_requerendo_tratam_obs"/>
     <column value="slicc_acr_2010_malignidade_documentada"/>
     <column value="malignidade_documentada_obs"/>
-    <column value="sledai_2k__convulsao"/>
+    <column value="sledai_2k_convulsao"/>
     <column value="convulsao_obs"/>
-    <column value="sledai_2k__psicose"/>
+    <column value="sledai_2k_psicose"/>
     <column value="2k_psicose_obs"/>
-    <column value="sledai_2k__delirium"/>
+    <column value="sledai_2k_delirium"/>
     <column value="delirium_obs"/>
-    <column value="sledai_2k__disturbios_visuais"/>
+    <column value="sledai_2k_disturbios_visuais"/>
     <column value="disturbios_visuais_obs"/>
-    <column value="sledai_2k__comp_pares"/>
+    <column value="sledai_2k_comp_pares"/>
     <column value="comp_pares_obs"/>
-    <column value="sledai_2k__cefaleia_lupica"/>
+    <column value="sledai_2k_cefaleia_lupica"/>
     <column value="cefaleia_lupica_obs"/>
-    <column value="sledai_2k__acidente_vasc"/>
+    <column value="sledai_2k_acidente_vasc"/>
     <column value="acidente_vasc_obs"/>
-    <column value="sledai_2k__vasculite"/>
+    <column value="sledai_2k_vasculite"/>
     <column value="vasculite_obs"/>
-    <column value="sledai_2k__artrites"/>
+    <column value="sledai_2k_artrites"/>
     <column value="artrites_obs"/>
-    <column value="sledai_2k__miosites"/>
+    <column value="sledai_2k_miosites"/>
     <column value="miosites_obs"/>
-    <column value="sledai_2k__cilindros_urinar"/>
+    <column value="sledai_2k_cilindros_urinar"/>
     <column value="cilindros_urinar_obs"/>
-    <column value="sledai_2k__hematuria"/>
+    <column value="sledai_2k_hematuria"/>
     <column value="hematuria_obs"/>
-    <column value="sledai_2k__proteinuria"/>
+    <column value="sledai_2k_proteinuria"/>
     <column value="2k_proteinuria_obs"/>
-    <column value="sledai_2k__piuria"/>
+    <column value="sledai_2k_piuria"/>
     <column value="piuria_obs"/>
-    <column value="sledai_2k__rash_cutaneo"/>
+    <column value="sledai_2k_rash_cutaneo"/>
     <column value="rash_cutaneo_obs"/>
-    <column value="sledai_2k__alopecia"/>
+    <column value="sledai_2k_alopecia"/>
     <column value="alopecia_obs"/>
-    <column value="sledai_2k__ulcera_mucosa"/>
+    <column value="sledai_2k_ulcera_mucosa"/>
     <column value="ulcera_mucosa_obs"/>
-    <column value="sledai_2k__pleurisia"/>
+    <column value="sledai_2k_pleurisia"/>
     <column value="pleurisia_obs"/>
-    <column value="sledai_2k__pericardite"/>
+    <column value="sledai_2k_pericardite"/>
     <column value="2k_pericardite_obs"/>
-    <column value="sledai_2k__complemento_bai"/>
+    <column value="sledai_2k_complemento_bai"/>
     <column value="complemento_bai_obs"/>
-    <column value="sledai_2k__anti_dnads"/>
+    <column value="sledai_2k_anti_dnads"/>
     <column value="anti_dnads_obs"/>
-    <column value="sledai_2k__febre"/>
+    <column value="sledai_2k_febre"/>
     <column value="febre_obs"/>
-    <column value="sledai_2k__trombocitopenia"/>
+    <column value="sledai_2k_trombocitopenia"/>
     <column value="trombocitopenia_obs"/>
-    <column value="sledai_2k__leucopenia"/>
+    <column value="sledai_2k_leucopenia"/>
     <column value="leucopenia_obs"/>
     <column value="peso"/>
     <column value="altura"/>
