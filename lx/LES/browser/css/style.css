@@ -90,6 +90,11 @@
 .template-paciente table.listing td {
     border-top: 1px solid #DDDDDD;
 }
+
+.template-atendimentomedicina .column,
+.template-atendimentomedicinapaciente .column{
+    width: 30%;
+}
 .column{
     width: 15%;
     float: left;
