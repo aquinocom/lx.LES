@@ -28,7 +28,7 @@
 }
 .template-paciente #listaExamesPaciente{
     margin-top: 0px;
-    height: 100px;
+    height: 150px;
     margin-left: 15px;
     margin-bottom:5px;
     width: 95%;
@@ -39,8 +39,16 @@
 #coluna04_sangue li.zebrar{
     background: #EEEEEE;
 }
+.link_atendimentos,
 .link_exames{
     cursor: pointer;
+}
+#coluna01_paciente .adicionar,
+#coluna02_paciente .adicionar{
+    padding-left: 20px !important;
+}
+.adicionar a{
+    border-bottom: none !important;
 }
 .clear{
     clear: both;
@@ -147,4 +155,23 @@
     background-color: #DD0000;
     color: #FFFFFF !important;
     font-weight: bold;
+}
+.template-home .box{
+    padding: 0 20px 10px 20px;
+    margin-bottom: 20px; 
+}
+.template-home .box .adicionar{
+    font-size: 20px;
+}
+.template-home #content ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.template-home .box h5{
+    width: 172px;
+}
+
+.template-home a{
+    border: none !important;
 }

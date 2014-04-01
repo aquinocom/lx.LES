@@ -33,7 +33,7 @@ class AtendimentoMedicinaView(BrowserView):
         """Retorna todos os atendimentos do paciente
         """
         catalog = getToolByName(self, 'portal_catalog')
-        path_atendimentos = '/'.join(self.context.getPhysicalPath())
+        path_atendimentos = '/'.join(self.context.aq_parent.getPhysicalPath())
         atendimentos = catalog(object_provides=IAtendimentoMedicina.__identifier__,
                            path=path_atendimentos,
                            sort_on='Date',

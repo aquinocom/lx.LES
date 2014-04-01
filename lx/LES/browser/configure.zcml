@@ -68,6 +68,15 @@
         name="style.css"
         file="css/style.css" />
 
+    <!--Pages Exames Urina-->
+    <browser:page
+        name="home"
+        for="*"
+        class=".home.HomeView"
+        template="templates/home.pt"
+        permission="zope2.View"
+    />
+        
     <!--Page Paciente-->
     <browser:page
         name="paciente"

@@ -198,6 +198,19 @@ schema = ATFolder.schema.copy() + atapi.Schema((
 
 schema['title'].widget.label = _(u"Nome")
 schema['description'].widget.visible['edit'] = 'invisible'
+schema['allowDiscussion'].widget.visible['edit'] = 'invisible'
+schema['excludeFromNav'].widget.visible['edit'] = 'invisible'
+schema['creators'].widget.visible['edit'] = 'invisible'
+schema['contributors'].widget.visible['edit'] = 'invisible'
+schema['rights'].widget.visible['edit'] = 'invisible'
+schema['effectiveDate'].widget.visible['edit'] = 'invisible'
+schema['expirationDate'].widget.visible['edit'] = 'invisible'
+schema['subject'].widget.visible['edit'] = 'invisible'
+schema['relatedItems'].widget.visible['edit'] = 'invisible'
+schema['location'].widget.visible['edit'] = 'invisible'
+schema['language'].widget.visible['edit'] = 'invisible'
+schema['nextPreviousEnabled'].widget.visible['edit'] = 'invisible'
+
 schemata.finalizeATCTSchema(schema)
 
 

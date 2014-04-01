@@ -22,4 +22,15 @@
             name="lx_LES_scripts"
             insert-after="custom"/>
     </skin-path>
+
+    <object name="lx_LES_images"
+        meta_type="Filesystem Directory View"
+        directory="lx.LES:skins/images" />
+    <skin-path
+        name="Sunburst Theme"
+        based-on="Sunburst Theme">
+        <layer
+            name="lx_LES_images"
+            insert-after="custom"/>
+    </skin-path>
 </object>

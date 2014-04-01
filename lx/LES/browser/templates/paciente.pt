@@ -16,8 +16,8 @@
             </script>
         </metal:headslot>
         <metal:head fill-slot="top_slot"
-        tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
-                    disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+            tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
     </head>
     <body>
         <tal:block metal:fill-slot="main" >
@@ -108,32 +108,43 @@
                             <li><a href="#nutricao">Nutrição</a></li>
                         </ul>
                         <div id="medicina">
-                            <div id="listaAtendimentos" tal:define="atendimentos view/getAtendimentosMedicina"
-                                tal:condition="atendimentos">
-                                <table class="listing">
-                                    <tbody>
-                                        <tal:block tal:repeat="atendimento atendimentos">
-                                            <tr tal:define="oddrow repeat/atendimento/odd;"
-                                                tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                                <td tal:define="url string: ${atendimento/getURL}/atendimentomedicinapaciente;
-                                                                click string: window.open('${url}',  '${atendimento/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=900, HEIGHT=400');;">
-                                                    <span tal:replace="atendimento/Title"/>
-                                                    &nbsp;
-                                                    <a tal:attributes="onclick click" class="link_atendimentos" alt="visualizar" title="visualizar">
-                                                        <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/visualizar.png" width="16px"/>
-                                                    </a>
-                                                    &nbsp;
-                                                    <tal:block tal:condition="python: view.isAlterContent(atendimento)">
-                                                        <a tal:attributes="href string:${atendimento/getURL}/edit" class="link_exames" alt="editar" title="editar">
-                                                            <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/editar.png" width="16px"/>
+                            <p tal:condition="python: view.isAlterContent(context)" class="adicionar">
+                                <a tal:attributes="href string:${context/absolute_url}/createObject?type_name=AtendimentoMedicina" alt="Adicionar: Atendimento médico" title="Adicionar: Atendimento médico">
+                                    <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/adicionar.png" width="16px"/>
+                                    Adicionar novo atendimento
+                                </a>
+                            </p>
+                            <tal:block tal:define="atendimentos view/getAtendimentosMedicina">
+                                <div id="listaAtendimentos"
+                                    tal:condition="atendimentos">
+                                    <table class="listing">
+                                        <tbody>
+                                            <tal:block tal:repeat="atendimento atendimentos">
+                                                <tr tal:define="oddrow repeat/atendimento/odd;"
+                                                    tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                                    <td tal:define="url string: ${atendimento/getURL}/atendimentomedicinapaciente;
+                                                                    click string: window.open('${url}',  '${atendimento/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=900, HEIGHT=400');;">
+                                                        <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/atendimento.png"/>
+                                                        &nbsp;
+                                                        <span tal:replace="atendimento/Title"/>
+                                                        &nbsp;
+                                                        <a tal:attributes="onclick click" class="link_atendimentos" alt="visualizar" title="visualizar">
+                                                            <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/visualizar.png" width="16px"/>
                                                         </a>
-                                                    </tal:block>
-                                                </td>
-                                            </tr>
-                                        </tal:block>
-                                    </tbody>
-                                </table>
-                            </div>
+                                                        &nbsp;
+                                                        <tal:block tal:condition="python: view.isAlterContent(atendimento)">
+                                                            <a tal:attributes="href string:${atendimento/getURL}/edit" class="link_exames" alt="editar" title="editar">
+                                                                <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/editar.png" width="16px"/>
+                                                            </a>
+                                                        </tal:block>
+                                                    </td>
+                                                </tr>
+                                            </tal:block>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p tal:condition="not:atendimentos">Nenhum atendimento realizado.</p>
+                            </tal:block>
                         </div>
                         <div id="odontologia">
                             <p>Nenhum atendimento realizado.</p>
@@ -157,63 +168,89 @@
             <div id="coluna01_paciente">
                 <div class="box">
                     <h5>Exames de sangue:</h5>
-                    <div id="listaExamesPaciente" tal:define="exames view/getExamesSangue"
-                        tal:condition="exames">
-                        <table class="listing">
-                            <tbody>
-                                <tal:block tal:repeat="exame exames">
-                                    <tr tal:define="oddrow repeat/exame/odd;"
-                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <td tal:define="url string: ${exame/getURL}/examesanguepaciente;
-                                                        click string: window.open('${url}',  '${exame/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
-                                            <span tal:replace="exame/Title"/>
-                                            &nbsp;
-                                            <a tal:attributes="onclick click" class="link_exames" alt="visualizar" title="visualizar">
-                                                <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/visualizar.png" width="16px"/>
-                                            </a>
-                                            &nbsp;
-                                            <tal:block tal:condition="python: view.isAlterContent(exame)">
-                                                <a tal:attributes="href string: ${exame/getURL}/edit" class="link_exames" alt="editar" title="editar">
-                                                    <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/editar.png" width="16px"/>
+                    <p tal:condition="python: view.isAlterContent(context)" class="adicionar">
+                        <a tal:attributes="href string:${context/absolute_url}/createObject?type_name=ExameSangue" alt="Adicionar: Exame de sangue" title="Adicionar: Exame de sangue">
+                            <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/adicionar.png" width="16px"/>
+                            Adicionar novo exame de sangue
+                        </a>
+                    </p>
+                    <tal:block tal:define="exames view/getExamesSangue">
+                        <div id="listaExamesPaciente"
+                            tal:condition="exames">
+                            <table class="listing">
+                                <tbody>
+                                    <tal:block tal:repeat="exame exames">
+                                        <tr tal:define="oddrow repeat/exame/odd;"
+                                            tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                            <td tal:define="url string: ${exame/getURL}/examesanguepaciente;
+                                                            click string: window.open('${url}',  '${exame/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                                <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/examesangue.png"/>
+                                                &nbsp;
+                                                <span tal:replace="exame/Title"/>
+                                                &nbsp;
+                                                <a tal:attributes="onclick click" class="link_exames" alt="visualizar" title="visualizar">
+                                                    <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/visualizar.png" width="16px"/>
                                                 </a>
-                                            </tal:block>
-                                        </td>
-                                    </tr>
-                                </tal:block>
-                            </tbody>
-                        </table>
-                    </div>
+                                                &nbsp;
+                                                <tal:block tal:condition="python: view.isAlterContent(exame)">
+                                                    <a tal:attributes="href string: ${exame/getURL}/edit" class="link_exames" alt="editar" title="editar">
+                                                        <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/editar.png" width="16px"/>
+                                                    </a>
+                                                </tal:block>
+                                            </td>
+                                        </tr>
+                                    </tal:block>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="listaExamesPaciente">
+                            <p tal:condition="not:exames">Nenhum exame de sangue realizado.</p>
+                        </div>
+                    </tal:block>
                 </div>
             </div>
             <div id="coluna02_paciente">
                 <div class="box">
                     <h5>Exames de urina:</h5>
-                    <div id="listaExamesPaciente" tal:define="exames view/getExamesUrina"
-                        tal:condition="exames">
-                        <table class="listing">
-                            <tbody>
-                                <tal:block tal:repeat="exame exames">
-                                    <tr tal:define="oddrow repeat/exame/odd;"
-                                        tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <td tal:define="url string: ${exame/getURL}/exameurinapaciente;
-                                                        click string: window.open('${url}',  '${exame/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
-                                            <span tal:replace="exame/Title"/>
-                                            &nbsp;
-                                            <a tal:attributes="onclick click" class="link_exames" alt="visualizar" title="visualizar">
-                                                <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/visualizar.png" width="16px"/>
-                                            </a>
-                                            &nbsp;
-                                            <tal:block tal:condition="python: view.isAlterContent(exame)">
-                                                <a tal:attributes="href string: ${exame/getURL}/edit" class="link_exames" alt="editar" title="editar">
-                                                    <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/editar.png" width="16px"/>
+                    <p tal:condition="python: view.isAlterContent(context)" class="adicionar">
+                        <a tal:attributes="href string:${context/absolute_url}/createObject?type_name=ExameUrina" alt="Adicionar: Exame de urina" title="Adicionar: Exame de urina">
+                            <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/adicionar.png" width="16px"/>
+                            Adicionar novo exame de urina
+                        </a>
+                    </p>
+                    <tal:block tal:define="exames view/getExamesUrina">
+                        <div id="listaExamesPaciente"
+                            tal:condition="exames">
+                            <table class="listing">
+                                <tbody>
+                                    <tal:block tal:repeat="exame exames">
+                                        <tr tal:define="oddrow repeat/exame/odd;"
+                                            tal:attributes="class python: oddrow and 'even' or 'odd'">
+                                            <td tal:define="url string: ${exame/getURL}/exameurinapaciente;
+                                                            click string: window.open('${url}',  '${exame/Title}', 'STATUS=NO, TOOLBAR=NO, LOCATION=NO, DIRECTORIES=NO,  RESISABLE=NO, SCROLLBARS=YES, TOP=100, LEFT=100, WIDTH=770, HEIGHT=400');;">
+                                                <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/exameurina.png"/>
+                                                &nbsp;
+                                                <span tal:replace="exame/Title"/>
+                                                &nbsp;
+                                                <a tal:attributes="onclick click" class="link_exames" alt="visualizar" title="visualizar">
+                                                    <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/visualizar.png" width="16px"/>
                                                 </a>
-                                            </tal:block>
-                                        </td>
-                                    </tr>
-                                </tal:block>
-                            </tbody>
-                        </table>
-                    </div>
+                                                &nbsp;
+                                                <tal:block tal:condition="python: view.isAlterContent(exame)">
+                                                    <a tal:attributes="href string: ${exame/getURL}/edit" class="link_exames" alt="editar" title="editar">
+                                                        <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/editar.png" width="16px"/>
+                                                    </a>
+                                                </tal:block>
+                                            </td>
+                                        </tr>
+                                    </tal:block>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="listaExamesPaciente">
+                            <p tal:condition="not:exames">Nenhum exame de urina realizado.</p>
+                        </div>
+                    </tal:block>
                 </div>
             </div>
         </tal:block>
