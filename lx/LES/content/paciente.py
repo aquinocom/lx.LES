@@ -97,6 +97,18 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         name="formacao_paciente",
         required=True,
         searchable=True,
+        widget=atapi.SelectionWidget(
+            label="Nível de formação",
+            label_msgid=_(u"label_formação"),
+        ),
+        vocabulary=['', 'Ensino Fundamental', 'Ensino Médio',
+                    'Profissionalizante', 'Graduação',
+                    'Especialização', 'Mestrado', 'Doutorado']
+    ),
+    atapi.StringField(
+        name="formacao_paciente",
+        required=True,
+        searchable=True,
         widget=atapi.StringWidget(
             label="Nível de formação",
             label_msgid=_(u"label_formação"),
@@ -106,10 +118,11 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         name="raca_paciente",
         required=True,
         searchable=True,
-        widget=atapi.StringWidget(
+        widget=atapi.SelectionWidget(
             label="Raça",
             label_msgid=_(u"label_raca"),
         ),
+        vocabulary=['', 'Branca', 'Preta', 'Parda', 'Indígena', 'Amarela']
     ),
     atapi.StringField(
         name="end_paciente",
