@@ -34,15 +34,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             helper_js=('++resource++paciente.js', '++resource++jquery.maskedinput.js'),
         ),
     ),
-#    atapi.StringField(
-#        name="nome_paciente",
-#        required=True,
-#        searchable=True,
-#        widget=atapi.StringWidget(
-#            label="Nome",
-#            label_msgid=_(u"label_nome"),
-#        ),
-#    ),
     atapi.DateTimeField(
         name="nascimento_paciente",
         required=True,
@@ -125,14 +116,34 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         vocabulary=['', 'Branca', 'Preta', 'Parda', 'Indígena', 'Amarela']
     ),
     atapi.StringField(
-        name="end_paciente",
+        name="cep_paciente",
+        required=True,
+        searchable=True,
+        widget=atapi.StringWidget(
+            label="CEP",
+            label_msgid=_(u"label_cep"),
+            helper_js=('++resource++consultacep.js',),
+        ),
+    ),
+    atapi.StringField(
+        name="logradouro_paciente",
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Endereço",
             label_msgid=_(u"label_end"),
+            size=50,
         ),
     ),
+    atapi.StringField(
+        name="complemento_paciente",
+        required=True,
+        searchable=True,
+        widget=atapi.StringWidget(
+            label="Complemento",
+            label_msgid=_(u"label_complemento"),
+        ),
+    ),    
     atapi.StringField(
         name="bairro_paciente",
         required=True,
@@ -140,6 +151,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         widget=atapi.StringWidget(
             label="Bairro ou Satélite:",
             label_msgid=_(u"label_bairro"),
+            size=50,
         ),
     ),
     atapi.StringField(
@@ -162,15 +174,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         vocabulary=['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO',
                     'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR',
                     'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']
-    ),
-    atapi.StringField(
-        name="cep_paciente",
-        required=True,
-        searchable=True,
-        widget=atapi.StringWidget(
-            label="CEP",
-            label_msgid=_(u"label_cep"),
-        ),
     ),
     atapi.StringField(
         name="fone_paciente",
@@ -196,6 +199,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         widget=atapi.StringWidget(
             label="Nome parente ou amigo",
             label_msgid=_(u"label_nome_parente"),
+            size=50,
         ),
     ),
     atapi.StringField(
