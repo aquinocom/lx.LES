@@ -1194,6 +1194,9 @@
     <index name="getEscoreSledai" meta_type="FieldIndex">
         <indexed_attr value="getEscoreSledai"/>
     </index>
+    <index name="getIdadePaciente" meta_type="FieldIndex">
+        <indexed_attr value="getEscoreSledai"/>
+    </index>
     <column value="inicio_sintomas"/>
     <column value="retardo_diagnostico"/>
     <column value="manifestacao_inicial"/>
@@ -1591,5 +1594,6 @@
     <column value="conduta"/>
     <column value="getPacienteExame"/>    
     <column value="getEscoreSliic"/>    
-    <column value="getEscoreSledai"/>    
+    <column value="getEscoreSledai"/>
+    <column value="getIdadePaciente"/>
 </object>

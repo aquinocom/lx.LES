@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import datetime
 # Zope3 imports
 from zope.interface import implements
 from zope.component import getUtility
@@ -41,6 +42,8 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         widget=atapi.CalendarWidget(
             label="Data nascimento",
             label_msgid=_(u"label_nascimento"),
+            starting_year=1900,
+            format='%d.%m.%Y',
             show_hm=False,
         ),
     ),
@@ -143,7 +146,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label="Complemento",
             label_msgid=_(u"label_complemento"),
         ),
-    ),    
+    ),
     atapi.StringField(
         name="bairro_paciente",
         required=True,
@@ -250,6 +253,12 @@ class Paciente(ATFolder, HistoryAwareMixin):
         titulo = self.identificador_paciente + '-' + self.title
         new_id = normalizer.normalize(titulo)
         self.setId(new_id)
+
+    def getIdadePaciente(self):
+        nasc = self.nascimento_paciente
+        nasc = datetime.date(int(nasc.year()), int(nasc.month()), int(nasc.day()))
+        idade = datetime.date.today() - nasc
+        return idade.days/365
 
     schema = schema
 

@@ -31,6 +31,18 @@ from lx.LES import config
 # Schema definition
 schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.DateTimeField(
+        name="dt_atendimento",
+        required=True,
+        searchable=True,
+        widget=atapi.CalendarWidget(
+            label="Data do atendimento",
+            label_msgid=_(u"label_dt_atendimento"),
+            starting_year=1900,
+            format='%d.%m.%Y',
+            show_hm=False,
+        ),
+    ),
+    atapi.DateTimeField(
         name="inicio_sintomas",
         searchable=True,
         widget=atapi.CalendarWidget(
@@ -4894,7 +4906,7 @@ class AtendimentoMedicina(ATCTContent, HistoryAwareMixin):
         """
         transaction.commit()
         normalizer = getUtility(IIDNormalizer)
-        data_consulta = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
+        data_consulta = self.dt_atendimento.strftime('%d/%m/%Y')
         titulo = 'Atendimento Médico:  ' + data_consulta
         new_id = normalizer.normalize('atendimento medico:  ' + data_consulta)
         self.setTitle(titulo)

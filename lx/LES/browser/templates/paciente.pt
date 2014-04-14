@@ -43,7 +43,7 @@
                             <b>Data nascimento: </b><span tal:replace="python:here.toLocalizedTime(context.nascimento_paciente)"/>
                         </li>
                         <li tal:condition="context/idade_paciente">
-                            <b>Idade: </b><span tal:replace="context/idade_paciente"/>
+                            <b>Idade: </b><span tal:replace="context/getIdadePaciente"/>
                         </li>
                         <li tal:condition="context/uf_nasc_paciente">
                             <b>UF nasc: </b><span tal:replace="context/uf_nasc_paciente"/>
@@ -73,9 +73,12 @@
                 <div class="box">
                     <h5>Endereço do Paciente:</h5>
                     <ul>
-                        <li tal:condition="context/end_paciente">
-                            <b>Endereço: </b><span tal:replace="context/end_paciente"/>
+                        <li tal:condition="context/logradouro_paciente">
+                            <b>Endereço: </b><span tal:replace="context/logradouro_paciente"/>
                         </li>
+                        <li tal:condition="context/complemento_paciente">
+                            <b>Complemento: </b><span tal:replace="context/complemento_paciente"/>
+                        </li>                        
                         <li tal:condition="context/bairro_paciente">
                             <b>Bairro: </b><span tal:replace="context/bairro_paciente"/>
                         </li>

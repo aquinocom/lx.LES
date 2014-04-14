@@ -27,6 +27,18 @@ from lx.LES import config
 
 
 schema = ATCTContent.schema.copy() + atapi.Schema((
+    atapi.DateTimeField(
+        name="dt_exame_sangue",
+        required=True,
+        searchable=True,
+        widget=atapi.CalendarWidget(
+            label="Data do exame",
+            label_msgid=_(u"label_dt_exame_sangue"),
+            starting_year=1900,
+            format='%d.%m.%Y',
+            show_hm=False,
+        ),
+    ),
     atapi.StringField(
         name='hemacias_sangue',
         #required=True,
@@ -526,7 +538,7 @@ class ExameSangue(ATCTContent, HistoryAwareMixin):
         """
         transaction.commit()
         normalizer = getUtility(IIDNormalizer)
-        data_consulta = datetime.now().strftime('%d/%m/%Y - %H:%M:%S')
+        data_consulta = self.dt_exame_sangue.strftime('%d/%m/%Y')
         titulo = 'Exame de sangue:  ' + data_consulta
         new_id = normalizer.normalize(titulo)
         self.setTitle(titulo)
