@@ -27,7 +27,7 @@
             </p>
             <p>
                 <b>Profissional:</b> <span tal:content="here/Creator"></span>
-            </p>            
+            </p>         
             <div id="abas">
                 <ul>
                     <li><a href="#informacoes-1">Padrão</a></li>
@@ -44,7 +44,7 @@
                 <div id="informacoes-1">
                     <tal:block tal:define="fields python:view.getFields('default');">
                         <div class="column"
-                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6);"
+                            tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6)[1:];"
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">

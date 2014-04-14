@@ -111,8 +111,10 @@
                                                 <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
                                             </tal:fields>
                                             <tal:block tal:define="campos python:schematas[fieldset].editableFields(here, visible_only=True)">
+                                                <metal:fieldMacro use-macro="python:here.widget(campos[1].getName(), mode='edit')" />
                                                 <div class="column"
-                                                    tal:define="camposLists python:here.createMultiColumnList(campos, numCols=6, sort_on='self');"
+                                                    tal:define="campos python: campos[2:];
+                                                                camposLists python:here.createMultiColumnList(campos, numCols=6, sort_on='self');"
                                                     tal:repeat="sublist camposLists">
                                                     <tal:fields repeat="padrao sublist"
                                                             condition="python: fieldsetid == 'default'">

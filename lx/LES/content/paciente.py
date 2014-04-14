@@ -48,15 +48,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
-        name="idade_paciente",
-        required=True,
-        searchable=True,
-        widget=atapi.StringWidget(
-            label="Idade",
-            label_msgid=_(u"label_idade"),
-        ),
-    ),
-    atapi.StringField(
         name="uf_nasc_paciente",
         required=True,
         searchable=True,

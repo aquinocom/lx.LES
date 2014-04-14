@@ -51,8 +51,6 @@
                 $(function() {
                     $( "#abas" ).tabs();
                     $( "#subabas" ).tabs();
-                    $("#escore_slicc").prop("readonly",true);
-                    $("#escore_sledai").prop("readonly",true);
                 });	
             </script>            
             <tal:block define="macro context/archetypes_custom_js/macros/javascript_head | nothing"

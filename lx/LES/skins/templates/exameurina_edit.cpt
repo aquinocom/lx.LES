@@ -111,9 +111,10 @@
                                                 <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
                                             </tal:fields>
                                             <tal:block tal:define="campos python:schematas[fieldset].editableFields(here, visible_only=True)">
+                                                <metal:fieldMacro use-macro="python:here.widget(campos[1].getName(), mode='edit')" />
                                                 <div id="coluna01_urina">
                                                     <ul>
-                                                        <tal:fields repeat="padrao python:campos[1:5]"
+                                                        <tal:fields repeat="padrao python:campos[2:5]"
                                                             condition="python: fieldsetid == 'default'">
                                                             <li>
                                                                 <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />
@@ -123,7 +124,7 @@
                                                 </div>
                                                 <div id="coluna02_urina">
                                                     <ul>
-                                                        <tal:fields repeat="padrao python:campos[5:9]"
+                                                        <tal:fields repeat="padrao python:campos[5:8]"
                                                             condition="python: fieldsetid == 'default'">
                                                             <li>
                                                                 <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />
@@ -133,7 +134,7 @@
                                                 </div>
                                                 <div id="coluna03_urina">
                                                     <ul>
-                                                        <tal:fields repeat="padrao python:campos[9:10]"
+                                                        <tal:fields repeat="padrao python:campos[8:10]"
                                                             condition="python: fieldsetid == 'default'">
                                                             <li>
                                                                 <metal:fieldMacro use-macro="python:here.widget(padrao.getName(), mode='edit')" />

@@ -18,7 +18,7 @@
             </p>              
             <tal:block tal:define="fields python:view.getFields('default');">
                 <div class="column"
-                    tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self');"
+                    tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self')[1:];"
                     tal:repeat="sublist fieldsLists">
                     <ul>
                         <tal:fields repeat="default sublist">
