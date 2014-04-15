@@ -91,15 +91,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
                     'Especialização', 'Mestrado', 'Doutorado']
     ),
     atapi.StringField(
-        name="formacao_paciente",
-        required=True,
-        searchable=True,
-        widget=atapi.StringWidget(
-            label="Nível de formação",
-            label_msgid=_(u"label_formação"),
-        ),
-    ),
-    atapi.StringField(
         name="raca_paciente",
         required=True,
         searchable=True,
