@@ -301,7 +301,9 @@
                             <li><a href="#subinformacoes-2">SLEDAI-2K</a></li>
                         </ul>
                         <div id="subinformacoes-1">
-                            <label>Escore final	- SLICC/ ACR: </label><span tal:content="here/getEscoreSliic" /><br /><br />
+                            <br>
+                            <label class="labelSliccSledai">Escore final - SLICC/ ACR: </label><span class="spanSliccSledai" tal:content="here/getEscoreSliic" />
+                            <br>
                             <tal:block tal:define="fields python:view.getFields('slicc_acr_2010');">
                                 <fieldset>
                                     <legend>Domínio ocular</legend>
@@ -632,7 +634,9 @@
                             </tal:block>
                         </div>
                         <div id="subinformacoes-2">
-                            <label>Escore final	- SLEDAI - 2K: </label><span tal:content="here/getEscoreSledai" /><br /><br />
+                            <br>
+                            <label class="labelSliccSledai">Escore final	- SLEDAI - 2K: </label><span class="spanSliccSledai" tal:content="here/getEscoreSledai" />
+                            <br> <br>
                             <tal:block tal:define="fields python:view.getFields('sledai_2k');">
                                 <div class="column"
                                     tal:define="lista python: fields[:17];">

@@ -199,3 +199,11 @@
 .offBorder{
     border: none !important;
 }
+.labelSliccSledai{
+    font-size: 20px;
+}
+.spanSliccSledai{
+    color: #FF0000;
+    font-size: 20px;
+    font-weight: bold;
+}
