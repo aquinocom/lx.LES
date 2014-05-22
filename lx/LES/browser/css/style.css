@@ -95,6 +95,24 @@
 .template-atendimentomedicinapaciente .column{
     width: 30%;
 }
+
+.template-examesangue_edit div#subabasBioquimica div#subinformacoes-1 div.column,
+.template-examesangue_edit div#subabasHematologia div#subinformacoes-2 div.column,
+.template-examesangue_edit div#subabasImunologia div#subinformacoes-1 div.column{
+    width: 32%;
+}
+.template-examesangue_edit div#subabasBioquimica div#subinformacoes-5 div.column{
+    width: 50%;
+}
+.template-examesangue_edit div#subabasBioquimica div#subinformacoes-5 div.column fieldset{
+    margin-right: 10%;
+}
+.template-examesangue_edit .linha{
+    border-left: 1px solid #329FD7;
+    border-right: 1px solid #329FD7;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 .column{
     width: 15%;
     float: left;
@@ -108,6 +126,10 @@
     background: #EEEEEE;
 }
 
+.template-examesangue_edit #abas,
+.template-examesangue_edit #subabasBioquimica,
+.template-examesangue_edit #subabasHematologia,
+.template-examesangue_edit #subabasImunologia,
 .template-paciente #abas,
 .template-atendimentomedicina_edit #abas,
 .template-atendimentomedicina_edit #subabas,
@@ -136,6 +158,7 @@
     margin-bottom:5px;
     width: 95%;
 }
+.template-examesangue_edit #content .ui-state-default a,
 .template-paciente #content .ui-state-default a,
 .template-atendimentomedicina_edit #content .ui-state-default a,
 .template-atendimentomedicinapaciente #content .ui-state-default a,
@@ -143,6 +166,7 @@
     color: #55555E !important;
     font-size: 12px;
 }
+.template-examesangue_edit .ui-tabs-nav,
 .template-paciente .ui-tabs-nav,
 .template-atendimentomedicina_edit .ui-tabs-nav,
 .template-atendimentomedicinapaciente .ui-tabs-nav,
