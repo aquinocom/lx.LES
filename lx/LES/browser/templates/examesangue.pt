@@ -6,6 +6,20 @@
     metal:use-macro="context/main_template/macros/master"
     i18n:domain="lx.LES">
     <head>
+        <metal:headslot metal:fill-slot="head_slot"
+                        tal:define="disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                        disable_column_two python:request.set('disable_plone.rightcolumn',1);">
+            <link rel="stylesheet" tal:attributes="href string:${context/portal_url}/++resource++lx.LES.css/tabs_css/jquery.ui.all.css">
+            <script tal:attributes="src string:${context/portal_url}/++resource++lx.LES.js/tabs_js/jquery-ui-1.8.16.custom.min.js"></script>
+            <script type="text/javascript">
+                $(function() {
+                    $( "#abas" ).tabs();
+                    $( "#subabasHematologia" ).tabs();
+                    $( "#subabasBioquimica" ).tabs();
+                    $( "#subabasImunologia" ).tabs();
+                });	
+            </script>
+        </metal:headslot>
     </head>
     <body>
         <tal:block metal:fill-slot="main">
@@ -15,22 +29,323 @@
             </p>
             <p>
                 <b>Profissional:</b> <span tal:content="here/Creator"></span>
-            </p>              
-            <tal:block tal:define="fields python:view.getFields('default');">
-                <div class="column"
-                    tal:define="fieldsLists python:here.createMultiColumnList(fields, numCols=6, sort_on='self')[1:];"
-                    tal:repeat="sublist fieldsLists">
-                    <ul>
-                        <tal:fields repeat="default sublist">
-                            <li tal:define="oddrow repeat/default/odd;"
-                                tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                <label tal:content="python:default.widget.label"></label>:
-                                <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
+            </p>
+            <p>
+                <b>Data do exame:</b> <span tal:content="python:here.dt_exame_sangue.strftime('%d/%m/%Y')"></span>
+            </p>
+            <div id="abas">
+                <ul>
+                    <li>
+                        <!--schemata default-->
+                        <a href="#informacoes-1">Hematologia</a>
+                    </li>
+                    <li>
+                        <!--schemata bioquimica-->
+                        <a href="#informacoes-2">Bioquímica</a>
+                    </li>
+                    <li>
+                        <!--schemata imunologia-->
+                        <a href="#informacoes-3">Imunologia</a>
+                    </li>
+                    <li>
+                        <!--schemata hormonios-->
+                        <a href="#informacoes-4">Hormônios</a>
+                    </li>
+                </ul>
+                <div id="informacoes-1">
+                    <!--schemata padrao-->
+                    <div id="subabasHematologia"
+                        tal:define="fields python:view.getFields('default');">
+                        <ul>
+                            <li>
+                                <a href="#subinformacoes-1">
+                                    Eritograma
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#subinformacoes-2">
+                                    Leucograma
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#subinformacoes-3">
+                                    Coagulograma
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#subinformacoes-4">
+                                    Fibrinogênio / VHS
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="subinformacoes-1">
+                            <!--Eritograma-->
+                            <tal:block tal:define="fields python:fields[1:8];">
+                                <ul>    
+                                    <tal:fields repeat="field fields">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </tal:block>
+                        </div>
+                        <div id="subinformacoes-2">
+                            <!--Leucograma-->
+                            <div class="column"
+                                tal:define="fields python:fields[8:22];
+                                            fieldsLists python:here.createMultiColumnList(fields, numCols=3, sort_on='self');"
+                                tal:repeat="sublist fieldsLists">
+                                <ul>
+                                    <tal:fields repeat="field sublist">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="subinformacoes-3">
+                            <!--Coagulograma-->
+                            <tal:block tal:define="fields python:fields[22:28];">
+                                <ul>    
+                                    <tal:fields repeat="field fields">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </tal:block>
+                        </div>
+                        <div id="subinformacoes-4">
+                            <!--Fibrinogênio / VHS-->
+                            <tal:block tal:define="fields python:fields[28:30];">
+                                <ul>    
+                                    <tal:fields repeat="field fields">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </tal:block>
+                        </div>
+                    </div>
+                </div>
+                <div id="informacoes-2">
+                    <!--schemata bioquimica-->
+                    <div id="subabasBioquimica"
+                        tal:define="fields python:view.getFields('bioquimica');">
+                        <ul>
+                            <li>
+                                <a href="#subinformacoes-1">
+                                    Padrão
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#subinformacoes-2">
+                                    Proteínas Totais e Frações
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#subinformacoes-3">
+                                    Perfil Lipídico
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#subinformacoes-4">
+                                    Bilirrubina Total e Frações
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#subinformacoes-5">
+                                    Curva Glicêmica e Insulinêmica
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#subinformacoes-6">
+                                    Hemoglobina Glicosilada (HbA1c)
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="subinformacoes-1">
+                            <!--Padrão-->
+                            <div class="column"
+                                tal:define="fields python:fields[0:25];
+                                            fieldsLists python:here.createMultiColumnList(fields, numCols=3, sort_on='self');"
+                                tal:repeat="sublist fieldsLists">
+                                <ul>
+                                    <tal:fields repeat="field sublist">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="subinformacoes-2">
+                            <!--Proteínas Totais e Frações-->
+                            <tal:block tal:define="fields python:fields[25:29];">
+                                <ul>    
+                                    <tal:fields repeat="field fields">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </tal:block>
+                        </div>
+                        <div id="subinformacoes-3">
+                            <!--Perfil Lipídico-->
+                            <tal:block tal:define="fields python:fields[29:34];">
+                                <ul>    
+                                    <tal:fields repeat="field fields">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </tal:block>
+                        </div>
+                        <div id="subinformacoes-4">
+                            <!--Bilirrubina Total e Frações-->
+                            <tal:block tal:define="fields python:fields[34:37];">
+                                <ul>    
+                                    <tal:fields repeat="field fields">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </tal:block>
+                        </div>
+                        <div id="subinformacoes-5">
+                            <!--Curva Glicêmica e Insulinêmica-->
+                            <div class="column">
+                                <fieldset>
+                                    <legend>INSULINA</legend>
+                                    <tal:block tal:define="fields python:fields[37:41];">
+                                        <ul>    
+                                            <tal:fields repeat="field fields">
+                                                <li>
+                                                    <label tal:content="python:field.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                                </li>
+                                            </tal:fields>
+                                        </ul>
+                                    </tal:block>
+                                </fieldset>
+                            </div>
+                            <div class="column">
+                                <fieldset>
+                                    <legend>GLICOSE</legend>
+                                    <tal:block tal:define="fields python:fields[41:45];">
+                                        <ul>    
+                                            <tal:fields repeat="field fields">
+                                                <li>
+                                                    <label tal:content="python:field.widget.label"></label>:
+                                                    <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                                </li>
+                                            </tal:fields>
+                                        </ul>
+                                    </tal:block>
+                                </fieldset>
+                            </div>
+                            <fieldset>
+                                <legend>DEXTROSOL</legend>
+                                <tal:block tal:define="fields python:fields[45:46];">
+                                    <tal:fields repeat="field fields">
+                                        <label tal:content="python:field.widget.label"></label>:
+                                        <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                    </tal:fields>
+                                </tal:block>
+                            </fieldset>
+                        </div>
+                        <div id="subinformacoes-6">
+                            <!--Hemoglobina Glicosilada (HbA1c)-->
+                            <tal:block tal:define="fields python:fields[46:53];">
+                                <ul>    
+                                    <tal:fields repeat="field fields">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </tal:block>
+                        </div>
+                    </div>
+                </div>
+                <div id="informacoes-3">
+                    <!--schemata imunologia-->
+                    <div id="subabasImunologia"
+                        tal:define="fields python:view.getFields('imunologia');">
+                        <ul>
+                            <li>
+                                <a href="#subinformacoes-1">
+                                    Padrão
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#subinformacoes-2">
+                                    Fator anti-nuclear (HEP2)
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="subinformacoes-1">
+                            <!--Padrão-->
+                            <div class="column"
+                                tal:define="fields python:fields[0:22];
+                                            fieldsLists python:here.createMultiColumnList(fields, numCols=3, sort_on='self');"
+                                tal:repeat="sublist fieldsLists">
+                                <tal:last tal:define="columnIndex repeat/sublist/index">
+                                    <ul tal:attributes="class python: columnIndex==1 and 'linha' or ''">
+                                        <tal:fields repeat="field sublist">
+                                            <li>
+                                                <label tal:content="python:field.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                            </li>
+                                        </tal:fields>
+                                    </ul>
+                                </tal:last>
+                            </div>
+                        </div>
+                        <div id="subinformacoes-2">
+                            <!--Fator anti-nuclear (HEP2)-->
+                            <tal:block tal:define="fields python:fields[22:27];">
+                                <ul>    
+                                    <tal:fields repeat="field fields">
+                                        <li>
+                                            <label tal:content="python:field.widget.label"></label>:
+                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                        </li>
+                                    </tal:fields>
+                                </ul>
+                            </tal:block>
+                        </div>
+                    </div>
+                </div>
+                <div id="informacoes-4"
+                    tal:define="fields python:view.getFields('hormonios');">
+                    <!--schemata hormonios-->
+                    <ul>    
+                        <tal:fields repeat="field fields">
+                            <li>
+                                <label tal:content="python:field.widget.label"></label>:
+                                <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
                             </li>
                         </tal:fields>
                     </ul>
                 </div>
-            </tal:block>
+            </div>
+            <div class="clear"></div>
         </tal:block>
     </body>
 </html>
