@@ -93,11 +93,12 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         name='hb_urina',
         #required=True,
         searchable=True,
-        widget=atapi.StringWidget(
+        widget=atapi.SelectionWidget(
             label='Hb',
+            format='select',
             label_msgid=_(u"label_hb_urina"),
-            size=5,
         ),
+        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
     ),
     atapi.StringField(
         name='ptns_urina',
@@ -113,11 +114,45 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         name='cilindros_urina',
         #required=True,
         searchable=True,
-        widget=atapi.StringWidget(
+        widget=atapi.SelectionWidget(
             label='Cilindros',
             label_msgid=_(u"label_cilindros_urina"),
-            size=5,
+            format='select',
         ),
+        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
+    ),
+    atapi.StringField(
+        name='flora_urina',
+        #required=True,
+        searchable=True,
+        widget=atapi.SelectionWidget(
+            label='Flora',
+            label_msgid=_(u"label_flora_urina"),
+            format='select',
+        ),
+        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
+    ),
+    atapi.StringField(
+        name='cilindros_muco',
+        #required=True,
+        searchable=True,
+        widget=atapi.SelectionWidget(
+            label='Muco',
+            label_msgid=_(u"label_muco_urina"),
+            format='select',
+        ),
+        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
+    ),
+    atapi.StringField(
+        name='cristais_urina',
+        #required=True,
+        searchable=True,
+        widget=atapi.SelectionWidget(
+            label='Cristais',
+            label_msgid=_(u"label_cristais_urina"),
+            format='select',
+        ),
+        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
     ),
     atapi.TextField(
         name='outros_urina',
