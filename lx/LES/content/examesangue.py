@@ -841,6 +841,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=atapi.StringWidget(
             label='Cardiolipina IgG, Auto Anticorpos',
             label_msgid=_(u"label_sangue_cardiolipina_igg"),
+            description=_(u"Formato >00,0 ou <00,0"),
             size=5,
         ),
     ),
@@ -851,6 +852,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=atapi.StringWidget(
             label='Cardiolipina IgM, Auto Anticorpos',
             label_msgid=_(u"label_sangue_cardiolipina_igm"),
+            description=_(u"Formato >00,0 ou <00,0"),
             size=5,
         ),
     ),
@@ -1013,28 +1015,32 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_sangue_waller_rose"),
             format='select',
         ),
-        #vocabulary=[("", ""), ('negativo', 'Negativo'), ('positivo', 'Positivo')],
-        vocabulary=[('negativo', 'Negativo'), ('positivo', 'Positivo')],
+        vocabulary=[("", ""), ('negativo', 'Negativo'), ('positivo', 'Positivo')],
+        #vocabulary=[('negativo', 'Negativo'), ('positivo', 'Positivo')],
     ),
     atapi.StringField(
         name='sangue_hepatite_c',
         searchable=True,
         schemata='imunologia',
-        widget=atapi.StringWidget(
+        widget=atapi.SelectionWidget(
             label='Hepatite C - Anti-HCV',
             label_msgid=_(u"label_sangue_hepatite_c"),
-            size=5,
+            format='select',
         ),
-    ),
+        vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        #vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+    ),    
     atapi.StringField(
         name='sangue_hepatite_b',
         searchable=True,
         schemata='imunologia',
-        widget=atapi.StringWidget(
-            label='Hepatite C - Anti-HBV',
+        widget=atapi.SelectionWidget(
+            label='Hepatite B - Anti-HBV',
             label_msgid=_(u"label_sangue_hepatite_b"),
-            size=5,
+            format='select',
         ),
+        vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        #vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
     ),
     atapi.StringField(
         name='sangue_citomegalovirus_igg',
@@ -1065,8 +1071,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_sangue_nucleo"),
             format='select',
         ),
-        #vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
-        vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        #vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
     ),
     atapi.StringField(
         name='sangue_nucleolo',
@@ -1077,8 +1083,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_sangue_nucleolo"),
             format='select',
         ),
-        #vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
-        vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        #vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
     ),
     atapi.StringField(
         name='sangue_citoplasma',
@@ -1089,8 +1095,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_sangue_citoplasma"),
             format='select',
         ),
-        #vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
-        vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        #vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
     ),
     atapi.StringField(
         name='sangue_aparelho_mitotico',
@@ -1101,8 +1107,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_sangue_aparelho_mitotico"),
             format='select',
         ),
-        #vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
-        vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        #vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
     ),
     atapi.StringField(
         name='sangue_placa_metafasica',
@@ -1113,8 +1119,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_sangue_placa_metafasica"),
             format='select',
         ),
-        #vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
-        vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        vocabulary=[("", ""), ('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
+        #vocabulary=[('nao-reagente', 'Não reagente'), ('reagente', 'Reagente')],
     ),
     #schemata hormonios
     atapi.StringField(
