@@ -6,7 +6,7 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 from AccessControl import getSecurityManager
-from Products.CMFCore.permissions import ModifyPortalContent
+from Products.CMFCore.permissions import ModifyPortalContent, AddPortalContent
 #Plone imports
 from plone.memoize.instance import memoize
 
@@ -20,6 +20,16 @@ from lx.LES.interfaces.contents import IExameSangue, IExameUrina, IAtendimentoMe
 class PacienteView(BrowserView):
     """ view do paciente
     """
+
+    @memoize
+    def isAddContent(self, obj):
+        """
+        """
+        sm = getSecurityManager()
+        if sm.checkPermission(AddPortalContent, obj):
+            return True
+        else:
+            return False
 
     @memoize
     def isAlterContent(self, obj):

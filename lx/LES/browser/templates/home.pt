@@ -28,7 +28,7 @@
         <tal:block metal:fill-slot="main" >
             <div class="box">
                 <h5>Painel</h5>
-                <p tal:condition="python: view.isAlterContent(context)" class="adicionar">
+                <p tal:condition="python: view.isAddContent(context)" class="adicionar">
                     <a tal:attributes="href string:${context/absolute_url}/createObject?type_name=Paciente" alt="Adicionar: Paciente" title="Adicionar: Paciente">
                         <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/addPaciente.png" />
                         Cadastrar novo paciente
