@@ -1,5 +1,6 @@
 """Main product initializer
 """
+import AccessControl
 
 from zope.i18nmessageid import MessageFactory
 from lx.LES import config
@@ -13,6 +14,8 @@ from Products.CMFCore import utils
 
 LESMessageFactory = MessageFactory('lx.LES')
 
+
+#AccessControl.ModuleSecurityInfo('lx.LES.browser.utils').declarePublic('editPaciente')
 
 def initialize(context):
     """Initializer called when used as a Zope 2 product.

@@ -180,5 +180,13 @@
         permission="zope2.View"
         layer="lx.LES.browser.layers.ILXDefaultLayer"
         />
+   
+    <browser:page
+        name="editpaciente"
+        for="lx.LES.interfaces.contents.IPaciente"
+        class=".editpaciente.EditPacienteView"
+        layer="lx.LES.browser.layers.ILXDefaultLayer"
+        permission="zope2.View"
+    />
 
 </configure>

@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="here/main_template/macros/master"
+    i18n:domain="plone">
+    <head>
+        <metal:block fill-slot="top_slot"
+            tal:define="dummy python:request.set('disable_border',1);
+                        disable_column_one python:request.set('disable_plone.leftcolumn',1);
+                        disable_column_two python:request.set('disable_plone.rightcolumn',1);" />
+    </head>
+    <body>
+        <div metal:fill-slot="main"
+            tal:define="settings view/editpaciente">
+            <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+                Portal status message
+            </div>
+            <form method="post"
+                tal:attributes="action string:${context/absolute_url}/@@editpaciente"
+                tal:define="errors view/errors">
+                <h1>Editar Paciente</h1>
+
+                <div tal:define="error errors/nome | nothing;"
+                    tal:attributes="class python:'field error' if error else 'field'">
+                    <label for="nome">Nome</label>
+                    <span class="fieldRequired" i18n:translate="">(Obrigatório)</span>
+                    <div class="formHelp">
+                    </div>
+                    <div tal:condition="error" tal:content="error" />
+                    <input type="text"
+                        name="nome"
+                        size="40"
+                        tal:attributes="value request/nome | context/Title">
+                </div>
+
+                <div tal:define="error errors/ocupacao | nothing;"
+                    tal:attributes="class python:'field error' if error else 'field'">
+                    <label for="nome">Ocupação</label>
+                    <span class="fieldRequired" i18n:translate="">(Obrigatório)</span>
+                    <div class="formHelp">
+                    </div>
+                    <div tal:condition="error" tal:content="error" />
+                    <input type="text"
+                        name="ocupacao"
+                        size="40"
+                        tal:attributes="value request/ocupacao | context/ocupacao_paciente">
+                </div>
+
+                <input type="submit" name="form.action.Save" value="Salvar" />
+                <input type="submit" name="form.action.Cancel" value="Cancelar" />
+            </form>
+        </div>
+    </body>
+</html>

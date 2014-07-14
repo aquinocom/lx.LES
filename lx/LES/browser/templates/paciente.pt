@@ -25,8 +25,8 @@
             <h1>
                 <span tal:replace="context/Title"/>
                 &nbsp;
-                <tal:block tal:condition="python: view.isAlterContent(context)">
-                    <a tal:attributes="href string:${context/absolute_url}/edit" alt="Editar Paciente" title="Editar Paciente" class="offBorder">
+                <tal:block tal:condition="python: view.isAddContent(context)">
+                    <a tal:attributes="href string:${context/absolute_url}/editpaciente" alt="Editar Paciente" title="Editar Paciente" class="offBorder">
                         <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/editar.png" width="24px"/>
                     </a>
                 </tal:block>
