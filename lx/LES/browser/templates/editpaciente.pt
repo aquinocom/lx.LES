@@ -13,7 +13,13 @@
     </head>
     <body>
         <div metal:fill-slot="main"
-            tal:define="settings view/editpaciente">
+            tal:define="settings view/editpaciente;
+                        view_edit context/@@at_base_edit_view;            
+                        schematas context/Schemata;
+                        fieldsets python: view_edit.fieldsets();
+                        default_fieldset python:'default' in fieldsets and 'default' or fieldsets and fieldsets[0] or None;
+                        fieldset request/fieldset|options/fieldset|default_fieldset;
+                        fields python: view_edit.fields(fieldsets);">
             <div metal:use-macro="context/global_statusmessage/macros/portal_message">
                 Portal status message
             </div>
@@ -21,33 +27,14 @@
                 tal:attributes="action string:${context/absolute_url}/@@editpaciente"
                 tal:define="errors view/errors">
                 <h1>Editar Paciente</h1>
-
-                <div tal:define="error errors/nome | nothing;"
-                    tal:attributes="class python:'field error' if error else 'field'">
-                    <label for="nome">Nome</label>
-                    <span class="fieldRequired" i18n:translate="">(Obrigatório)</span>
-                    <div class="formHelp">
-                    </div>
-                    <div tal:condition="error" tal:content="error" />
-                    <input type="text"
-                        name="nome"
-                        size="40"
-                        tal:attributes="value request/nome | context/Title">
-                </div>
-
-                <div tal:define="error errors/ocupacao | nothing;"
-                    tal:attributes="class python:'field error' if error else 'field'">
-                    <label for="nome">Ocupação</label>
-                    <span class="fieldRequired" i18n:translate="">(Obrigatório)</span>
-                    <div class="formHelp">
-                    </div>
-                    <div tal:condition="error" tal:content="error" />
-                    <input type="text"
-                        name="ocupacao"
-                        size="40"
-                        tal:attributes="value request/ocupacao | context/ocupacao_paciente">
-                </div>
-
+                <tal:block tal:define="fields python:schematas[fieldset].editableFields(here, visible_only=True)">
+                    <tal:block tal:repeat="field fields">
+                        <tal:block tal:condition="python:field.getName()!='identificador_paciente'">
+                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
+                        </tal:block>
+                    </tal:block>
+                    
+                </tal:block>
                 <input type="submit" name="form.action.Save" value="Salvar" />
                 <input type="submit" name="form.action.Cancel" value="Cancelar" />
             </form>

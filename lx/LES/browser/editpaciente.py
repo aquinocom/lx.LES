@@ -20,22 +20,73 @@ class EditPacienteView(BrowserView):
 
     def editpaciente(self):
         if 'form.action.Save' in self.request.form:
-            nome = self.request.get('nome', None)
-            ocupacao = self.request.get('ocupacao', None)
-            if self.validatePaciente(nome, ocupacao):
-                return self.savePaciente(nome, ocupacao)
+            nome = self.request.get('title', None)
+            ocupacao = self.request.get('ocupacao_paciente', None)
+            ano_nascimento = self.request.get('nascimento_paciente_year', None)
+            mes_nascimento = self.request.get('nascimento_paciente_month', None)
+            dia_nascimento = self.request.get('nascimento_paciente_day', None)
+            uf_nascimento = self.request.get('uf_nasc_paciente', None)
+            
+            formacao = self.request.get('formacao_paciente', None)
+            raca = self.request.get('raca_paciente', None)
+
+            cep = self.request.get('cep_paciente', None)
+            logradouro = self.request.get('logradouro_paciente', None)
+            complemento = self.request.get('complemento_paciente', None)
+            bairro = self.request.get('bairro_paciente', None)
+            cidade = self.request.get('cidade_paciente', None)
+            uf = self.request.get('uf_paciente', None)
+            
+            fone = self.request.get('fone_paciente', None)
+            celular = self.request.get('cel_paciente', None)
+            nome_parente = self.request.get('nome_parente_paciente', None)
+            fone_parente = self.request.get('fone_parente_paciente', None)
+            
+            if self.validatePaciente(nome, ocupacao, ano_nascimento, mes_nascimento, \
+                                     dia_nascimento, formacao, raca, cep, logradouro, complemento, \
+                                     bairro, cidade, fone, celular, nome_parente, fone_parente):
+                return self.savePaciente(nome, ocupacao, ano_nascimento, mes_nascimento, \
+                                        dia_nascimento, uf_nascimento, formacao, raca, cep, logradouro, complemento, \
+                                        bairro, cidade, fone, celular, nome_parente, fone_parente, uf)
         if 'form.action.Cancel' in self.request.form:
             self.request.RESPONSE.redirect(self.context.absolute_url())
 
-    def validatePaciente(self, nome, ocupacao):
+    def validatePaciente(self, nome, ocupacao, ano_nascimento, mes_nascimento, \
+                        dia_nascimento, formacao, raca, cep, logradouro, complemento, \
+                        bairro, cidade, fone, celular, nome_parente, fone_parente):
         """Validação
         """
         context = aq_inner(self.context)
         utils = getToolByName(context, 'plone_utils')
+        #import pdb; pdb.set_trace()
         if nome == '':
-            self.errors['nome'] = "O campo é obrigatório."
+            self.errors['title'] = "O campo é obrigatório."
         if ocupacao == '':
-            self.errors['ocupacao'] = "O campo é obrigatório."
+            self.errors['ocupacao_paciente'] = "O campo é obrigatório."
+        if (ano_nascimento == '0000') or (mes_nascimento == '00') or (dia_nascimento == '00'):
+            self.errors['nascimento_paciente'] = "O campo é obrigatório"
+        if formacao == '':
+            self.errors['formacao_paciente'] = "O campo é obrigatório."
+        if raca == '':
+            self.errors['raca_paciente'] = "O campo é obrigatório."
+        if cep == '':
+            self.errors['cep_paciente'] = "O campo é obrigatório."
+        if logradouro == '':
+            self.errors['logradouro_paciente'] = "O campo é obrigatório."
+        if complemento == '':
+            self.errors['complemento_paciente'] = "O campo é obrigatório."
+        if bairro == '':
+            self.errors['bairro_paciente'] = "O campo é obrigatório."
+        if cidade == '':
+            self.errors['cidade_paciente'] = "O campo é obrigatório."
+        if fone == '':
+            self.errors['fone_paciente'] = "O campo é obrigatório."
+        if celular == '':
+            self.errors['cel_paciente'] = "O campo é obrigatório."
+        if nome_parente == '':
+            self.errors['nome_parente_paciente'] = "O campo é obrigatório."
+        if fone_parente == '':
+            self.errors['fone_parente_paciente'] = "O campo é obrigatório."
         # Check for errors
         if self.errors:
             utils.addPortalMessage("Corrija os erros.", type='error')
@@ -43,7 +94,9 @@ class EditPacienteView(BrowserView):
         else:
             return True
 
-    def savePaciente(self, nome, ocupacao):
+    def savePaciente(self, nome, ocupacao, ano_nascimento, mes_nascimento, \
+                    dia_nascimento, uf_nascimento, formacao, raca, cep, logradouro, complemento, \
+                    bairro, cidade, fone, celular, nome_parente, fone_parente, uf):
         """ Alteração dos dados do paciente
         """
         try:

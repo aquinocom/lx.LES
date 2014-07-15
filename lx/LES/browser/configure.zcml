@@ -186,7 +186,7 @@
         for="lx.LES.interfaces.contents.IPaciente"
         class=".editpaciente.EditPacienteView"
         layer="lx.LES.browser.layers.ILXDefaultLayer"
-        permission="zope2.View"
+        permission="cmf.AddPortalContent"
     />
 
 </configure>
