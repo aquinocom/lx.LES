@@ -4,6 +4,7 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 from Acquisition import aq_inner
 from plone.memoize.instance import memoize
+from datetime import datetime
 
 
 class EditPacienteView(BrowserView):
@@ -105,6 +106,21 @@ class EditPacienteView(BrowserView):
             paciente = self.context
             paciente.setTitle(nome)
             paciente.setOcupacao_paciente(ocupacao)
+            dt_nascimento = datetime(ano_nascimento, mes_nascimento, dia_nascimento)
+            paciente.setNascimento_paciente(dt_nascimento)
+            paciente.setUf_nasc_paciente(uf_nascimento)
+            paciente.setFormacao_paciente(formacao)
+            paciente.setRaca_paciente(raca)
+            paciente.setCep_paciente(cep)
+            paciente.setLogradouro_paciente(logradouro)
+            paciente.setComplemento_paciente(complemento)
+            paciente.setBairro_paciente(bairro)
+            paciente.setCidade_paciente(cidade)
+            paciente.setFone_paciente(fone)
+            paciente.setCel_paciente(celular)
+            paciente.setNome_parente_paciente(nome_parente)
+            paciente.setFone_parente_paciente(fone_parente)
+            paciente.setUf_paciente(uf)            
             paciente.reindexObject()
             msg = 'Os dados do paciente foram alterados.'
             utils.addPortalMessage(msg, type='info')

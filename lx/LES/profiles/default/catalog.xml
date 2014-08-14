@@ -1,6 +1,65 @@
 <?xml version="1.0"?>
 <object name="portal_catalog" meta_type="Plone Catalog Tool">
-    <index name="inicio_sintomas" meta_type="FieldIndex">
+    <!--paciente -->
+    <index name="identificador_paciente" meta_type="FieldIndex">
+    <indexed_attr value="identificador_paciente"/>
+    </index>
+    <index name="nascimento_paciente" meta_type="DateIndex">
+        <indexed_attr value="nascimento_paciente"/>
+    </index>
+    <index name="uf_nasc_paciente" meta_type="FieldIndex">
+        <indexed_attr value="uf_nasc_paciente"/>
+    </index>
+    <index name="sexo_paciente" meta_type="FieldIndex">
+        <indexed_attr value="sexo_paciente"/>
+    </index>
+    <index name="ocupacao_paciente" meta_type="FieldIndex">
+        <indexed_attr value="ocupacao_paciente"/>
+    </index>
+    <index name="formacao_paciente" meta_type="FieldIndex">
+        <indexed_attr value="formacao_paciente"/>
+    </index>
+    <index name="raca_paciente" meta_type="FieldIndex">
+        <indexed_attr value="raca_paciente"/>
+    </index>
+    <index name="cep_paciente" meta_type="FieldIndex">
+        <indexed_attr value="cep_paciente"/>
+    </index>
+    <index name="logradouro_paciente" meta_type="FieldIndex">
+        <indexed_attr value="logradouro_paciente"/>
+    </index>
+    <index name="complemento_paciente" meta_type="FieldIndex">
+        <indexed_attr value="complemento_paciente"/>
+    </index>
+    <index name="bairro_paciente" meta_type="FieldIndex">
+        <indexed_attr value=""/>
+    </index>
+    <index name="bairro_paciente" meta_type="FieldIndex">
+        <indexed_attr value=""/>
+    </index>
+    <index name="cidade_paciente" meta_type="FieldIndex">
+        <indexed_attr value="cidade_paciente"/>
+    </index>
+    <index name="uf_paciente" meta_type="FieldIndex">
+        <indexed_attr value="uf_paciente"/>
+    </index>
+    <index name="fone_paciente" meta_type="FieldIndex">
+        <indexed_attr value="fone_paciente"/>
+    </index>
+    <index name="cel_paciente" meta_type="FieldIndex">
+        <indexed_attr value="cel_paciente"/>
+    </index>
+    <index name="nome_parente_paciente" meta_type="FieldIndex">
+        <indexed_attr value="nome_parente_paciente"/>
+    </index>
+    <index name="fone_parente_paciente" meta_type="FieldIndex">
+        <indexed_attr value="fone_parente_paciente"/>
+    </index>
+    <!--fim paciente-->
+    <index name="dt_atendimento" meta_type="DateIndex">
+        <indexed_attr value="dt_atendimento"/>
+    </index>    
+    <index name="inicio_sintomas" meta_type="DateIndex">
         <indexed_attr value="inicio_sintomas"/>
     </index>
     <index name="retardo_diagnostico" meta_type="FieldIndex">
@@ -1197,6 +1256,26 @@
     <index name="getIdadePaciente" meta_type="FieldIndex">
         <indexed_attr value="getEscoreSledai"/>
     </index>
+    <!--paciente-->
+    <column value="identificador_paciente"/>
+    <column value="nascimento_paciente"/>
+    <column value="uf_nasc_paciente"/>
+    <column value="sexo_paciente"/>
+    <column value="ocupacao_paciente"/>
+    <column value="formacao_paciente"/>
+    <column value="raca_paciente"/>
+    <column value="cep_paciente"/>
+    <column value="logradouro_paciente"/>
+    <column value="complemento_paciente"/>
+    <column value="bairro_paciente"/>
+    <column value="cidade_paciente"/>
+    <column value="uf_paciente"/>
+    <column value="fone_paciente"/>
+    <column value="cel_paciente"/>
+    <column value="nome_parente_paciente"/>
+    <column value="fone_parente_paciente"/>
+    <!--fim paciente-->
+    <column value="dt_atendimento"/>
     <column value="inicio_sintomas"/>
     <column value="retardo_diagnostico"/>
     <column value="manifestacao_inicial"/>

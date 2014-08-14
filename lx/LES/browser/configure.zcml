@@ -17,7 +17,6 @@
         layer="lx.LES.browser.layers.ILXDefaultLayer"
         permission="zope2.View"
     />
-
     
     <!-- -*- extra stuff goes here -*- -->
     <!--Directory-->
@@ -180,6 +179,13 @@
         permission="zope2.View"
         layer="lx.LES.browser.layers.ILXDefaultLayer"
         />
+
+    <browser:page
+        for="*"
+        name="base_export"
+        class=".base_export.BaseExportView"
+        permission="zope2.View"
+        />       
    
     <browser:page
         name="editpaciente"
