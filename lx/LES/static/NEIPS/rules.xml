@@ -1,0 +1,50 @@
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    
+    <theme href="index.html" if-content='(//*[@id="portal-column-one"]) and (//*[@id="portal-column-two"])' />
+    <theme href="index-coluna-esquerda.html" if-content='(//*[@id="portal-column-one"]) and not(//*[@id="portal-column-two"])' />
+    <theme href="index-coluna-direita.html" if-content='not(//*[@id="portal-column-one"]) and (//*[@id="portal-column-two"])' />
+    <theme href="index-sem-coluna.html" if-content='not(//*[@id="portal-column-one"]) and not(//*[@id="portal-column-two"])' />
+
+    <!--<notheme css:if-content="#login_form" />-->
+    <notheme css:if-content=".viewletmanager" />
+    <!--<notheme css:if-content=".template-examesanguepaciente" />-->
+    <!--<notheme css:if-content-children=".plonepopup" />-->
+    
+    <!-- Rules applying to a standard Plone web page -->
+    <rules css:if-content="#visual-portal-wrapper">
+        <!-- Head: title -->
+        <replace content="/html/head/title[1]" theme="/html/head/title" />
+        <!-- Base tag -->
+        <replace content="/html/head/base" theme="/html/head/base" />
+        <!-- meta tag -->
+        <append content="/html/head/meta" theme="/html/head/meta" />
+        <!-- Drop styles in the head - these are added back by including them from Plone -->
+        <!-- Pull in Plone CSS -->
+        <replace content="/html/head/link | /html/head/style " theme='//*[@id="css_link_plone"]'/>
+        <!-- Pull in Plone JS -->
+        <replace content="/html/head/script" theme='//*[@id="js_plone"]'/>
+        <!--login-->
+        <append content='//*[@id="portal-personaltools"]' theme='//*[@id="usuario"]' />
+        <!-- Body class -->
+        <copy attributes="class" css:theme="body" css:content="body"/>
+        <merge attributes="class" css:content="body" css:theme="body" />
+        <copy attributes="id dir" css:content="body" css:theme="body" />
+        <!-- Menu -->        
+        <replace content='//*[@id="portal-globalnav"]' theme-children='//*[@id="nav"]' />
+        <replace content-children='//*[@id="portal-column-content"]' theme-children='//*[@id="meio"]' />
+        <!-- Coluna Esquerda -->
+        <drop theme='//*[@id="colunaEsquerda"]' if-content='not(//*[@id="portal-column-one"]/*)'/>
+        <replace content-children='//*[@id="portal-column-one"]' theme-children='//*[@id="colunaEsquerda"]' />
+        <!-- Coluna Direita -->
+        <drop theme='//*[@id="colunaDireita"]' if-content='not(//*[@id="portal-column-two"]/div/*)'/>
+        <replace content-children='//*[@id="portal-column-two"]' theme-children='//*[@id="colunaDireita"]' />
+        <!--popup-->
+        <drop theme='//*[@id="header-wrapper"]' if-content='//*[@id="template-limpo"]' />
+        <drop theme='//*[@id="footer-wrapper"]' if-content='//*[@id="template-limpo"]' />
+        <drop theme='//*[@id="copyright"]' if-content='//*[@id="template-limpo"]' />
+        <drop content='//*[@id="viewlet-below-content"]' if-content='//*[@id="searchGadget"]' />
+    </rules>
+</rules>

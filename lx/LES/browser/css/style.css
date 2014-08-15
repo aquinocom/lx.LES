@@ -217,7 +217,7 @@
 .template-home .box{
     padding: 0 20px 10px 20px;
     margin-bottom: 20px;
-    float: left;
+    /*float: left;*/
     width: 96%;
 }
 .template-home .box .adicionar{
@@ -235,9 +235,9 @@
 .template-home a{
     border: none !important;
 }
-#searchHome{
+/*#searchHome{
     float: left;
-}
+}*/
 #searchHome #LSResult {
     left: 0;
     margin-left: 2px;
@@ -246,9 +246,7 @@
 #searchHome .searchSection{
     display: none;
 }
-#searchHome #searchGadget{
-    width: 40em;
-}
+
 .offBorder{
     border: none !important;
 }

@@ -1,0 +1,137 @@
+div.row {
+  float: none;
+  width: 100%;
+  display: block;
+  position: static;
+}
+
+#portal-globalnav {
+    clear: both;
+    font-size: inherit !important;
+    background: none !important;
+    /* ensure top navigation dont touches portlets, content etc.. #10491 */
+    margin: 0 !important;
+}
+#portal-globalnav .selected a, #portal-globalnav a:hover {
+    background: none !important;
+    color: white !important;
+}
+#portal-globalnav .selected a:hover {
+    background: none !important;
+    color: white !important;
+}
+#portal-globalnav li a {
+    padding: 0 !important;
+}
+#portal-globalnav li a {
+    display: inline-block;
+    padding: 0 !important;
+    background: none !important;
+    min-width: inherit !important;
+    white-space: normal;
+    /*TODO: Once we have removed the whitespace from the nav template, this can be put back*/
+    /*border-bottom: 0.1em solid White;*/
+    border-right: none !important;
+}
+#edit-bar ul{
+    margin: 0 !important;
+}
+#edit-bar a{
+    color: #fff !important;
+}
+#edit-bar a:hover, #edit-bar .selected a{
+    color: #000 !important;
+}
+#edit-bar dt{
+    font-weight: normal !important;
+}
+#content ul {
+    list-style-type: none;
+}
+#content a:link, dl.portlet a:link {
+    border-bottom: none;
+}
+#edit-bar li {
+    display: inline !important;
+}
+#content p, #content table, #content dl, dl.portlet p, dl.portlet {
+    margin-bottom: 0 !important;
+}
+
+/* @group Content pulldowns */
+
+#contentActionMenus dl.actionMenu a,
+#contentActionMenus dl.actionMenu.activated dd {
+    background-color: #75ad0a;
+    color: White;
+    z-index: 5;
+}
+#contentActionMenus dl.actionMenu.activated dd {
+    border-bottom: 0 solid #75ad0a;
+    right: -3px;
+}
+#contentActionMenus dl.actionMenu.activated dd a:hover,
+#contentActionMenus dl.actionMenu.activated dd .actionMenuSelected {
+    background-color: White !important;
+    color: #666;
+}
+#contentActionMenus dl.actionMenu {
+    line-height: 2em;
+}
+
+#folderHeader, #contextHeader {
+    border-bottom: 2px solid white;
+}
+
+#contextHeader { margin-top: 5px; }
+
+
+/* @end */
+
+#contentActionMenus {
+    float: right;
+    background: #75ad0a;
+    margin: 0;
+    position: relative;
+    top: -0.27em;
+    right:-0.24em;
+    padding: 0;
+    border-radius: 0.5em;
+    border-top-left-radius: 0;
+    -webkit-border-radius: 0.5em;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius: 0.5em;
+    -moz-border-radius-topleft: 0;
+}
+
+.listing .column{
+    float: inherit !important;
+    width: inherit !important;
+}
+
+#header-wrapper #usuario {
+    text-shadow: none !important;
+}
+#meio{
+    float: left;
+    width: 100%;
+}
+.defaultView, .required{
+    font-size: 10px;
+}
+.formTab .required{
+    font-size: 13.5pt;
+}
+
+#template-limpo #content-wrapper{
+    padding: 0 !important;
+}
+.documentFirstHeading {
+    font-size: 2em !important;
+}
+#footer * li {
+    display: flex;
+}
+#portal-searchbox {
+    float: none;
+}

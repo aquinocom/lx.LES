@@ -42,7 +42,7 @@
                         body_class python:plone_view.bodyClass(template, view);
                         classes python:context.restrictedTraverse('@@sunburstview').getColumnsClasses(view)"
             tal:attributes="class body_class;
-                        dir python:isRTL and 'rtl' or 'ltr'">
+                        dir python:isRTL and 'rtl' or 'ltr'" id="template-limpo">
             <div id="visual-portal-wrapper">
                 <div id="portal-columns" class="row">
                     <div id="portal-column-content" class="cell" tal:attributes="class classes/content">

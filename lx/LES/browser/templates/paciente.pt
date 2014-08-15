@@ -22,7 +22,7 @@
     </head>
     <body>
         <tal:block metal:fill-slot="main" >
-            <h1>
+            <h1 class="documentFirstHeading">
                 <span tal:replace="context/Title"/>
                 &nbsp;
                 <tal:block tal:condition="python: view.isAddContent(context)">
