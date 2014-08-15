@@ -2,7 +2,7 @@
 <object name="portal_catalog" meta_type="Plone Catalog Tool">
     <!--paciente -->
     <index name="identificador_paciente" meta_type="FieldIndex">
-    <indexed_attr value="identificador_paciente"/>
+        <indexed_attr value="identificador_paciente"/>
     </index>
     <index name="nascimento_paciente" meta_type="DateIndex">
         <indexed_attr value="nascimento_paciente"/>
@@ -56,6 +56,7 @@
         <indexed_attr value="fone_parente_paciente"/>
     </index>
     <!--fim paciente-->
+    <!--atendimento medico-->
     <index name="dt_atendimento" meta_type="DateIndex">
         <indexed_attr value="dt_atendimento"/>
     </index>    
@@ -1256,6 +1257,398 @@
     <index name="getIdadePaciente" meta_type="FieldIndex">
         <indexed_attr value="getEscoreSledai"/>
     </index>
+    <!--fim atendimento medico-->
+    <!--exame sangue-->
+    <index name="dt_exame_sangue" meta_type="DateIndex">
+        <indexed_attr value="dt_exame_sangue"/>
+    </index>
+    <index name="sangue_hemacias" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hemacias"/>
+    </index>
+    <index name="sangue_hemoglobina" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hemoglobina"/>
+    </index>
+    <index name="sangue_hematocrito" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hematocrito"/>
+    </index>
+    <index name="sangue_vcm" meta_type="FieldIndex">
+        <indexed_attr value="sangue_vcm"/>
+    </index>
+    <index name="sangue_hcm" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hcm"/>
+    </index>
+    <index name="sangue_chcm" meta_type="FieldIndex">
+        <indexed_attr value="sangue_chcm"/>
+    </index>
+    <index name="sangue_rdw" meta_type="FieldIndex">
+        <indexed_attr value="sangue_rdw"/>
+    </index>
+    <index name="sangue_leucocitos" meta_type="FieldIndex">
+        <indexed_attr value="sangue_leucocitos"/>
+    </index>
+    <index name="sangue_basofilos" meta_type="FieldIndex">
+        <indexed_attr value="sangue_basofilos"/>
+    </index>
+    <index name="sangue_eosinofilos" meta_type="FieldIndex">
+        <indexed_attr value="sangue_eosinofilos"/>
+    </index>
+    <index name="sangue_mielocitos" meta_type="FieldIndex">
+        <indexed_attr value="sangue_mielocitos"/>
+    </index>
+    <index name="sangue_metamielocitos" meta_type="FieldIndex">
+        <indexed_attr value="sangue_metamielocitos"/>
+    </index>
+    <index name="sangue_bastoes" meta_type="FieldIndex">
+        <indexed_attr value="sangue_bastoes"/>
+    </index>
+    <index name="sangue_segmentados" meta_type="FieldIndex">
+        <indexed_attr value="sangue_segmentados"/>
+    </index>
+    <index name="sangue_linfocitos" meta_type="FieldIndex">
+        <indexed_attr value="sangue_linfocitos"/>
+    </index>
+    <index name="sangue_linfocitos_atipicos" meta_type="FieldIndex">
+        <indexed_attr value="sangue_linfocitos_atipicos"/>
+    </index>
+    <index name="sangue_monocitos" meta_type="FieldIndex">
+        <indexed_attr value="sangue_monocitos"/>
+    </index>
+    <index name="sangue_plaquetas" meta_type="FieldIndex">
+        <indexed_attr value="sangue_plaquetas"/>
+    </index>
+    <index name="sangue_vpm" meta_type="FieldIndex">
+        <indexed_attr value="sangue_vpm"/>
+    </index>
+    <index name="sangue_plaquetocrito" meta_type="FieldIndex">
+        <indexed_attr value="sangue_plaquetocrito"/>
+    </index>
+    <index name="sangue_pdw" meta_type="FieldIndex">
+        <indexed_attr value="sangue_pdw"/>
+    </index>
+    <index name="sangue_contagem_plaquetas" meta_type="FieldIndex">
+        <indexed_attr value="sangue_contagem_plaquetas"/>
+    </index>
+    <index name="sangue_tempo_protrombina" meta_type="FieldIndex">
+        <indexed_attr value="sangue_tempo_protrombina"/>
+    </index>
+    <index name="sangue_atividade_protombina" meta_type="FieldIndex">
+        <indexed_attr value="sangue_atividade_protombina"/>
+    </index>
+    <index name="sangue_inr" meta_type="FieldIndex">
+        <indexed_attr value="sangue_inr"/>
+    </index>
+    <index name="sangue_isi" meta_type="FieldIndex">
+        <indexed_attr value="sangue_isi"/>
+    </index>
+    <index name="sangue_tempo_tromboplastina_parcial" meta_type="FieldIndex">
+        <indexed_attr value="sangue_tempo_tromboplastina_parcial"/>
+    </index>
+    <index name="sangue_fibrinogenio" meta_type="FieldIndex">
+        <indexed_attr value="sangue_fibrinogenio"/>
+    </index>
+    <index name="sangue_vhs_hemossedimentação" meta_type="FieldIndex">
+        <indexed_attr value="sangue_vhs_hemossedimentação"/>
+    </index>
+    <index name="sangue_ureia" meta_type="FieldIndex">
+        <indexed_attr value="sangue_ureia"/>
+    </index>
+    <index name="sangue_creatinina" meta_type="FieldIndex">
+        <indexed_attr value="sangue_creatinina"/>
+    </index>
+    <index name="sangue_acido_urico" meta_type="FieldIndex">
+        <indexed_attr value="sangue_acido_urico"/>
+    </index>
+    <index name="sangue_sodio" meta_type="FieldIndex">
+        <indexed_attr value="sangue_sodio"/>
+    </index>
+    <index name="sangue_potassio" meta_type="FieldIndex">
+        <indexed_attr value="sangue_potassio"/>
+    </index>
+    <index name="sangue_cloro" meta_type="FieldIndex">
+        <indexed_attr value="sangue_cloro"/>
+    </index>
+    <index name="sangue_magnesio" meta_type="FieldIndex">
+        <indexed_attr value="sangue_magnesio"/>
+    </index>
+    <index name="sangue_fosforo" meta_type="FieldIndex">
+        <indexed_attr value="sangue_fosforo"/>
+    </index>
+    <index name="sangue_zinco" meta_type="FieldIndex">
+        <indexed_attr value="sangue_zinco"/>
+    </index>
+    <index name="sangue_fosfatase_alcalina" meta_type="FieldIndex">
+        <indexed_attr value="sangue_fosfatase_alcalina"/>
+    </index>
+    <index name="sangue_alfa_amilase" meta_type="FieldIndex">
+        <indexed_attr value="sangue_alfa_amilase"/>
+    </index>
+    <index name="sangue_lipase" meta_type="FieldIndex">
+        <indexed_attr value="sangue_lipase"/>
+    </index>
+    <index name="sangue_ferro_serico" meta_type="FieldIndex">
+        <indexed_attr value="sangue_ferro_serico"/>
+    </index>
+    <index name="sangue_calcio" meta_type="FieldIndex">
+        <indexed_attr value="sangue_calcio"/>
+    </index>
+    <index name="sangue_vitamina_c" meta_type="FieldIndex">
+        <indexed_attr value="sangue_vitamina_c"/>
+    </index>
+    <index name="sangue_hidroxivitamina_d" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hidroxivitamina_d"/>
+    </index>
+    <index name="sangue_caroteno" meta_type="FieldIndex">
+        <indexed_attr value="sangue_caroteno"/>
+    </index>
+    <index name="sangue_vitamina_a" meta_type="FieldIndex">
+        <indexed_attr value="sangue_vitamina_a"/>
+    </index>
+    <index name="sangue_vitamina_b12" meta_type="FieldIndex">
+        <indexed_attr value="sangue_vitamina_b12"/>
+    </index>
+    <index name="sangue_cobre" meta_type="FieldIndex">
+        <indexed_attr value="sangue_cobre"/>
+    </index>
+    <index name="sangue_tgo_ast" meta_type="FieldIndex">
+        <indexed_attr value="sangue_tgo_ast"/>
+    </index>
+    <index name="sangue_tgp_alt" meta_type="FieldIndex">
+        <indexed_attr value="sangue_tgp_alt"/>
+    </index>
+    <index name="sangue_ggt" meta_type="FieldIndex">
+        <indexed_attr value="sangue_ggt"/>
+    </index>
+    <index name="sangue_glicose" meta_type="FieldIndex">
+        <indexed_attr value="sangue_glicose"/>
+    </index>
+    <index name="sangue_homocisteina" meta_type="FieldIndex">
+        <indexed_attr value="sangue_homocisteina"/>
+    </index>
+    <index name="sangue_proteinas_totais" meta_type="FieldIndex">
+        <indexed_attr value="sangue_proteinas_totais"/>
+    </index>
+    <index name="sangue_albumina" meta_type="FieldIndex">
+        <indexed_attr value="sangue_albumina"/>
+    </index>
+    <index name="sangue_globulinas" meta_type="FieldIndex">
+        <indexed_attr value="sangue_globulinas"/>
+    </index>
+    <index name="sangue_relacao_ag" meta_type="FieldIndex">
+        <indexed_attr value="sangue_relacao_ag"/>
+    </index>
+    <index name="sangue_colesterol_total" meta_type="FieldIndex">
+        <indexed_attr value="sangue_colesterol_total"/>
+    </index>
+    <index name="sangue_triglicerides" meta_type="FieldIndex">
+        <indexed_attr value="sangue_triglicerides"/>
+    </index>
+    <index name="sangue_colesterol_hdl" meta_type="FieldIndex">
+        <indexed_attr value="sangue_colesterol_hdl"/>
+    </index>
+    <index name="sangue_colesterol_vldl" meta_type="FieldIndex">
+        <indexed_attr value="sangue_colesterol_vldl"/>
+    </index>
+    <index name="sangue_colesterol_ldl" meta_type="FieldIndex">
+        <indexed_attr value="sangue_colesterol_ldl"/>
+    </index>
+    <index name="sangue_bilirrubina_total" meta_type="FieldIndex">
+        <indexed_attr value="sangue_bilirrubina_total"/>
+    </index>
+    <index name="sangue_bilirrubina_direta" meta_type="FieldIndex">
+        <indexed_attr value="sangue_bilirrubina_direta"/>
+    </index>
+    <index name="sangue_bilirrubina_indireta" meta_type="FieldIndex">
+        <indexed_attr value="sangue_bilirrubina_indireta"/>
+    </index>
+    <index name="sangue_insulina_basal" meta_type="FieldIndex">
+        <indexed_attr value="sangue_insulina_basal"/>
+    </index>
+    <index name="sangue_insulina_30min" meta_type="FieldIndex">
+        <indexed_attr value="sangue_insulina_30min"/>
+    </index>
+    <index name="sangue_insulina_60min" meta_type="FieldIndex">
+        <indexed_attr value="sangue_insulina_60min"/>
+    </index>
+    <index name="sangue_insulina_120min" meta_type="FieldIndex">
+        <indexed_attr value="sangue_insulina_120min"/>
+    </index>
+    <index name="sangue_glicose_basal" meta_type="FieldIndex">
+        <indexed_attr value="sangue_glicose_basal"/>
+    </index>
+    <index name="sangue_glicose_30min" meta_type="FieldIndex">
+        <indexed_attr value="sangue_glicose_30min"/>
+    </index>
+    <index name="sangue_glicose_60min" meta_type="FieldIndex">
+        <indexed_attr value="sangue_glicose_60min"/>
+    </index>
+    <index name="sangue_glicose_120min" meta_type="FieldIndex">
+        <indexed_attr value="sangue_glicose_120min"/>
+    </index>
+    <index name="sangue_dosagem_dextrosol" meta_type="FieldIndex">
+        <indexed_attr value="sangue_dosagem_dextrosol"/>
+    </index>
+    <index name="sangue_hba1c" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hba1c"/>
+    </index>
+    <index name="sangue_hba1c_labil" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hba1c_labil"/>
+    </index>
+    <index name="sangue_hba1a" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hba1a"/>
+    </index>
+    <index name="sangue_hba1b" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hba1b"/>
+    </index>
+    <index name="sangue_hba" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hba"/>
+    </index>
+    <index name="sangue_hbf" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hbf"/>
+    </index>
+    <index name="sangue_glicemia_media" meta_type="FieldIndex">
+        <indexed_attr value="sangue_glicemia_media"/>
+    </index>
+    <index name="sangue_cardiolipina_igg" meta_type="FieldIndex">
+        <indexed_attr value="sangue_cardiolipina_igg"/>
+    </index>
+    <index name="sangue_cardiolipina_igm" meta_type="FieldIndex">
+        <indexed_attr value="sangue_cardiolipina_igm"/>
+    </index>
+    <index name="sangue_c3" meta_type="FieldIndex">
+        <indexed_attr value="sangue_c3"/>
+    </index>
+    <index name="sangue_c4" meta_type="FieldIndex">
+        <indexed_attr value="sangue_c4"/>
+    </index>
+    <index name="sangue_anti_ssa" meta_type="FieldIndex">
+        <indexed_attr value="sangue_anti_ssa"/>
+    </index>
+    <index name="sangue_anti_ssb" meta_type="FieldIndex">
+        <indexed_attr value="sangue_anti_ssb"/>
+    </index>
+    <index name="sangue_anti_rnp" meta_type="FieldIndex">
+        <indexed_attr value="sangue_anti_rnp"/>
+    </index>
+    <index name="sangue_anti_sm" meta_type="FieldIndex">
+        <indexed_attr value="sangue_anti_sm"/>
+    </index>
+    <index name="sangue_anti_dna" meta_type="FieldIndex">
+        <indexed_attr value="sangue_anti_dna"/>
+    </index>
+    <index name="sangue_fator_reumatoide" meta_type="FieldIndex">
+        <indexed_attr value="sangue_fator_reumatoide"/>
+    </index>
+    <index name="sangue_ige_total" meta_type="FieldIndex">
+        <indexed_attr value="sangue_ige_total"/>
+    </index>
+    <index name="sangue_pcr" meta_type="FieldIndex">
+        <indexed_attr value="sangue_pcr"/>
+    </index>
+    <index name="sangue_aso" meta_type="FieldIndex">
+        <indexed_attr value="sangue_aso"/>
+    </index>
+    <index name="sangue_anti_peroxidase" meta_type="FieldIndex">
+        <indexed_attr value="sangue_anti_peroxidase"/>
+    </index>
+    <index name="sangue_imunoglobulina_iga" meta_type="FieldIndex">
+        <indexed_attr value="sangue_imunoglobulina_iga"/>
+    </index>
+    <index name="sangue_proteina_c" meta_type="FieldIndex">
+        <indexed_attr value="sangue_proteina_c"/>
+    </index>
+    <index name="sangue_anti_tireoglobulina" meta_type="FieldIndex">
+        <indexed_attr value="sangue_anti_tireoglobulina"/>
+    </index>
+    <index name="sangue_waller_rose" meta_type="FieldIndex">
+        <indexed_attr value="sangue_waller_rose"/>
+    </index>
+    <index name="sangue_hepatite_c" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hepatite_c"/>
+    </index>
+    <index name="sangue_hepatite_b" meta_type="FieldIndex">
+        <indexed_attr value="sangue_hepatite_b"/>
+    </index>
+    <index name="sangue_citomegalovirus_igg" meta_type="FieldIndex">
+        <indexed_attr value="sangue_citomegalovirus_igg"/>
+    </index>
+    <index name="sangue_citomegalovirus_igm" meta_type="FieldIndex">
+        <indexed_attr value="sangue_citomegalovirus_igm"/>
+    </index>
+    <index name="sangue_nucleo" meta_type="FieldIndex">
+        <indexed_attr value="sangue_nucleo"/>
+    </index>
+    <index name="sangue_nucleolo" meta_type="FieldIndex">
+        <indexed_attr value="sangue_nucleolo"/>
+    </index>
+    <index name="sangue_citoplasma" meta_type="FieldIndex">
+        <indexed_attr value="sangue_citoplasma"/>
+    </index>
+    <index name="sangue_aparelho_mitotico" meta_type="FieldIndex">
+        <indexed_attr value="sangue_aparelho_mitotico"/>
+    </index>
+    <index name="sangue_placa_metafasica" meta_type="FieldIndex">
+        <indexed_attr value="sangue_placa_metafasica"/>
+    </index>
+    <index name="sangue_t3" meta_type="FieldIndex">
+        <indexed_attr value="sangue_t3"/>
+    </index>
+    <index name="sangue_t4" meta_type="FieldIndex">
+        <indexed_attr value="sangue_t4"/>
+    </index>
+    <index name="sangue_t4_livre" meta_type="FieldIndex">
+        <indexed_attr value="sangue_t4_livre"/>
+    </index>
+    <index name="sangue_tsh" meta_type="FieldIndex">
+        <indexed_attr value="sangue_tsh"/>
+    </index>    
+    <!--fim exame sangue-->
+    <!--exame urina-->
+    <index name="dt_exame_urina" meta_type="DateIndex">
+        <indexed_attr value="dt_exame_urina"/>
+    </index>
+    <index name="ph_urina" meta_type="FieldIndex">
+        <indexed_attr value="ph_urina"/>
+    </index>
+    <index name="dens_urina" meta_type="FieldIndex">
+        <indexed_attr value="dens_urina"/>
+    </index>
+    <index name="ced_urina" meta_type="FieldIndex">
+        <indexed_attr value="ced_urina"/>
+    </index>
+    <index name="leuco_urina" meta_type="FieldIndex">
+        <indexed_attr value="leuco_urina"/>
+    </index>
+    <index name="hem_urina" meta_type="FieldIndex">
+        <indexed_attr value="hem_urina"/>
+    </index>
+    <index name="hb_urina" meta_type="FieldIndex">
+        <indexed_attr value="hb_urina"/>
+    </index>
+    <index name="ptns_urina" meta_type="FieldIndex">
+        <indexed_attr value="ptns_urina"/>
+    </index>
+    <index name="cilindros_urina" meta_type="FieldIndex">
+        <indexed_attr value="cilindros_urina"/>
+    </index>
+    <index name="flora_urina" meta_type="FieldIndex">
+        <indexed_attr value="flora_urina"/>
+    </index>
+    <index name="cilindros_muco" meta_type="FieldIndex">
+        <indexed_attr value="cilindros_muco"/>
+    </index>
+    <index name="cristais_urina" meta_type="FieldIndex">
+        <indexed_attr value="cristais_urina"/>
+    </index>
+    <index name="outros_urina" meta_type="FieldIndex">
+        <indexed_attr value="outros_urina"/>
+    </index>
+    <index name="exames_imagem_urina" meta_type="FieldIndex">
+        <indexed_attr value="exames_imagem_urina"/>
+    </index>
+    <index name="outros_exames_urina" meta_type="FieldIndex">
+        <indexed_attr value="outros_exames_urina"/>
+    </index>    
+    <!--fim exame urina -->
     <!--paciente-->
     <column value="identificador_paciente"/>
     <column value="nascimento_paciente"/>
@@ -1275,6 +1668,7 @@
     <column value="nome_parente_paciente"/>
     <column value="fone_parente_paciente"/>
     <!--fim paciente-->
+    <!--atendimento medico-->    
     <column value="dt_atendimento"/>
     <column value="inicio_sintomas"/>
     <column value="retardo_diagnostico"/>
@@ -1675,4 +2069,138 @@
     <column value="getEscoreSliic"/>    
     <column value="getEscoreSledai"/>
     <column value="getIdadePaciente"/>
+    <!--fim atendimento medico-->
+    <!--exame sangue-->
+    <column value="dt_exame_sangue"/>
+    <column value="sangue_hemacias"/>
+    <column value="sangue_hemoglobina"/>
+    <column value="sangue_hematocrito"/>
+    <column value="sangue_vcm"/>
+    <column value="sangue_hcm"/>
+    <column value="sangue_chcm"/>
+    <column value="sangue_rdw"/>
+    <column value="sangue_leucocitos"/>
+    <column value="sangue_basofilos"/>
+    <column value="sangue_eosinofilos"/>
+    <column value="sangue_mielocitos"/>
+    <column value="sangue_metamielocitos"/>
+    <column value="sangue_bastoes"/>
+    <column value="sangue_segmentados"/>
+    <column value="sangue_linfocitos"/>
+    <column value="sangue_linfocitos_atipicos"/>
+    <column value="sangue_monocitos"/>
+    <column value="sangue_plaquetas"/>
+    <column value="sangue_vpm"/>
+    <column value="sangue_plaquetocrito"/>
+    <column value="sangue_pdw"/>
+    <column value="sangue_contagem_plaquetas"/>
+    <column value="sangue_tempo_protrombina"/>
+    <column value="sangue_atividade_protombina"/>
+    <column value="sangue_inr"/>
+    <column value="sangue_isi"/>
+    <column value="sangue_tempo_tromboplastina_parcial"/>
+    <column value="sangue_fibrinogenio"/>
+    <column value="sangue_vhs_hemossedimentação"/>
+    <column value="sangue_ureia"/>
+    <column value="sangue_creatinina"/>
+    <column value="sangue_acido_urico"/>
+    <column value="sangue_sodio"/>
+    <column value="sangue_potassio"/>
+    <column value="sangue_cloro"/>
+    <column value="sangue_magnesio"/>
+    <column value="sangue_fosforo"/>
+    <column value="sangue_zinco"/>
+    <column value="sangue_fosfatase_alcalina"/>
+    <column value="sangue_alfa_amilase"/>
+    <column value="sangue_lipase"/>
+    <column value="sangue_ferro_serico"/>
+    <column value="sangue_calcio"/>
+    <column value="sangue_vitamina_c"/>
+    <column value="sangue_hidroxivitamina_d"/>
+    <column value="sangue_caroteno"/>
+    <column value="sangue_vitamina_a"/>
+    <column value="sangue_vitamina_b12"/>
+    <column value="sangue_cobre"/>
+    <column value="sangue_tgo_ast"/>
+    <column value="sangue_tgp_alt"/>
+    <column value="sangue_ggt"/>
+    <column value="sangue_glicose"/>
+    <column value="sangue_homocisteina"/>
+    <column value="sangue_proteinas_totais"/>
+    <column value="sangue_albumina"/>
+    <column value="sangue_globulinas"/>
+    <column value="sangue_relacao_ag"/>
+    <column value="sangue_colesterol_total"/>
+    <column value="sangue_triglicerides"/>
+    <column value="sangue_colesterol_hdl"/>
+    <column value="sangue_colesterol_vldl"/>
+    <column value="sangue_colesterol_ldl"/>
+    <column value="sangue_bilirrubina_total"/>
+    <column value="sangue_bilirrubina_direta"/>
+    <column value="sangue_bilirrubina_indireta"/>
+    <column value="sangue_insulina_basal"/>
+    <column value="sangue_insulina_30min"/>
+    <column value="sangue_insulina_60min"/>
+    <column value="sangue_insulina_120min"/>
+    <column value="sangue_glicose_basal"/>
+    <column value="sangue_glicose_30min"/>
+    <column value="sangue_glicose_60min"/>
+    <column value="sangue_glicose_120min"/>
+    <column value="sangue_dosagem_dextrosol"/>
+    <column value="sangue_hba1c"/>
+    <column value="sangue_hba1c_labil"/>
+    <column value="sangue_hba1a"/>
+    <column value="sangue_hba1b"/>
+    <column value="sangue_hba"/>
+    <column value="sangue_hbf"/>
+    <column value="sangue_glicemia_media"/>
+    <column value="sangue_cardiolipina_igg"/>
+    <column value="sangue_cardiolipina_igm"/>
+    <column value="sangue_c3"/>
+    <column value="sangue_c4"/>
+    <column value="sangue_anti_ssa"/>
+    <column value="sangue_anti_ssb"/>
+    <column value="sangue_anti_rnp"/>
+    <column value="sangue_anti_sm"/>
+    <column value="sangue_anti_dna"/>
+    <column value="sangue_fator_reumatoide"/>
+    <column value="sangue_ige_total"/>
+    <column value="sangue_pcr"/>
+    <column value="sangue_aso"/>
+    <column value="sangue_anti_peroxidase"/>
+    <column value="sangue_imunoglobulina_iga"/>
+    <column value="sangue_proteina_c"/>
+    <column value="sangue_anti_tireoglobulina"/>
+    <column value="sangue_waller_rose"/>
+    <column value="sangue_hepatite_c"/>
+    <column value="sangue_hepatite_b"/>
+    <column value="sangue_citomegalovirus_igg"/>
+    <column value="sangue_citomegalovirus_igm"/>
+    <column value="sangue_nucleo"/>
+    <column value="sangue_nucleolo"/>
+    <column value="sangue_citoplasma"/>
+    <column value="sangue_aparelho_mitotico"/>
+    <column value="sangue_placa_metafasica"/>
+    <column value="sangue_t3"/>
+    <column value="sangue_t4"/>
+    <column value="sangue_t4_livre"/>
+    <column value="sangue_tsh"/>    
+    <!--fim exame sangue-->
+    <!--exame urina-->
+    <column value="dt_exame_urina"/>
+    <column value="ph_urina"/>
+    <column value="dens_urina"/>
+    <column value="ced_urina"/>
+    <column value="leuco_urina"/>
+    <column value="hem_urina"/>
+    <column value="hb_urina"/>
+    <column value="ptns_urina"/>
+    <column value="cilindros_urina"/>
+    <column value="flora_urina"/>
+    <column value="cilindros_muco"/>
+    <column value="cristais_urina"/>
+    <column value="outros_urina"/>
+    <column value="exames_imagem_urina"/>
+    <column value="outros_exames_urina"/>    
+    <!--fim exame urina-->
 </object>
