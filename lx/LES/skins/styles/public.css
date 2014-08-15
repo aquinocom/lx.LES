@@ -103,6 +103,7 @@ sub {
 #portal-header {
     position: relative;
     z-index: 2;
+	background: url(banner.jpg)
 }
 
 #portal-logo {
