@@ -1255,10 +1255,13 @@
         <indexed_attr value="getEscoreSledai"/>
     </index>
     <index name="getIdadePaciente" meta_type="FieldIndex">
-        <indexed_attr value="getEscoreSledai"/>
+        <indexed_attr value="getIdadePaciente"/>
     </index>
     <!--fim atendimento medico-->
     <!--exame sangue-->
+    <index name="consulta_referencia" meta_type="FieldIndex">
+        <indexed_attr value="consulta_referencia"/>
+    </index>
     <index name="dt_exame_sangue" meta_type="DateIndex">
         <indexed_attr value="dt_exame_sangue"/>
     </index>
@@ -2071,6 +2074,7 @@
     <column value="getIdadePaciente"/>
     <!--fim atendimento medico-->
     <!--exame sangue-->
+    <column value="consulta_referencia"/>
     <column value="dt_exame_sangue"/>
     <column value="sangue_hemacias"/>
     <column value="sangue_hemoglobina"/>

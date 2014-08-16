@@ -238,9 +238,12 @@ class Paciente(ATFolder, HistoryAwareMixin):
 
     def getIdadePaciente(self):
         nasc = self.nascimento_paciente
-        nasc = datetime.date(int(nasc.year()), int(nasc.month()), int(nasc.day()))
-        idade = datetime.date.today() - nasc
-        return idade.days/365
+        try:
+            nasc = datetime.date(int(nasc.year()), int(nasc.month()), int(nasc.day()))
+            idade = datetime.date.today() - nasc
+            return idade.days/365
+        except:
+            pass
 
     schema = schema
 

@@ -16,6 +16,12 @@
             <p>
                 <b>Profissional:</b> <span tal:content="here/Creator"></span>
             </p>
+            <p>
+                <b>Referente a consulta:</b> <span tal:content="here/consulta_referencia"></span>
+            </p>
+            <p>
+                <b>Data do exame:</b> <span tal:content="python:here.dt_exame_urina.strftime('%d/%m/%Y')"></span>
+            </p>
             <div id="coluna01_urina">
                 <ul>
                     <li tal:condition="context/ph_urina" class="zebrar">

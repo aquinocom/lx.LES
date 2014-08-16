@@ -31,6 +31,9 @@
                 <b>Profissional:</b> <span tal:content="here/Creator"></span>
             </p>
             <p>
+                <b>Referente a consulta:</b> <span tal:content="here/consulta_referencia"></span>
+            </p>
+            <p>
                 <b>Data do exame:</b> <span tal:content="python:here.dt_exame_sangue.strftime('%d/%m/%Y')"></span>
             </p>
             <div id="abas">
@@ -80,7 +83,7 @@
                         </ul>
                         <div id="subinformacoes-1">
                             <!--Eritograma-->
-                            <tal:block tal:define="fields python:fields[1:8];">
+                            <tal:block tal:define="fields python:fields[2:9];">
                                 <ul>    
                                     <tal:fields repeat="field fields">
                                         <li>
@@ -94,7 +97,7 @@
                         <div id="subinformacoes-2">
                             <!--Leucograma-->
                             <div class="column"
-                                tal:define="fields python:fields[8:22];
+                                tal:define="fields python:fields[9:23];
                                             fieldsLists python:here.createMultiColumnList(fields, numCols=3, sort_on='self');"
                                 tal:repeat="sublist fieldsLists">
                                 <ul>
@@ -109,7 +112,7 @@
                         </div>
                         <div id="subinformacoes-3">
                             <!--Coagulograma-->
-                            <tal:block tal:define="fields python:fields[22:28];">
+                            <tal:block tal:define="fields python:fields[23:29];">
                                 <ul>    
                                     <tal:fields repeat="field fields">
                                         <li>
@@ -122,7 +125,7 @@
                         </div>
                         <div id="subinformacoes-4">
                             <!--Fibrinogênio / VHS-->
-                            <tal:block tal:define="fields python:fields[28:30];">
+                            <tal:block tal:define="fields python:fields[29:];">
                                 <ul>    
                                     <tal:fields repeat="field fields">
                                         <li>

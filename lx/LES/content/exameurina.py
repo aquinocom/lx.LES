@@ -19,13 +19,25 @@ from Products.Archetypes import atapi
 from Products.ATContentTypes.content import schemata
 from Products.ATContentTypes.content.base import ATCTContent
 from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
+from Products.CMFCore.utils import getToolByName
 
 # Product imports
-from lx.LES.interfaces.contents import IExameUrina
+from lx.LES.interfaces.contents import IExameUrina, IAtendimentoMedicina
 from lx.LES import LESMessageFactory as _
 from lx.LES import config
 
 schema = ATCTContent.schema.copy() + atapi.Schema((
+    atapi.StringField(
+        name='consulta_referencia',
+        required=True,
+        searchable=True,
+        widget=atapi.SelectionWidget(
+            label='Referente a consulta',
+            format='select',
+            label_msgid=_(u"label_hb_urina"),
+        ),
+        vocabulary="getAtendimentos",
+    ),
     atapi.DateTimeField(
         name="dt_exame_urina",
         required=True,
@@ -236,6 +248,26 @@ class ExameUrina(ATCTContent, HistoryAwareMixin):
         new_id = normalizer.normalize(titulo)
         self.setTitle(titulo)
         self.setId(new_id)
+
+    def getAtendimentos(self):
+        paciente = self.aq_parent
+        catalog = getToolByName(self, 'portal_catalog')
+        atendimentos = catalog(path = '/'.join(paciente.getPhysicalPath()),
+                               object_provides=IAtendimentoMedicina.__identifier__,)
+        lista= []
+        if atendimentos:
+            if len(atendimentos) == 1:
+                dt_atendimento = atendimentos[0].dt_atendimento.strftime('%d/%m/%Y')
+                lista.append('Consulta 1 - %s' %dt_atendimento)
+            else:
+                lista.append("")
+                count=1
+                for atendimento in atendimentos:
+                    dt_atendimento = atendimento.dt_atendimento.strftime('%d/%m/%Y')
+                    item = 'Consulta %s - %s' %(count, dt_atendimento)
+                    lista.append(item)
+                    count= count + 1
+        return lista
 
     def getPacienteExame(self):
         """Retorna qual o paciente está vinculado ao exame

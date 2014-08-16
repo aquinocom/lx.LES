@@ -42,7 +42,7 @@
                         <li tal:condition="context/nascimento_paciente">
                             <b>Data nascimento: </b><span tal:replace="python:here.toLocalizedTime(context.nascimento_paciente)"/>
                         </li>
-                        <li tal:condition="context/idade_paciente">
+                        <li tal:condition="context/getIdadePaciente">
                             <b>Idade: </b><span tal:replace="context/getIdadePaciente"/>
                         </li>
                         <li tal:condition="context/uf_nasc_paciente">
