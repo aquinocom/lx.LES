@@ -4945,6 +4945,11 @@ class AtendimentoMedicina(ATCTContent, HistoryAwareMixin):
                 return 'erro escore'
         return escore
 
+    def getPacienteExame(self):
+        """Retorna qual o paciente está vinculado ao exame
+        """
+        paciente = self.aq_parent
+        return paciente.UID()
 
     schema = schema
 

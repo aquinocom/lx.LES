@@ -54,11 +54,25 @@
                     </li>
                 </ul>
             </div>
-            <div id="coluna03_urina" tal:condition="context/outros_urina">
-                <b>Outros:</b>
-                <p tal:content="context/outros_urina"></p>
+            <div id="coluna03_urina">
+                <ul>
+                    <li tal:condition="context/flora_urina" class="zebrar">
+                        <b>Flora: </b><span tal:replace="context/flora_urina"/>
+                    </li>
+                    <li tal:condition="context/muco_urina">
+                        <b>Muco: </b><span tal:replace="context/muco_urina"/>
+                    </li>
+                    <li tal:condition="context/cristais_urina" class="zebrar">
+                        <b>Cristais: </b><span tal:replace="context/cristais_urina"/>
+                    </li>
+                </ul>
             </div>
             <div class="clear"></div>
+            <br /><br />
+            <tal:block tal:condition="context/outros_urina">
+                <b>Outros:</b>
+                <p tal:content="context/outros_urina"></p>
+            </tal:block>
             <tal:block tal:condition="context/exames_imagem_urina">
                 <b>Exames de imagem:</b>
                 <p tal:content="context/exames_imagem_urina"></p>

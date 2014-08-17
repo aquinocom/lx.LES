@@ -1636,8 +1636,8 @@
     <index name="flora_urina" meta_type="FieldIndex">
         <indexed_attr value="flora_urina"/>
     </index>
-    <index name="cilindros_muco" meta_type="FieldIndex">
-        <indexed_attr value="cilindros_muco"/>
+    <index name="muco_urina" meta_type="FieldIndex">
+        <indexed_attr value="muco_urina"/>
     </index>
     <index name="cristais_urina" meta_type="FieldIndex">
         <indexed_attr value="cristais_urina"/>
@@ -2201,7 +2201,7 @@
     <column value="ptns_urina"/>
     <column value="cilindros_urina"/>
     <column value="flora_urina"/>
-    <column value="cilindros_muco"/>
+    <column value="muco_urina"/>
     <column value="cristais_urina"/>
     <column value="outros_urina"/>
     <column value="exames_imagem_urina"/>

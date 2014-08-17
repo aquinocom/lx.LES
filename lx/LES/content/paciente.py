@@ -238,13 +238,11 @@ class Paciente(ATFolder, HistoryAwareMixin):
 
     def getIdadePaciente(self):
         nasc = self.nascimento_paciente
-        try:
-            nasc = datetime.date(int(nasc.year()), int(nasc.month()), int(nasc.day()))
-            idade = datetime.date.today() - nasc
-            return idade.days/365
-        except:
-            pass
+        nasc = datetime.date(int(nasc.year()), int(nasc.month()), int(nasc.day()))
+        idade = datetime.date.today() - nasc
+        return idade.days/365
 
     schema = schema
 
 atapi.registerType(Paciente, config.PROJECTNAME)
+

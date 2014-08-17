@@ -34,7 +34,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=atapi.SelectionWidget(
             label='Referente a consulta',
             format='select',
-            label_msgid=_(u"label_hb_urina"),
+            label_msgid=_(u"label_consulta_referencia"),
         ),
         vocabulary="getAtendimentos",
     ),
@@ -107,10 +107,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         searchable=True,
         widget=atapi.SelectionWidget(
             label='Hb',
-            format='select',
             label_msgid=_(u"label_hb_urina"),
+            format='select',
         ),
-        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
+        vocabulary=[('', ''), ('-', '-'), ('+', '+'), ('++', '++'), ('+++', '+++')],
     ),
     atapi.StringField(
         name='ptns_urina',
@@ -131,7 +131,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_cilindros_urina"),
             format='select',
         ),
-        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
+        vocabulary=[('', ''), ('-', '-'), ('+', '+'), ('++', '++'), ('+++', '+++')],
     ),
     atapi.StringField(
         name='flora_urina',
@@ -142,10 +142,10 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_flora_urina"),
             format='select',
         ),
-        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
+        vocabulary=[('', ''), ('-', '-'), ('+', '+'), ('++', '++'), ('+++', '+++')],
     ),
     atapi.StringField(
-        name='cilindros_muco',
+        name='muco_urina',
         #required=True,
         searchable=True,
         widget=atapi.SelectionWidget(
@@ -153,7 +153,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_muco_urina"),
             format='select',
         ),
-        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
+        vocabulary=[('', ''), ('-', '-'), ('+', '+'), ('++', '++'), ('+++', '+++')],
     ),
     atapi.StringField(
         name='cristais_urina',
@@ -164,7 +164,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_cristais_urina"),
             format='select',
         ),
-        vocabulary=[('', ''), ('negativo', '-'), ('pos', '+'), ('pos2', '++'), ('pos3', '+++')],
+        vocabulary=[('', ''), ('-', '-'), ('+', '+'), ('++', '++'), ('+++', '+++')],
     ),
     atapi.TextField(
         name='outros_urina',
