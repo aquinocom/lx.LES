@@ -103,12 +103,14 @@ sub {
 #portal-header {
     position: relative;
     z-index: 2;
-	background: url(banner.jpg)
+	background: url(logo_background.jpg) 40% 0;
+	height: 346px;
 }
 
 #portal-logo {
     display: inline-block;
     margin: 1.375em 0;
+	display: none;
 }
 /* removes extra space above logo in IE6 and IE7 */
 /* .ie6 and .ie7 is set on <html> by Modernizr library */
@@ -120,16 +122,19 @@ sub {
 #portal-globalnav {
     clear: both;
     font-size: 80%;
-    background: #ddd;
+    /*background: #ddd;*/
+	background: #E0E8E1;
     /* ensure top navigation dont touches portlets, content etc.. #10491 */
-    margin: 0 0 1em 0;
+    /*margin: 0 0 1em 0;*/
+	margin: 298px 0 1em;
 }
 #portal-globalnav li {
 }
 #portal-globalnav li a {
     display: inline-block;
     padding: 0.5em 1em 1.8em 1em;
-    background: #ddd;
+    /*background: #ddd;*/
+	background: #E0E8E1;
     min-width: 6em;
     white-space: normal;
     /*TODO: Once we have removed the whitespace from the nav template, this can be put back*/
@@ -139,12 +144,13 @@ sub {
 
 #portal-globalnav .selected a,
 #portal-globalnav a:hover {
-    background: #205c90;
+    /*background: #205c90;*/
+	background: #16536e;
     color: White;
 }
 #portal-globalnav .selected a:hover {
-    background: #ddd;
-    color: #205c90;
+    background: #16536e;
+    color: White;
 }
 
 #portal-personaltools {
@@ -531,7 +537,8 @@ dd.image-caption {
 
 #portal-footer {
     font-size: 75%;
-    background: #ddd;
+    /*background: #ddd;*/
+	background: #E0E8E1;
     padding: 1em;
     margin: 1em 0;
     line-height: 2em;

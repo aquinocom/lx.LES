@@ -231,6 +231,7 @@ class Paciente(ATFolder, HistoryAwareMixin):
         """
         """
         transaction.commit()
+        import pdb; pdb.set_trace()
         normalizer = getUtility(IIDNormalizer)
         titulo = self.identificador_paciente + '-' + self.title
         new_id = normalizer.normalize(titulo)

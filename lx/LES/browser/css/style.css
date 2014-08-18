@@ -217,7 +217,7 @@
 .template-home .box{
     padding: 0 20px 10px 20px;
     margin-bottom: 20px;
-    /*float: left;*/
+    float: left;
     width: 96%;
 }
 .template-home .box .adicionar{
@@ -235,9 +235,9 @@
 .template-home a{
     border: none !important;
 }
-/*#searchHome{
+#searchHome{
     float: left;
-}*/
+}
 #searchHome #LSResult {
     left: 0;
     margin-left: 2px;
@@ -257,4 +257,27 @@
     color: #FF0000;
     font-size: 20px;
     font-weight: bold;
+}
+#portal-columns{
+    margin-top: 20px;
+}
+.portletHeader{
+    color: #fff;
+}
+#searchHome #searchGadget{
+    width: 40em;
+}
+#coluna01_paciente,
+#coluna02_paciente,
+#coluna03_paciente,
+#informacoes-1,
+#informacoes-2,
+#informacoes-3,
+#informacoes-4,
+#informacoes-5,
+#informacoes-6,
+#informacoes-7,
+#informacoes-8,
+#medicina {
+    font-size: 10pt;
 }
