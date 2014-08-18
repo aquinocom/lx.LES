@@ -7,6 +7,7 @@ from lx.LES.content.exameurina import schema as urina_schema
 
 from StringIO import StringIO
 import logging
+from unicodedata import normalize
 
 from Products.CMFCore.utils import getToolByName
 
@@ -57,20 +58,23 @@ class BaseExportView(object):
         print >> out, '  <Style ss:ID="s62">'
         print >> out, '   <Interior ss:Color="#FFFF00" ss:Pattern="Solid"/>'
         print >> out, '  </Style>'
+        print >> out, '  <Style ss:ID="s63">'
+        print >> out, '   <Interior ss:Color="#16536E" ss:Pattern="Solid"/>'
+        print >> out, '  </Style>'        
         print >> out, ' </Styles>'
 
         #necessidade de setar nomes das abas
         print >> cad, ' <Worksheet ss:Name="DADOS CADASTRAIS e DEMOGRÁFICOS">'
-        print >> cad, '   <Table ss:ExpandedColumnCount="999" ss:ExpandedRowCount="999" x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="15">'
+        print >> cad, '   <Table>'
         hst = StringIO()
         print >> hst, ' <Worksheet ss:Name="HISTÓRICO MÉDICO">'
-        print >> hst, '   <Table ss:ExpandedColumnCount="999" ss:ExpandedRowCount="999" x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="15">'
+        print >> hst, '   <Table>'
         urina = StringIO()
         print >> urina, ' <Worksheet ss:Name="URINA">'
-        print >> urina, '   <Table ss:ExpandedColumnCount="999" ss:ExpandedRowCount="999" x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="15">'
+        print >> urina, '   <Table>'
         sangue = StringIO()
         print >> sangue, ' <Worksheet ss:Name="SANGUE">'
-        print >> sangue, '   <Table ss:ExpandedColumnCount="999" ss:ExpandedRowCount="999" x:FullColumns="1" x:FullRows="1" ss:DefaultRowHeight="15">'
+        print >> sangue, '   <Table>'
 
         #lista pacientes
         pacientes = catalog(object_provides=IPaciente.__identifier__,)
@@ -91,6 +95,7 @@ class BaseExportView(object):
             print >> cad, '<Cell ss:StyleID="s62"><Data ss:Type="String">DATA</Data></Cell>'
             for campo in campos_paciente:
                 label_campo = paciente_schema[campo].widget.label
+                label_campo = normalize('NFKD', label_campo.decode('utf-8')).encode('ASCII','ignore')
                 print >> cad, '<Cell ss:StyleID="s62"><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %label_campo.upper()
             print >> cad, '</Row>'
             #percorre pacientes
@@ -123,7 +128,10 @@ class BaseExportView(object):
                         topo = campos_atendimento * len(atendimentos)
                         for item in topo:
                             label_campo = atendimento_schema[item].widget.label
+                            label_campo = normalize('NFKD', label_campo.decode('utf-8')).encode('ASCII','ignore')
                             print >> hst, '<Cell ss:StyleID="s62"><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %label_campo.upper()
+                            if item == 'conduta':
+                                print >> hst, '<Cell ss:StyleID="s63"><Data ss:Type="String"></Data></Cell>'
                         print >> hst, '</Row>'
                     #insere valores do atendimento
                     print >> hst, '<Row>'
@@ -137,6 +145,7 @@ class BaseExportView(object):
                                 print >> hst, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %data
                             else:
                                 print >> hst, '<Cell><Data ss:Type="String"></Data></Cell>'
+                        print >> hst, '<Cell ss:StyleID="s63"><Data ss:Type="String"></Data></Cell>'
                     print >> hst, '</Row>'
                 #ABA URINA
                 #lista exames urina
@@ -157,7 +166,10 @@ class BaseExportView(object):
                         topo = campos_urina * len(exames_urina)
                         for item in topo:
                             label_campo = urina_schema[item].widget.label
+                            label_campo = normalize('NFKD', label_campo.decode('utf-8')).encode('ASCII','ignore')
                             print >> urina, '<Cell ss:StyleID="s62"><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %label_campo.upper()
+                            if item == 'outros_exames_urina':
+                                print >> urina, '<Cell ss:StyleID="s63"><Data ss:Type="String"></Data></Cell>'
                         print >> urina, '</Row>'
                     #insere valores do exame
                     print >> urina, '<Row>'
@@ -171,6 +183,7 @@ class BaseExportView(object):
                                 print >> urina, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %data
                             else:
                                 print >> urina, '<Cell><Data ss:Type="String"></Data></Cell>'
+                        print >> urina, '<Cell ss:StyleID="s63"><Data ss:Type="String"></Data></Cell>'
                     print >> urina, '</Row>'
                 #ABA SANGUE
                 #lista exames sangue
@@ -191,7 +204,10 @@ class BaseExportView(object):
                         topo = campos_sangue * len(exames_sangue)
                         for item in topo:
                             label_campo = sangue_schema[item].widget.label
+                            label_campo = normalize('NFKD', label_campo.decode('utf-8')).encode('ASCII','ignore')
                             print >> sangue, '<Cell ss:StyleID="s62"><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %label_campo.upper()
+                            if item == 'sangue_tsh':
+                                print >> sangue, '<Cell ss:StyleID="s63"><Data ss:Type="String"></Data></Cell>'                            
                         print >> sangue, '</Row>'
                     #insere valores do exame
                     print >> sangue, '<Row>'
@@ -205,6 +221,7 @@ class BaseExportView(object):
                                 print >> sangue, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %data
                             else:
                                 print >> sangue, '<Cell><Data ss:Type="String"></Data></Cell>'
+                        print >> sangue, '<Cell ss:StyleID="s63"><Data ss:Type="String"></Data></Cell>'                            
                     print >> sangue, '</Row>'
 
         #fechamento das abas
