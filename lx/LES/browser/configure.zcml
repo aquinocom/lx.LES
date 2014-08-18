@@ -180,6 +180,14 @@
         layer="lx.LES.browser.layers.ILXDefaultLayer"
         />
 
+    <browser:viewlet
+        name="rodape"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        class=".viewlets.RodapeViewlet"
+        permission="zope2.View"
+        layer="lx.LES.browser.layers.ILXDefaultLayer"
+        />
+
     <browser:page
         for="*"
         name="base_export"

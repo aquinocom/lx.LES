@@ -123,7 +123,7 @@ sub {
     clear: both;
     font-size: 80%;
     /*background: #ddd;*/
-	background: #E0E8E1;
+	background: #16536e;
     /* ensure top navigation dont touches portlets, content etc.. #10491 */
     /*margin: 0 0 1em 0;*/
 	margin: 298px 0 1em;
@@ -134,7 +134,7 @@ sub {
     display: inline-block;
     padding: 0.5em 1em 1.8em 1em;
     /*background: #ddd;*/
-	background: #E0E8E1;
+	background: #16536e;
     min-width: 6em;
     white-space: normal;
     /*TODO: Once we have removed the whitespace from the nav template, this can be put back*/
@@ -142,11 +142,15 @@ sub {
     border-right: 0.1em solid white;
 }
 
+#portal-globalnav a:link, #portal-globalnav a:visited {
+    color: #fff;
+}
+
 #portal-globalnav .selected a,
 #portal-globalnav a:hover {
     /*background: #205c90;*/
-	background: #16536e;
-    color: White;
+	background: #e0e8e1;
+    color: #16536e;
 }
 #portal-globalnav .selected a:hover {
     background: #16536e;
@@ -536,14 +540,15 @@ dd.image-caption {
 /* @group Footer */
 
 #portal-footer {
-    font-size: 75%;
+    /*font-size: 75%;*/
     /*background: #ddd;*/
 	background: #E0E8E1;
+	border-top: 15px solid #16536e;
     padding: 1em;
     margin: 1em 0;
-    line-height: 2em;
+    line-height: 1em;
+	text-align: center;
 }
-
 #portal-colophon {
     font-size: 70%;
     text-align: center;

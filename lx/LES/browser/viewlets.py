@@ -24,3 +24,9 @@ class SearchBoxViewlet(ViewletBase):
 
         folder = context_state.folder()
         self.folder_path = '/'.join(folder.getPhysicalPath())
+
+
+class RodapeViewlet(ViewletBase):
+    """Viewlet que monta o rodape
+    """
+    render = ViewPageTemplateFile('templates/rodape.pt')
