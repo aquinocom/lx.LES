@@ -86,7 +86,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label="Nível de formação",
             label_msgid=_(u"label_formação"),
         ),
-        vocabulary=['', 'Ensino Fundamental', 'Ensino Médio',
+        vocabulary=['', 'Analfabeto', 'Ensino Fundamental', 'Ensino Médio',
                     'Profissionalizante', 'Graduação',
                     'Especialização', 'Mestrado', 'Doutorado']
     ),
