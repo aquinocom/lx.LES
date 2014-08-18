@@ -230,17 +230,21 @@ class Paciente(ATFolder, HistoryAwareMixin):
     def _renameAfterCreation(self, check_auto_id=False):
         """
         """
-        transaction.commit()
         normalizer = getUtility(IIDNormalizer)
         titulo = self.identificador_paciente + '-' + self.title
         new_id = normalizer.normalize(titulo)
+        #comitar a subtransacao
+        transaction.savepoint(optimistic=True)
         self.setId(new_id)
 
     def getIdadePaciente(self):
-        nasc = self.nascimento_paciente
-        nasc = datetime.date(int(nasc.year()), int(nasc.month()), int(nasc.day()))
-        idade = datetime.date.today() - nasc
-        return idade.days/365
+        try:
+            nasc = self.nascimento_paciente
+            nasc = datetime.date(int(nasc.year()), int(nasc.month()), int(nasc.day()))
+            idade = datetime.date.today() - nasc
+            return idade.days/365
+        except:
+            pass
 
     schema = schema
 
