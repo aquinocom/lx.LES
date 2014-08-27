@@ -95,7 +95,6 @@
                         tal:define="portal_type portal_type|string:unknowntype">
                         <form name="edit_form"
                             method="post"
-                            enctype="multipart/form-data"
                             class="enableUnloadProtection enableAutoFocus atBaseEditForm"
                             action=""
                             id=""
@@ -105,8 +104,8 @@
                             <metal:block define-slot="extra_top" />
                             <h1>Mapa de acompanhamento laboratorial - Sangue</h1>
                             <tal:block tal:define="fields python:schematas[fieldset].editableFields(here, visible_only=True)">
+                                <metal:fieldMacro use-macro="python:here.widget(fields[0].getName(), mode='edit')" />
                                 <metal:fieldMacro use-macro="python:here.widget(fields[1].getName(), mode='edit')" />
-                                <metal:fieldMacro use-macro="python:here.widget(fields[2].getName(), mode='edit')" />
                             </tal:block>
                             <div id="abas" tal:define="abas python: context.getAbaErro(errors);">
                                 <ul>
@@ -155,7 +154,7 @@
                                         <div id="subinformacoes-1">
                                             <!--Eritograma-->
                                             <tal:block tal:define="fields python:schematas['default'].editableFields(here, visible_only=True);
-                                                                fields python:fields[3:10];">
+                                                                fields python:fields[2:9];">
                                                 <tal:fields repeat="field fields">
                                                     <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
                                                 </tal:fields>
@@ -165,7 +164,7 @@
                                             <!--Leucograma-->
                                             <div class="column"
                                                 tal:define="fields python:schematas['default'].editableFields(here, visible_only=True);
-                                                            fields python:fields[10:24];
+                                                            fields python:fields[9:23];
                                                             fieldsLists python:here.createMultiColumnList(fields, numCols=3, sort_on='self');"
                                                 tal:repeat="sublist fieldsLists">
                                                 <ul>
@@ -180,7 +179,7 @@
                                         <div id="subinformacoes-3">
                                             <!--Coagulograma-->
                                             <tal:block tal:define="fields python:schematas['default'].editableFields(here, visible_only=True);
-                                                                fields python:fields[24:30];">
+                                                                fields python:fields[23:29];">
                                                 <tal:fields repeat="field fields">
                                                     <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
                                                 </tal:fields>
@@ -189,7 +188,7 @@
                                         <div id="subinformacoes-4">
                                             <!--Fibrinogênio / VHS-->
                                             <tal:block tal:define="fields python:schematas['default'].editableFields(here, visible_only=True);
-                                                                fields python:fields[30:];">
+                                                                fields python:fields[29:];">
                                                 <tal:fields repeat="field fields">
                                                     <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
                                                 </tal:fields>

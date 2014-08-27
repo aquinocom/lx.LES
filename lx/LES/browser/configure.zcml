@@ -36,6 +36,10 @@
         file="js/consultacep.js" />  
    
     <browser:resource
+        name="validacpf.js"
+        file="js/validacpf.js" />  
+   
+    <browser:resource
         name="sangue.js"
         file="js/sangue.js" />
 
@@ -195,12 +199,12 @@
         permission="zope2.View"
         />       
    
-    <!--<browser:page
+    <browser:page
         name="editpaciente"
         for="lx.LES.interfaces.contents.IPaciente"
         class=".editpaciente.EditPacienteView"
         layer="lx.LES.browser.layers.ILXDefaultLayer"
         permission="cmf.AddPortalContent"
-    />-->
+    />
 
 </configure>

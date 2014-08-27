@@ -4,6 +4,15 @@
     <index name="identificador_paciente" meta_type="FieldIndex">
         <indexed_attr value="identificador_paciente"/>
     </index>
+    <index name="prontuario_paciente" meta_type="FieldIndex">
+        <indexed_attr value="prontuario_paciente"/>
+    </index>
+    <index name="rg_paciente" meta_type="FieldIndex">
+        <indexed_attr value="rg_paciente"/>
+    </index>
+    <index name="cpf_paciente" meta_type="FieldIndex">
+        <indexed_attr value="cpf_paciente"/>
+    </index>     
     <index name="nascimento_paciente" meta_type="DateIndex">
         <indexed_attr value="nascimento_paciente"/>
     </index>
@@ -1654,6 +1663,9 @@
     <!--fim exame urina -->
     <!--paciente-->
     <column value="identificador_paciente"/>
+    <column value="prontuario_paciente"/>    
+    <column value="rg_paciente"/>    
+    <column value="cpf_paciente"/>
     <column value="nascimento_paciente"/>
     <column value="uf_nasc_paciente"/>
     <column value="sexo_paciente"/>

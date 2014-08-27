@@ -35,6 +35,38 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             helper_js=('++resource++paciente.js', '++resource++jquery.maskedinput.js'),
         ),
     ),
+
+    atapi.StringField(
+        name="prontuario_paciente",
+        required=True,
+        searchable=True,
+        widget=atapi.StringWidget(
+            label="Prontuário",
+            label_msgid=_(u"label_prontuario"),
+        ),
+    ),
+    
+    atapi.StringField(
+        name="rg_paciente",
+        required=True,
+        searchable=True,
+        widget=atapi.StringWidget(
+            label="RG",
+            label_msgid=_(u"label_rg"),
+        ),
+    ),
+    
+    atapi.StringField(
+        name="cpf_paciente",
+        required=True,
+        searchable=True,
+        widget=atapi.StringWidget(
+            label="CPF",
+            label_msgid=_(u"label_rg"),
+            helper_js=('++resource++paciente.js', '++resource++jquery.maskedinput.js', '++resource++validacpf.js'),
+        ),
+    ),      
+    
     atapi.DateTimeField(
         name="nascimento_paciente",
         required=True,
@@ -43,7 +75,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label="Data nascimento",
             label_msgid=_(u"label_nascimento"),
             starting_year=1900,
-            format='%d.%m.%Y',
+            format='%d-%m-%Y',
             show_hm=False,
         ),
     ),
@@ -86,7 +118,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label="Nível de formação",
             label_msgid=_(u"label_formação"),
         ),
-        vocabulary=['', 'Analfabeto', 'Ensino Fundamental', 'Ensino Médio',
+        vocabulary=['', 'Não informado', 'Analfabeto', 'Ensino Fundamental', 'Ensino Médio',
                     'Profissionalizante', 'Graduação',
                     'Especialização', 'Mestrado', 'Doutorado']
     ),

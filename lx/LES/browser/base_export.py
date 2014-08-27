@@ -106,7 +106,7 @@ class BaseExportView(object):
                 print >> cad, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %(paciente.Title)
                 for campo in campos_paciente:
                     if campo != 'nascimento_paciente':
-                        print >> cad, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %getattr(paciente, campo)
+                        print >> cad, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %getattr(paciente, campo, '')
                     else:
                         print >> cad, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %getattr(paciente, campo).strftime('%d-%m-%Y')
                 print >> cad, '</Row>'
@@ -139,7 +139,7 @@ class BaseExportView(object):
                     for atendimento in atendimentos:
                         for campo in campos_atendimento:
                             if atendimento_schema[campo].type != 'datetime':
-                                print >> hst, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %getattr(atendimento, campo)
+                                print >> hst, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %getattr(atendimento, campo, '')
                             elif atendimento_schema[campo].type == 'datetime' and getattr(atendimento, campo) is not None:
                                 data = getattr(atendimento, campo).strftime('%d-%m-%Y')
                                 print >> hst, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %data

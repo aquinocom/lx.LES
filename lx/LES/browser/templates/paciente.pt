@@ -39,6 +39,15 @@
                         <li tal:condition="context/identificador_paciente">
                             <b>Identificador: </b><span tal:replace="context/identificador_paciente"/>
                         </li>
+                        <li tal:condition="context/identificador_paciente">
+                            <b>Prontuário: </b><span tal:replace="context/prontuario_paciente"/>
+                        </li>
+                        <li tal:condition="context/identificador_paciente">
+                            <b>RG: </b><span tal:replace="context/rg_paciente"/>
+                        </li>
+                        <li tal:condition="context/identificador_paciente">
+                            <b>CPF: </b><span tal:replace="context/cpf_paciente"/>
+                        </li>                        
                         <li tal:condition="context/nascimento_paciente">
                             <b>Data nascimento: </b><span tal:replace="python:here.toLocalizedTime(context.nascimento_paciente)"/>
                         </li>
