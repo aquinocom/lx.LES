@@ -207,6 +207,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     ),
 ),)
 
+schema['id'].widget.visible['edit'] = 'invisible'
 schema['title'].widget.visible['edit'] = 'invisible'
 schema['description'].widget.visible['edit'] = 'invisible'
 schema['allowDiscussion'].widget.visible['edit'] = 'invisible'

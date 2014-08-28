@@ -22,6 +22,10 @@ class EditPacienteView(BrowserView):
     def editpaciente(self):
         if 'form.action.Save' in self.request.form:
             nome = self.request.get('title', None)
+            
+            prontuario = self.request.get('prontuario_paciente', None)
+            rg = self.request.get('rg_paciente', None)
+            cpf = self.request.get('cpf_paciente', None)
             ocupacao = self.request.get('ocupacao_paciente', None)
             ano_nascimento = self.request.get('nascimento_paciente_year', None)
             mes_nascimento = self.request.get('nascimento_paciente_month', None)
@@ -43,16 +47,16 @@ class EditPacienteView(BrowserView):
             nome_parente = self.request.get('nome_parente_paciente', None)
             fone_parente = self.request.get('fone_parente_paciente', None)
             
-            if self.validatePaciente(nome, ocupacao, ano_nascimento, mes_nascimento, \
+            if self.validatePaciente(nome, prontuario, rg, cpf, ocupacao, ano_nascimento, mes_nascimento, \
                                      dia_nascimento, formacao, raca, cep, logradouro, complemento, \
                                      bairro, cidade, fone, celular, nome_parente, fone_parente):
-                return self.savePaciente(nome, ocupacao, ano_nascimento, mes_nascimento, \
+                return self.savePaciente(nome, prontuario, rg, cpf, ocupacao, ano_nascimento, mes_nascimento, \
                                         dia_nascimento, uf_nascimento, formacao, raca, cep, logradouro, complemento, \
                                         bairro, cidade, fone, celular, nome_parente, fone_parente, uf)
         if 'form.action.Cancel' in self.request.form:
             self.request.RESPONSE.redirect(self.context.absolute_url())
 
-    def validatePaciente(self, nome, ocupacao, ano_nascimento, mes_nascimento, \
+    def validatePaciente(self, nome, prontuario, rg, cpf, ocupacao, ano_nascimento, mes_nascimento, \
                         dia_nascimento, formacao, raca, cep, logradouro, complemento, \
                         bairro, cidade, fone, celular, nome_parente, fone_parente):
         """Validação
@@ -62,6 +66,12 @@ class EditPacienteView(BrowserView):
         #import pdb; pdb.set_trace()
         if nome == '':
             self.errors['title'] = "O campo é obrigatório."
+        if prontuario == '':
+            self.errors['prontuario_paciente'] = "O campo é obrigatório."
+        if rg == '':
+            self.errors['rg_paciente'] = "O campo é obrigatório."
+        if cpf == '':
+            self.errors['cpf_paciente'] = "O campo é obrigatório."                        
         if ocupacao == '':
             self.errors['ocupacao_paciente'] = "O campo é obrigatório."
         if (ano_nascimento == '0000') or (mes_nascimento == '00') or (dia_nascimento == '00'):
@@ -95,7 +105,7 @@ class EditPacienteView(BrowserView):
         else:
             return True
 
-    def savePaciente(self, nome, ocupacao, ano_nascimento, mes_nascimento, \
+    def savePaciente(self, nome, prontuario, rg, cpf, ocupacao, ano_nascimento, mes_nascimento, \
                     dia_nascimento, uf_nascimento, formacao, raca, cep, logradouro, complemento, \
                     bairro, cidade, fone, celular, nome_parente, fone_parente, uf):
         """ Alteração dos dados do paciente
@@ -105,8 +115,11 @@ class EditPacienteView(BrowserView):
             utils = getToolByName(context, 'plone_utils')
             paciente = self.context
             paciente.setTitle(nome)
+            paciente.setProntuario_paciente(prontuario)
+            paciente.setRg_paciente(rg)
+            paciente.setCpf_paciente(cpf)
             paciente.setOcupacao_paciente(ocupacao)
-            dt_nascimento = datetime(ano_nascimento, mes_nascimento, dia_nascimento)
+            dt_nascimento = datetime(int(ano_nascimento), int(mes_nascimento), int(dia_nascimento))
             paciente.setNascimento_paciente(dt_nascimento)
             paciente.setUf_nasc_paciente(uf_nascimento)
             paciente.setFormacao_paciente(formacao)

@@ -230,6 +230,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
 ),)
 
+schema['id'].widget.visible['edit'] = 'invisible'
 schema['title'].widget.label = _(u"Nome")
 schema['description'].widget.visible['edit'] = 'invisible'
 schema['allowDiscussion'].widget.visible['edit'] = 'invisible'

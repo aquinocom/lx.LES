@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from AccessControl import getSecurityManager
 from lx.LES.interfaces.contents import IPaciente, IAtendimentoMedicina, IExameSangue, IExameUrina
 from lx.LES.content.paciente import schema as paciente_schema
 from lx.LES.content.atendimento_medicina import schema as atendimento_schema
@@ -102,8 +103,8 @@ class BaseExportView(object):
             for paciente in pacientes:
                 #insere valores do paciente
                 print >> cad, '<Row>'
-                print >> cad, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %paciente.modified.strftime('%d-%m-%Y %H:%M')
                 print >> cad, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %(paciente.Title)
+                print >> cad, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %paciente.modified.strftime('%d-%m-%Y %H:%M')
                 for campo in campos_paciente:
                     if campo != 'nascimento_paciente':
                         print >> cad, '<Cell><Data ss:Type="String"><![CDATA[%s]]></Data></Cell>' %getattr(paciente, campo, '')
@@ -277,12 +278,18 @@ class BaseExportView(object):
         print >> sangue, '  </WorksheetOptions>'
         print >> sangue, ' </Worksheet>'
 
-        #junta dados das abas cad, hst, urina e sangue
-        print >> out, cad.getvalue()
-        print >> out, hst.getvalue()
-        print >> out, urina.getvalue()
-        print >> out, sangue.getvalue()
-
+        permissoes = getSecurityManager().getUser().getRoles()
+        if 'Manager' in permissoes or 'Site Administrator' in permissoes:
+            #junta dados das abas cad, hst, urina e sangue
+            print >> out, cad.getvalue()
+            print >> out, hst.getvalue()
+            print >> out, urina.getvalue()
+            print >> out, sangue.getvalue()
+        else:
+            print >> out, '<Row>'
+            print >> out, '<Cell><Data ss:Type="String">ACESSO RESTRITO</Data></Cell>'
+            print >> out, '</Row>'
+            
         #finaliza xml
         print >> out, '</Workbook>'
         REQUEST = contexto.REQUEST
