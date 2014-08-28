@@ -22,7 +22,6 @@ class EditPacienteView(BrowserView):
     def editpaciente(self):
         if 'form.action.Save' in self.request.form:
             nome = self.request.get('title', None)
-            
             prontuario = self.request.get('prontuario_paciente', None)
             rg = self.request.get('rg_paciente', None)
             cpf = self.request.get('cpf_paciente', None)
@@ -63,7 +62,6 @@ class EditPacienteView(BrowserView):
         """
         context = aq_inner(self.context)
         utils = getToolByName(context, 'plone_utils')
-        #import pdb; pdb.set_trace()
         if nome == '':
             self.errors['title'] = "O campo é obrigatório."
         if prontuario == '':

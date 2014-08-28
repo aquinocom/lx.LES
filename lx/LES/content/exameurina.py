@@ -238,6 +238,7 @@ class ExameUrina(ATCTContent, HistoryAwareMixin):
     portal_type = 'ExameUrina'
 
     _at_rename_after_creation = True
+    schema = schema
 
     def _renameAfterCreation(self, check_auto_id=False):
         """
@@ -275,7 +276,5 @@ class ExameUrina(ATCTContent, HistoryAwareMixin):
         """
         paciente = self.aq_parent
         return paciente.UID()
-
-    schema = schema
 
 atapi.registerType(ExameUrina, config.PROJECTNAME)

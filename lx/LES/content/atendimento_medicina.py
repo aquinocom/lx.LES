@@ -4900,6 +4900,7 @@ class AtendimentoMedicina(ATCTContent, HistoryAwareMixin):
     portal_type = 'AtendimentoMedicina'
 
     _at_rename_after_creation = True
+    schema = schema
 
     def _renameAfterCreation(self, check_auto_id=False):
         """
@@ -4950,7 +4951,5 @@ class AtendimentoMedicina(ATCTContent, HistoryAwareMixin):
         """
         paciente = self.aq_parent
         return paciente.UID()
-
-    schema = schema
 
 atapi.registerType(AtendimentoMedicina, config.PROJECTNAME)

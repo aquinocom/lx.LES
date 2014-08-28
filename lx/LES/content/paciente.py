@@ -259,6 +259,7 @@ class Paciente(ATFolder, HistoryAwareMixin):
     portal_type = 'Paciente'
 
     _at_rename_after_creation = True
+    schema = schema
 
     def _renameAfterCreation(self, check_auto_id=False):
         """
@@ -278,8 +279,6 @@ class Paciente(ATFolder, HistoryAwareMixin):
             return idade.days/365
         except:
             pass
-
-    schema = schema
-
+   
 atapi.registerType(Paciente, config.PROJECTNAME)
 
