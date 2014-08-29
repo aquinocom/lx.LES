@@ -26,12 +26,21 @@ from lx.LES import config
 # Schema definition
 schema = ATFolder.schema.copy() + atapi.Schema((
     atapi.StringField(
+        name="title",
+        required=True,
+        searchable=True,
+        widget=atapi.StringWidget(
+            label="Nome",
+            label_msgid=_(u"label_nome"),
+        ),
+    ),    
+    atapi.StringField(
         name="identificador_paciente",
         required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Identificador",
-            label_msgid=_(u"label_nome"),
+            label_msgid=_(u"label_identificador"),
             helper_js=('++resource++paciente.js', '++resource++jquery.maskedinput.js'),
         ),
     ),
@@ -231,7 +240,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
 ),)
 
 schema['id'].widget.visible['edit'] = 'invisible'
-schema['title'].widget.label = _(u"Nome")
 schema['description'].widget.visible['edit'] = 'invisible'
 schema['allowDiscussion'].widget.visible['edit'] = 'invisible'
 schema['excludeFromNav'].widget.visible['edit'] = 'invisible'
