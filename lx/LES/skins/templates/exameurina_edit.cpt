@@ -112,6 +112,8 @@
                                             <tal:block tal:define="campos python:schematas[fieldset].editableFields(here, visible_only=True)">
                                                 <metal:fieldMacro use-macro="python:here.widget(campos[0].getName(), mode='edit')" />
                                                 <metal:fieldMacro use-macro="python:here.widget(campos[1].getName(), mode='edit')" />
+                                                <h5>Favor preencher com todas as casas decimais dos campos, caso contrário, o sistema irá recusar a informação.</h5>
+                                                <br />
                                                 <div id="coluna01_urina">
                                                     <ul>
                                                         <tal:fields repeat="padrao python:campos[2:6]"

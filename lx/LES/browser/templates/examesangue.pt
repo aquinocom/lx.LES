@@ -62,7 +62,7 @@
                         <ul>
                             <li>
                                 <a href="#subinformacoes-1">
-                                    Eritograma
+                                    Eritrograma
                                 </a>
                             </li>
                             <li>
@@ -73,11 +73,6 @@
                             <li>
                                 <a href="#subinformacoes-3">
                                     Coagulograma
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#subinformacoes-4">
-                                    Fibrinogênio / VHS
                                 </a>
                             </li>
                         </ul>
@@ -97,7 +92,7 @@
                         <div id="subinformacoes-2">
                             <!--Leucograma-->
                             <div class="column"
-                                tal:define="fields python:fields[9:23];
+                                tal:define="fields python:fields[9:19];
                                             fieldsLists python:here.createMultiColumnList(fields, numCols=3, sort_on='self');"
                                 tal:repeat="sublist fieldsLists">
                                 <ul>
@@ -112,20 +107,7 @@
                         </div>
                         <div id="subinformacoes-3">
                             <!--Coagulograma-->
-                            <tal:block tal:define="fields python:fields[23:29];">
-                                <ul>    
-                                    <tal:fields repeat="field fields">
-                                        <li>
-                                            <label tal:content="python:field.widget.label"></label>:
-                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
-                                        </li>
-                                    </tal:fields>
-                                </ul>
-                            </tal:block>
-                        </div>
-                        <div id="subinformacoes-4">
-                            <!--Fibrinogênio / VHS-->
-                            <tal:block tal:define="fields python:fields[29:];">
+                            <tal:block tal:define="fields python:fields[19:];">
                                 <ul>    
                                     <tal:fields repeat="field fields">
                                         <li>
@@ -166,11 +148,6 @@
                             <li>
                                 <a href="#subinformacoes-5">
                                     Curva Glicêmica e Insulinêmica
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#subinformacoes-6">
-                                    Hemoglobina Glicosilada (HbA1c)
                                 </a>
                             </li>
                         </ul>
@@ -233,8 +210,8 @@
                             <!--Curva Glicêmica e Insulinêmica-->
                             <div class="column">
                                 <fieldset>
-                                    <legend>INSULINA</legend>
-                                    <tal:block tal:define="fields python:fields[37:41];">
+                                    <legend>GLICOSE</legend>
+                                    <tal:block tal:define="fields python:fields[37:43];">
                                         <ul>    
                                             <tal:fields repeat="field fields">
                                                 <li>
@@ -247,42 +224,17 @@
                                 </fieldset>
                             </div>
                             <div class="column">
-                                <fieldset>
-                                    <legend>GLICOSE</legend>
-                                    <tal:block tal:define="fields python:fields[41:45];">
-                                        <ul>    
-                                            <tal:fields repeat="field fields">
-                                                <li>
-                                                    <label tal:content="python:field.widget.label"></label>:
-                                                    <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
-                                                </li>
-                                            </tal:fields>
-                                        </ul>
-                                    </tal:block>
-                                </fieldset>
-                            </div>
-                            <fieldset>
-                                <legend>DEXTROSOL</legend>
-                                <tal:block tal:define="fields python:fields[45:46];">
-                                    <tal:fields repeat="field fields">
-                                        <label tal:content="python:field.widget.label"></label>:
-                                        <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
-                                    </tal:fields>
+                                <tal:block tal:define="fields python:fields[43:];">
+                                    <ul>    
+                                        <tal:fields repeat="field fields">
+                                            <li>
+                                                <label tal:content="python:field.widget.label"></label>:
+                                                <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
+                                            </li>
+                                        </tal:fields>
+                                    </ul>
                                 </tal:block>
-                            </fieldset>
-                        </div>
-                        <div id="subinformacoes-6">
-                            <!--Hemoglobina Glicosilada (HbA1c)-->
-                            <tal:block tal:define="fields python:fields[46:53];">
-                                <ul>    
-                                    <tal:fields repeat="field fields">
-                                        <li>
-                                            <label tal:content="python:field.widget.label"></label>:
-                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='view')" />
-                                        </li>
-                                    </tal:fields>
-                                </ul>
-                            </tal:block>
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -305,7 +257,7 @@
                         <div id="subinformacoes-1">
                             <!--Padrão-->
                             <div class="column"
-                                tal:define="fields python:fields[0:22];
+                                tal:define="fields python:fields[0:23];
                                             fieldsLists python:here.createMultiColumnList(fields, numCols=3, sort_on='self');"
                                 tal:repeat="sublist fieldsLists">
                                 <tal:last tal:define="columnIndex repeat/sublist/index">
@@ -322,7 +274,7 @@
                         </div>
                         <div id="subinformacoes-2">
                             <!--Fator anti-nuclear (HEP2)-->
-                            <tal:block tal:define="fields python:fields[22:27];">
+                            <tal:block tal:define="fields python:fields[23:];">
                                 <ul>    
                                     <tal:fields repeat="field fields">
                                         <li>

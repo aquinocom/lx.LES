@@ -1355,9 +1355,6 @@
     <index name="sangue_tempo_tromboplastina_parcial" meta_type="FieldIndex">
         <indexed_attr value="sangue_tempo_tromboplastina_parcial"/>
     </index>
-    <index name="sangue_fibrinogenio" meta_type="FieldIndex">
-        <indexed_attr value="sangue_fibrinogenio"/>
-    </index>
     <index name="sangue_vhs_hemossedimentação" meta_type="FieldIndex">
         <indexed_attr value="sangue_vhs_hemossedimentação"/>
     </index>
@@ -1418,6 +1415,12 @@
     <index name="sangue_vitamina_b12" meta_type="FieldIndex">
         <indexed_attr value="sangue_vitamina_b12"/>
     </index>
+    <index name="sangue_vitamina_e" meta_type="FieldIndex">
+        <indexed_attr value="sangue_vitamina_e"/>
+    </index>
+    <index name="sangue_acido_folico" meta_type="FieldIndex">
+        <indexed_attr value="sangue_acido_folico"/>
+    </index>    
     <index name="sangue_cobre" meta_type="FieldIndex">
         <indexed_attr value="sangue_cobre"/>
     </index>
@@ -1472,18 +1475,6 @@
     <index name="sangue_bilirrubina_indireta" meta_type="FieldIndex">
         <indexed_attr value="sangue_bilirrubina_indireta"/>
     </index>
-    <index name="sangue_insulina_basal" meta_type="FieldIndex">
-        <indexed_attr value="sangue_insulina_basal"/>
-    </index>
-    <index name="sangue_insulina_30min" meta_type="FieldIndex">
-        <indexed_attr value="sangue_insulina_30min"/>
-    </index>
-    <index name="sangue_insulina_60min" meta_type="FieldIndex">
-        <indexed_attr value="sangue_insulina_60min"/>
-    </index>
-    <index name="sangue_insulina_120min" meta_type="FieldIndex">
-        <indexed_attr value="sangue_insulina_120min"/>
-    </index>
     <index name="sangue_glicose_basal" meta_type="FieldIndex">
         <indexed_attr value="sangue_glicose_basal"/>
     </index>
@@ -1495,9 +1486,6 @@
     </index>
     <index name="sangue_glicose_120min" meta_type="FieldIndex">
         <indexed_attr value="sangue_glicose_120min"/>
-    </index>
-    <index name="sangue_dosagem_dextrosol" meta_type="FieldIndex">
-        <indexed_attr value="sangue_dosagem_dextrosol"/>
     </index>
     <index name="sangue_hba1c" meta_type="FieldIndex">
         <indexed_attr value="sangue_hba1c"/>
@@ -2115,7 +2103,6 @@
     <column value="sangue_inr"/>
     <column value="sangue_isi"/>
     <column value="sangue_tempo_tromboplastina_parcial"/>
-    <column value="sangue_fibrinogenio"/>
     <column value="sangue_vhs_hemossedimentação"/>
     <column value="sangue_ureia"/>
     <column value="sangue_creatinina"/>
@@ -2136,6 +2123,8 @@
     <column value="sangue_caroteno"/>
     <column value="sangue_vitamina_a"/>
     <column value="sangue_vitamina_b12"/>
+    <column value="sangue_vitamina_e"/>
+    <column value="sangue_acido_folico"/>
     <column value="sangue_cobre"/>
     <column value="sangue_tgo_ast"/>
     <column value="sangue_tgp_alt"/>
@@ -2154,15 +2143,10 @@
     <column value="sangue_bilirrubina_total"/>
     <column value="sangue_bilirrubina_direta"/>
     <column value="sangue_bilirrubina_indireta"/>
-    <column value="sangue_insulina_basal"/>
-    <column value="sangue_insulina_30min"/>
-    <column value="sangue_insulina_60min"/>
-    <column value="sangue_insulina_120min"/>
     <column value="sangue_glicose_basal"/>
     <column value="sangue_glicose_30min"/>
     <column value="sangue_glicose_60min"/>
     <column value="sangue_glicose_120min"/>
-    <column value="sangue_dosagem_dextrosol"/>
     <column value="sangue_hba1c"/>
     <column value="sangue_hba1c_labil"/>
     <column value="sangue_hba1a"/>

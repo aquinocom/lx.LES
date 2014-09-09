@@ -149,7 +149,7 @@
                                     <li>
                                         <a href="#informacoes-8"
                                         tal:attributes="class python:test('escores' in abas, 'abaRequired')">
-                                            Escores finais
+                                            Peso/altura/circ. abdom
                                         </a>
                                     </li>
                                 </ul>
@@ -505,13 +505,13 @@
                                             <!--schemata sledai_2k-->
                                             <tal:all tal:define="fields python:schematas['sledai_2k'].editableFields(here, visible_only=True);">
                                                 <div style="float:left; margin: 1em; width: 30%"
-                                                    tal:define="lista python: fields[:17];">
+                                                    tal:define="lista python: fields[:16];">
                                                     <tal:items repeat="item lista">
                                                         <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
                                                     </tal:items>
                                                 </div>
                                                 <div style="float:left; margin: 1em; width: 30%"
-                                                    tal:define="lista python: fields[17:32];">
+                                                    tal:define="lista python: fields[16:32];">
                                                     <tal:items repeat="item lista">
                                                         <metal:fieldMacro use-macro="python:here.widget(item.getName(), mode='edit')" />
                                                     </tal:items>

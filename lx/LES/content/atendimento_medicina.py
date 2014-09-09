@@ -38,7 +38,6 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label="Data do atendimento",
             label_msgid=_(u"label_dt_atendimento"),
             starting_year=1900,
-            format='%d.%m.%Y',
             show_hm=False,
         ),
     ),
@@ -47,6 +46,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         searchable=True,
         widget=atapi.CalendarWidget(
             label=_(u"Início sintomas"),
+            starting_year=1900,
             show_hm=False,
         ),
     ),
@@ -78,7 +78,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"1.a. Cutâneo agudo"),
             description=_(u"Erupção malar, bolhosa, maculo-papular ou\
             de fotossensibilidade OU psoriasiforme,\
-            anular policíclica"),
+            anular policíclica."),
             slave_fields=(dict(name='cutaneo_agudo_data',
                                action='show',
                                hide_values=('sim',)),
@@ -150,7 +150,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             #format='radio',
             label=_(u"2. Cutâneo crônico"),
             description="Lúpus discoide, hipertrófico (verrucose),\
-                        profundus (paniculite), túmidus, pérnio",
+                        profundus (paniculite), túmidus, pérnio.",
             slave_fields=(dict(name='cutaneo_cronico_data',
                                action='show',
                                hide_values=('sim',)),
@@ -256,7 +256,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"4. Alopecia não cicatricial"),
-            description=_(u"Rarefação ou fragilidade capilar difusa"),
+            description=_(u"Rarefação ou fragilidade capilar difusa."),
             slave_fields=(dict(name='alopecia_nao_cicatricial_data',
                                action='show',
                                hide_values=('sim',)),
@@ -294,7 +294,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"5. Articular"),
             description=_(u"Sinovite (edema/derrame) OU\
                           artralgia com rigidez matinal>\
-                          30 min, em ≥2 articulações"),
+                          30 min, em ≥2 articulações."),
             slave_fields=(dict(name='articular_data',
                                action='show',
                                hide_values=('sim',)),
@@ -330,9 +330,9 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"6. Serosite"),
-            description=_(u"Pleurisia, derrame ou atrito pleural OU\
-                          dor, derrame OU atrito pericárdico OU\
-                          pericardite ao ECG"),
+            description=_(u"Pleurisia, derrame ou atrito pleural OU \
+                          dor, derrame OU atrito pericárdico OU \
+                          pericardite ao ECG."),
             slave_fields=(dict(name='serosite_data',
                                action='show',
                                hide_values=('sim',)),
@@ -368,7 +368,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"7. Renal"),
-            description=_(u"Protenúria ≥ 500 mg  ou cilindros hemáticos"),
+            description=_(u"Protenúria ≥ 500 mg  ou cilindros hemáticos."),
             slave_fields=(dict(name='renal_data',
                                action='show',
                                hide_values=('sim',)),
@@ -408,7 +408,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                           mononeurite, mielite, \
                           neuropatia periférica \
                           ou craniana, estado \
-                          confusional agudo"),
+                          confusional agudo."),
             slave_fields=(dict(name='neurologico_data',
                                action='show',
                                hide_values=('sim',)),
@@ -479,7 +479,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"10.a. Leucopenia"),
-            description=_(u"Leucopenia < 4000/mm3"),
+            description=_(u"Leucopenia < 4000/mm3."),
             slave_fields=(dict(name='leucopenia_data',
                                action='show',
                                hide_values=('sim',)),
@@ -515,7 +515,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"10.b. Linfopenia"),
-            description=_(u"Linfopenia < 1000/mm3"),
+            description=_(u"Linfopenia < 1000/mm3."),
             slave_fields=(dict(name='linfopenia_data',
                                action='show',
                                hide_values=('sim',)),
@@ -551,7 +551,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"11. Trombocitopenia"),
-            description=_(u"< 100.000/mm3"),
+            description=_(u"< 100.000/mm3."),
             slave_fields=(dict(name='trombocitopenia_data',
                                action='show',
                                hide_values=('sim',)),
@@ -588,7 +588,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"1. FAN"),
-            description=_(u"> limite superior de referência"),
+            description=_(u"> limite superior de referência."),
             slave_fields=(dict(name='fan_data',
                                action='show',
                                hide_values=('sim',)),
@@ -625,7 +625,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             #format='radio',
             label=_(u"2. Anti-DNA dupla hélice"),
             description=_(u"Reagente (>2x limite superior de referência, \
-                          se ELISA)"),
+                          se ELISA.)"),
             slave_fields=(dict(name='anti_dna_dupla_helice_data',
                                action='show',
                                hide_values=('sim',)),
@@ -661,7 +661,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"3. Anti SM"),
-            description=_(u"Positivo"),
+            description=_(u"Positivo."),
             slave_fields=(dict(name='anti_sm_data',
                                action='show',
                                hide_values=('sim',)),
@@ -699,7 +699,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"4. Antifosfolipídios"),
             description=_(u"Anticoag. Iúpica, anti-cardiolip.\
                           (lgG, lgM, lgA, título médio), \
-                          anti-β2-gp 1, VDRL ou RPR falso +"),
+                          anti-β2-gp 1, VDRL ou RPR falso +."),
             slave_fields=(dict(name='antifosfolipidios_data',
                                action='show',
                                hide_values=('sim',)),
@@ -735,7 +735,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"5. Complemento baixo"),
-            description=_(u"C3, C4 ou CH 50"),
+            description=_(u"C3, C4 ou CH 50."),
             slave_fields=(dict(name='complemento_baixo_data',
                                action='show',
                                hide_values=('sim',)),
@@ -771,7 +771,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"6. Coombs direto"),
-            description=_(u"lndependente de emólise"),
+            description=_(u"lndependente de emólise."),
             slave_fields=(dict(name='coombs_direto_data',
                                action='show',
                                hide_values=('sim',)),
@@ -2311,7 +2311,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"Corticosteróides"),
-            description=_(u"prednisona/deflazarcort/metilprednisolona/hidrocortisona"),
+            description=_(u"prednisona/deflazarcort/metilprednisolona/hidrocortisona."),
             slave_fields=(dict(name='corticosteroides_dose_atual',
                                action='show',
                                hide_values=('sim',)),
@@ -2399,7 +2399,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         schemata='vacinacoes',
         widget=atapi.StringWidget(
             label=_(u"nº pulsos"),
-            description=_(u"dose/indução"),
+            description=_(u"dose/indução."),
         ),
     ),
     atapi.DateTimeField(
@@ -2408,7 +2408,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         schemata='vacinacoes',
         widget=atapi.StringWidget(
             label=_(u"nº pulsos"),
-            description=_(u"dose/manutenção"),
+            description=_(u"dose/manutenção."),
         ),
     ),
     atapi.DateTimeField(
@@ -2512,7 +2512,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         schemata='vacinacoes',
         widget=atapi.StringWidget(
             label=_(u"Via de administração"),
-            description=_(u"(VO, IM, SC)"),
+            description=_(u"(VO, IM, SC)."),
         ),
     ),
     atapi.DateTimeField(
@@ -3073,7 +3073,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"2. Alteração retinal"),
-            description=_(u"Alteração retinal documentada por oftalmoscopia"),
+            description=_(u"Alteração retinal documentada por oftalmoscopia."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='alteracao_retinal_obs',
                                action='show',
@@ -3099,8 +3099,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             #format='radio',
             label=_(u"3. Atrofia óptica"),
             description=_(u"Atrofia óptica documentada\
-                           por exame oftalmoscópico"),
-            #helper_js=('++resource++slicc.js',),            
+                           por exame oftalmoscópico."),
+            #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='atrofia_optica_obs',
                                action='show',
                                hide_values=('1',)),)
@@ -3129,7 +3129,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            prejuízo de memória, dificuldade de cálculo,\
                            prejuízo da concentração, dificuldade\
                            de linguagem falada ou escrita) documentada\
-                           por exame clínico ou teste neurocognitivo"),
+                           por exame clínico ou teste neurocognitivo."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='disfuncao_cognitiva_obs',
                                action='show',
@@ -3161,7 +3161,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
                            empobrecimento de ideias, \
                            pensamento ilógico, comportamento bizarro,\
                            desorganizado ou catatônico."),
-            #helper_js=('++resource++slicc.js',),            
+            #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='acr_psicose_obs',
                                action='show',
                                hide_values=('1',)),)
@@ -3187,8 +3187,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"6. Convulsões"),
             description=_(u"Convulsões caracterizadas por movimentos \
                            tônicos e clônicos, requerendo terapia \
-                           anticonvulsivante por mais de seis meses"),
-            #helper_js=('++resource++slicc.js',),            
+                           anticonvulsivante por mais de seis meses."),
+            #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='convulsoes_obs',
                                action='show',
                                hide_values=('1',)),)
@@ -3214,7 +3214,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"7. AVC"),
             description=_(u"Acidente vascular cerebral que resulte em achados\
                            focais como paresia e fraqueza ou ressecção\
-                           cirúrgica por outras causas, exceto malignidade"),
+                           cirúrgica por outras causas, exceto malignidade."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='avc_obs',
                                action='show',
@@ -3256,7 +3256,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"8. Neuropatia craniana"),
             description=_(u"Neuropatia craniana ou periférica, excluindo-se\
                            neuropatia óptica, resultando em \
-                           distúrbio motor ou sensitive"),
+                           distúrbio motor ou sensitivo."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='neuropatia_craniana_obs',
                                action='show',
@@ -3281,9 +3281,9 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"9. Mielite transversa"),
-            description=_(u"Mielite transversa (fraqueza de membros inferiores\
+            description=_(u"Fraqueza de membros inferiores\
                            ou percla sensitiva com perda do central\
-                           e esfincteriano retal e urinário)"),
+                           e esfincteriano retal e urinário."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='mielite_transversa_obs',
                                action='show',
@@ -3308,7 +3308,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         default='0',
         widget=MasterSelectWidget(
             #format='radio',
-            label=_(u"10. Tx de filtr. Glomerular<50%"),
+            label=_(u"10. Tx de filtr. glomerular<50%"),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='tx_filtr_glomerular_obs',
                                action='show',
@@ -3357,7 +3357,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"12. Insuficiência renal terminal"),
-            description=_(u"Insuficiência renal terminal"),
+            description=_(u"Mesmo em diálise ou transplante."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='insuficiencia_renal_terminal_obs',
                                action='show',
@@ -3383,7 +3383,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"13. Hipertensão pulmonar"),
-            description=_(u"Hipertensão pulmonar (proeminência de ventrículo direito ou ausculta em foco pulmonar)."),
+            description=_(u"Proeminência de ventrículo direito ou ausculta em foco pulmonar."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='hipertensao_pulmonar_obs',
                                action='show',
@@ -3408,7 +3408,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"14. Fibrose pulmonar"),
-            description=_(u"Fibrose pulmonar (exame físico e radiografia)."),
+            description=_(u"Exame físico e radiografia."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='fibrose_pulmonar_obs',
                                action='show',
@@ -3433,7 +3433,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"15. Shrinking lung syndrome"),
-            description=_(u"Shrinking lung syndrome (radiografia)."),
+            description=_(u"Radiografia."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='shrinking_lung_syndrome_obs',
                                action='show',
@@ -3458,7 +3458,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"16. Fibrose pleural"),
-            description=_(u"Fibrose pleural (radiografia)."),
+            description=_(u"Radiografia."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='fibrose_pleural_obs',
                                action='show',
@@ -3483,8 +3483,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"17. Infarto pulmonar"),
-            description=_(u"Infarto pulmonar (radiografia),\
-                          ressecção por outra causa que não malignidade."),
+            description=_(u"Radiografia, ressecção por outra causa que não malignidade."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='infarto_pulmonar_obs',
                                action='show',
@@ -3534,8 +3533,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"19. Infarto agudo do miocárdio"),
-            description=_(u"Infarto agudo do miocárdio documentado por\
-                          eletrocardiograrna e perfil enzimático"),
+            description=_(u"Documentado por eletrocardiograma e perfil enzimático."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='infarto_agudo_miocardio_obs',
                                action='show',
@@ -3575,8 +3573,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"20. Miocardiopatia"),
-            description=_(u"Mioocardiopatia\
-                          (disfunção ventricular documentada clinicamente)."),
+            description=_(u"Disfunção ventricular documentada clinicamente."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='miocardiopatia_obs',
                                action='show',
@@ -3601,8 +3598,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"21. Doença valvular"),
-            description=_("Doença valvular (murmúrio diastólico\
-                          ou sistólico > 3/6)."),
+            description=_("murmúrio diastólico ou sistólico > 3/6."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='doenca_valvular_obs',
                                action='show',
@@ -3653,7 +3649,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"23. Claudicação persistente"),
-            description=_(u"Perda tecidual menor (perda de polpa tecidual)."),
+            description=_(u""),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='claudicacao_persistente_obs',
                                action='show',
@@ -3678,7 +3674,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"24. Perda tecidual menor"),
-            description=_(u"Perda tecidual menor (perda de polpa tecidual)."),
+            description=_(u"Perda de polpa tecidual."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='perda_tecidual_menor_obs',
                                action='show',
@@ -3703,7 +3699,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"25. Perda tecidual significante"),
-            description=_(u"Perda tecidual significante (por exemplo, perda digital ou de membra)"),
+            description=_(u"por exemplo: perda digital ou de membra."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='perda_tecidual_significante_obs',
                                action='show',
@@ -3743,7 +3739,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"26. Trombose venosa c/ edema"),
-            description=_(u"Trombose venosa com edema, ulceração\
+            description=_(u"Edema, ulceração\
                           ou evidencia clínica de estase venosa."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='trombose_venosa_edema_obs',
@@ -3865,7 +3861,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Constrição esofágica observada por endoscopia\
                           ou cirurgia de trato gastrointestinal superior\
                           como correção da constrição, cirurgia\
-                          cle úlcera. etc.. ou por história de \
+                          úlcera etc., ou por história de \
                           insuficiência pancreática requerendo \
                           reposição enzimática ou por pseudocisto."),
             #helper_js=('++resource++slicc.js',),
@@ -3883,7 +3879,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"Observações")
         ),
     ),
-#musculoessqueletica
+#musculoessqueletico
     atapi.StringField(
         name='slicc_acr_2010_atrofia_musc_fraqueza',
         searchable=True,
@@ -3919,9 +3915,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"32. Artrite deformante"),
-            description=_(u"Artrite deformante ou erosiva \
-                          (incluindo-se deformidades redutlíveis e\
-                          excluindo-se osteonecrose) no exame fisico."),
+            description=_(u"Incluindo-se deformidades redutíveis e\
+                          excluindo-se osteonecrose no exame fisico."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='artrite_deformante_obs',
                                action='show',
@@ -3946,9 +3941,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"33. Osteoporose c/ fratura"),
-            description=_(u"Osteoporose com fratura ou colapso vertebral\
-                          (excluindo-se osteonecrose),a \
-                          demonstrada radiograficamente."),
+            description=_(u" Osteonecrose demonstrada por qualquer técnica de imagem."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='osteoporose_fratura_obs',
                                action='show',
@@ -4014,8 +4007,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"35. Osteomielite documentada"),
-            description=_(u"Osteomielite documentada clinicamente\
-                          e confirmada por cultura ou ruptura tendiníea."),
+            description=_(u"Osteomielite documentada clinicamente e confirmada por cultura ou ruptura tendíníea."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='osteomielite_documentada_obs',
                                action='show',
@@ -4066,9 +4058,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"37. Cicatriz extensa / paniculite"),
-            description=_(u"Cicatriz extensa ou paniculite em localização \
-                          diferente do couro cabeludo ou polpa tecidual, \
-                          documentada clinicamente."),
+            description=_(u"Em localização diferente do couro cabeludo ou polpa tecidual, documentada clinicamente."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='cicatriz_extensa_paniculite_obs',
                                action='show',
@@ -4171,7 +4161,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"41. Malignidade documentada"),
-            description=_(u"Documentada por exame patológico, excluindo displasia"),
+            description=_(u"Documentada por exame patológico, excluindo displasia."),
             #helper_js=('++resource++slicc.js',),
             slave_fields=(dict(name='malignidade_documentada_obs',
                                action='show',
@@ -4198,7 +4188,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             #format='radio',
             label=_(u"1. Convulsão"),
             description=_(u"Início recente, excluídas causas metabólicas \
-                          infecciosas e secundárias ao uso de drogas"),
+                          infecciosas e secundárias ao uso de drogas."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='convulsao_obs',
                                action='show',
@@ -4208,7 +4198,6 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
     atapi.TextField(
         name="convulsao_obs",
         searchable=True,
-        required=True,
         schemata='sledai_2k',
         allowable_content_types=('text/plain',),
         widget=atapi.TextAreaWidget(
@@ -4313,7 +4302,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         default='0',
         widget=MasterSelectWidget(
             #format='radio',
-            label=_(u"5. Comp. dos pares"),
+            label=_(u"5. Comprometimento dos pares cranianos"),
             description=_(u"Neuropatia sensorial ou motora, \
                           de inicio ou reinício recente."),
             #helper_js=('++resource++sledai.js',),
@@ -4365,8 +4354,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         default='0',
         widget=MasterSelectWidget(
             #format='radio',
-            label=_(u"7. Acidente vasc. Enc"),
-            description=_(u"NPresença de AVE. Excluir causa aterosclerótica"),
+            label=_(u"7. Acidente vasc. Encefálico"),
+            description=_(u"Presença de AVE. Excluir causa aterosclerótica."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='acidente_vasc_obs',
                                action='show',
@@ -4394,7 +4383,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             description=_(u"Ulcerações, gangrenas, infartos periungueais,\
                           nódulos digitais dolorosos, áreas hemorrágicas\
                           subungueais, biópsia ou angiografia de qualquer\
-                          área do corpo apresentando vasculite"),
+                          área do corpo apresentando vasculite."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='vasculite_obs',
                                action='show',
@@ -4419,10 +4408,9 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"9. Artrites"),
-            description=_(u"Ulcerações, gangrenas, infartos periungueais,\
-                          nódulos digitais dolorosos, áreas hemorrágicas\
-                          subungueais, biópsia ou angiografia de qualquer\
-                          área do corpo apresentando artrites"),
+            description=_(u"Envolvimento de duas ou mais articulações\
+                          com sinais e sintomas de inflamação(palpação dolorosa,\
+                          tumefação ou derrame articular). "),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='artrites_obs',
                                action='show',
@@ -4474,9 +4462,9 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         default='0',
         widget=MasterSelectWidget(
             #format='radio',
-            label=_(u"11. Cilindros urinár"),
+            label=_(u"11. Cilindros urinários"),
             #helper_js=('++resource++sledai.js',),
-            description=_(u"Hematicos, granuloses ou eritrocitarios"),
+            description=_(u"Hemáticos, granuloses ou eritrocitarios."),
             slave_fields=(dict(name='cilindros_urinar_obs',
                                action='show',
                                hide_values=('4',)),)
@@ -4501,7 +4489,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             #format='radio',
             label=_(u"12. Hematúria"),
             description=_(u"Mais de 5 eritrócitos/campo. Excluir outras \
-                          causas tais como llitíase renal, infecções."),
+                          causas tais como litíase renal, infecções."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='hematuria_obs',
                                action='show',
@@ -4526,7 +4514,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"13. Proteinúria"),
-            description=_(u"Concentracção > a 0,5 g/24 horas"),
+            description=_(u"Concentracção > a 0,5 g/24 horas."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='2k_proteinuria_obs',
                                action='show',
@@ -4552,7 +4540,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             #format='radio',
             label=_(u"14. Piúria"),
             description=_(u"Mais de 5 leucócitos/campo na \
-                          ausência de infeccção"),
+                          ausência de infecção."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='piuria_obs',
                                action='show',
@@ -4577,7 +4565,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"15. Rash cutâneo"),
-            description=_(u"Mais de 5 leucócitos/campo na ausência de infeccção"),
+            description=_(u"Início recente ou recorrente, caráter inflamatório."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='rash_cutaneo_obs',
                                action='show',
@@ -4602,8 +4590,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"16. Alopécia"),
-            description=_(u"início recente ou recorrente, excessiva, \
-                          difusa ou localizada"),
+            description=_(u"Início recente ou recorrente, excessiva, \
+                          difusa ou localizada."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='alopecia_obs',
                                action='show',
@@ -4628,7 +4616,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"17. Úlcera de mucosa"),
-            description=_(u"lnicio recente ou recorrente, nasais ou orais"),
+            description=_(u"lnício recente ou recorrente, nasais ou orais."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='ulcera_mucosa_obs',
                                action='show',
@@ -4653,7 +4641,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"18. Pleurisia"),
-            description=_(u"Dor pleurítica com atrito, derrame ou espessamento pleural"),
+            description=_(u"Dor pleurítica com atrito, derrame ou espessamento pleural."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='pleurisia_obs',
                                action='show',
@@ -4678,8 +4666,8 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"19. Pericardite"),
-            description=_(u"Dor no peito, com atrito ou derrame pericardico,\
-                          confirmado por EGG ou Ecocardiograma"),
+            description=_(u"Dor no peito, com atrito ou derrame pericárdico,\
+                          confirmado por EGG ou ecocardiograma."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='2k_pericardite_obs',
                                action='show',
@@ -4704,7 +4692,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"20. Complemento bai"),
-            description=_(u"CH50; C3 ou C4 abaixo dos valores de referência"),
+            description=_(u"CH50; C3 ou C4 abaixo dos valores de referência."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='complemento_bai_obs',
                                action='show',
@@ -4729,7 +4717,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"21. Anti-DNAds"),
-            description=_(u"Acima dos valores de referência do laboratório"),
+            description=_(u"Acima dos valores de referência do laboratório."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='anti_dnads_obs',
                                action='show',
@@ -4754,7 +4742,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"22. Febre"),
-            description=_(u"Temperatura axilar >38°, na ausência de processo infeccioso"),
+            description=_(u"Temperatura axilar >38°, na ausência de processo infeccioso."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='febre_obs',
                                action='show',
@@ -4780,7 +4768,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             #format='radio',
             label=_(u"23. Trombocitopenia"),
             description=_(u"Concentração de plaquetas inferior a 100 000/mm3\
-                          (excluídas causas farmacológicas)"),
+                          (excluídas causas farmacológicas.)"),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='trombocitopenia_obs',
                                action='show',
@@ -4805,7 +4793,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=MasterSelectWidget(
             #format='radio',
             label=_(u"24. Leucopenia"),
-            description=_(u"Concentração de leucócitos inferior a 3 00/mm3, excluiías causas farmacológicas"),
+            description=_(u"Concentração de leucócitos inferior a 3 00/mm3, excluídas causas farmacológicas."),
             #helper_js=('++resource++sledai.js',),
             slave_fields=(dict(name='leucopenia_obs',
                                action='show',

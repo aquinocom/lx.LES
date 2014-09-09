@@ -33,7 +33,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label="Nome",
             label_msgid=_(u"label_nome"),
         ),
-    ),    
+    ),
     atapi.StringField(
         name="identificador_paciente",
         required=True,
@@ -54,7 +54,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_prontuario"),
         ),
     ),
-    
+
     atapi.StringField(
         name="rg_paciente",
         required=True,
@@ -64,7 +64,7 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_rg"),
         ),
     ),
-    
+
     atapi.StringField(
         name="cpf_paciente",
         required=True,
@@ -74,8 +74,8 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_rg"),
             helper_js=('++resource++paciente.js', '++resource++jquery.maskedinput.js', '++resource++validacpf.js'),
         ),
-    ),      
-    
+    ),
+
     atapi.DateTimeField(
         name="nascimento_paciente",
         required=True,
@@ -287,6 +287,6 @@ class Paciente(ATFolder, HistoryAwareMixin):
             return idade.days/365
         except:
             pass
-   
+
 atapi.registerType(Paciente, config.PROJECTNAME)
 

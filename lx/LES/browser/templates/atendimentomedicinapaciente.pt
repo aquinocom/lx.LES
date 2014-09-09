@@ -37,7 +37,7 @@
                     <li><a href="#informacoes-5">Comorbidades</a></li>
                     <li><a href="#informacoes-6">Vacinações</a></li>
                     <li><a href="#informacoes-7">Avaliação de índices</a></li>
-                    <li><a href="#informacoes-8">Escores finais</a></li>
+                    <li><a href="#informacoes-8">Peso/altura/circ. abdom</a></li>
                     <!--<li><a href="#informacoes-7">SLICC/ACR, 2010</a></li>-->
                     <!--<li><a href="#informacoes-8">SLEDAI-2K</a></li>-->
                 </ul>
@@ -639,7 +639,7 @@
                             <br> <br>
                             <tal:block tal:define="fields python:view.getFields('sledai_2k');">
                                 <div class="column"
-                                    tal:define="lista python: fields[:17];">
+                                    tal:define="lista python: fields[:16];">
                                     <ul>
                                         <tal:items repeat="item lista">
                                             <li tal:define="oddrow repeat/item/odd;"
@@ -651,7 +651,7 @@
                                     </ul>
                                 </div>
                                 <div class="column"
-                                    tal:define="lista python: fields[17:32];">
+                                    tal:define="lista python: fields[16:32];">
                                     <ul>
                                         <tal:items repeat="item lista">
                                             <li tal:define="oddrow repeat/item/odd;"
