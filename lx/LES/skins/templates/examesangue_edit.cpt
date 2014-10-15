@@ -206,11 +206,6 @@
                                             </li>
                                             <li>
                                                 <a href="#subinformacoes-4">
-                                                    Bilirrubina Total e Frações
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#subinformacoes-5">
                                                     Curva Glicêmica e Insulinêmica
                                                 </a>
                                             </li>
@@ -242,23 +237,21 @@
                                         </div>
                                         <div id="subinformacoes-3">
                                             <!--Perfil Lipídico-->
-                                            <tal:block tal:define="fields python:schematas['bioquimica'].editableFields(here, visible_only=True);
-                                                                fields python:fields[29:34];">
-                                                <tal:fields repeat="field fields">
-                                                    <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
-                                                </tal:fields>
-                                            </tal:block>
+                                            <div class="column"
+                                                tal:define="fields python:schematas['bioquimica'].editableFields(here, visible_only=True);
+                                                            fields python:fields[29:37];
+                                                            fieldsLists python:here.createMultiColumnList(fields, numCols=2, sort_on='self');"
+                                                tal:repeat="sublist fieldsLists">
+                                                <ul>
+                                                    <tal:fields repeat="field sublist">
+                                                        <li>
+                                                            <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
+                                                        </li>
+                                                    </tal:fields>
+                                                </ul>
+                                            </div>                                            
                                         </div>
                                         <div id="subinformacoes-4">
-                                            <!--Bilirrubina Total e Frações-->
-                                            <tal:block tal:define="fields python:schematas['bioquimica'].editableFields(here, visible_only=True);
-                                                                fields python:fields[34:37];">
-                                                <tal:fields repeat="field fields">
-                                                    <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
-                                                </tal:fields>
-                                            </tal:block>
-                                        </div>
-                                        <div id="subinformacoes-5">
                                             <!--Curva Glicêmica e Insulinêmica-->
                                             <div class="column">
                                                 <fieldset>

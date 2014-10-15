@@ -174,7 +174,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         name='sangue_segmentados',
         searchable=True,
         widget=atapi.StringWidget(
-            label='Segmentados (000)',
+            label='Segmentados (0000)',
             label_msgid=_(u"label_sangue_segmentados"),
             size=5,
         ),
@@ -246,7 +246,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         name='sangue_tempo_protrombina',
         searchable=True,
         widget=atapi.StringWidget(
-            label='Tempo de Protombina (00,00)',
+            label='Tempo de Protrombina (00,00)',
             label_msgid=_(u"label_sangue_tempo_protrombina"),
             size=5,
         ),
@@ -255,7 +255,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         name='sangue_atividade_protombina',
         searchable=True,
         widget=atapi.StringWidget(
-            label='Atividade de Protombina (000,00)',
+            label='Atividade de Protrombina (000,00)',
             label_msgid=_(u"label_sangue_atividade_protombina"),
             size=5,
         ),
@@ -303,7 +303,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         searchable=True,
         schemata='bioquimica',
         widget=atapi.StringWidget(
-            label='Creatinina (0,0)',
+            label='Creatinina (0,00)',
             label_msgid=_(u"label_sangue_creatinina"),
             size=5,
         ),
@@ -826,7 +826,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         searchable=True,
         schemata='imunologia',
         widget=atapi.StringWidget(
-            label='C3 (00,00)',
+            label='C3 (000,0)',
             label_msgid=_(u"label_sangue_c3"),
             size=5,
         ),

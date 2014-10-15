@@ -34,3 +34,6 @@ msgstr "SLICC/ACR, 2010"
 
 msgid "label_schema_sledai_2k"
 msgstr "SLEDAI-2K"
+
+msgid "label_schema_hist_obito"
+msgstr "Histórico do óbito"

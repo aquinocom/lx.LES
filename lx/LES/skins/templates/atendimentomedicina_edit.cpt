@@ -148,6 +148,12 @@
                                     </li>
                                     <li>
                                         <a href="#informacoes-8"
+                                        tal:attributes="class python:test('hist_obito' in abas, 'abaRequired')">
+                                            Histórico do óbito
+                                        </a>
+                                    </li>                                    
+                                    <li>
+                                        <a href="#informacoes-9"
                                         tal:attributes="class python:test('escores' in abas, 'abaRequired')">
                                             Peso/altura/circ. abdom
                                         </a>
@@ -528,6 +534,12 @@
                                     </div>
                                 </div>
                                 <div id="informacoes-8">
+                                      <!--schemata hist_obito-->
+                                      <tal:fields repeat="field python:schematas['hist_obito'].editableFields(here, visible_only=True)">
+                                          <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />
+                                      </tal:fields>                
+                                  </div>                                
+                                <div id="informacoes-9">
                                       <!--schemata escores-->
                                       <tal:fields repeat="field python:schematas['escores'].editableFields(here, visible_only=True)">
                                           <metal:fieldMacro use-macro="python:here.widget(field.getName(), mode='edit')" />

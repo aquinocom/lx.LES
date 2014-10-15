@@ -1236,6 +1236,12 @@
     <index name="leucopenia_obs" meta_type="FieldIndex">
         <indexed_attr value="leucopenia_obs"/>
     </index>
+    <index name="hist_obito_data" meta_type="FieldIndex">
+        <indexed_attr value="hist_obito_data"/>
+    </index>
+    <index name="hist_obito_causa_mortis" meta_type="FieldIndex">
+        <indexed_attr value="hist_obito_causa_mortis"/>
+    </index>    
     <index name="peso" meta_type="FieldIndex">
         <indexed_attr value="peso"/>
     </index>
@@ -2062,6 +2068,8 @@
     <column value="trombocitopenia_obs"/>
     <column value="sledai_2k_leucopenia"/>
     <column value="leucopenia_obs"/>
+    <column value="hist_obito_data"/>
+    <column value="hist_obito_causa_mortis"/>
     <column value="peso"/>
     <column value="altura"/>
     <column value="cir_abdomin"/>

@@ -13,7 +13,7 @@ $(document).ready(function(){
     $("#sangue_mielocitos").mask("999");
     $("#sangue_metamielocitos").mask("999");
     $("#sangue_bastoes").mask("999");
-    $("#sangue_segmentados").mask("999");
+    $("#sangue_segmentados").mask("9999");
     $("#sangue_linfocitos").mask("9999");
     $("#sangue_linfocitos_atipicos").mask("999");
     $("#sangue_monocitos").mask("9999");
@@ -29,7 +29,7 @@ $(document).ready(function(){
     $("#sangue_fibrinogenio").mask("999");
     $("#sangue_vhs_hemossedimentação").mask("99");
     $("#sangue_ureia").mask("99.9");
-    $("#sangue_creatinina").mask("9.9");
+    $("#sangue_creatinina").mask("9.99");
     $("#sangue_acido_urico").mask("9.99");
     $("#sangue_sodio").mask("999.9");
     $("#sangue_potassio").mask("9.9");
@@ -80,7 +80,7 @@ $(document).ready(function(){
     $("#sangue_glicemia_media").mask("999.99");
     $("#sangue_cardiolipina_igg").mask("~99.9");
     $("#sangue_cardiolipina_igm").mask("~99.9");    
-    $("#sangue_c3").mask("99.99");
+    $("#sangue_c3").mask("999.9");
     $("#sangue_c4").mask("99.99");
     $("#sangue_anti_ssa").mask("999");
     $("#sangue_anti_ssb").mask("999");

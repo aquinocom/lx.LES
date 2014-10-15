@@ -4809,6 +4809,26 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label=_(u"Observações")
         ),
     ),
+#histórico do óbito
+    atapi.DateTimeField(
+        name="hist_obito_data",
+        searchable=True,
+        schemata='hist_obito',
+        widget=atapi.CalendarWidget(
+            label=_(u"Data"),
+            show_hm=False,
+        ),
+    ),
+    atapi.TextField(
+        name="hist_obito_causa_mortis",
+        searchable=True,
+        schemata='hist_obito',
+        allowable_content_types=('text/plain',),
+        widget=atapi.TextAreaWidget(
+            label=_(u"Causa mortis"),
+        ),
+    ),
+#escores
     atapi.StringField(
         name="peso",
         searchable=True,

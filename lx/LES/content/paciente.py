@@ -55,19 +55,17 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         ),
     ),
 
-    atapi.StringField(
-        name="rg_paciente",
-        required=True,
-        searchable=True,
-        widget=atapi.StringWidget(
-            label="RG",
-            label_msgid=_(u"label_rg"),
-        ),
-    ),
+    #atapi.StringField(
+    #    name="rg_paciente",
+    #    searchable=True,
+    #    widget=atapi.StringWidget(
+    #        label="RG",
+    #        label_msgid=_(u"label_rg"),
+    #    ),
+    #),
 
     atapi.StringField(
         name="cpf_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="CPF",
@@ -78,7 +76,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
 
     atapi.DateTimeField(
         name="nascimento_paciente",
-        required=True,
         searchable=True,
         widget=atapi.CalendarWidget(
             label="Data nascimento",
@@ -90,7 +87,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="uf_nasc_paciente",
-        required=True,
         searchable=True,
         widget=atapi.SelectionWidget(
             label="UF nasc",
@@ -102,7 +98,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="sexo_paciente",
-        required=True,
         searchable=True,
         widget=atapi.SelectionWidget(
             label="Sexo",
@@ -112,7 +107,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="ocupacao_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Ocupação",
@@ -121,7 +115,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="formacao_paciente",
-        required=True,
         searchable=True,
         widget=atapi.SelectionWidget(
             label="Nível de formação",
@@ -133,17 +126,15 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="raca_paciente",
-        required=True,
         searchable=True,
         widget=atapi.SelectionWidget(
             label="Raça",
             label_msgid=_(u"label_raca"),
         ),
-        vocabulary=['', 'Branca', 'Preta', 'Parda', 'Indígena', 'Amarela']
+        vocabulary=['', 'Não informado', 'Branca', 'Preta', 'Parda', 'Indígena', 'Amarela']
     ),
     atapi.StringField(
         name="cep_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="CEP",
@@ -153,7 +144,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="logradouro_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Endereço",
@@ -163,7 +153,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="complemento_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Complemento",
@@ -172,7 +161,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="bairro_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Bairro ou Satélite:",
@@ -182,7 +170,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="cidade_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Cidade",
@@ -191,7 +178,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="uf_paciente",
-        required=True,
         searchable=True,
         widget=atapi.SelectionWidget(
             label="UF",
@@ -211,7 +197,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="cel_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Celular",
@@ -220,7 +205,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="nome_parente_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Nome parente ou amigo",
@@ -230,7 +214,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
     ),
     atapi.StringField(
         name="fone_parente_paciente",
-        required=True,
         searchable=True,
         widget=atapi.StringWidget(
             label="Fone parente ou amigo",
@@ -282,9 +265,12 @@ class Paciente(ATFolder, HistoryAwareMixin):
     def getIdadePaciente(self):
         try:
             nasc = self.nascimento_paciente
-            nasc = datetime.date(int(nasc.year()), int(nasc.month()), int(nasc.day()))
-            idade = datetime.date.today() - nasc
-            return idade.days/365
+            if nasc:
+                nasc = datetime.date(int(nasc.year()), int(nasc.month()), int(nasc.day()))
+                idade = datetime.date.today() - nasc
+                return idade.days/365
+            else:
+                return 0
         except:
             pass
 
