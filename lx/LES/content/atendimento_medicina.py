@@ -12,7 +12,7 @@ from AccessControl import ClassSecurityInfo
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 #Libs
-from datetime import datetime
+from DateTime import DateTime
 import logging
 
 # Archetypes & ATCT imports
@@ -21,6 +21,7 @@ from Products.ATContentTypes.content import schemata
 from Products.ATContentTypes.content.base import ATCTContent
 from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
 from Products.MasterSelectWidget.MasterSelectWidget import MasterSelectWidget
+from Products.CMFCore.utils import getToolByName
 
 # Product imports
 from aoki.kwidgets.widgets import SliderWidget
@@ -4913,13 +4914,15 @@ class AtendimentoMedicina(ATCTContent, HistoryAwareMixin):
     def _renameAfterCreation(self, check_auto_id=False):
         """
         """
-        transaction.commit()
+        catalogo = getToolByName(self, 'portal_catalog')
         normalizer = getUtility(IIDNormalizer)
         data_consulta = self.dt_atendimento.strftime('%d/%m/%Y')
         titulo = 'Atendimento Médico:  ' + data_consulta
-        new_id = normalizer.normalize('atendimento medico:  ' + data_consulta)
+        newId = normalizer.normalize('atendimento-medico-%s' % DateTime().strftime('%Y-%m-%m--%T.%f'))
+        #comitar a subtransacao
+        transaction.savepoint(optimistic=True)
         self.setTitle(titulo)
-        self.setId(new_id)
+        self.setId(newId)
 
     def getCamposPontuacao(self, schemata):
         fields = []

@@ -69,7 +69,7 @@ class EditPacienteView(BrowserView):
         if rg == '':
             self.errors['rg_paciente'] = "O campo é obrigatório."
         if cpf == '':
-            self.errors['cpf_paciente'] = "O campo é obrigatório."                        
+            self.errors['cpf_paciente'] = "O campo é obrigatório."
         if ocupacao == '':
             self.errors['ocupacao_paciente'] = "O campo é obrigatório."
         if (ano_nascimento == '0000') or (mes_nascimento == '00') or (dia_nascimento == '00'):

@@ -9,7 +9,7 @@ import transaction
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 #Libs
-from datetime import datetime
+from DateTime import DateTime
 
 # Security
 from AccessControl import ClassSecurityInfo
@@ -243,13 +243,16 @@ class ExameUrina(ATCTContent, HistoryAwareMixin):
     def _renameAfterCreation(self, check_auto_id=False):
         """
         """
-        transaction.commit()
+        catalogo = getToolByName(self, 'portal_catalog')
         normalizer = getUtility(IIDNormalizer)
         data_consulta = self.dt_exame_urina.strftime('%d/%m/%Y')
         titulo = 'Exame de urina:  ' + data_consulta
-        new_id = normalizer.normalize(titulo)
+        newId = normalizer.normalize('exm-urina-%s' % DateTime().strftime('%Y-%m-%m--%T.%f'))
+        #comitar a subtransacao
+        transaction.savepoint(optimistic=True)
         self.setTitle(titulo)
-        self.setId(new_id)
+        self.setId(newId)
+
 
     def getAtendimentos(self):
         paciente = self.aq_parent

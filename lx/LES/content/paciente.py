@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+from DateTime import DateTime
 # Zope3 imports
 from zope.interface import implements
 from zope.component import getUtility
@@ -260,7 +261,7 @@ class Paciente(ATFolder, HistoryAwareMixin):
         new_id = normalizer.normalize(titulo)
         #comitar a subtransacao
         transaction.savepoint(optimistic=True)
-        self.setId(new_id)
+        self.setId(newId)
 
     def getIdadePaciente(self):
         try:

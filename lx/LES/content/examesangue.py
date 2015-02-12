@@ -8,9 +8,6 @@ import transaction
 #plone
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 
-#Libs
-#from datetime import datetime
-
 # Security
 from AccessControl import ClassSecurityInfo
 
@@ -20,6 +17,8 @@ from Products.ATContentTypes.content import schemata
 from Products.ATContentTypes.content.base import ATCTContent
 from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
 from Products.CMFCore.utils import getToolByName
+
+from DateTime import DateTime
 
 # Product imports
 from lx.LES.interfaces.contents import IExameSangue, IAtendimentoMedicina
@@ -1166,13 +1165,15 @@ class ExameSangue(ATCTContent, HistoryAwareMixin):
     def _renameAfterCreation(self, check_auto_id=False):
         """
         """
-        transaction.commit()
+        catalogo = getToolByName(self, 'portal_catalog')
         normalizer = getUtility(IIDNormalizer)
         data_consulta = self.dt_exame_sangue.strftime('%d/%m/%Y')
         titulo = 'Exame de sangue:  ' + data_consulta
-        new_id = normalizer.normalize(titulo)
+        newId = normalizer.normalize('exm-sangue-%s' % DateTime().strftime('%Y-%m-%m--%T.%f'))
+        #comitar a subtransacao
+        transaction.savepoint(optimistic=True)
         self.setTitle(titulo)
-        self.setId(new_id)
+        self.setId(newId)
 
     def getAtendimentos(self):
         paciente = self.aq_parent
