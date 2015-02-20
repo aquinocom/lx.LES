@@ -37,10 +37,10 @@
                     <h5>Identificação do paciente:</h5>
                     <ul>
                         <li tal:condition="context/identificador_paciente">
-                            <b>Identificador: </b><span tal:replace="context/identificador_paciente"/>
-                        </li>
-                        <li tal:condition="context/identificador_paciente">
                             <b>Prontuário: </b><span tal:replace="context/prontuario_paciente"/>
+                        </li>                        
+                        <li tal:condition="context/identificador_paciente">
+                            <b>Identificador: </b><span tal:replace="context/identificador_paciente"/>
                         </li>
 <!--                        <li tal:condition="context/rg_paciente">
                             <b>RG: </b><span tal:replace="context/rg_paciente"/>

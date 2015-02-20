@@ -795,7 +795,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=atapi.StringWidget(
             label='VHS - Hemossedimentação (00)',
             label_msgid=_(u"label_sangue_vhs_hemossedimentação"),
-            size=5,
+            size=2,
         ),
     ),
     atapi.StringField(

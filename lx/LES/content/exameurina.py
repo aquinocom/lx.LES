@@ -57,7 +57,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         widget=atapi.StringWidget(
             label='pH',
             label_msgid=_(u"label_ph_urina"),
-            helper_js=('++resource++urina.js', '++resource++jquery.maskedinput.js'),
+            #helper_js=('++resource++urina.js', '++resource++jquery.maskedinput.js'),
             size=5,
         ),
     ),

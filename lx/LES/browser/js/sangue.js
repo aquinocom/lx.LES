@@ -95,7 +95,6 @@ $(document).ready(function(){
     $("#sangue_imunoglobulina_iga").mask("999");
     $("#sangue_proteina_c").mask("9.99");
     $("#sangue_anti_tireoglobulina").mask("99.99");
-    $("#sangue_hepatite_c").mask("99.99");
     $("#sangue_citomegalovirus_igg").mask("999.9");
     $("#sangue_citomegalovirus_igm").mask("9.99");
     $("#sangue_t3").mask("99");
