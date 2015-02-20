@@ -4855,6 +4855,14 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
         ),
     ),
     atapi.StringField(
+        name="freq_resp",
+        searchable=True,
+        schemata='escores',
+        widget=atapi.StringWidget(
+            label=_(u"FR"),
+        ),
+    ),
+    atapi.StringField(
         name="pa_mmhg",
         searchable=True,
         schemata='escores',

@@ -35,16 +35,6 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_nome"),
         ),
     ),
-    atapi.StringField(
-        name="identificador_paciente",
-        required=True,
-        searchable=True,
-        widget=atapi.StringWidget(
-            label="Identificador",
-            label_msgid=_(u"label_identificador"),
-            helper_js=('++resource++paciente.js', '++resource++jquery.maskedinput.js'),
-        ),
-    ),
 
     atapi.StringField(
         name="prontuario_paciente",
@@ -55,6 +45,17 @@ schema = ATFolder.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_prontuario"),
         ),
     ),
+
+    atapi.StringField(
+        name="identificador_paciente",
+        searchable=True,
+        widget=atapi.StringWidget(
+            label="Identificador",
+            label_msgid=_(u"label_identificador"),
+            helper_js=('++resource++paciente.js', '++resource++jquery.maskedinput.js'),
+        ),
+    ),
+
 
     #atapi.StringField(
     #    name="rg_paciente",
@@ -119,11 +120,19 @@ schema = ATFolder.schema.copy() + atapi.Schema((
         searchable=True,
         widget=atapi.SelectionWidget(
             label="Nível de formação",
-            label_msgid=_(u"label_formação"),
+            label_msgid=_(u"label_formacao"),
         ),
         vocabulary=['', 'Não informado', 'Analfabeto', 'Ensino Fundamental', 'Ensino Médio',
                     'Profissionalizante', 'Graduação',
                     'Especialização', 'Mestrado', 'Doutorado']
+    ),
+    atapi.StringField(
+        name="tempo_escola_paciente",
+        searchable=True,
+        widget=atapi.StringWidget(
+            label="Quantidade de anos que frequentou escola",
+            label_msgid=_(u"label_tempo_escola"),
+        ),
     ),
     atapi.StringField(
         name="raca_paciente",
@@ -257,8 +266,8 @@ class Paciente(ATFolder, HistoryAwareMixin):
         """
         """
         normalizer = getUtility(IIDNormalizer)
-        titulo = self.identificador_paciente + '-' + self.title
-        new_id = normalizer.normalize(titulo)
+        titulo = self.prontuario_paciente + '-' + self.title
+        newId = normalizer.normalize(titulo)
         #comitar a subtransacao
         transaction.savepoint(optimistic=True)
         self.setId(newId)

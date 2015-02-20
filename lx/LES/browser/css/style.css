@@ -174,9 +174,10 @@
 }
 .template-paciente #listaAtendimentos{
     margin-top: 0px;
-    height: 100px;
+    height: 150px;
     margin-bottom:5px;
     width: 95%;
+    overflow-y: auto;
 }
 .template-examesangue_edit #content .ui-state-default a,
 .template-examesangue #content .ui-state-default a,

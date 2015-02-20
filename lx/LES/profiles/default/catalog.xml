@@ -28,6 +28,9 @@
     <index name="formacao_paciente" meta_type="FieldIndex">
         <indexed_attr value="formacao_paciente"/>
     </index>
+    <index name="tempo_escola_paciente" meta_type="FieldIndex">
+        <indexed_attr value="tempo_escola_paciente"/>
+    </index>    
     <index name="raca_paciente" meta_type="FieldIndex">
         <indexed_attr value="raca_paciente"/>
     </index>
@@ -1251,6 +1254,9 @@
     <index name="cir_abdomin" meta_type="FieldIndex">
         <indexed_attr value="cir_abdomin"/>
     </index>
+    <index name="freq_resp" meta_type="FieldIndex">
+        <indexed_attr value="freq_resp"/>
+    </index>
     <index name="pa_mmhg" meta_type="FieldIndex">
         <indexed_attr value="pa_mmhg"/>
     </index>
@@ -1665,6 +1671,7 @@
     <column value="sexo_paciente"/>
     <column value="ocupacao_paciente"/>
     <column value="formacao_paciente"/>
+    <column value="tempo_escola_paciente"/>
     <column value="raca_paciente"/>
     <column value="cep_paciente"/>
     <column value="logradouro_paciente"/>
@@ -2073,6 +2080,7 @@
     <column value="peso"/>
     <column value="altura"/>
     <column value="cir_abdomin"/>
+    <column value="freq_resp"/>
     <column value="pa_mmhg"/>
     <column value="impressoes_clinicas"/>
     <column value="conduta"/>
