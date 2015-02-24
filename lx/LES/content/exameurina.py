@@ -59,6 +59,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label_msgid=_(u"label_ph_urina"),
             #helper_js=('++resource++urina.js', '++resource++jquery.maskedinput.js'),
             size=5,
+            maxlength=5,
         ),
     ),
     atapi.StringField(
@@ -69,6 +70,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label='Dens',
             label_msgid=_(u"label_dens_urina"),
             size=5,
+            maxlength=5,
         ),
     ),
     atapi.StringField(
@@ -79,6 +81,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label='CED',
             label_msgid=_(u"label_ced_urina"),
             size=5,
+            maxlength=5,
         ),
     ),
     atapi.StringField(
@@ -89,6 +92,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label='Leuco',
             label_msgid=_(u"label_leuco_urina"),
             size=5,
+            maxlength=5,
         ),
     ),
     atapi.StringField(
@@ -99,6 +103,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label='Hem',
             label_msgid=_(u"label_hem_urina"),
             size=5,
+            maxlength=5,
         ),
     ),
     atapi.StringField(
@@ -120,6 +125,7 @@ schema = ATCTContent.schema.copy() + atapi.Schema((
             label='ptns',
             label_msgid=_(u"label_ptns_urina"),
             size=5,
+            maxlength=5,
         ),
     ),
     atapi.StringField(
