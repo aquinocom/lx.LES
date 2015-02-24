@@ -149,7 +149,7 @@ else:
 
         write('''<li class="LSRow">''')
         write(icon.html_tag() or '')
-        full_title = safe_unicode(pretty_title_or_id(result))
+        full_title = safe_unicode(pretty_title_or_id(result) + ' - Prontuário: ' + result.prontuario_paciente)
         if len(full_title) > MAX_TITLE:
             display_title = ''.join((full_title[:MAX_TITLE], '...'))
         else:

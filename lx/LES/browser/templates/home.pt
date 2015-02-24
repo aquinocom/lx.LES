@@ -56,7 +56,7 @@
                                 <li>
                                     <a tal:attributes="href paciente/getURL">
                                     <img tal:attributes="src string:${portal_url}/++resource++lx.LES.images/icon_paciente.png" width="16px"/>
-                                    <span tal:replace="paciente/Title"/>
+                                    <span tal:replace="paciente/Title"/> - Prontuário: <span tal:replace="paciente/prontuario_paciente"/>
                                     </a>
                                 </li>
                             </tal:block>

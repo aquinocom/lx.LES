@@ -36,7 +36,7 @@
                 <div class="box">
                     <h5>Identificação do paciente:</h5>
                     <ul>
-                        <li tal:condition="context/identificador_paciente">
+                        <li tal:condition="context/prontuario_paciente">
                             <b>Prontuário: </b><span tal:replace="context/prontuario_paciente"/>
                         </li>                        
                         <li tal:condition="context/identificador_paciente">

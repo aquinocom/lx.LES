@@ -166,7 +166,7 @@
                                             <span>
                                                 <span tal:content="python: item.getDataOrigin().pretty_title_or_id()" />  
                                                 <span tal:condition="python: item.portal_type=='Paciente'"
-                                                      tal:content="python: '&mdash; ' + item.getField('identificador_paciente').get(item)" />
+                                                      tal:content="python: ' - Prontuário: ' + item.getField('prontuario_paciente').get(item)" />
                                             </span>
                                          </a>
                                     </dt>
