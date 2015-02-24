@@ -49,9 +49,10 @@
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">
-                                    <li tal:define="oddrow repeat/default/odd;"
+                                    <li tal:define="oddrow repeat/default/odd;
+                                                    label python:default.widget.label;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <label tal:content="python:default.widget.label"></label>:
+                                        <label tal:content="label"></label>:
                                         <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
                                     </li>
                                 </tal:fields>
@@ -106,9 +107,10 @@
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">
-                                    <li tal:define="oddrow repeat/default/odd;"
+                                    <li tal:define="oddrow repeat/default/odd;
+                                                    label python:default.widget.label;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <label tal:content="python:default.widget.label"></label>:
+                                        <label tal:content="label"></label>:
                                         <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
                                     </li>
                                 </tal:fields>
@@ -687,9 +689,10 @@
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">
-                                    <li tal:define="oddrow repeat/default/odd;"
+                                    <li tal:define="oddrow repeat/default/odd;
+                                                    label python:default.widget.label;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <label tal:content="python:default.widget.label"></label>:
+                                        <label tal:content="label"></label>:
                                         <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
                                     </li>
                                 </tal:fields>
@@ -704,9 +707,10 @@
                             tal:repeat="sublist fieldsLists">
                             <ul>
                                 <tal:fields repeat="default sublist">
-                                    <li tal:define="oddrow repeat/default/odd;"
+                                    <li tal:define="oddrow repeat/default/odd;
+                                                    label python:default.widget.label;"
                                         tal:attributes="class python: oddrow and 'even' or 'odd'">
-                                        <label tal:content="python:default.widget.label"></label>:
+                                        <label tal:content="label"></label>:
                                         <metal:fieldMacro use-macro="python:here.widget(default.getName(), mode='view')" />
                                     </li>
                                 </tal:fields>
