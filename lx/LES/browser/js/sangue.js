@@ -27,7 +27,7 @@ $(document).ready(function(){
     $("#sangue_isi").mask("9.99");
     $("#sangue_tempo_tromboplastina_parcial").mask("99.9");
     $("#sangue_fibrinogenio").mask("999");
-    $("#sangue_vhs_hemossedimentação").mask("99");
+    $("#sangue_vhs_hemossedimentacao").mask("99");
     $("#sangue_ureia").mask("99.9");
     $("#sangue_creatinina").mask("9.99");
     $("#sangue_acido_urico").mask("9.99");
